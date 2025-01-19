@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Container } from "@/components/Container";
 import { events } from "@/components/data";
@@ -6,14 +6,17 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Sponsors } from "@/components/Sponsors";
-import Timeline from "@/components/Timeline";
+import Timeline from "../../../components/Timeline";
 import { motion } from "framer-motion";
 import { TimelineEvent } from "@/components/expandable-timeline-card";
+import { RegisterButton } from "@/components/register-button";
+import { useAuth } from "@clerk/nextjs";
 
 export default function EventDetailsPage() {
   const { id } = useParams();
   const eventId = parseInt(id as string, 10);
   const event = events.find((event) => event.id === eventId);
+  const { isSignedIn, isLoaded } = useAuth();  // Using Clerk for user authentication
 
   if (!event) {
     return (
@@ -32,7 +35,7 @@ export default function EventDetailsPage() {
 
   // Convert activities to timeline events
   const timelineEvents: TimelineEvent[] = normalizedActivities.reduce((acc: TimelineEvent[], activity) => {
-    // Update: If activity.date exists, use it, otherwise fallback to event.date without time
+    // Use only activity.date for the activityDate (no time)
     const activityDate = activity.date || event.date.split(',')[0];
 
     const existingEvent = acc.find(e => e.date === activityDate);
@@ -66,7 +69,7 @@ export default function EventDetailsPage() {
       >
         {event.images && event.images.length > 0 && (
           <Image
-            src={event.images[0]}
+            src={event.images?.[0] || "/placeholder.svg"}
             alt={event.title}
             fill
             className="object-cover object-center"
@@ -151,6 +154,17 @@ export default function EventDetailsPage() {
         </h3>
         <Timeline events={timelineEvents} />
       </motion.div>
+
+      {/* Register Button */}
+      {isLoaded && (
+        <div className="flex justify-center mt-6">
+          {isSignedIn ? (
+            <RegisterButton eventId={eventId.toString()} />
+          ) : (
+            <p className="text-white">Please sign in to register for this event.</p>
+          )}
+        </div>
+      )}
     </Container>
   );
 }
