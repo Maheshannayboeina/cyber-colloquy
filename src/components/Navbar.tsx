@@ -2,28 +2,52 @@
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
-import { Disclosure } from "@headlessui/react";
-import React, { useState, useRef, useEffect } from "react";
-import { Menu, MenuItem, HoveredLink } from "./ui/navbar-menu";
+import React, { useState, useRef, useEffect, RefObject } from "react";
+import { usePathname } from "next/navigation";
+
+interface NavItem {
+  label: string;
+  href: string;
+}
 
 export const Navbar = () => {
-  const navigation = [
-    { label: "Milestones", href: "/achievements" },
+  const navigation: NavItem[] = [
+    { label: "Achievements", href: "/achievements" },
+    { label: "Patents", href: "/patents" },
     { label: "Events", href: "/events" },
+    { label: "Projects", href: "/projects" },
   ];
-  const eventsLinks = [
-    { label: "2025", href: "/events/5" },
-    { label: "2024", href: "/events/4" },
-    { label: "2023", href: "/events/3" },
-    { label: "2022", href: "/events/2" },
-    { label: "2021", href: "/events/1" },
-  ];
-  const infoLinks = [
+  const infoLinks: NavItem[] = [
     { label: "Department Info", href: "/department-info" },
     { label: "Faculty", href: "/about" },
   ];
+
   const [infoOpen, setInfoOpen] = useState(false);
   const infoRef = useRef<HTMLDivElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const listItemRef = useRef<HTMLLIElement>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null); // Updated type
+
+
+  const handleInfoMouseEnter = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    setInfoOpen(true);
+  };
+
+  const handleInfoMouseLeave = () => {
+    timerRef.current = setTimeout(() => {
+      setInfoOpen(false);
+      timerRef.current = null;
+    }, 200);
+  };
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (infoRef.current && !infoRef.current.contains(event.target as Node)) {
@@ -37,7 +61,9 @@ export const Navbar = () => {
     };
   }, [infoRef, setInfoOpen]);
 
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   return (
     <div className="w-full">
@@ -48,9 +74,9 @@ export const Navbar = () => {
             <span>
               <Image
                 src="/img/favicon2.png"
-                width="32"
+                width={32}
                 alt="N"
-                height="32"
+                height={32}
                 className="w-8"
               />
             </span>
@@ -71,38 +97,36 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <Disclosure>
-          {({ open }) => (
-            <div>
-              {" "}
-              {/* ADDED DIV WRAPPER */}
-              <Disclosure.Button
-                aria-label="Toggle Menu"
-                className="px-2 py-1 text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
+        {/* Mobile menu */}
+        <div className="lg:hidden">
+          <div className="flex space-x-2 items-center">
+            <button
+              onClick={toggleMobileMenu}
+              aria-label="Toggle Menu"
+              className="px-2 py-1 text-gray-500 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
+            >
+              <svg
+                className="w-6 h-6 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  className="w-6 h-6 fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  {open && (
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-                    />
-                  )}
-                  {!open && (
-                    <path
-                      fillRule="evenodd"
-                      d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                    />
-                  )}
-                </svg>
-              </Disclosure.Button>
-
-              <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
-                <>
+                {mobileMenuOpen ? (
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
+                  />
+                ) : (
+                  <path
+                    fillRule="evenodd"
+                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                  />
+                )}
+              </svg>
+            </button>
+            {mobileMenuOpen && (
+              <div className="absolute top-20 right-0 bg-white rounded-md shadow-lg p-4 z-50 ">
+                <div className="flex flex-col gap-2">
                   {navigation.map((item, index) => (
                     <Link
                       key={index}
@@ -112,71 +136,76 @@ export const Navbar = () => {
                       {item.label}
                     </Link>
                   ))}
-                  <div ref={infoRef}>
-                    <Disclosure>
-                      {({ open }) => (
-                        <>
-                          <div>
-                            <Disclosure.Button
-                              onClick={() => setInfoOpen(!infoOpen)}
-                              className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                  <div className="relative">
+                    <div onMouseEnter={handleInfoMouseEnter} onMouseLeave={handleInfoMouseLeave} >
+                      <button
+                        className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                      >
+                        Info
+                      </button>
+                      {infoOpen && (
+                        <div ref={infoRef} className="absolute  bg-white dark:bg-gray-800  rounded-md shadow-lg p-2 mt-2">
+                          {infoLinks.map((item, index) => (
+                            <Link
+                              key={index}
+                              href={item.href}
+                              className="w-full px-4 py-2  text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                             >
-                              Info
-                            </Disclosure.Button>
-                            <Disclosure.Panel className="flex flex-wrap w-full ml-4 my-1 ">
-                              {infoLinks.map((item, index) => (
-                                <Link
-                                  key={index}
-                                  href={item.href}
-                                  className="w-full px-4 py-2  text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
-                                >
-                                  {item.label}
-                                </Link>
-                              ))}
-                            </Disclosure.Panel>
-                          </div>
-                        </>
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
                       )}
-                    </Disclosure>
+                    </div>
                   </div>
                   <Link
-                    href="/"
+                    href="/register"
                     className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5"
                   >
                     Get Started
                   </Link>
-                </>
-              </Disclosure.Panel>
-            </div>
-          )}
-        </Disclosure>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
 
-        {/* menu  */}
+        {/* Desktop menu */}
         <div className="hidden text-center lg:flex lg:items-center">
-          <Menu setActive={setActiveMenu}>
-            <MenuItem setActive={setActiveMenu} active={activeMenu} item="Milestones" href="/achievements">
-              <div className="flex flex-col p-2">
-                <HoveredLink href="/achievements">Achievements</HoveredLink>
-                <HoveredLink href="/patents">Patents</HoveredLink>
-                <HoveredLink href="/projects">Projects</HoveredLink>
+          <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
+            {navigation.map((item, index) => (
+              <li className="mr-3 nav__item" key={index}>
+                <Link
+                  href={item.href}
+                  className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li className="mr-3 nav__item" ref={listItemRef} onMouseEnter={handleInfoMouseEnter} onMouseLeave={handleInfoMouseLeave}>
+              <div className="relative">
+                <button
+                  className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                >
+                  About Us
+                </button>
+                {infoOpen && (
+                  <div ref={infoRef} className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2">
+                    {infoLinks.map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-            </MenuItem>
-            <MenuItem setActive={setActiveMenu} active={activeMenu} item="Events" href="/events">
-              <div className="flex flex-col p-2">
-                {eventsLinks.map((item, index) => (
-                  <HoveredLink key={index} href={item.href}>
-                    {item.label}
-                  </HoveredLink>
-                ))}
-              </div>
-            </MenuItem>
-            <MenuItem setActive={setActiveMenu} active={activeMenu} item="About Us" href="/department-info">
-              <div className="flex flex-col p-2">
-                <HoveredLink href="/department-info">Department Info</HoveredLink>
-                <HoveredLink href="/about">Faculty</HoveredLink>
-              </div>
-            </MenuItem>
-          </Menu>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>

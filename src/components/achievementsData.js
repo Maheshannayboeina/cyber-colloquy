@@ -338,7 +338,7 @@ const achievementsData = [
     name:"Dr. Nilakshi Jain",
       date:"July 2023",
     achievement: "Shortlisted for the highly esteemed Cybersecurity Woman of the Year Awards 2023, Cybersecurity Alliance.",
-    details: "Her exceptional talent, dedication, and significant contributions to the field of cybersecurity have earned her a place among an exceptional group of women. This year’s awards have surpassed all expectations, attracting an unprecedented number of outstanding nominees from around the world. From New Zealand to Moldova, Macedonia to Ukraine, Philippines to Egypt, Kuwait to Australia, Italy to the Netherlands, Zimbabwe to Peru, and over 60 other remarkable countries, the diversity and global impact of women in cybersecurity shine brightly.",
+    details: "Her exceptional talent, dedication, and significant contributions to the field of cybersecurity have earned her a place among an exceptional group of women. This year's awards have surpassed all expectations, attracting an unprecedented number of outstanding nominees from around the world. From New Zealand to Moldova, Macedonia to Ukraine, Philippines to Egypt, Kuwait to Australia, Italy to the Netherlands, Zimbabwe to Peru, and over 60 other remarkable countries, the diversity and global impact of women in cybersecurity shine brightly.",
     link: "https://example.com/cybersecurity-woman",
    banner: "/img/achievements/women_cybersecurity.png",
   },

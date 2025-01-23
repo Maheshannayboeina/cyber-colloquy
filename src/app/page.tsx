@@ -4,7 +4,7 @@ import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
-// Remove the import statement for Testimonials
+import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 import { Impact } from "@/components/impact";
@@ -66,7 +66,16 @@ export default function Home() {
       </SectionTitle>
       <Video videoId="dQw4w9WgXcQ" />
 
-       {/* Remove the Testimonials component here and the corresponding title as well */}
+      <SectionTitle
+        preTitle="Student & Faculty Highlights"
+        title="Hear From Our Community"
+      >
+        <p className="text-gray-700 dark:text-gray-300">
+          Testimonials from our students and faculty, which showcase the vibrant
+          and collaborative environment of our department.
+        </p>
+      </SectionTitle>
+      <Testimonials />
 
       <SectionTitle
         preTitle="Have Questions?"

@@ -159,7 +159,7 @@ export function PopupWidget() {
                         <input
                           type="text"
                           id="full_name"
-                          placeholder="John Doe"
+                          placeholder="Your name"
                           {...register("name", {
                             required: "Full name is required",
                             maxLength: 80,
@@ -280,7 +280,7 @@ export function PopupWidget() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Web3Forms
+                            CYSE Department
                           </a>
                         </span>
                       </p>
