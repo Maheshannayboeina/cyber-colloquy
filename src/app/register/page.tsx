@@ -89,7 +89,7 @@ const RegisterPage: React.FC = () => {
         <div className="relative z-10">
           <SectionTitle 
             preTitle="Join Us" 
-            title="Register for Cyber Events"
+            title="Register for Our Cyber Events"
             className="text-center mb-12"
           >
             <p className="text-gray-400 mt-4 text-lg">

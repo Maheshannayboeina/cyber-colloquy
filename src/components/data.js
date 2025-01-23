@@ -23,12 +23,12 @@ const benefitOne = {
     {
       title: "Hands-on Workshops",
       desc: "Participate in practical workshops to develop essential cybersecurity skills.",
-      icon: <ChartBarSquareIcon />,
+      icon: <CursorArrowRaysIcon />,
     },
     {
       title: "Networking Opportunities",
       desc: "Connect with peers, experts, and potential mentors and partners.",
-      icon: <CursorArrowRaysIcon />,
+      icon: <ChartBarSquareIcon />,
     },
   ],
 };
