@@ -27,9 +27,7 @@ export default function DepartmentInfoPage() {
   return (
     <Container>
       <SectionTitle preTitle="Cyber Security" title="Department Information">
-        <p className="text-gray-700 dark:text-gray-300 text-xl font-medium leading-relaxed mb-4">
-          Shah and Anchor Kutchhi Engineering College
-        </p>
+        Shah and Anchor Kutchhi Engineering College
       </SectionTitle>
 
       <Section title="About">
@@ -150,7 +148,7 @@ export default function DepartmentInfoPage() {
           years from AY 2024-25.
         </p>
         <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-          Accredited with &apos;A&apos; Grade (2021) by NAAC for 5 years.
+          Accredited with 'A' Grade (2021) by NAAC for 5 years.
         </p>
         <p className="text-gray-700 dark:text-gray-300 text-lg">
           Ranked in band 251-300 (2020) by NIRF.

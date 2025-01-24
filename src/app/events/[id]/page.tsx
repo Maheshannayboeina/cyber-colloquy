@@ -19,7 +19,7 @@ export default function EventDetailsPage() {
     return (
       <Container>
         <SectionTitle title="Event Not Found" />
-        <p>The event with the id {eventId} could not be found.</p>
+        The event with the id {eventId} could not be found.
       </Container>
     );
   }
@@ -28,33 +28,43 @@ export default function EventDetailsPage() {
   const eventYear = new Date(event.date).getFullYear();
 
   // Normalize activities data structure
-  const normalizedActivities = event.activities || event.colloquyDetails?.activities || [];
+  const normalizedActivities =
+    event.activities || event.colloquyDetails?.activities || [];
 
   // Convert activities to timeline events
-  const timelineEvents: TimelineEvent[] = normalizedActivities.reduce((acc: TimelineEvent[], activity) => {
-    // Update: If activity.date exists, use it, otherwise fallback to event.date without time
-    const activityDate = activity.date || event.date.split(',')[0];
+  const timelineEvents: TimelineEvent[] = normalizedActivities.reduce(
+    (acc: TimelineEvent[], activity) => {
+      // Update: If activity.date exists, use it, otherwise fallback to event.date without time
+      const activityDate = activity.date || event.date.split(",")[0];
 
-    const existingEvent = acc.find(e => e.date === activityDate);
+      const existingEvent = acc.find((e) => e.date === activityDate);
 
-    if (existingEvent) {
-      existingEvent.activities.push(activity);
-    } else {
-      acc.push({
-        date: activityDate,
-        title: `Day ${acc.length + 1}`,
-        description: `Activities for ${activityDate}`,
-        status: eventYear < currentDate.getFullYear() ? "completed" :
-                eventYear > currentDate.getFullYear() ? "upcoming" :
-                new Date(activityDate) < currentDate ? "completed" :
-                new Date(activityDate).toDateString() === currentDate.toDateString() ? "current" :
-                "upcoming",
-        activities: [activity]
-      });
-    }
+      if (existingEvent) {
+        existingEvent.activities.push(activity);
+      } else {
+        acc.push({
+          date: activityDate,
+          title: `Day ${acc.length + 1}`,
+          description: `Activities for ${activityDate}`,
+          status:
+            eventYear < currentDate.getFullYear()
+              ? "completed"
+              : eventYear > currentDate.getFullYear()
+              ? "upcoming"
+              : new Date(activityDate) < currentDate
+              ? "completed"
+              : new Date(activityDate).toDateString() ===
+                currentDate.toDateString()
+              ? "current"
+              : "upcoming",
+          activities: [activity],
+        });
+      }
 
-    return acc;
-  }, []);
+      return acc;
+    },
+    []
+  );
 
   return (
     <Container>

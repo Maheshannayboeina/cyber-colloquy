@@ -1,16 +1,16 @@
 // app/about/page.tsx
-import React from 'react';
+import React from "react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { TeacherCard } from "@/components/TeacherCard";
 
 interface Teacher {
-    name: string;
-    role: string;
-    image: string;
-    bio: string;
-    link?: string;
-    category: "teaching" | "non-teaching";
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  link?: string;
+  category: "teaching" | "non-teaching";
 }
 
 const teachers: Teacher[] = [
@@ -36,7 +36,7 @@ const teachers: Teacher[] = [
     image: "/img/faculty/SNB.jpg",
     bio: "Mrs. Davis is passionate about ethical hacking.",
     link: "/teacher/mrs-davis",
-     category: "teaching",
+    category: "teaching",
   },
   {
     name: "Ms. Pallavi Sawale",
@@ -44,8 +44,8 @@ const teachers: Teacher[] = [
     image: "/img/faculty/PSW.jpg",
     bio: "Mr. Wilson is an expert in network.",
     link: "/teacher/mr-wilson",
-     category: "teaching",
-   },
+    category: "teaching",
+  },
   {
     name: "Mr. Dhananjay Newalkar",
     role: "I/c HOD, Professor",
@@ -68,7 +68,7 @@ const teachers: Teacher[] = [
     image: "/img/faculty/MAK.jpg",
     bio: "Mrs. Davis is passionate about ethical hacking.",
     link: "/teacher/mrs-davis",
-     category: "teaching",
+    category: "teaching",
   },
   {
     name: "Ms. Vishakha Shinde",
@@ -76,8 +76,8 @@ const teachers: Teacher[] = [
     image: "/img/faculty/VKS.jpg",
     bio: "Mr. Wilson is an expert in network.",
     link: "/teacher/mr-wilson",
-     category: "teaching",
-   },
+    category: "teaching",
+  },
   {
     name: "Ms. Saraswati Mishra",
     role: "I/c HOD, Professor",
@@ -100,7 +100,7 @@ const teachers: Teacher[] = [
     image: "/img/faculty/PSS.jpg",
     bio: "Mrs. Davis is passionate about ethical hacking.",
     link: "/teacher/mrs-davis",
-     category: "teaching",
+    category: "teaching",
   },
   {
     name: "Ms. Sneha Shingare",
@@ -108,8 +108,8 @@ const teachers: Teacher[] = [
     image: "/img/faculty/SSG.jpg",
     bio: "Mr. Wilson is an expert in network.",
     link: "/teacher/mr-wilson",
-     category: "teaching",
-   },
+    category: "teaching",
+  },
   {
     name: "Ms. Pranali Pawar",
     role: "I/c HOD, Professor",
@@ -132,7 +132,7 @@ const teachers: Teacher[] = [
     image: "/img/faculty/STU.jpg",
     bio: "Mrs. Davis is passionate about ethical hacking.",
     link: "/img/faculty/",
-     category: "teaching",
+    category: "teaching",
   },
   {
     name: "Mr. Vedant Parikh",
@@ -140,54 +140,54 @@ const teachers: Teacher[] = [
     image: "/img/faculty/VPK.jpg",
     bio: "Mr. Wilson is an expert in network.",
     link: "/teacher/mr-wilson",
-     category: "teaching",
-   },
-    {
-        name: "Ms. Poonam Ganesh Kamble",
-        role: "Laboratory Assistant",
-        image: "/img/faculty/poonam.kamble.jpg",
-        bio: "Diploma (Computer Engineering)",
-        category: "non-teaching",
-    },
-     {
-        name: "Mr. Ganesh Masane",
-        role: "Laboratory Assistant",
-        image: "/img/faculty/ganesh.masane.jpg",
-        bio: "Diploma(Hardware and Networking)",
-         category: "non-teaching",
-    },
-    
+    category: "teaching",
+  },
+  {
+    name: "Ms. Poonam Ganesh Kamble",
+    role: "Laboratory Assistant",
+    image: "/img/faculty/poonam.kamble.jpg",
+    bio: "Diploma (Computer Engineering)",
+    category: "non-teaching",
+  },
+  {
+    name: "Mr. Ganesh Masane",
+    role: "Laboratory Assistant",
+    image: "/img/faculty/ganesh.masane.jpg",
+    bio: "Diploma(Hardware and Networking)",
+    category: "non-teaching",
+  },
 ];
 
 const About: React.FC = () => {
-  const teachingStaff = teachers.filter((teacher) => teacher.category === "teaching");
-  const nonTeachingStaff = teachers.filter((teacher) => teacher.category === "non-teaching");
+  const teachingStaff = teachers.filter(
+    (teacher) => teacher.category === "teaching"
+  );
+  const nonTeachingStaff = teachers.filter(
+    (teacher) => teacher.category === "non-teaching"
+  );
 
-    return (
-        <Container>
-            <SectionTitle title="Our Teaching Faculty">
-                <p className="text-gray-700 dark:text-gray-300">
-                    Meet the experienced faculty members of the Cyber Security Department.
-                </p>
-            </SectionTitle>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
-                {teachingStaff.map((teacher, index) => (
-                    <TeacherCard key={index} teacher={teacher} />
-                ))}
-            </div>
+  return (
+    <Container>
+      <SectionTitle title="Our Teaching Faculty">
+        Meet the experienced faculty members of the Cyber Security Department.
+      </SectionTitle>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
+        {teachingStaff.map((teacher, index) => (
+          <TeacherCard key={index} teacher={teacher} />
+        ))}
+      </div>
 
-           <SectionTitle title="Our Technical Staff">
-                <p className="text-gray-700 dark:text-gray-300">
-                    Meet the dedicated non-teaching members of the Cyber Security Department.
-                </p>
-            </SectionTitle>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
-                {nonTeachingStaff.map((teacher, index) => (
-                    <TeacherCard key={index} teacher={teacher} />
-                ))}
-            </div>
-        </Container>
-    );
+      <SectionTitle title="Our Technical Staff">
+        Meet the dedicated non-teaching members of the Cyber Security
+        Department.
+      </SectionTitle>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
+        {nonTeachingStaff.map((teacher, index) => (
+          <TeacherCard key={index} teacher={teacher} />
+        ))}
+      </div>
+    </Container>
+  );
 };
 
 export default About;

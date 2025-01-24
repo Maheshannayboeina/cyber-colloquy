@@ -14,7 +14,9 @@ const Banner = () => {
   const animateGradient = useCallback(
     (timestamp: number) => {
       const startTime =
-        animationFrameRef.current === null ? timestamp : animationFrameRef.current;
+        animationFrameRef.current === null
+          ? timestamp
+          : animationFrameRef.current;
       const progress = (timestamp - startTime) / duration;
       const position = progress % 1;
       setGradientPosition(position);
@@ -23,7 +25,6 @@ const Banner = () => {
     },
     [duration] // duration is now a dependency, although it doesn't change
   );
-
 
   const handleClose = () => {
     setIsVisible(false);
@@ -42,12 +43,14 @@ const Banner = () => {
     };
   }, [isVisible, animateGradient]);
 
-    const gradientStyle = {
-        background: `linear-gradient(270deg, #7F00FF ${gradientPosition * 100}%, #00BFFF)`,
-        backgroundSize: "200% 200%",
-        backgroundPosition: `${gradientPosition * 100}% 50%`,
-        transition: "background-position 0.1s linear"
-    } as React.CSSProperties;
+  const gradientStyle = {
+    backgroundImage: `linear-gradient(270deg, #7F00FF ${
+      gradientPosition * 100
+    }%, #00BFFF)`,
+    backgroundSize: "200% 200%",
+    backgroundPosition: `${gradientPosition * 100}% 50%`,
+    transition: "background-position 0.1s linear",
+  } as React.CSSProperties;
 
   if (!isVisible) {
     return null;

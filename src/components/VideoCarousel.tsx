@@ -1,4 +1,3 @@
-// src/components/VideoCarousel.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -28,7 +27,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos }) => {
     const currentVideo = videos[currentVideoIndex];
 
     const videoOptions = {
-         width: '100%',
+         width: '100%',  // Make the video responsive within its container
          height: '100%',
          playerVars: {
               autoplay: 0,
@@ -36,17 +35,23 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos }) => {
     };
 
     return (
-        <div className="relative">
-            {/*Video Container: Added a style object to the container and changed w-full h-full with absolute*/}
-            <div className="w-full aspect-video overflow-hidden" style={{position:"relative"}}>
-                 <div style={{position:"absolute", top:"0", left:"0", height:"100%", width:"100%"}}>
-                    <YouTube videoId={currentVideo.videoId}  opts={videoOptions} className='w-full h-full'/>
-                </div>
+        <div className="relative w-full max-w-4xl mx-auto my-8">
+            {/* Video Container */}
+            <div className="w-full aspect-video overflow-hidden rounded-lg relative">
+                 <div
+                        className="absolute inset-0"
+                     >
+                            <div
+                                  style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
+                            >
+                                <YouTube videoId={currentVideo.videoId}  opts={videoOptions} className='w-full h-full'/>
+                            </div>
+                   </div>
             </div>
-             {/*Navigation Arrows*/}
+            {/* Navigation Arrows */}
             <div className="absolute top-1/2 transform -translate-y-1/2 left-2 z-10">
                 <button
-                     onClick={prevVideo}
+                    onClick={prevVideo}
                     className="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-full p-2"
                 >
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -57,12 +62,12 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos }) => {
                     onClick={nextVideo}
                     className="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-full p-2"
                 >
-                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
 
-             {/* Optional: Dots Navigation */}
-            {/*<div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {/* Optional: Dots Navigation */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                 {videos.map((_, index) => (
                     <button
                         key={index}
@@ -70,7 +75,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos }) => {
                         onClick={() => setCurrentVideoIndex(index)}
                     ></button>
                 ))}
-            </div>*/}
+            </div>
         </div>
     );
 };
