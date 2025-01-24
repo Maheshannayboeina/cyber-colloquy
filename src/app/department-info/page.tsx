@@ -33,9 +33,10 @@ export default function DepartmentInfoPage() {
       <Section title="About">
         <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
           Welcome to the Cyber Security Department at Shah and Anchor Kutchhi
-          Engineering College. We are dedicated to preparing students ethically
-          in the field of cyber security, and making them capable of leading the
-          technical, economic, social, and ethical development of society.
+          Engineering College. We&apos;re dedicated to preparing students
+          ethically in the field of cyber security and making them capable of
+          leading the technical, economic, social, and ethical development of
+          society.
         </p>
       </Section>
 
@@ -75,7 +76,7 @@ export default function DepartmentInfoPage() {
             threats and vulnerabilities.
           </ListItem>
           <ListItem>
-            They will develop skills to comprehend and anticipate future
+            They&apos;ll develop skills to comprehend and anticipate future
             challenges, as well as be articulate in addressing stakeholders.
           </ListItem>
           <ListItem>
@@ -93,7 +94,7 @@ export default function DepartmentInfoPage() {
             solutions and products for the benefit of society.
           </ListItem>
           <ListItem>
-            They will work and communicate effectively in interdisciplinary
+            They&apos;ll work and communicate effectively in interdisciplinary
             environments, demonstrating leadership skills.
           </ListItem>
           <ListItem>
@@ -148,7 +149,7 @@ export default function DepartmentInfoPage() {
           years from AY 2024-25.
         </p>
         <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-          Accredited with 'A' Grade (2021) by NAAC for 5 years.
+          Accredited with &apos;A&apos; Grade (2021) by NAAC for 5 years.
         </p>
         <p className="text-gray-700 dark:text-gray-300 text-lg">
           Ranked in band 251-300 (2020) by NIRF.
