@@ -2,7 +2,7 @@
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
-import React, { useState, useRef, useEffect, RefObject } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 interface NavItem {
@@ -10,7 +10,11 @@ interface NavItem {
   href: string;
 }
 
-export const Navbar = () => {
+export const Navbar = ({
+  setGetStartedModalOpen,
+}: {
+  setGetStartedModalOpen: () => void;
+}) => {
   const navigation: NavItem[] = [
     { label: "Achievements", href: "/achievements" },
     { label: "Patents", href: "/patents" },
@@ -27,8 +31,7 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const listItemRef = useRef<HTMLLIElement>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null); // Updated type
-
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleInfoMouseEnter = () => {
     if (timerRef.current) {
@@ -88,12 +91,12 @@ export const Navbar = () => {
         <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
           <ThemeChanger />
           <div className="hidden mr-3 lg:flex nav__item">
-            <Link
-              href="/register"
+            <button
+              onClick={() => setGetStartedModalOpen()}
               className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5"
             >
               Get Started
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -137,14 +140,18 @@ export const Navbar = () => {
                     </Link>
                   ))}
                   <div className="relative">
-                    <div onMouseEnter={handleInfoMouseEnter} onMouseLeave={handleInfoMouseLeave} >
-                      <button
-                        className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
-                      >
+                    <div
+                      onMouseEnter={handleInfoMouseEnter}
+                      onMouseLeave={handleInfoMouseLeave}
+                    >
+                      <button className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
                         Info
                       </button>
                       {infoOpen && (
-                        <div ref={infoRef} className="absolute  bg-white dark:bg-gray-800  rounded-md shadow-lg p-2 mt-2">
+                        <div
+                          ref={infoRef}
+                          className="absolute  bg-white dark:bg-gray-800  rounded-md shadow-lg p-2 mt-2"
+                        >
                           {infoLinks.map((item, index) => (
                             <Link
                               key={index}
@@ -158,12 +165,12 @@ export const Navbar = () => {
                       )}
                     </div>
                   </div>
-                  <Link
-                    href="/register"
+                  <button
+                    onClick={() => setGetStartedModalOpen()}
                     className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5"
                   >
                     Get Started
-                  </Link>
+                  </button>
                 </div>
               </div>
             )}
@@ -183,15 +190,21 @@ export const Navbar = () => {
                 </Link>
               </li>
             ))}
-            <li className="mr-3 nav__item" ref={listItemRef} onMouseEnter={handleInfoMouseEnter} onMouseLeave={handleInfoMouseLeave}>
+            <li
+              className="mr-3 nav__item"
+              ref={listItemRef}
+              onMouseEnter={handleInfoMouseEnter}
+              onMouseLeave={handleInfoMouseLeave}
+            >
               <div className="relative">
-                <button
-                  className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
-                >
+                <button className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
                   About Us
                 </button>
                 {infoOpen && (
-                  <div ref={infoRef} className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2">
+                  <div
+                    ref={infoRef}
+                    className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2"
+                  >
                     {infoLinks.map((item, index) => (
                       <Link
                         key={index}
@@ -211,3 +224,5 @@ export const Navbar = () => {
     </div>
   );
 };
+
+export default Navbar;
