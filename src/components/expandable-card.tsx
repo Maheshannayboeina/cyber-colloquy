@@ -7,6 +7,7 @@ import { cn } from "../../lib/utils"
 import { X } from 'lucide-react'
 
 interface Card {
+    key: number;
   title: string
   description: string
   src: string
@@ -145,62 +146,62 @@ export function ExpandableCard({ cards, currentPage, itemsPerPage }: ExpandableC
         transition={{ staggerChildren: 0.1 }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        {currentCards.map((card, index) => (
+        {currentCards.map((card) => (
           <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={card.title}
+             layoutId={`card-${card.title}-${id}`}
+             key={card.key}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            onClick={() => setActive(card)}
-            className={cn(
-              "group relative overflow-hidden rounded-xl cursor-pointer",
-              "transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-            )}
-          >
-            <motion.div
-              layoutId={`image-${card.title}-${id}`}
+            transition={{ delay: card.key * 0.1 }}
+             onClick={() => setActive(card)}
+             className={cn(
+                 "group relative overflow-hidden rounded-xl cursor-pointer",
+                 "transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+               )}
+              >
+             <motion.div
+               layoutId={`image-${card.title}-${id}`}
               className="relative h-[300px] w-full"
-            >
-              <Image
-                src={card.src}
-                alt={card.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-            </motion.div>
+             >
+                <Image
+                  src={card.src}
+                  alt={card.title}
+                    fill
+                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              </motion.div>
 
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <motion.h3
-                layoutId={`title-${card.title}-${id}`}
-                className="text-xl font-bold text-white mb-2"
-              >
-                {card.title}
-              </motion.h3>
-              <motion.p
+           <div className="absolute bottom-0 left-0 right-0 p-6">
+                <motion.h3
+                   layoutId={`title-${card.title}-${id}`}
+                    className="text-xl font-bold text-white mb-2"
+                >
+                    {card.title}
+                </motion.h3>
+             <motion.p
                 layoutId={`description-${card.description}-${id}`}
-                className="text-gray-200 text-sm mb-2"
+                  className="text-gray-200 text-sm mb-2"
               >
-                {card.description}
+                   {card.description}
               </motion.p>
               <p className="text-gray-300 text-xs">
-                {card.date}
-              </p>
-            </div>
+                  {card.date}
+             </p>
+         </div>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              className="absolute inset-0 bg-black/40 flex items-center justify-center"
+                initial={{ opacity: 0 }}
+               whileHover={{ opacity: 1 }}
+                 className="absolute inset-0 bg-black/40 flex items-center justify-center"
             >
-              <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm">
-                Click to view details
-              </span>
-            </motion.div>
-          </motion.div>
+                 <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm">
+                   Click to view details
+               </span>
+             </motion.div>
+           </motion.div>
         ))}
       </motion.div>
     </>
-  )
+  );
 }

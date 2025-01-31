@@ -16,7 +16,8 @@ import {
 
 const ITEMS_PER_PAGE = 6;
 
-const formattedAchievements = achievementsData.map((achievement) => ({
+const formattedAchievements = achievementsData.map((achievement,index) => ({
+    key: index,
   title: achievement.achievement,
   description: achievement.name,
   src: achievement.banner || "/placeholder.svg?height=400&width=600",
