@@ -1,4 +1,4 @@
-//src/app/events/[id]/page.tsx
+// src/app/events/[id]/page.tsx
 "use client";
 
 import { Container } from "@/components/Container";
@@ -75,14 +75,17 @@ export default function EventDetailsPage() {
         animate={{ opacity: 1, y: 0 }}
         className="relative w-full h-[500px] mb-12 overflow-hidden rounded-2xl"
       >
+     <div className="absolute inset-0 flex items-center justify-center">
         {event.images && event.images.length > 0 && (
           <Image
             src={event.images[0]}
             alt={event.title}
             fill
-            className="object-cover object-center"
+            className="object-contain object-center"
+            style={{ objectFit: "contain" }}
           />
         )}
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent">
           <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
             <motion.h1

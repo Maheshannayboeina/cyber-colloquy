@@ -89,6 +89,12 @@ export default function Home() {
       </SectionTitle>
       <Benefits data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />
+      <SectionTitle
+          preTitle="Our Accomplishments"
+          title="Achievements and Impact"
+        >
+         Explore the measurable impact of our Cyber Security Department.
+      </SectionTitle>
       <Impact />
       <SectionTitle
         preTitle="Explore Our Work"
