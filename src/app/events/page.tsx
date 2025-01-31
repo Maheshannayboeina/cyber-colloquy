@@ -1,3 +1,4 @@
+//src/app/events/page.tsx
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { events } from "@/components/data";

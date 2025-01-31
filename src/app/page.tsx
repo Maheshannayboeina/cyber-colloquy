@@ -4,7 +4,7 @@ import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 // import { Video } from "@/components/Video";  Remove the single video component import
-import { Testimonials } from "@/components/Testimonials";
+// import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 import { Impact } from "@/components/impact";
@@ -39,7 +39,7 @@ export default function Home() {
       description: "Never gonna give you up",
     },
     {
-      videoId: "dQw4w9WgXcQ",
+      videoId: "PF8w9keUGnI",
       title: "Rick Roll",
       description: "Never gonna give you up",
     },
@@ -53,6 +53,23 @@ export default function Home() {
       title: "Cybersecurity in Action",
       description: "Demo on cyber security",
     },
+    {
+      videoId: "1n0SWF831zU",
+      title: "Cybersecurity in Action",
+      description: "Demo on cyber security",
+    },
+    {
+      videoId: "d5K1g4qoHHc",
+      title: "Cybersecurity in Action",
+      description: "Demo on cyber security",
+    },
+    {
+      videoId: "7AqDBEmSpRo",
+      title: "Cybersecurity in Action",
+      description: "Demo on cyber security",
+    },
+
+    
     // Add More videos
   ];
 
@@ -84,14 +101,14 @@ export default function Home() {
       {/* <Video videoId="dQw4w9WgXcQ" /> Remove the old video component*/}
       <VideoCarousel videos={videoSlides} />{" "}
       {/*Use the new video carousel component*/}
-      <SectionTitle
+      {/* <SectionTitle
         preTitle="Student & Faculty Highlights"
         title="Hear From Our Community"
       >
         Testimonials from our students and faculty, which showcase the vibrant
         and collaborative environment of our department.
-      </SectionTitle>
-      <Testimonials />
+      </SectionTitle> */}
+      {/* <Testimonials /> */}
       <SectionTitle
         preTitle="Have Questions?"
         title="Frequently Asked Questions"

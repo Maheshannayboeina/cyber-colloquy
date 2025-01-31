@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '../../lib/utils'
 import Image from 'next/image'
@@ -26,12 +26,28 @@ interface ExpandableTimelineCardProps {
 }
 
 export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
+  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    hoverTimeout.current = setTimeout(() => {
+      setIsExpanded(true);
+    }, 200); // Delay of 200ms, you can adjust this value
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimeout.current) {
+      clearTimeout(hoverTimeout.current);
+      hoverTimeout.current = null;
+    }
+      setIsExpanded(false);
+  };
 
   return (
     <motion.div
       layout
-      onClick={() => setIsExpanded(!isExpanded)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={cn(
         "relative cursor-pointer",
         isEven ? "text-right" : "text-left"
@@ -101,5 +117,5 @@ export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCard
         </motion.div>
       )}
     </motion.div>
-  )
+  );
 }

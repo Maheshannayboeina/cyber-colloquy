@@ -1,3 +1,4 @@
+//src/app/events/[id]/page.tsx
 "use client";
 
 import { Container } from "@/components/Container";

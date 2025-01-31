@@ -57,7 +57,7 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div>
+          {/* <div>
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {legal.map((item, index) => (
                 <Link
@@ -69,7 +69,7 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-          </div>
+          </div> */}
           <div className="">
             <div>Follow us</div>
             <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
@@ -92,7 +92,7 @@ export function Footer() {
                 <Facebook />
               </a>
               <a
-                href="https://www.instagram.com/sakec_chembur/"
+                href="https://www.instagram.com/cyse_sakec/"
                 target="_blank"
                 rel="noopener"
                 className="hover:scale-110 transition-transform duration-300 ease-in-out"
@@ -110,7 +110,7 @@ export function Footer() {
                 <Linkedin />
               </a>
               <a
-                href="https://www.youtube.com/@SAKECYouTubeChannel"
+                href="https://www.youtube.com/@CyberSuraksha15"
                 target="_blank"
                 rel="noopener"
                 className="hover:scale-110 transition-transform duration-300 ease-in-out"
