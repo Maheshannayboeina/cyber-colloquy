@@ -65,10 +65,10 @@ const events = [
     date: "December 10, 2022",
     description: "Our second annual Cybersecurity Colloquy event.",
     location: "Seminar Hall",
-    images: ["/img/events/2022/event1.jpg", "/img/events/2022/event2.jpg"],
+    images: ["/img/events/cyber-colloquy.jpg", "/img/events/2022/event2.jpg"],
     tags: ["cybersecurity", "colloquy", "ai", "data science"],
     colloquyDetails: {
-      conductedBy: "Prof. Jane Smith",
+      conductedBy: "Maj. Vineet Kumar, Mr. Gaurav Batra, Mrs. Nirali Bhatia, Mr. Ritesh Bhatia",
       topics: [
         "AI in Cybersecurity",
         "Data Science in Security",
@@ -147,10 +147,10 @@ const events = [
     date: "October 25, 2023",
     description: "Our annual Cybersecurity Colloquy event.",
     location: "Conference Room",
-    images: ["/img/events/2023/event1.jpg", "/img/events/2023/event2.jpg"],
+    images: ["/img/events/cybercolloquy-2.0.jpg", "/img/events/2023/event2.jpg"],
     tags: ["cybersecurity", "colloquy", "cloud computing", "data science"],
     colloquyDetails: {
-      conductedBy: "Dr. Alice Johnson",
+      conductedBy: "Mr. Gaurav Batra. Mr. Ritesh Bhatia, Mr. Avkash Kathiriya",
       topics: ["Cloud Security", "Data Privacy", "Secure Coding Practices"],
       activities: [
         {
