@@ -570,7 +570,8 @@ export default function PublicationsPage() {
   return (
     <Container>
       <SectionTitle preTitle="Our College" title="Patents">
-      In these patents, our college's vision shines.
+      In these patents, our college&apos;s vision shines.
+
       </SectionTitle>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse table-auto">
