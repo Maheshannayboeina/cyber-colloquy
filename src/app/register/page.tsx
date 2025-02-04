@@ -141,7 +141,7 @@ const RegisterPage: React.FC = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent className="bg-gray-900 border-white/10">
-                            <SelectItem value="Cybersecurity Colloquy 2021">
+                            {/* <SelectItem value="Cybersecurity Colloquy 2021">
                               Cybersecurity Colloquy 2021
                             </SelectItem>
                             <SelectItem value="Cybersecurity Colloquy 2022">
@@ -152,7 +152,7 @@ const RegisterPage: React.FC = () => {
                             </SelectItem>
                             <SelectItem value="Cybersecurity Colloquy 2024">
                               Cybersecurity Colloquy 2024
-                            </SelectItem>
+                            </SelectItem> */}
                             <SelectItem value="Cyber Colloquy 4.0">
                               Cyber Colloquy 4.0
                             </SelectItem>

@@ -413,146 +413,146 @@ export default function PublicationsPage() {
         "ay": "2018-19",
         "status": "registered"
       },
-      {
-        "applicantName": "Prof. Komal Sutar, Dr. Prachi Gharpure, Dr. Dhirendra Maurya",
-        "titleOfWork": "A Study of Different Cryptographic Algorithms for Network Security Part 3",
-        "certificateDate": "12-04-2022",
-        "ay": "2018-19",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "A Blockchain based approach for securing cloud data",
-        "certificateDate": "12-04-2022",
-        "ay": "2017-18",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Neha More, Dr. Dhirendra Maurya",
-        "titleOfWork": "Secure Routing Protocol to detect Sinkhole attack in Wireless Sensor Network",
-        "certificateDate": "12-04-2022",
-        "ay": "2017-18",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Neha More, Prof. Komal Sutar",
-        "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots Part 6",
-        "certificateDate": "12-04-2022",
-        "ay": "2017-18",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "Study and Implementation of Network Simulator tools for network security",
-        "certificateDate": "12-04-2022",
-        "ay": "2017-18",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Priyanka Sonawane, Prof. Komal Sutar",
-        "titleOfWork": "A Review Paper on Security Threats in IoT Based Applications",
-        "certificateDate": "12-04-2022",
-        "ay": "2017-18",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Neha More, Dr. Dhirendra Maurya",
-        "titleOfWork": "An Improved Method for Dynamic Content Management in IoT for Smart Cities",
-        "certificateDate": "12-04-2022",
-        "ay": "2017-18",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Pratik Gaikwad, Prof. Vihang Bhole",
-        "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots Part 7",
-        "certificateDate": "12-04-2022",
-        "ay": "2017-18",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "A Novel Algorithm for Intrusion Detection System using Clustering Techniques",
-        "certificateDate": "12-04-2022",
-        "ay": "2017-18",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "A Hybrid Intrusion Detection System for Network Security based on Cloud Computing",
-        "certificateDate": "12-04-2022",
-        "ay": "2016-17",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Komal Sutar, Dr. Nilakshi Jain",
-        "titleOfWork": "A Novel Methodology for Securing IoT Data",
-        "certificateDate": "12-04-2022",
-        "ay": "2016-17",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Dr. Nilakshi Jain, Mr. Omkar Shelar, Mr. Pratik Patil, Mr. Nikhil S.",
-        "titleOfWork": "A Comparative Study of Machine Learning Algorithm for Cyber Attack Detection (Part 2)",
-        "certificateDate": "12-04-2022",
-        "ay": "2016-17",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya, Mr. Omkar Shelar, Mr. Pratik Patil",
-        "titleOfWork": "A Framework for Secure and Reliable Digital Healthcare System",
-        "certificateDate": "12-04-2022",
-        "ay": "2016-17",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "A Novel Method of Data Security in Cloud by Using Cryptography & Data Hiding Technique Part 1",
-        "certificateDate": "12-04-2022",
-        "ay": "2015-16",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "A Novel Method of Data Security in Cloud by Using Cryptography & Data Hiding Technique Part 2",
-        "certificateDate": "12-04-2022",
-        "ay": "2015-16",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "Enhanced Methodology for Data Security in Cloud by Using Cryptography Technique",
-        "certificateDate": "12-04-2022",
-        "ay": "2015-16",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "Enhanced Methodology for Data Security in Cloud by Using Cryptography Technique (Part 2)",
-        "certificateDate": "12-04-2022",
-        "ay": "2015-16",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Komal Sutar",
-        "titleOfWork": "A Methodology for Efficient Resource Utilization in Wireless Networks",
-        "certificateDate": "12-04-2022",
-        "ay": "2015-16",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane, Dr. Amit Singh",
-        "titleOfWork": "Design and Implementation of an Effective Secure and Reliable Mobile Payment System",
-        "certificateDate": "12-04-2022",
-        "ay": "2014-15",
-        "status": "registered"
-      },
-      {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "An Effective Data Security Model using Improved Cryptographic Approach",
-        "certificateDate": "12-04-2022",
-        "ay": "2014-15",
-        "status": "registered"
-      }
+      // {
+      //   "applicantName": "Prof. Komal Sutar, Dr. Prachi Gharpure, Dr. Dhirendra Maurya",
+      //   "titleOfWork": "A Study of Different Cryptographic Algorithms for Network Security Part 3",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2018-19",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+      //   "titleOfWork": "A Blockchain based approach for securing cloud data",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2017-18",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Neha More, Dr. Dhirendra Maurya",
+      //   "titleOfWork": "Secure Routing Protocol to detect Sinkhole attack in Wireless Sensor Network",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2017-18",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Neha More, Prof. Komal Sutar",
+      //   "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots Part 6",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2017-18",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Dr. Nilakshi Jain",
+      //   "titleOfWork": "Study and Implementation of Network Simulator tools for network security",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2017-18",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Priyanka Sonawane, Prof. Komal Sutar",
+      //   "titleOfWork": "A Review Paper on Security Threats in IoT Based Applications",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2017-18",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Neha More, Dr. Dhirendra Maurya",
+      //   "titleOfWork": "An Improved Method for Dynamic Content Management in IoT for Smart Cities",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2017-18",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Pratik Gaikwad, Prof. Vihang Bhole",
+      //   "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots Part 7",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2017-18",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+      //   "titleOfWork": "A Novel Algorithm for Intrusion Detection System using Clustering Techniques",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2017-18",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+      //   "titleOfWork": "A Hybrid Intrusion Detection System for Network Security based on Cloud Computing",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2016-17",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Komal Sutar, Dr. Nilakshi Jain",
+      //   "titleOfWork": "A Novel Methodology for Securing IoT Data",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2016-17",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Dr. Nilakshi Jain, Mr. Omkar Shelar, Mr. Pratik Patil, Mr. Nikhil S.",
+      //   "titleOfWork": "A Comparative Study of Machine Learning Algorithm for Cyber Attack Detection (Part 2)",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2016-17",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya, Mr. Omkar Shelar, Mr. Pratik Patil",
+      //   "titleOfWork": "A Framework for Secure and Reliable Digital Healthcare System",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2016-17",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Dr. Nilakshi Jain",
+      //   "titleOfWork": "A Novel Method of Data Security in Cloud by Using Cryptography & Data Hiding Technique Part 1",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2015-16",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Dr. Nilakshi Jain",
+      //   "titleOfWork": "A Novel Method of Data Security in Cloud by Using Cryptography & Data Hiding Technique Part 2",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2015-16",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
+      //   "titleOfWork": "Enhanced Methodology for Data Security in Cloud by Using Cryptography Technique",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2015-16",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
+      //   "titleOfWork": "Enhanced Methodology for Data Security in Cloud by Using Cryptography Technique (Part 2)",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2015-16",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Komal Sutar",
+      //   "titleOfWork": "A Methodology for Efficient Resource Utilization in Wireless Networks",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2015-16",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane, Dr. Amit Singh",
+      //   "titleOfWork": "Design and Implementation of an Effective Secure and Reliable Mobile Payment System",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2014-15",
+      //   "status": "registered"
+      // },
+      // {
+      //   "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
+      //   "titleOfWork": "An Effective Data Security Model using Improved Cryptographic Approach",
+      //   "certificateDate": "12-04-2022",
+      //   "ay": "2014-15",
+      //   "status": "registered"
+      // }
     ];
         const registeredPublications = data
             .filter((publication) => publication.status === "registered")
