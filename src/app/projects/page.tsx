@@ -1,3 +1,4 @@
+// src/app/projects/page.tsx
 "use client";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -16,7 +17,7 @@ export default function ProjectsPage() {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-      // Hardcoded data based on the provided image
+        // Hardcoded data based on the provided image
         const data : Project[] = [
             {
                 sNo: 1,
@@ -69,43 +70,43 @@ export default function ProjectsPage() {
               },
           ];
           setProjects(data);
-          setLoading(false);
-        }, []);
-      
-    if (loading) {
-        return <Container>Loading projects...</Container>;
-      }
-      if (error) {
-        return <Container>Error: {error}</Container>;
-      }
+        setLoading(false);
+    }, []);
 
-  return (
-    <Container>
-      <SectionTitle preTitle="Our College" title="Projects">
-        Here are the projects by our college.
-      </SectionTitle>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse table-auto">
-          <thead>
-            <tr className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
-              <th className="p-2 border">S.No</th>
-              <th className="p-2 border">Product Name</th>
-              <th className="p-2 border">Name of the Participants</th>
-              <th className="p-2 border">Academic Year</th>
-            </tr>
-          </thead>
-          <tbody>
-            {projects.map((project) => (
-              <tr key={project.sNo} className="border-b">
-                <td className="p-2 border">{project.sNo}</td>
-                <td className="p-2 border">{project.productName}</td>
-                <td className="p-2 border">{project.participants}</td>
-                <td className="p-2 border">{project.academicYear}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </Container>
-  );
+    if (loading) {
+      return <Container>Loading projects...</Container>;
+     }
+     if (error) {
+        return <Container>Error: {error}</Container>;
+     }
+
+    return (
+       <Container>
+            <SectionTitle preTitle="Our College" title="Projects">
+               Here are the projects by our college.
+           </SectionTitle>
+            <div className="overflow-x-auto">
+             <table className="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-md overflow-hidden">
+                <thead className="bg-indigo-500 dark:bg-indigo-700 text-white">
+                 <tr>
+                      <th className="text-left py-3 px-4 font-semibold text-sm">S.No</th>
+                      <th className="text-left py-3 px-4 font-semibold text-sm">Product Name</th>
+                      <th className="text-left py-3 px-4 font-semibold text-sm">Name of the Participants</th>
+                     <th className="text-left py-3 px-4 font-semibold text-sm">Academic Year</th>
+                  </tr>
+              </thead>
+            <tbody className="text-gray-700 dark:text-gray-300">
+                    {projects.map((project) => (
+                       <tr key={project.sNo} className="hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors duration-200">
+                          <td className="py-3 px-4 border-b text-sm">{project.sNo}</td>
+                           <td className="py-3 px-4 border-b text-sm">{project.productName}</td>
+                            <td className="py-3 px-4 border-b text-sm">{project.participants}</td>
+                           <td className="py-3 px-4 border-b text-sm">{project.academicYear}</td>
+                      </tr>
+                 ))}
+                </tbody>
+          </table>
+        </div>
+     </Container>
+   );
 }

@@ -1,4 +1,4 @@
-// src/app/patents/page.tsx
+// src/app/publications/page.tsx
 "use client";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -554,49 +554,48 @@ export default function PublicationsPage() {
         "status": "registered"
       }
     ];
-    const registeredPublications = data
-      .filter((publication) => publication.status === "registered")
-      .map((item, index) => ({ ...item, serialNumber: index + 1 })); // Added S.No field
-    setPublications(registeredPublications);
-    setLoading(false);
-  }, []);
+        const registeredPublications = data
+            .filter((publication) => publication.status === "registered")
+            .map((item, index) => ({ ...item, serialNumber: index + 1 })); // Added S.No field
+        setPublications(registeredPublications);
+        setLoading(false);
+    }, []);
 
-  if (loading) {
-    return <Container>Loading publications...</Container>;
-  }
-  if (error) {
-    return <Container>Error: {error}</Container>;
-  }
-  return (
-    <Container>
-      <SectionTitle preTitle="Our College" title="Patents">
-      In these patents, our college&apos;s vision shines.
-
-      </SectionTitle>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse table-auto">
-          <thead>
-            <tr className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
-              <th className="p-2 border">S.No</th>
-              <th className="p-2 border">Applicant Name</th>
-              <th className="p-2 border">Title of Work</th>
-              <th className="p-2 border">Copyright Certificate Received Date</th>
-              <th className="p-2 border">AY</th>
-            </tr>
-          </thead>
-          <tbody>
-            {publications.map((publication) => (
-              <tr key={publication.serialNumber} className="border-b">
-                <td className="p-2 border">{publication.serialNumber}</td>
-                <td className="p-2 border">{publication.applicantName}</td>
-                <td className="p-2 border">{publication.titleOfWork}</td>
-                <td className="p-2 border">{publication.certificateDate}</td>
-                <td className="p-2 border">{publication.ay}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </Container>
-  );
+    if (loading) {
+        return <Container>Loading publications...</Container>;
+    }
+    if (error) {
+        return <Container>Error: {error}</Container>;
+    }
+    return (
+        <Container>
+            <SectionTitle preTitle="Our College" title="Publications">
+              In these patents, our college's vision shines.
+            </SectionTitle>
+            <div className="overflow-x-auto">
+                <table className="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-md overflow-hidden">
+                    <thead className="bg-indigo-500 dark:bg-indigo-700 text-white">
+                    <tr>
+                        <th className="text-left py-3 px-4 font-semibold text-sm">S.No</th>
+                        <th className="text-left py-3 px-4 font-semibold text-sm">Applicant Name</th>
+                        <th className="text-left py-3 px-4 font-semibold text-sm">Title of Work</th>
+                        <th className="text-left py-3 px-4 font-semibold text-sm">Copyright Certificate Received Date</th>
+                        <th className="text-left py-3 px-4 font-semibold text-sm">AY</th>
+                    </tr>
+                    </thead>
+                    <tbody className="text-gray-700 dark:text-gray-300">
+                    {publications.map((publication) => (
+                        <tr key={publication.serialNumber} className="hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors duration-200">
+                            <td className="py-3 px-4 border-b text-sm">{publication.serialNumber}</td>
+                            <td className="py-3 px-4 border-b text-sm">{publication.applicantName}</td>
+                            <td className="py-3 px-4 border-b text-sm">{publication.titleOfWork}</td>
+                            <td className="py-3 px-4 border-b text-sm">{publication.certificateDate}</td>
+                            <td className="py-3 px-4 border-b text-sm">{publication.ay}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+        </Container>
+    );
 }
