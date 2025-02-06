@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
-import Link from 'next/link'
-import { cn } from '../../lib/utils'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { cn } from "../../lib/utils";
 
 interface ExpandableAchievementCardProps {
-  id: number
-  name: string
-  date: string
-  achievement: string
-  details: string
-  link?: string
-  banner?: string
+  id: number;
+  name: string;
+  date: string;
+  achievement: string;
+  details: string;
+  link?: string;
+  banner?: string;
 }
 
 export function ExpandableAchievementCard({
@@ -23,23 +23,20 @@ export function ExpandableAchievementCard({
   achievement,
   details,
   link,
-  banner
+  banner,
 }: ExpandableAchievementCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <motion.div
       layout
       onClick={() => setIsExpanded(!isExpanded)}
       className={cn(
-        "group cursor-pointer overflow-hidden rounded-xl bg-gray-900",
+        "group cursor-pointer overflow-hidden rounded-xl",
         isExpanded ? "row-span-2" : "row-span-1"
       )}
     >
-      <motion.div
-        layout
-        className="relative h-full w-full"
-      >
+      <motion.div layout className="relative h-full w-full">
         {/* Image and Gradient Overlay */}
         <div className="absolute inset-0">
           {banner ? (
@@ -64,7 +61,7 @@ export function ExpandableAchievementCard({
             <span className="text-emerald-400 text-xs">{date}</span>
           </div>
 
-          <motion.h3 
+          <motion.h3
             layout
             className="text-lg font-semibold text-white mb-2 line-clamp-2"
           >
@@ -118,5 +115,5 @@ export function ExpandableAchievementCard({
         </div>
       </motion.div>
     </motion.div>
-  )
+  );
 }

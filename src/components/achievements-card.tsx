@@ -1,4 +1,3 @@
-// src/components/achievements-card.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -21,7 +20,7 @@ export function AchievementCard({ id, name, date, achievement, details, link, ba
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="group relative h-[400px] w-full rounded-xl overflow-hidden bg-gray-900"
+            className="group relative h-[400px] w-full rounded-xl overflow-hidden"
         >
             {/* Image and Gradient Overlay */}
             <div className="absolute inset-0">

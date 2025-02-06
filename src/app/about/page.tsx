@@ -1,4 +1,5 @@
 // app/about/page.tsx
+"use client";
 import React from "react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -158,7 +159,21 @@ const teachers: Teacher[] = [
   },
 ];
 
-const About: React.FC = () => {
+interface SectionProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+const Section: React.FC<SectionProps> = ({ title, children }) => (
+  <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md mb-8">
+    <h2 className="text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-5 border-b pb-2">
+      {title}
+    </h2>
+    {children}
+  </div>
+);
+
+const AboutPage: React.FC = () => {
   const teachingStaff = teachers.filter(
     (teacher) => teacher.category === "teaching"
   );
@@ -168,26 +183,34 @@ const About: React.FC = () => {
 
   return (
     <Container>
-      <SectionTitle title="Our Teaching Faculty">
-        Meet the experienced faculty members of the Cyber Security Department.
+      <SectionTitle preTitle="Meet Our Team" title="Faculty of Cyber Security Department"> {/* Main Title Section */}
+        Passionate Educators and Technical Experts Shaping Future Cyber Security Leaders.
       </SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
-        {teachingStaff.map((teacher, index) => (
-          <TeacherCard key={index} teacher={teacher} />
-        ))}
-      </div>
 
-      <SectionTitle title="Our Technical Staff">
-        Meet the dedicated non-teaching members of the Cyber Security
-        Department.
-      </SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
-        {nonTeachingStaff.map((teacher, index) => (
-          <TeacherCard key={index} teacher={teacher} />
-        ))}
-      </div>
+      <Section title="Our Teaching Faculty"> {/* Teaching Faculty Section */}
+        <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+          Meet the experienced faculty members of the Cyber Security Department.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
+          {teachingStaff.map((teacher, index) => (
+            <TeacherCard key={index} teacher={teacher} />
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Our Technical Staff"> {/* Technical Staff Section */}
+        <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+          Meet the dedicated non-teaching members of the Cyber Security
+          Department.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
+          {nonTeachingStaff.map((teacher, index) => (
+            <TeacherCard key={index} teacher={teacher} />
+          ))}
+        </div>
+      </Section>
     </Container>
   );
 };
 
-export default About;
+export default AboutPage;

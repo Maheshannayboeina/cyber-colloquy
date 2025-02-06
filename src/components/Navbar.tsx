@@ -1,8 +1,9 @@
+//src/components/Navbar.tsx
 "use client";
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 interface NavItem {
@@ -15,7 +16,7 @@ export const Navbar = ({
 }: {
   setGetStartedModalOpen: () => void;
 }) => {
-  const navigation: NavItem[] = [{ label: "Events", href: "/events" }];
+  const navigation: NavItem[] = [{ label: "Events", href: "/events" }]; // Removed "Values & Impact" from here
 
   const milestoneLinks: NavItem[] = [
     { label: "Achievements", href: "/achievements" },
@@ -26,76 +27,90 @@ export const Navbar = ({
   const infoLinks: NavItem[] = [
     { label: "Department Info", href: "/department-info" },
     { label: "Faculty", href: "/about" },
+    { label: "Values & Impact", href: "/values-impact" }, // Added "Values & Impact" to infoLinks
   ];
 
-  const [infoOpen, setInfoOpen] = useState(false);
-  const [milestonesOpen, setMilestonesOpen] = useState(false);
-  const infoRef = useRef<HTMLDivElement>(null);
-  const milestonesRef = useRef<HTMLDivElement>(null);
+  // --- State for Dropdowns ---
+  const [infoDropdownOpen, setInfoDropdownOpen] = useState(false);
+  const [milestonesDropdownOpen, setMilestonesDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Combined timer ref
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // --- Refs for Dropdown Containers ---
+  const milestonesDropdownRef = useRef<HTMLDivElement>(null);
+  const infoDropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = (dropdownSetter: (val: boolean) => void) => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
-    dropdownSetter(true);
-  };
-
-  const handleMouseLeave = (dropdownSetter: (val: boolean) => void) => {
-    timerRef.current = setTimeout(() => {
-      dropdownSetter(false);
-      timerRef.current = null;
-    }, 200);
-  };
+  // --- Timer Ref for Delay ---
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null); // Ref to store timeout
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
   useEffect(() => {
-    setMobileMenuOpen(false); // Close mobile menu when pathname changes
+    setMobileMenuOpen(false);
+    setInfoDropdownOpen(false);
+    setMilestonesDropdownOpen(false);
   }, [pathname]);
 
-  const handleClickOutside = (
-    event: MouseEvent,
-    dropdownRef: React.RefObject<HTMLDivElement>,
-    dropdownSetter: (val: boolean) => void
-  ) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      dropdownSetter(false);
+  // --- Dropdown Toggle Functions (Still used for Mobile) ---
+  const toggleInfoDropdown = useCallback(() => {
+    setInfoDropdownOpen(!infoDropdownOpen);
+    setMilestonesDropdownOpen(false);
+  }, [infoDropdownOpen]);
+
+  const toggleMilestonesDropdown = useCallback(() => {
+    setMilestonesDropdownOpen(!milestonesDropdownOpen);
+    setInfoDropdownOpen(false);
+  }, [milestonesDropdownOpen]);
+
+  // --- Hover Handlers for Desktop Dropdowns with Delay ---
+  const handleMilestonesMouseEnter = () => {
+    if (closeTimerRef.current) {
+      // Clear any pending close timeout on mouse enter
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
     }
+    setMilestonesDropdownOpen(true);
+    setInfoDropdownOpen(false);
   };
 
-  useEffect(() => {
-    const handleInfoClickOutside = (event: MouseEvent) =>
-      handleClickOutside(event, infoRef, setInfoOpen);
+  const handleMilestonesMouseLeave = () => {
+    closeTimerRef.current = setTimeout(() => {
+      // Set a timeout on mouse leave
+      setMilestonesDropdownOpen(false);
+    }, 1000); // 1000ms = 1 second delay
+  };
 
-    const handleMilestonesClickOutside = (event: MouseEvent) =>
-      handleClickOutside(event, milestonesRef, setMilestonesOpen);
+  const handleInfoMouseEnter = () => {
+    if (closeTimerRef.current) {
+      // Clear any pending close timeout on mouse enter
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setInfoDropdownOpen(true);
+    setMilestonesDropdownOpen(false);
+  };
 
-    document.addEventListener("mousedown", handleInfoClickOutside);
-    document.addEventListener("mousedown", handleMilestonesClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleInfoClickOutside);
-      document.removeEventListener("mousedown", handleMilestonesClickOutside);
-    };
-  }, []);
+  const handleInfoMouseLeave = () => {
+    closeTimerRef.current = setTimeout(() => {
+      // Set a timeout on mouse leave
+      setInfoDropdownOpen(false);
+    }, 100);
+  };
 
   return (
-    <div className="w-full bg-white dark:bg-gray-900 shadow">
+    <div className="w-full shadow">
       <nav className="container relative flex flex-wrap items-center justify-between p-4 mx-auto lg:justify-between xl:px-1">
         {/* Logo  */}
-        <Link href="/" className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+        <Link
+          href="/"
+          className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
+        >
           <Image
             src="/img/favicon4.png" // Replace with correct path if needed
-            width={180} // Adjust width as needed
-            height={40}   // Adjust height as needed
+            width={180}
+            height={40}
             alt="Cyber Colloquy"
           />
         </Link>
@@ -115,6 +130,7 @@ export const Navbar = ({
 
         {/* Mobile menu */}
         <div className="lg:hidden">
+          {/* ... (Mobile Menu - unchanged, still uses click-to-toggle) ... */}
           <button
             onClick={toggleMobileMenu}
             aria-label="Toggle Menu"
@@ -147,7 +163,7 @@ export const Navbar = ({
                   <Link
                     key={index}
                     href={item.href}
-                    className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                    className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                   >
                     {item.label}
                   </Link>
@@ -155,18 +171,18 @@ export const Navbar = ({
 
                 <div className="relative">
                   <button
-                    className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
-                    onClick={() => setMilestonesOpen(!milestonesOpen)} // Simple toggle for mobile
+                    className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                    onClick={toggleMilestonesDropdown} // Still toggle on click for mobile
                   >
                     Milestones
                   </button>
-                  {milestonesOpen && (
+                  {milestonesDropdownOpen && (
                     <div className="bg-white dark:bg-gray-700 rounded-md shadow-md mt-1">
                       {milestoneLinks.map((item, index) => (
                         <Link
                           key={index}
                           href={item.href}
-                          className="block px-4 py-2 text-sm text-gray-500 dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                          className="block px-4 py-2 text-sm text-gray-500 dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                         >
                           {item.label}
                         </Link>
@@ -177,18 +193,18 @@ export const Navbar = ({
 
                 <div className="relative">
                   <button
-                    className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
-                    onClick={() => setInfoOpen(!infoOpen)} // Simple toggle for mobile
+                    className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                    onClick={toggleInfoDropdown} // Still toggle on click for mobile
                   >
                     About Us
                   </button>
-                  {infoOpen && (
+                  {infoDropdownOpen && (
                     <div className="bg-white dark:bg-gray-700 rounded-md shadow-md mt-1">
                       {infoLinks.map((item, index) => (
                         <Link
                           key={index}
                           href={item.href}
-                          className="block px-4 py-2 text-sm text-gray-500 dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                          className="block px-4 py-2 text-sm text-gray-500 dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                         >
                           {item.label}
                         </Link>
@@ -212,7 +228,7 @@ export const Navbar = ({
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             {navigation.map((item, index) => (
-              <li className="mr-3 nav__item" key={index}>
+              <li className="mr-5 nav__item" key={index}>
                 <Link
                   href={item.href}
                   className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-200"
@@ -223,17 +239,18 @@ export const Navbar = ({
             ))}
 
             <li
-              className="mr-3 nav__item relative"
-              onMouseEnter={() => handleMouseEnter(setMilestonesOpen)}
-              onMouseLeave={() => handleMouseLeave(setMilestonesOpen)}
+              className="mr-5 nav__item relative"
+              onMouseEnter={handleMilestonesMouseEnter}
+              onMouseLeave={handleMilestonesMouseLeave} // Now with delay
             >
               <button className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-200">
                 Milestones
               </button>
-              {milestonesOpen && (
+              {milestonesDropdownOpen && (
                 <div
-                  ref={milestonesRef}
+                  ref={milestonesDropdownRef}
                   className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px]"
+                  onMouseLeave={handleMilestonesMouseLeave} // Still with delay on dropdown too
                 >
                   {milestoneLinks.map((item, index) => (
                     <Link
@@ -249,17 +266,18 @@ export const Navbar = ({
             </li>
 
             <li
-              className="mr-3 nav__item relative"
-              onMouseEnter={() => handleMouseEnter(setInfoOpen)}
-              onMouseLeave={() => handleMouseLeave(setInfoOpen)}
+              className="mr-5 nav__item relative"
+              onMouseEnter={handleInfoMouseEnter}
+              onMouseLeave={handleInfoMouseLeave} // Now with delay
             >
               <button className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-200">
                 About Us
               </button>
-              {infoOpen && (
+              {infoDropdownOpen && (
                 <div
-                  ref={infoRef}
+                  ref={infoDropdownRef}
                   className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px]"
+                  onMouseLeave={handleInfoMouseLeave} // Still with delay on dropdown too
                 >
                   {infoLinks.map((item, index) => (
                     <Link

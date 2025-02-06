@@ -1,4 +1,3 @@
-// src/app/publications/page.tsx
 "use client";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -570,7 +569,7 @@ export default function PublicationsPage() {
     return (
         <Container>
             <SectionTitle preTitle="Our College" title="Publications">
-              In these patents, our college's vision shines.
+              In these patents, our college&apos;s vision shines.
             </SectionTitle>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-md overflow-hidden">
