@@ -115,7 +115,7 @@ const achievementsData = [
        achievement: "Project Completion",
         details: "Introduce TrustTrace, the culmination of our students’ tireless efforts to combat the rising tide of deepfakes.",
       link: "https://example.com/project",
-        banner: "/img/achievements/project.png",
+        banner: "/img/achievements/trustrace.jpg",
   },
   {
       id: 14,
@@ -124,7 +124,7 @@ const achievementsData = [
       achievement: "Received German Patent",
        details: "Patent Title: “System for developing a deep scattering convolutional network for cosmetic skin classification” Patent Granted: 26th February 2024 Application No.: 20 2024 100 262.8",
       link: "https://example.com/german-patent",
-     banner: "/img/achievements/patent.png",
+     banner: "/img/achievements/cosmetic.jpg",
   },
     {
         id: 15,
@@ -133,7 +133,7 @@ const achievementsData = [
      achievement: "CEH Course Performance",
      details: "SAKEC students, faculties and external participants have shown great interest and exhibited remarkable performance in EC Council Certified Ethical Hackers (C|EH) course. Total of 24 candidates registered and 23 candidates successfully completed the certification.",
       link: "https://example.com/ethical-hackers",
-      banner: "/img/achievements/ethical_hackers.png",
+      banner: "/img/achievements/ceh3.jpg",
     },
     {
          id: 16,
@@ -142,7 +142,7 @@ const achievementsData = [
        achievement: "Cybersecurity awareness session",
         details: "Delivered a session at L&T Training Center, Madh Island, With a focus on fostering awareness about cybersecurity. The session, marked by its interactive nature, received exceptional acclaim from the participants. A testament to our commitment to advancing knowledge in the ever-evolving realm of cybersecurity.",
        link: "https://example.com/cybersecurity-awareness",
-       banner: "/img/achievements/cybersecurity.png",
+       banner: "/img/achievements/mp.jpg",
     },
      {
          id: 17,
@@ -151,7 +151,7 @@ const achievementsData = [
       achievement: "Deepfake Session at AI Conclave",
         details: "Delivered a session on Deepfake and Misinformation in AI Conclave, an AI conference sponsored by CyberPeaceat VIT, Bhopal! It was an enlightening experience for her to dive into the complexities and implications of this rapidly evolving field. From understanding the technical intricacies to discussing its impact on society, it’s crucial to stay informed and vigilant in this digital age.",
        link: "https://example.com/deepfake-session",
-     banner: "/img/achievements/deepfake.png",
+     banner: "/img/achievements/aiconclave.jpg",
      },
    {
       id: 18,
@@ -160,7 +160,7 @@ const achievementsData = [
       achievement:"Completed STTP Successfully",
        details: "This industry academia venture opens a platform for students, faculty and industry professionals to learn from experts and earn international certifications in Cyber Security & Digital Forensics.",
        link: "https://example.com/sttp-training",
-      banner: "/img/achievements/sttp.png",
+      banner: "/img/achievements/sttp.jpg",
   },
   {
       id: 19,
@@ -169,7 +169,7 @@ const achievementsData = [
     achievement: "Won 1 lac Rupees Hackathon Prize",
     details: "Grand Finale of Smart India Hackathon 2023 conducted at Nodal center OP Jindal University Raigarh. Team was mentored by faculty Ms. Meghali kalyankar and Ms. Prajakta Pote.",
       link: "https://example.com/smart-india-hackathon",
-    banner: "/img/achievements/hackathon2.png",
+    banner: "/img/achievements/SIHOP.jpg",
   },
   {
        id: 20,
@@ -178,7 +178,7 @@ const achievementsData = [
       achievement:"Panellist at Deepfake Consultation",
         details:"Dr. Nilakshi Jain, was invited as a distinguished panellist at the Round Table Consultation on Deepfake Technology. This pivotal event, organized by the National Commission for Women – India (NCW) in collaboration with CyberPeace Foundation Collaborative, unfolded on December 19th, 2023, at the iconic Indian International Center in New Delhi.",
        link: "https://example.com/panellist-round-table",
-       banner: "/img/achievements/panel.png",
+       banner: "/img/achievements/ncw.jpg",
   },
   {
        id: 21,
@@ -187,7 +187,7 @@ const achievementsData = [
     achievement:"Research grant of 15 lacs",
     details:"Project “Investigating AI-Driven Misconduct: Deepfake Technology, Fake WhatsApp Calls, and Beyond” has secured a substantial research grant of 15 lacs.",
       link: "https://example.com/research-grant",
-      banner: "/img/achievements/research.png",
+      banner: "/img/achievements/driven.jpg",
   },
     {
         id: 22,
@@ -196,7 +196,7 @@ const achievementsData = [
        achievement: "Deepfake Workshop session",
        details: "Dr. Nilakshi Jain, a distinguished expert in the field of cybersecurity, was recently honored with an invitation to deliver a groundbreaking session on “Deepfake” at a prestigious workshop organized by UNSW, United Service Institution of India and CyberPeace Foundation. The workshop emphasized the potential role of Artificial Intelligence (AI) in addressing these challenges. Dr. Jain provided hands-on mitigatory techniques, equipping attendees with practical tools to navigate the complex terrain of misinformation and Deepfakes effectively.",
        link: "https://example.com/deepfake-workshop",
-        banner: "/img/achievements/workshop.png",
+        banner: "/img/achievements/unsw.jpg",
    },
    {
        id: 23,
@@ -205,7 +205,7 @@ const achievementsData = [
       achievement:"1st Runner-Up at hackathon",
        details: "Congratulations to our Cybersecurity department’s students for securing 1st runner-up at India’s renowned ‘Cffeine Trip’ hackathon! Their innovative solutions and unwavering dedication underscore their prowess in defending digital frontiers. Congratulating students of Shah & anchor department’s pride: 1. Tanvi Humane (TE CYSE) 2. Akshat Adavadkar (TE CYSE)",
        link: "https://example.com/hackathon-runnerup",
-        banner: "/img/achievements/hackathon_runnerup.png",
+        banner: "/img/achievements/ceffeine.jpg",
    },
   {
        id: 24,
@@ -214,7 +214,7 @@ const achievementsData = [
     achievement:"Winners at hackathon",
      details: "Exceptional achievement alert! Our Cybersecurity students emerge as champions at India’s longest hackathon, ‘Cffeine Trip’! Their ground-breaking solutions and unparalleled expertise set a new standard in cybersecurity. A proud moment for innovation and excellence! Congratulating students of Shah & anchor department’s pride: 1. Krishna Kounder (TE CYSE) 2. Sahil Zunjarrao (TE CYSE) 3. PAXAL DILIP TALAWAT (TE CYSE)",
        link: "https://example.com/hackathon-winners",
-       banner: "/img/achievements/hackathon_winners.png",
+       banner: "/img/achievements/trip.jpg",
    },
    {
         id: 25,
@@ -223,7 +223,7 @@ const achievementsData = [
      achievement: "Best Individual at Hackathon",
      details:"Individual:”Thrilled to congratulate Deepranjan Bhosale Bhosle from our Cybersecurity department for clinching the title of ‘Best Individual’ at ‘Cffeine Trip,’ India’s premier hackathon! His exceptional talent, innovation, and unwavering dedication to cybersecurity have set an inspiring benchmark. Kudos to their outstanding achievement!",
      link: "https://example.com/hackathon-individual",
-      banner: "/img/achievements/hackathon_individual.png",
+      banner: "/img/achievements/deept.jpg",
   },
   {
        id: 26,
@@ -232,7 +232,7 @@ const achievementsData = [
     achievement:"2nd runner-up at hackathon",
      details: "2nd Runner-Up: “Kudos to our Cybersecurity students for achieving 2nd runner-up at India’s prestigious ‘Cffeine Trip’ hackathon! Their dedication and skill in safeguarding digital realms shine bright, showcasing their commitment to excellence in cybersecurity. hashtag#CyberExcellence hashtag#Hackathon Achievement” Congratulating students of Shah & anchor department’s pride: 1. Shreyansh Dave (BE CYSE) 2. Aishwarya Kadam (BE CYSE)",
     link: "https://example.com/hackathon-second-runnerup",
-       banner: "/img/achievements/hackathon_runnerup2.png",
+       banner: "/img/achievements/2runnerup.jpg",
    },
     {
          id: 27,
@@ -241,7 +241,7 @@ const achievementsData = [
       achievement:"Project Launched at CyberPeace Summit",
       details:"SAKEC CyberPeace Centre of Excellence proud to announce that our Research based project got launched in Global CyberPeace Summit and Dialogues a pivotal event supporting G20 India on 1st September, 2023 in United Service Institution, Rao Tula Ram Marg, New Delhi Project Name:  Linux Admin",
       link: "https://example.com/global-cyberpeace-summit",
-       banner:"/img/achievements/global_cyberpeace_summit.png"
+       banner:"/img/achievements/Linuxa.jpg"
       },
   {
        id: 28,
@@ -250,7 +250,7 @@ const achievementsData = [
       achievement:"Project Launched at CyberPeace Summit",
       details:"SAKEC CyberPeace Centre of Excellence proud to announce that our Research based project got launched in Global CyberPeace Summit and Dialogues a pivotal event supporting G20 India on 1st September, 2023 in United Service Institution, Rao Tula Ram Marg, New Delhi. Project Name: HoneyTrack",
       link: "https://example.com/global-cyberpeace-summit",
-       banner:"/img/achievements/global_cyberpeace_summit.png"
+       banner:"/img/achievements/Honeytrack.jpg"
   },
   {
       id: 29,
@@ -259,7 +259,7 @@ const achievementsData = [
       achievement:"Project Launched at CyberPeace Summit",
        details:"SAKEC CyberPeace Centre of Excellence proud to announce that our Research based project got launched in Global CyberPeace Summit and Dialogues a pivotal event supporting G20 India on 1st September, 2023 in United Service Institution, Rao Tula Ram Marg, New Delhi Project Name:Cygiene",
      link: "https://example.com/global-cyberpeace-summit",
-     banner:"/img/achievements/global_cyberpeace_summit.png"
+     banner:"/img/achievements/cygiene.jpg"
   },
       {
          id: 30,
@@ -268,7 +268,7 @@ const achievementsData = [
         achievement:"Project Launched at CyberPeace Summit",
        details: "SAKEC CyberPeace Centre of Excellence proud to announce that our Research based project got launched in Global CyberPeace Summit and Dialogues a pivotal event supporting G20 India on 1st September, 2023 in United Service Institution, Rao Tula Ram Marg, New Delhi Project Name: courage2correct",
         link: "https://example.com/global-cyberpeace-summit",
-       banner:"/img/achievements/global_cyberpeace_summit.png"
+       banner:"/img/achievements/courage2.jpg"
     },
   {
       id: 31,
@@ -277,7 +277,7 @@ const achievementsData = [
       achievement:"Project Launched at CyberPeace Summit",
        details:"SAKEC CyberPeace Centre of Excellence proud to announce that our Research based project got launched in Global CyberPeace Summit and Dialogues a pivotal event supporting G20 India on 1st September, 2023 in United Service Institution, Rao Tula Ram Marg, New Delhi Project Name: Capture The Flag",
         link: "https://example.com/global-cyberpeace-summit",
-       banner:"/img/achievements/global_cyberpeace_summit.png"
+       banner:"/img/achievements/capture.jpg"
   },
   {
        id: 32,
@@ -286,7 +286,7 @@ const achievementsData = [
       achievement: "Project Launched at CyberPeace Summit",
        details: "SAKEC CyberPeace Centre of Excellence proud to announce that our Research based project got launched in Global CyberPeace Summit and Dialogues a pivotal event supporting G20 India on 1st September, 2023 in United Service Institution, Rao Tula Ram Marg, New Delhi. Project Name : Dark Web",
        link: "https://example.com/global-cyberpeace-summit",
-     banner:"/img/achievements/global_cyberpeace_summit.png"
+     banner:"/img/achievements/darkweb.jpg"
    },
    {
        id: 33,
@@ -295,7 +295,7 @@ const achievementsData = [
       achievement:"Won Intel AI Festival",
        details:"Cyber Security Department Students achieved remarkable success as a Country/Region Winner in the prestigious Intel® AI Global Impact Festival 2023! Winners received prizes worth $1,000 and an Intel certificate. their outstanding AI project has not only showcased their immense talent but has also made a significant contribution to the world of artificial intelligence & cyber security.",
      link: "https://example.com/intel-ai-festival",
-     banner:"/img/achievements/ai_festival.png"
+     banner:"/img/achievements/intel.jpg"
     },
     {
         id: 34,
@@ -304,7 +304,7 @@ const achievementsData = [
        achievement:"Industrial Visit at AIIPLTECH",
        details:"Highlights of the Visit: Engaging presentations on Cyber Security trends and challenges Live demonstrations of state-of-the-art security solutions Networking opportunities with industry professionals Interactive Q&A sessions with Cyber Security specialists",
         link: "https://example.com/industrial-visit",
-     banner: "/img/achievements/industrial_visit.png",
+     banner: "/img/achievements/AIIPL.jpg",
   },
    {
        id: 35,
@@ -313,7 +313,7 @@ const achievementsData = [
      achievement: "Trained Indian Airforce",
       details: "On behalf of V4WEB CYBERSECURITY, Shrawani recently conducted an enlightening and impactful training session for none other than the esteemed Indian Airforce, focusing on “Cybersecurity Awareness.” Shrawani’s training session was a resounding success, receiving accolades from the Indian Air Force for her expertise and dedication to the field of cybersecurity.",
      link: "https://example.com/indian-airforce-training",
-    banner: "/img/achievements/airforce.png",
+    banner: "/img/achievements/shravani.jpg",
   },
   {
        id: 36,
@@ -322,7 +322,7 @@ const achievementsData = [
      achievement: "Technical Team Member at CCTNS",
       details:"Mr. Mustaansir Godhrawala contributed his expertise as a member of the technical team, engaging with brilliant minds in cybersecurity and witnessing cutting-edge solutions.",
      link: "https://example.com/cctns-hackathon",
-    banner: "/img/achievements/cctns.png",
+    banner: "/img/achievements/mustansir.jpg",
   },
      {
         id: 37,
@@ -331,7 +331,7 @@ const achievementsData = [
       achievement:"Launched Startup: CyHEX Infotech",
        details: "Startup is all about providing development, products, and services that make a difference.  Every project is unique, and they work closely with their clients to understand their needs and deliver customized solutions. Thier goal is to make technology accessible and easy for everyone.",
       link: "https://example.com/cyhex-infotech",
-     banner: "/img/achievements/startup.png",
+     banner: "/img/achievements/cyhax.jpg",
     },
   {
        id: 38,
@@ -340,7 +340,7 @@ const achievementsData = [
     achievement: "Shortlisted Cybersecurity Woman of Year",
     details: "Her exceptional talent, dedication, and significant contributions to the field of cybersecurity have earned her a place among an exceptional group of women. This year's awards have surpassed all expectations, attracting an unprecedented number of outstanding nominees from around the world. From New Zealand to Moldova, Macedonia to Ukraine, Philippines to Egypt, Kuwait to Australia, Italy to the Netherlands, Zimbabwe to Peru, and over 60 other remarkable countries, the diversity and global impact of women in cybersecurity shine brightly.",
     link: "https://example.com/cybersecurity-woman",
-   banner: "/img/achievements/women_cybersecurity.png",
+   banner: "/img/achievements/NJ-award.jpg",
   },
    {
       id:39,
@@ -349,7 +349,7 @@ const achievementsData = [
      achievement: "Magazine Abhayam Launch",
       details:"Event was held on 25th April 2023 in the presence of respected Trustees, Principal Dr Bhavesh Patel ,HoDs , faculties, and Cyber Security Council members.",
      link: "https://example.com/magazine-abhayam",
-     banner:"/img/achievements/abhayam.png",
+     banner:"/img/achievements/magazine.jpg",
    },
   {
        id: 40,
@@ -358,7 +358,7 @@ const achievementsData = [
        achievement: "CEH Course Performance",
       details:"Total of 27 candidates registered and 25 candidates successfully completed the certification.",
       link: "https://example.com/ceh-participants",
-      banner: "/img/achievements/ceh.png",
+      banner: "/img/achievements/CEH-2023.jpg",
   },
   {
       id: 41,
@@ -367,7 +367,7 @@ const achievementsData = [
     achievement:"Secured 1st at CTF challenge",
      details:"The team was awarded with a certificate and cash prize. Organized by S.I.W.S College Wadala, Mumbai.",
    link:"https://example.com/ctf-challenge",
-   banner: "/img/achievements/ctf_challenge.png",
+   banner: "/img/achievements/CTF-heist.jpg",
  },
  {
         id: 42,
@@ -376,7 +376,7 @@ const achievementsData = [
       achievement: "Scored 91% at CHFI certification",
         details: "EC-Council",
         link: "https://example.com/chfi-certification",
-    banner: "/img/achievements/chfi.png",
+    banner: "/img/achievements/nj-forensic.jpg",
     },
 ];
 

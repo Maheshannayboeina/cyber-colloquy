@@ -225,7 +225,7 @@ const events = [
     date: "September 15, 2024",
     description: "Our fourth Cybersecurity Colloquy event.",
     location: "Main Auditorium",
-    images: ["/img/events/2024/event1.jpg", "/img/events/2024/event2.jpg"],
+    images: ["/img/events/colloquy3.0.png", "/img/events/2024/event2.jpg"],
     tags: ["cybersecurity", "colloquy", "network security", "blockchain"],
     colloquyDetails: {
       conductedBy: "Mr. Bob Williams",
