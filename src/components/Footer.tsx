@@ -1,3 +1,4 @@
+// src/components/Footer.tsx
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
@@ -13,12 +14,11 @@ export function Footer() {
     "Contact Us",
   ];
   const legal = ["Terms", "Privacy", "Legal"];
-  
+
   return (
     <div className="bg-gradient-to-t from-purple-200 to-blue-300 dark:from-blue-700 dark:to-purple-1000">
-      {/* Changed background color to a blueish-purple gradient here */}
       <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
+        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <div>
               <Link
@@ -120,6 +120,37 @@ export function Footer() {
               </a>
             </div>
           </div>
+
+          {/* --- Re-added "Get In Touch" Section in Footer - Updated with new Address --- */}
+          <div className="lg:col-span-2">
+            <div className="font-semibold text-gray-900 dark:text-gray-50">Get In Touch</div>
+            <div className="mt-5 text-gray-500 dark:text-gray-400">
+              {/* Google Map Embed  */}
+              <div className="aspect-w-16 aspect-h-9 mb-3 rounded-md overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.346173299146!2d72.90900817593585!3d19.048511552833496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c5f39a7d77d1%3A0x9ebbdeaea9ec24ae!2sShah%20%26%20Anchor%20Kutchhi%20Engineering%20College!5e0!3m2!1sen!2sin!4v1738998139608!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  // allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Department Location on Google Maps"
+                ></iframe>
+              </div>
+              <address className="not-italic text-sm">
+                <p className="mb-1">Cyber Security Department,</p>
+                <p className="mb-1">Shah & Anchor Kutchhi Engineering College,</p>
+                <p className="mb-1">Mahavir Education Trust Chowk, W.T Patil Marg, D P Rd,</p>
+                <p className="mb-1">next to Duke's Company, Chembur,</p>
+                <p className="mb-1">Mumbai, Maharashtra 400088</p>
+              </address>
+              <div className="mt-3">
+                <p className="mb-1">Email: <a href="mailto:info@cyberevents.com" className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors duration-200">cyber.council@sakec.ac.in</a></p>
+                <p className="mb-1">Phone: <span className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors duration-200">+91 9967039388</span></p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
@@ -189,3 +220,5 @@ const YouTube = ({ size = 24 }) => (
     <path d="M23.498 6.186a2.983 2.983 0 0 0-2.1-2.106C19.77 3.549 12 3.549 12 3.549s-7.769 0-9.399.531a2.983 2.983 0 0 0-2.1 2.106C0 7.83 0 12.001 0 12.001s0 4.169.501 5.815a2.983 2.983 0 0 0 2.1 2.106c1.63.531 9.399.531 9.399.531s7.77 0 9.398-.531a2.983 2.983 0 0 0 2.1-2.106C24 16.169 24 12 24 12s0-4.17-.502-5.814zM9.608 15.54v-7.08L15.878 12 9.608 15.54z" />
   </svg>
 );
+
+export default Footer;
