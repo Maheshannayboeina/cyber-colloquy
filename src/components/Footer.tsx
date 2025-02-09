@@ -45,7 +45,9 @@ export function Footer() {
           </div>
 
           <div>
+          <div>Quick links</div>
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+          
               {navigation.map((item, index) => (
                 <Link
                   key={index}

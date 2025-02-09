@@ -1,14 +1,60 @@
 // src/components/achievementsData.js
 const achievementsData = [
+  
   {
-    id: 1,
-    name: "Dr. Rupali Vairagade",
-    date: "14th October 2024",
-    achievement: "Insightful Tech Talk",
-    details: "Delivered an insightful Tech Talk on “India Future Ready: Safety & Cybersecurity Planning Considerations” to Second-Year students from the Computer Engineering Department at K.J. Somaiya Polytechnic under the banner of SAKEC CyberPeace Center of Excellence The session, held on 14th October 2024, empowered students with key insights into the future of cybersecurity and strategies for ensuring safety in the evolving digital landscape.",
-    link: "https://example.com/tech-talk",
-    banner: "/img/achievements/rupalimaam.png"
-  },
+    id: 19,
+  name:"CYSE Students",
+  date: "Dec 2023",
+  achievement: "Won SIH 2023",
+  details: "Grand Finale of Smart India Hackathon 2023 conducted at Nodal center OP Jindal University Raigarh. Team was mentored by faculty Ms. Meghali kalyankar and Ms. Prajakta Pote.",
+    link: "https://example.com/smart-india-hackathon",
+  banner: "/img/achievements/SIHOP.jpg",
+},
+{
+  id: 5,
+  name: "CYSE Department",
+  date: "July to Oct 2024",
+  achievement: "Cybersecurity Awareness by Team",
+  details: "Exposing Digital Deceptions: Skits on Deepfake Scams, Kidnapping Hoaxes, and Social Media Blackmail In a creative and powerful initiative, Team Cyber Surksha Mandal performed engaging skits to shed light on the alarming rise of deepfake technology, misinformation, and online fraud. Through compelling performances at schools, public spaces, and colleges",
+  link: "https://example.com/awareness",
+  banner: "/img/achievements/natak.png",
+},
+{
+  id: 11,
+  name:"Cybersecurity Department",
+  date:"April 6th, 2024",
+  achievement: "Team Triumphs at Cython 2024",
+  details:"SAKEC Cyber Security Department Team (CyHEX Infotech Private Limited Start-up: https://cyhex.co/) has emerged victorious at the Cython 2024 Hackathon, held on April 6th, 2024, and organized by FITT-IIT Delhi. Our team has showcased remarkable talent and dedication, earning a prestigious win and a prize money of 3 Lakhs INR.",
+link: "https://example.com/hackathon",
+ banner: "/img/achievements/cyhax-winner.jpg",
+},
+{
+  id: 41,
+name:"CYSE Students",
+ date: "Jan 2023",
+achievement:"Secured 1st at CTF challenge",
+ details:"The team was awarded with a certificate and cash prize. Organized by S.I.W.S College Wadala, Mumbai.",
+link:"https://example.com/ctf-challenge",
+banner: "/img/achievements/CTF-heist.jpg",
+},
+{
+  id: 12,
+  name:"CYSE Department",
+  date:"April 2024",
+   achievement: "Magazine Launch",
+    details: "Industry Insights: From finance to entertainment, healthcare to education, each industry grapples with its own unique challenges when it comes to combating deepfake manipulation. Our Industry Insights segment sheds light on these nuances, offering expert perspectives and innovative strategies tailored to specific sectors.",
+  link: "https://example.com/magazine-launch",
+  banner: "/img/achievements/abhayan-2.jpg",
+},
+{
+  id: 13,
+ name:"CYSE students",
+ date:"April 2024",
+  achievement: "TrustTrace",
+   details: "Introduce TrustTrace, the culmination of our students’ tireless efforts to combat the rising tide of deepfakes.",
+ link: "https://example.com/project",
+   banner: "/img/achievements/trustrace.jpg",
+},
   {
       id: 2,
       name: "Dr. Nilakshi Jain",
@@ -17,6 +63,15 @@ const achievementsData = [
       details: "AT CHANDIGARH UNIVERSITY, in collaboration with its CyberPeace Centre of Excellence under the AIT CSE department, conducted an Expert talk session on threat hunting. This session provided a deep dive into using advanced threat sensors, combining theoretical knowledge with practical cybersecurity skills.",
       link: "https://example.com/expert-talk",
        banner: "/img/achievements/session.jpg"
+  },
+  {
+    id: 1,
+    name: "Dr. Rupali Vairagade",
+    date: "14th October 2024",
+    achievement: "Insightful Tech Talk",
+    details: "Delivered an insightful Tech Talk on “India Future Ready: Safety & Cybersecurity Planning Considerations” to Second-Year students from the Computer Engineering Department at K.J. Somaiya Polytechnic under the banner of SAKEC CyberPeace Center of Excellence The session, held on 14th October 2024, empowered students with key insights into the future of cybersecurity and strategies for ensuring safety in the evolving digital landscape.",
+    link: "https://example.com/tech-talk",
+    banner: "/img/achievements/rupalimaam.png"
   },
   {
     id: 3,
@@ -36,15 +91,7 @@ const achievementsData = [
       link: "https://example.com/hod-award",
       banner: "/img/achievements/besthod.png",
   },
-   {
-      id: 5,
-      name: "CYSE Department",
-      date: "July to Oct 2024",
-      achievement: "Cybersecurity Awareness by Team",
-      details: "Exposing Digital Deceptions: Skits on Deepfake Scams, Kidnapping Hoaxes, and Social Media Blackmail In a creative and powerful initiative, Team Cyber Surksha Mandal performed engaging skits to shed light on the alarming rise of deepfake technology, misinformation, and online fraud. Through compelling performances at schools, public spaces, and colleges",
-      link: "https://example.com/awareness",
-      banner: "/img/achievements/natak.png",
-   },
+  
   {
       id: 6,
      name: "CYSE Department",
@@ -90,33 +137,9 @@ const achievementsData = [
       link: "https://example.com/cyberpeace-center",
     banner: "/img/achievements/meeting.png",
   },
-  {
-      id: 11,
-      name:"Cybersecurity Department",
-      date:"April 6th, 2024",
-      achievement: "Team Triumphs at Cython 2024",
-      details:"SAKEC Cyber Security Department Team (CyHEX Infotech Private Limited Start-up: https://cyhex.co/) has emerged victorious at the Cython 2024 Hackathon, held on April 6th, 2024, and organized by FITT-IIT Delhi. Our team has showcased remarkable talent and dedication, earning a prestigious win and a prize money of 3 Lakhs INR.",
-    link: "https://example.com/hackathon",
-     banner: "/img/achievements/cyhax-winner.jpg",
-  },
-  {
-      id: 12,
-      name:"CYSE Department",
-      date:"April 2024",
-       achievement: "Magazine Launch",
-        details: "Industry Insights: From finance to entertainment, healthcare to education, each industry grapples with its own unique challenges when it comes to combating deepfake manipulation. Our Industry Insights segment sheds light on these nuances, offering expert perspectives and innovative strategies tailored to specific sectors.",
-      link: "https://example.com/magazine-launch",
-      banner: "/img/achievements/abhayan-2.jpg",
-  },
-   {
-       id: 13,
-      name:"CYSE students",
-      date:"April 2024",
-       achievement: "Project Completion",
-        details: "Introduce TrustTrace, the culmination of our students’ tireless efforts to combat the rising tide of deepfakes.",
-      link: "https://example.com/project",
-        banner: "/img/achievements/trustrace.jpg",
-  },
+  
+ 
+ 
   {
       id: 14,
       name:"Dr. Shwetambari Borade",
@@ -162,15 +185,7 @@ const achievementsData = [
        link: "https://example.com/sttp-training",
       banner: "/img/achievements/sttp.jpg",
   },
-  {
-      id: 19,
-    name:"CYSE Students",
-    date: "Dec 2023",
-    achievement: "Won 1 lac Rupees Hackathon Prize",
-    details: "Grand Finale of Smart India Hackathon 2023 conducted at Nodal center OP Jindal University Raigarh. Team was mentored by faculty Ms. Meghali kalyankar and Ms. Prajakta Pote.",
-      link: "https://example.com/smart-india-hackathon",
-    banner: "/img/achievements/SIHOP.jpg",
-  },
+  
   {
        id: 20,
     name: "Dr. Nilakshi Jain",
@@ -360,15 +375,7 @@ const achievementsData = [
       link: "https://example.com/ceh-participants",
       banner: "/img/achievements/CEH-2023.jpg",
   },
-  {
-      id: 41,
-    name:"CYSE Students",
-     date: "Jan 2023",
-    achievement:"Secured 1st at CTF challenge",
-     details:"The team was awarded with a certificate and cash prize. Organized by S.I.W.S College Wadala, Mumbai.",
-   link:"https://example.com/ctf-challenge",
-   banner: "/img/achievements/CTF-heist.jpg",
- },
+
  {
         id: 42,
       name: "Dr. Nilakshi Jain",

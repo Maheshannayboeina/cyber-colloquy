@@ -62,7 +62,7 @@ const events = [
     id: 1,
     title: "Cybersecurity Colloquy 1.0",
     year: 2022,
-    date: "December 10, 2022",
+    date: "April 13, 2022",
     description: "Our second annual Cybersecurity Colloquy event.",
     location: "Seminar Hall",
     images: ["/img/events/cyber-colloquy.jpg", "/img/events/2022/event2.jpg"],
@@ -98,46 +98,46 @@ const events = [
       ],
     },
     activities: [
+      // {
+      //   date: "21st March",
+      //   description: "Inauguration and Keynote Session",
+      //   image: "/img/events/activity1.jpg",
+      // },
       {
-        date: "21st March",
-        description: "Inauguration and Keynote Session",
-        image: "/img/events/activity1.jpg",
-      },
-      {
-        date: "21st March",
+        date: "13th April",
         description: "Panel Discussion on Emerging Cybersecurity Threats",
         image: "/img/events/activity2.jpg",
       },
-      {
-        date: "22nd March",
-        description: "Workshop on Ethical Hacking",
-        image: "/img/events/activity3.jpg",
-      },
-      {
-        date: "22nd March",
-        description: "Workshop on AI in Cybersecurity",
-        image: "/img/events/activity4.jpg",
-      },
-      {
-        date: "23rd March",
-        description: "Technical Session on Cloud Security",
-        image: "/img/events/activity5.jpg",
-      },
-      {
-        date: "23rd March",
-        description: "Technical Session on Data Privacy",
-        image: "/img/events/activity6.jpg",
-      },
-      {
-        date: "24th March",
-        description: "Closing Ceremony and Awards",
-        image: "/img/events/activity7.jpg",
-      },
-      {
-        date: "24th March",
-        description: "Networking Lunch",
-        image: "/img/events/activity8.jpg",
-      },
+      // {
+      //   date: "22nd March",
+      //   description: "Workshop on Ethical Hacking",
+      //   image: "/img/events/activity3.jpg",
+      // },
+      // {
+      //   date: "22nd March",
+      //   description: "Workshop on AI in Cybersecurity",
+      //   image: "/img/events/activity4.jpg",
+      // },
+      // {
+      //   date: "23rd March",
+      //   description: "Technical Session on Cloud Security",
+      //   image: "/img/events/activity5.jpg",
+      // },
+      // {
+      //   date: "23rd March",
+      //   description: "Technical Session on Data Privacy",
+      //   image: "/img/events/activity6.jpg",
+      // },
+      // {
+      //   date: "24th March",
+      //   description: "Closing Ceremony and Awards",
+      //   image: "/img/events/activity7.jpg",
+      // },
+      // {
+      //   date: "24th March",
+      //   description: "Networking Lunch",
+      //   image: "/img/events/activity8.jpg",
+      // },
     ],
   },
   {
@@ -178,57 +178,67 @@ const events = [
     activities: [
       {
         date: "21st March",
-        description: "Inauguration and Keynote Session",
+        description: "Q&A Sessions",
         image: "/img/events/activity1.jpg",
       },
       {
         date: "21st March",
-        description: "Panel Discussion on Emerging Cybersecurity Threats",
+        description: "Panel Discussions",
         image: "/img/events/activity2.jpg",
       },
       {
-        date: "22nd March",
-        description: "Workshop on Ethical Hacking",
-        image: "/img/events/activity3.jpg",
+        date: "21st March",
+        description: "Networking Opportunities,",
+        image: "/img/events/activity2.jpg",
       },
       {
-        date: "22nd March",
-        description: "Workshop on AI in Cybersecurity",
-        image: "/img/events/activity4.jpg",
+        date: "21st March",
+        description: "Provide a platform for attendees to connect with peers and industry leaders",
+        image: "/img/events/activity2.jpg",
       },
-      {
-        date: "23rd March",
-        description: "Technical Session on Cloud Security",
-        image: "/img/events/activity5.jpg",
-      },
-      {
-        date: "23rd March",
-        description: "Technical Session on Data Privacy",
-        image: "/img/events/activity6.jpg",
-      },
-      {
-        date: "24th March",
-        description: "Closing Ceremony and Awards",
-        image: "/img/events/activity7.jpg",
-      },
-      {
-        date: "24th March",
-        description: "Networking Lunch",
-        image: "/img/events/activity8.jpg",
-      },
+      // {
+      //   date: "22nd March",
+      //   description: "Workshop on Ethical Hacking",
+      //   image: "/img/events/activity3.jpg",
+      // },
+      // {
+      //   date: "22nd March",
+      //   description: "Workshop on AI in Cybersecurity",
+      //   image: "/img/events/activity4.jpg",
+      // },
+      // {
+      //   date: "23rd March",
+      //   description: "Technical Session on Cloud Security",
+      //   image: "/img/events/activity5.jpg",
+      // },
+      // {
+      //   date: "23rd March",
+      //   description: "Technical Session on Data Privacy",
+      //   image: "/img/events/activity6.jpg",
+      // },
+      // {
+      //   date: "24th March",
+      //   description: "Closing Ceremony and Awards",
+      //   image: "/img/events/activity7.jpg",
+      // },
+      // {
+      //   date: "24th March",
+      //   description: "Networking Lunch",
+      //   image: "/img/events/activity8.jpg",
+      // },
     ],
   },
   {
     id: 3,
     title: "Cybersecurity Colloquy 3.0",
     year: 2024,
-    date: "September 15, 2024",
+    date: "February 15, 2024",
     description: "Our fourth Cybersecurity Colloquy event.",
     location: "Main Auditorium",
     images: ["/img/events/colloquy3.0.png", "/img/events/2024/event2.jpg"],
     tags: ["cybersecurity", "colloquy", "network security", "blockchain"],
     colloquyDetails: {
-      conductedBy: "Mr. Bob Williams",
+      // conductedBy: "Mr. Bob Williams",
       topics: ["Network Security", "Blockchain Security", "Cyber Law"],
       activities: [
         {
@@ -260,45 +270,45 @@ const events = [
     },
     activities: [
       {
-        date: "21st March",
-        description: "Inauguration and Keynote Session",
+        date: "15th Feb to 15th March",
+        description: "Hackathon Phase 1 (Online) : Challenge your skills, collaborate with global minds, and unravel the depths of cybersecurity from the comfort of your screen.",
         image: "/img/events/activity1.jpg",
       },
+      // {
+      //   date: "21st March",
+      //   description: "Panel Discussion on Emerging Cybersecurity Threats",
+      //   image: "/img/events/activity2.jpg",
+      // },
       {
-        date: "21st March",
-        description: "Panel Discussion on Emerging Cybersecurity Threats",
-        image: "/img/events/activity2.jpg",
-      },
-      {
-        date: "22nd March",
-        description: "Workshop on Ethical Hacking",
+        date: "30th – 31st March",
+        description: "Hackathon Phase 2 (Hybrid) : Take the plunge into the hybrid experience! Engage in hands-on activities, attend insightful workshops, and network with industry experts on-site at Shah and Anchor Kutchii Engineering College.",
         image: "/img/events/activity3.jpg",
       },
-      {
-        date: "22nd March",
-        description: "Workshop on AI in Cybersecurity",
-        image: "/img/events/activity4.jpg",
-      },
-      {
-        date: "23rd March",
-        description: "Technical Session on Cloud Security",
-        image: "/img/events/activity5.jpg",
-      },
-      {
-        date: "23rd March",
-        description: "Technical Session on Data Privacy",
-        image: "/img/events/activity6.jpg",
-      },
-      {
-        date: "24th March",
-        description: "Closing Ceremony and Awards",
-        image: "/img/events/activity7.jpg",
-      },
-      {
-        date: "24th March",
-        description: "Networking Lunch",
-        image: "/img/events/activity8.jpg",
-      },
+      // {
+      //   date: "22nd March",
+      //   description: "Workshop on AI in Cybersecurity",
+      //   image: "/img/events/activity4.jpg",
+      // },
+      // {
+      //   date: "23rd March",
+      //   description: "Technical Session on Cloud Security",
+      //   image: "/img/events/activity5.jpg",
+      // },
+      // {
+      //   date: "23rd March",
+      //   description: "Technical Session on Data Privacy",
+      //   image: "/img/events/activity6.jpg",
+      // },
+      // {
+      //   date: "24th March",
+      //   description: "Closing Ceremony and Awards",
+      //   image: "/img/events/activity7.jpg",
+      // },
+      // {
+      //   date: "24th March",
+      //   description: "Networking Lunch",
+      //   image: "/img/events/activity8.jpg",
+      // },
     ],
   },
 
@@ -325,44 +335,44 @@ const events = [
     activities: [
       {
         date: "21st March",
-        description: "Inauguration and Keynote Session",
+        description: "Sponsor Events",
         image: "/img/events/activity1.jpg",
       },
-      {
-        date: "21st March",
-        description: "Panel Discussion on Emerging Cybersecurity Threats",
-        image: "/img/events/activity2.jpg",
-      },
+      // {
+      //   date: "21st March",
+      //   description: "Panel Discussion on Emerging Cybersecurity Threats",
+      //   image: "/img/events/activity2.jpg",
+      // },
       {
         date: "22nd March",
-        description: "Workshop on Ethical Hacking",
+        description: "Project Expo",
         image: "/img/events/activity3.jpg",
       },
       {
         date: "22nd March",
-        description: "Workshop on AI in Cybersecurity",
+        description: "Panel Discussion",
         image: "/img/events/activity4.jpg",
       },
       {
         date: "23rd March",
-        description: "Technical Session on Cloud Security",
+        description: "Awareness Program By Mumbai and Delhi Police",
         image: "/img/events/ex1.jpg",
       },
       {
         date: "23rd March",
-        description: "Technical Session on Data Privacy",
+        description: "Award Ceremony",
         image: "/img/events/ex2.jpg",
       },
       {
         date: "24th March",
-        description: "Closing Ceremony and Awards",
+        description: "Sponsor Events",
         image: "/img/events/activity7.jpg",
       },
-      {
-        date: "24th March",
-        description: "Networking Lunch",
-        image: "/img/events/activity8.jpg",
-      },
+      // {
+      //   date: "24th March",
+      //   description: "Networking Lunch",
+      //   image: "/img/events/activity8.jpg",
+      // },
     ],
   },
 ];
