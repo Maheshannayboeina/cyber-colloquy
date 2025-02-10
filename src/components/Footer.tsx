@@ -23,34 +23,33 @@ export function Footer() {
             <div>
               <Link
                 href="/"
-                className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
+                className="flex items-center space-x-2 text-2xl font-medium text-indigo-700 dark:text-indigo-200" // Using indigo colors to match Navbar logo
               >
                 <Image
-                  src="/img/favicon2.png"
+                  src="/img/favicon4.png" // Updated logo image to favicon4.png (same as Navbar)
                   alt="Cyber Events"
-                  width="32"
-                  height="32"
-                  className="w-8 hover:scale-110 transition-transform duration-300 ease-in-out"
+                  width={180} // Adjusted width to match Navbar logo width
+                  height={40}  // Adjusted height to match Navbar logo height
+                  className="hover:scale-110 transition-transform duration-300 ease-in-out" // Hover animation for Logo (same as Navbar)
                 />
-                <span className="hover:text-indigo-700 transition-colors duration-300 ease-in-out">
-                  Cyber Events
-                </span>
+                {/* Removed text "Cyber Events" from footer logo - keeping only image for cleaner look, you can add it back if you prefer */}
               </Link>
             </div>
 
-            <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
+            <div className="max-w-md mt-4 text-gray-600 dark:text-gray-400 transition-colors duration-300"> {/* Added transition for description text color */}
               Cyber Events is the website for the Cyber Security Department at
               Shah and Anchor Kutchhi Engineering College.
             </div>
           </div>
 
           <div>
+            <div className="font-semibold text-gray-900 dark:text-gray-50 mb-2 transition-colors duration-300">Quick links</div> {/* Heading with color transition */}
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {navigation.map((item, index) => (
                 <Link
                   key={index}
                   href={`/${item.toLowerCase().replace(" ", "-")}`}
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 transition-colors duration-300 ease-in-out focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
+                  className="w-full px-4 py-2 text-gray-600 rounded-md dark:text-gray-300 hover:text-indigo-500 transition-colors duration-300 ease-in-out hover:scale-105" // Navigation Links with Hover Scale and Color Transition
                 >
                   {item}
                 </Link>
@@ -71,7 +70,7 @@ export function Footer() {
             </div>
           </div> */}
           <div className="">
-            <div>Follow us</div>
+            <div className="font-semibold text-gray-900 dark:text-gray-50 mb-2 transition-colors duration-300">Follow us</div>
             <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
               <a
                 href="https://x.com/sakec"
@@ -123,7 +122,7 @@ export function Footer() {
 
           {/* --- Re-added "Get In Touch" Section in Footer - Updated with new Address --- */}
           <div className="lg:col-span-2">
-            <div className="font-semibold text-gray-900 dark:text-gray-50">Get In Touch</div>
+            <div className="font-semibold text-gray-900 dark:text-gray-50 mb-2 transition-colors duration-300">Get In Touch</div>
             <div className="mt-5 text-gray-500 dark:text-gray-400">
               {/* Google Map Embed  */}
               <div className="aspect-w-16 aspect-h-9 mb-3 rounded-md overflow-hidden">
@@ -156,6 +155,7 @@ export function Footer() {
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
           Copyright © {new Date().getFullYear()} Cyber Security Department
+          | Made with ♥ by{"Mahesh and Saahil"}
         </div>
       </Container>
     </div>

@@ -1,7 +1,7 @@
 // src/app/events/[id]/page.tsx
 "use client";
 
-import { Container } from "@/components/Container";
+import { Container } from "@/components/Container"; // Keep the import for SectionTitle, etc., if used inside
 import { events } from "@/components/data";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -18,7 +18,7 @@ export default function EventDetailsPage() {
 
   if (!event) {
     return (
-      <Container>
+      <Container> {/* Keep Container here for "Event Not Found" error message layout */}
         <SectionTitle title="Event Not Found" />
         The event with the id {eventId} could not be found.
       </Container>
@@ -68,12 +68,12 @@ export default function EventDetailsPage() {
   );
 
   return (
-    <Container>
-      {/* Hero Section */}
+    <> {/* Changed Container to Fragment (<>) */}
+      {/* Hero Section - Container Removed */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative w-full h-[500px] mb-12 overflow-hidden rounded-2xl"
+        className="relative w-full h-[500px] mb-12 overflow-hidden"
       >
      <div className="absolute inset-0 flex items-center justify-center">
         {event.images && event.images.length > 0 && (
@@ -114,7 +114,7 @@ export default function EventDetailsPage() {
         </div>
       </motion.div>
 
-      {/* Sponsors */}
+      {/* Sponsors - No Changes */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -124,16 +124,17 @@ export default function EventDetailsPage() {
         <Sponsors />
       </motion.div>
 
-      {/* Description & Topics */}
+      {/* Description & Topics - No Changes */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
         className="mb-16 text-center max-w-3xl mx-auto"
       >
-        <h2 className="text-2xl font-semibold mb-6 text-white">
-          {event.description}
-        </h2>
+        <SectionTitle
+          preTitle=""
+          title={event.description} // Using event description as section title now
+        />
         <div className="space-y-4">
           <h4 className="text-xl font-semibold text-emerald-400">Topics</h4>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -153,7 +154,7 @@ export default function EventDetailsPage() {
         </div>
       </motion.div>
 
-      {/* Timeline Section */}
+      {/* Timeline Section - No Changes */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -165,6 +166,5 @@ export default function EventDetailsPage() {
         </h3>
         <Timeline events={timelineEvents} />
       </motion.div>
-    </Container>
-  );
+    </> );
 }

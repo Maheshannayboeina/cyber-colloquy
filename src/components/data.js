@@ -280,7 +280,7 @@ const events = [
       //   image: "/img/events/activity2.jpg",
       // },
       {
-        date: "30th – 31st March",
+        date: "30th - 31st March",
         description: "Hackathon Phase 2 (Hybrid) : Take the plunge into the hybrid experience! Engage in hands-on activities, attend insightful workshops, and network with industry experts on-site at Shah and Anchor Kutchii Engineering College.",
         image: "/img/events/activity3.jpg",
       },
