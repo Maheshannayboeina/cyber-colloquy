@@ -1,4 +1,3 @@
-// src/components/DrivingValuesSection.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -34,8 +33,8 @@ const ValueCard: React.FC<ValueCardProps> = ({ title, description, href, iconSrc
   return (
     <>
       {modalContent ? (
-        <div onClick={handleCardClick} className="cursor-pointer block rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group **flex flex-col h-full**"> {/* Added flex and h-full to the outer div */}
-          <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl border border-gray-200 dark:border-gray-700 **flex flex-col h-full justify-between**"> {/* Added flex, h-full, and justify-between to inner div */}
+        <div onClick={handleCardClick} className="cursor-pointer block rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group flex flex-col h-full">
+          <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col h-full justify-between">
             {iconSrc && (
               <div className="mb-6 flex justify-center">
                 <Image src={iconSrc} alt={iconAlt || title} width={70} height={70} className="group-hover:scale-110 transition-transform duration-200" />
@@ -49,12 +48,12 @@ const ValueCard: React.FC<ValueCardProps> = ({ title, description, href, iconSrc
                 {description}
               </p>
             )}
-            <div className="**mt-auto**"> {/* Optional: Push description to the bottom if needed */} </div>
+            <div className="mt-auto"> {/* Optional: Push description to the bottom if needed */} </div>
           </div>
         </div>
       ) : (
-        <Link href={href} className="block rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group **flex flex-col h-full**"> {/* Added flex and h-full to the Link */}
-          <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl border border-gray-200 dark:border-gray-700 **flex flex-col h-full justify-between**"> {/* Added flex, h-full, and justify-between to inner div */}
+        <Link href={href} className="block rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group flex flex-col h-full">
+          <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col h-full justify-between">
             {iconSrc && (
               <div className="mb-6 flex justify-center">
                 <Image src={iconSrc} alt={iconAlt || title} width={70} height={70} className="group-hover:scale-110 transition-transform duration-200" />
@@ -68,7 +67,7 @@ const ValueCard: React.FC<ValueCardProps> = ({ title, description, href, iconSrc
                 {description}
               </p>
             )}
-             <div className="**mt-auto**"> {/* Optional: Push description to the bottom if needed */} </div>
+             <div className="mt-auto"> {/* Optional: Push description to the bottom if needed */} </div>
           </div>
         </Link>
       )}
@@ -95,11 +94,12 @@ const DrivingValuesSection: React.FC = () => {
             description="Meet the leaders driving our cybersecurity initiatives. This description is intentionally a bit longer to test card height equalization."
           />
           <ValueCard
-            title="Board of Directors"
-            description="[Governance Board] Overseeing our strategic direction and governance."
-            href="/values-impact/board-of-directors" // Update hrefs to your dedicated pages
-            // iconSrc="/img/icons/board-of-directors.svg"
+            title="Board of Studies Members"
+            description="Explore our esteemed Board of Studies Members"
+            href="/board-of-studies-members" // Updated href to the new page URL
+            // iconSrc="/img/icons/board-of-directors.svg"  // Keep or remove icon related props as you wish
             // iconAlt="Board of Directors Icon"
+            // modalContent={<p>Detailed information about the Board of Directors will be displayed here.</p>} // REMOVE or COMMENT OUT modalContent prop
           />
           <ValueCard
             title="Centres of Excellence"

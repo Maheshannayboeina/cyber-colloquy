@@ -15,7 +15,7 @@ import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoC
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/events/colloquy4.0_banner_2.png",
+      imageUrl: "/img/events/colloquy4.0_banner.png",
       title: "",
       description: "",
     },
@@ -69,61 +69,63 @@ export default function Home() {
       description: "Demo on cyber security",
     },
 
-    
+
     // Add More videos
   ];
 
   return (
-    <Container>
+    <> {/*  Changed Container to a Fragment (<>) */}
       {/* Add the HeroCarousel component */}
       <HeroCarousel slides={heroSlides} />
       {/* Hero Section */}
-      <Hero />
-      {/* Other Sections */}
-      <SectionTitle
-        preTitle="Cyber Security Department"
-        title="Welcome to Our Cyber Event Platform"
-      >
-        Our source for all events, achievements, projects, and more from various
-        cyber security communities.
-      </SectionTitle>
-      <Benefits data={benefitOne} />
-      <Benefits imgPos="right" data={benefitTwo} />
-      <SectionTitle
-          preTitle="Our Accomplishments"
-          title="Achievements and Impact"
+      {/* <Container> */}
+        <Hero />
+        {/* Other Sections */}
+        <SectionTitle
+          preTitle="Cyber Security Department"
+          title="Welcome to Our Cyber Event Platform"
         >
-         Explore the measurable impact of our Cyber Security Department.
-      </SectionTitle>
-      <Impact />
-      <SectionTitle
-        preTitle="Explore Our Work"
-        title="Learn More About Our Activities"
-      >
-        Discover the various projects, achievements, events, and research
-        initiatives carried out by our department. Dive into the world of Cyber
-        Security with us.
-      </SectionTitle>
-      {/* <Video videoId="dQw4w9WgXcQ" /> Remove the old video component*/}
-      <VideoCarousel videos={videoSlides} />{" "}
-      {/*Use the new video carousel component*/}
-      {/* <SectionTitle
-        preTitle="Student & Faculty Highlights"
-        title="Hear From Our Community"
-      >
-        Testimonials from our students and faculty, which showcase the vibrant
-        and collaborative environment of our department.
-      </SectionTitle> */}
-      {/* <Testimonials /> */}
-      <SectionTitle
-        preTitle="Have Questions?"
-        title="Frequently Asked Questions"
-      >
-        Find answers to the common queries about our program, our department, or
-        any cyber security related questions.
-      </SectionTitle>
-      <Faq />
-      <Cta />
-    </Container>
+          Our source for all events, achievements, projects, and more from various
+          cyber security communities.
+        </SectionTitle>
+        <Benefits data={benefitOne} />
+        <Benefits imgPos="right" data={benefitTwo} />
+        <SectionTitle
+            preTitle="Our Accomplishments"
+            title="Achievements and Impact"
+          >
+           Explore the measurable impact of our Cyber Security Department.
+        </SectionTitle>
+        <Impact />
+        <SectionTitle
+          preTitle="Explore Our Work"
+          title="Learn More About Our Activities"
+        >
+          Discover the various projects, achievements, events, and research
+          initiatives carried out by our department. Dive into the world of Cyber
+          Security with us.
+        </SectionTitle>
+        {/* <Video videoId="dQw4w9WgXcQ" /> Remove the old video component*/}
+        <VideoCarousel videos={videoSlides} />{" "}
+        {/*Use the new video carousel component*/}
+        {/* <SectionTitle
+          preTitle="Student & Faculty Highlights"
+          title="Hear From Our Community"
+        >
+          Testimonials from our students and faculty, which showcase the vibrant
+          and collaborative environment of our department.
+        </SectionTitle> */}
+        {/* <Testimonials /> */}
+        <SectionTitle
+          preTitle="Have Questions?"
+          title="Frequently Asked Questions"
+        >
+          Find answers to the common queries about our program, our department, or
+          any cyber security related questions.
+        </SectionTitle>
+        <Faq />
+        <Cta />
+      {/* </Container> */}
+    </>
   );
 }
