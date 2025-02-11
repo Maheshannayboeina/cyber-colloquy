@@ -91,7 +91,7 @@ export const Navbar = ({
 
   return (
     <div className="w-full shadow">
-      <nav className="container relative flex flex-wrap items-center justify-between p-4 mx-auto lg:justify-between xl:px-1">
+      <nav className="**bg-[url('/img/benefit-one.png')] bg-cover bg-no-repeat bg-center** container relative flex flex-wrap items-center justify-between p-10 mx-auto lg:justify-between xl:px-1">
         {/* Logo - Size Fixed, Hover Animation Kept */}
         <Link
           href="/"
@@ -99,8 +99,8 @@ export const Navbar = ({
         >
           <Image
             src="/img/favicon4.png"
-            width={180}
-            height={40}
+            width={200}
+            height={50}
             alt="Cyber Colloquy"
             className="hover:scale-110 transition-transform duration-300 ease-in-out"
           />
