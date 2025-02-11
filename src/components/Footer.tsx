@@ -155,7 +155,7 @@ export function Footer() {
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
           Copyright © {new Date().getFullYear()} Cyber Security Department
-          | Made with ♥ by{"Mahesh and Saahil"}
+          
         </div>
       </Container>
     </div>
