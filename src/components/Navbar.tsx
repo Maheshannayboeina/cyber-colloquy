@@ -23,55 +23,69 @@ export const Navbar = ({
     { label: "Values & Impact", href: "/values-impact" },
   ];
 
-  const communityLinks: NavItem[] = [
-    { label: "Initiatives", href: "/initiatives" },
-    { label: "CoEs", href: "/coes" },
-    { label: "Events & Outreach", href: "/events-outreach" },
-    { label: "Policy Advocacy", href: "/policy-advocacy" },
-    { label: "Thought Leadership", href: "/thought-leadership" },
-    { label: "Skills & Capability", href: "/skills-capability" },
-    { label: "Advisories", href: "/advisories" },
-    { label: "Knowledge Center", href: "/knowledge-center" },
+  const communityLinks: NavItem[] = [ //Reusing communityLinks for "News" dropdown in bottom nav now
+    { label: "Announcements", href: "/news/announcements" },
+    { label: "Press Coverage", href: "/news/press-coverage" },
   ];
 
-  const newsLinks: NavItem[] = [
-    { label: "Page 1", href: "/news/page1" },
-    { label: "Page 2", href: "/news/page2" },
-    { label: "Page 3", href: "/news/page3" },
-    { label: "Page 4", href: "/news/page4" },
-    { label: "Page 5", href: "/news/page5" },
+  const newsLinks: NavItem[] = [ //Reusing newsLinks for "Play a game" dropdown if needed
+    { label: "Alumini", href: "#" },
+    { label: "Press Coverage", href: "#" },
+    { label: "Organizers", href: "#" },
+    { label: "Partners", href: "#" },
   ];
+
+  const initiativesResearchLinks: NavItem[] = [
+    { label: "Projects", href: "#" },
+    { label: "Patents", href: "#" },
+  ];
+
+  const knowledgeHubLinks: NavItem[] = [
+    { label: "Articles", href: "#" },
+    { label: "Cybersecurity guide", href: "#" },
+    { label: "White papers", href: "#" },
+    { label: "Advisories", href: "#" },
+  ];
+
+  const contactFaqLinks: NavItem[] = [
+    { label: "Inquiries", href: "#" },
+    { label: "FAQs", href: "#" },
+  ];
+
+  const nominationRegistrationLinks: NavItem[] = [
+    { label: "Register", href: "#" },
+    { label: "Award ceremony", href: "/award-ceremony" },
+    { label: "Project expo", href: "#" },
+    { label: "Call for sponsors", href: "#" },
+  ];
+
 
   const topNavigation: NavItem[] = [
-    { label: "About Us", href: "#" }, // Dummy href, will be button
-    { label: "Our Community", href: "#" }, // Dummy href, will be button
-    { label: "News", href: "#" }, // Dummy href, will be button
-    { label: "Events", href: "/events" }, // Events is still a link
+    { label: "About Us", href: "#" },
+    { label: "Our Community", href: "#" },
+    { label: "Events", href: "/events" },
+    { label: "Nomination & Registration", href: "#" },
   ];
 
   const bottomNavigation: NavItem[] = [
-    { label: "Initiatives", href: "#" }, // Dummy href, will be button
-    { label: "CoEs", href: "#" },        // Dummy href, will be button
-    { label: "Events & Outreach", href: "#" }, // Dummy href, will be button
-    { label: "Policy Advocacy", href: "#" }, // Dummy href, will be button
-    { label: "Thought Leadership", href: "#" }, // Dummy href, will be button
-    { label: "Skills & Capability", href: "#" }, // Dummy href, will be button
-    { label: "Advisories", href: "#" },     // Dummy href, will be button
-    { label: "Knowledge Center", href: "#" }, // Dummy href, will be button
+    { label: "Initiatives & Research", href: "#" },
+    { label: "Achievements", href: "/achievements" },
+     { label: "News", href: "#" }, // Added News here in bottom nav - now a dropdown
+    { label: "Play a game", href: "#" },
+    { label: "Knowledge Hub", href: "#" },
+    { label: "Contact & FAQ", href: "#" },
   ];
 
 
   const [infoDropdownOpen, setInfoDropdownOpen] = useState(false);
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
-  const [newsDropdownOpen, setNewsDropdownOpen] = useState(false);
-  const [initiativesDropdownOpen, setInitiativesDropdownOpen] = useState(false);
-  const [coesDropdownOpen, setCoesDropdownOpen] = useState(false);
-  const [eventsOutreachDropdownOpen, setEventsOutreachDropdownOpen] = useState(false);
-  const [policyAdvocacyDropdownOpen, setPolicyAdvocacyDropdownOpen] = useState(false);
-  const [thoughtLeadershipDropdownOpen, setThoughtLeadershipDropdownOpen] = useState(false);
-  const [skillsCapabilityDropdownOpen, setSkillsCapabilityDropdownOpen] = useState(false);
-  const [advisoriesDropdownOpen, setAdvisoriesDropdownOpen] = useState(false);
-  const [knowledgeCenterDropdownOpen, setKnowledgeCenterDropdownOpen] = useState(false);
+  const [newsDropdownOpen, setNewsDropdownOpen] = useState(false); // Re-added state for News dropdown
+  const [initiativesResearchDropdownOpen, setInitiativesResearchDropdownOpen] = useState(false);
+  const [playAGameDropdownOpen, setPlayAGameDropdownOpen] = useState(false);
+  const [knowledgeHubDropdownOpen, setKnowledgeHubDropdownOpen] = useState(false);
+  const [contactFaqDropdownOpen, setContactFaqDropdownOpen] = useState(false);
+  const [nominationRegistrationDropdownOpen, setNominationRegistrationDropdownOpen] = useState(false); // new state
+  const [bottomNewsDropdownOpen, setBottomNewsDropdownOpen] = useState(false); // new state for bottom news
 
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -79,15 +93,13 @@ export const Navbar = ({
 
   const infoDropdownRef = useRef<HTMLDivElement>(null);
   const communityDropdownRef = useRef<HTMLDivElement>(null);
-  const newsDropdownRef = useRef<HTMLDivElement>(null);
-  const initiativesDropdownRef = useRef<HTMLDivElement>(null);
-  const coesDropdownRef = useRef<HTMLDivElement>(null);
-  const eventsOutreachDropdownRef = useRef<HTMLDivElement>(null);
-  const policyAdvocacyDropdownRef = useRef<HTMLDivElement>(null);
-  const thoughtLeadershipDropdownRef = useRef<HTMLDivElement>(null);
-  const skillsCapabilityDropdownRef = useRef<HTMLDivElement>(null);
-  const advisoriesDropdownRef = useRef<HTMLDivElement>(null);
-  const knowledgeCenterDropdownRef = useRef<HTMLDivElement>(null);
+  const newsDropdownRef = useRef<HTMLDivElement>(null); // Re-added ref for News dropdown
+  const initiativesResearchDropdownRef = useRef<HTMLDivElement>(null);
+  const playAGameDropdownRef = useRef<HTMLDivElement>(null);
+  const knowledgeHubDropdownRef = useRef<HTMLDivElement>(null);
+  const contactFaqDropdownRef = useRef<HTMLDivElement>(null);
+  const nominationRegistrationDropdownRef = useRef<HTMLDivElement>(null); // new ref
+  const bottomNewsDropdownRef = useRef<HTMLDivElement>(null); // new ref for bottom news
 
 
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -97,15 +109,13 @@ export const Navbar = ({
     setMobileMenuOpen(false);
     setInfoDropdownOpen(false);
     setCommunityDropdownOpen(false);
-    setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setNewsDropdownOpen(false); // Re-added to close News dropdown on path change
+    setInitiativesResearchDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   }, [pathname]);
 
 
@@ -117,14 +127,12 @@ export const Navbar = ({
     setInfoDropdownOpen(true);
     setCommunityDropdownOpen(false);
     setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setInitiativesResearchDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   };
 
   const handleInfoMouseLeave = () => {
@@ -141,14 +149,12 @@ export const Navbar = ({
     setCommunityDropdownOpen(true);
     setInfoDropdownOpen(false);
     setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setInitiativesResearchDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   };
 
   const handleCommunityMouseLeave = () => {
@@ -157,7 +163,7 @@ export const Navbar = ({
     }, 500);
   };
 
-  const handleNewsMouseEnter = () => {
+  const handleNewsMouseEnter = () => { // Re-added handler for News
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
@@ -165,235 +171,169 @@ export const Navbar = ({
     setNewsDropdownOpen(true);
     setInfoDropdownOpen(false);
     setCommunityDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setInitiativesResearchDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   };
 
-  const handleNewsMouseLeave = () => {
+  const handleNewsMouseLeave = () => { // Re-added handler for News
     closeTimerRef.current = setTimeout(() => {
       setNewsDropdownOpen(false);
     }, 500);
   };
 
-  const handleInitiativesMouseEnter = () => {
+  const handleInitiativesResearchMouseEnter = () => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
-    setInitiativesDropdownOpen(true);
+    setInitiativesResearchDropdownOpen(true);
     setInfoDropdownOpen(false);
     setCommunityDropdownOpen(false);
     setNewsDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   };
 
-  const handleInitiativesMouseLeave = () => {
+  const handleInitiativesResearchMouseLeave = () => {
     closeTimerRef.current = setTimeout(() => {
-      setInitiativesDropdownOpen(false);
+      setInitiativesResearchDropdownOpen(false);
     }, 500);
   };
 
 
-  const handleCoesMouseEnter = () => {
+  const handlePlayAGameMouseEnter = () => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
-    setCoesDropdownOpen(true);
+    setPlayAGameDropdownOpen(true);
     setInfoDropdownOpen(false);
     setCommunityDropdownOpen(false);
     setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setInitiativesResearchDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   };
 
-  const handleCoesMouseLeave = () => {
+  const handlePlayAGameMouseLeave = () => {
     closeTimerRef.current = setTimeout(() => {
-      setCoesDropdownOpen(false);
+      setPlayAGameDropdownOpen(false);
     }, 500);
   };
 
 
-  const handleEventsOutreachMouseEnter = () => {
+  const handleKnowledgeHubMouseEnter = () => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
-    setEventsOutreachDropdownOpen(true);
+    setKnowledgeHubDropdownOpen(true);
     setInfoDropdownOpen(false);
     setCommunityDropdownOpen(false);
     setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setInitiativesResearchDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   };
 
-  const handleEventsOutreachMouseLeave = () => {
+  const handleKnowledgeHubMouseLeave = () => {
     closeTimerRef.current = setTimeout(() => {
-      setEventsOutreachDropdownOpen(false);
+      setKnowledgeHubDropdownOpen(false);
     }, 500);
   };
 
 
-  const handlePolicyAdvocacyMouseEnter = () => {
+  const handleContactFaqMouseEnter = () => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
-    setPolicyAdvocacyDropdownOpen(true);
+    setContactFaqDropdownOpen(true);
     setInfoDropdownOpen(false);
     setCommunityDropdownOpen(false);
     setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setInitiativesResearchDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   };
 
-  const handlePolicyAdvocacyMouseLeave = () => {
+  const handleContactFaqMouseLeave = () => {
     closeTimerRef.current = setTimeout(() => {
-      setPolicyAdvocacyDropdownOpen(false);
+      setContactFaqDropdownOpen(false);
     }, 500);
   };
 
-
-  const handleThoughtLeadershipMouseEnter = () => {
+  const handleNominationRegistrationMouseEnter = () => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
-    setThoughtLeadershipDropdownOpen(true);
+    setNominationRegistrationDropdownOpen(true);
     setInfoDropdownOpen(false);
     setCommunityDropdownOpen(false);
     setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setInitiativesResearchDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setBottomNewsDropdownOpen(false); // close bottom news dropdown
   };
 
-  const handleThoughtLeadershipMouseLeave = () => {
+  const handleNominationRegistrationMouseLeave = () => {
     closeTimerRef.current = setTimeout(() => {
-      setThoughtLeadershipDropdownOpen(false);
+      setNominationRegistrationDropdownOpen(false);
     }, 500);
   };
 
-
-  const handleSkillsCapabilityMouseEnter = () => {
+  const handleBottomNewsMouseEnter = () => { // new handler for bottom news
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
-    setSkillsCapabilityDropdownOpen(true);
+    setBottomNewsDropdownOpen(true);
     setInfoDropdownOpen(false);
     setCommunityDropdownOpen(false);
     setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
+    setInitiativesResearchDropdownOpen(false);
+    setPlayAGameDropdownOpen(false);
+    setKnowledgeHubDropdownOpen(false);
+    setContactFaqDropdownOpen(false);
+    setNominationRegistrationDropdownOpen(false);
   };
 
-  const handleSkillsCapabilityMouseLeave = () => {
+  const handleBottomNewsMouseLeave = () => { // new handler for bottom news
     closeTimerRef.current = setTimeout(() => {
-      setSkillsCapabilityDropdownOpen(false);
-    }, 500);
-  };
-
-
-  const handleAdvisoriesMouseEnter = () => {
-    if (closeTimerRef.current) {
-      clearTimeout(closeTimerRef.current);
-      closeTimerRef.current = null;
-    }
-    setAdvisoriesDropdownOpen(true);
-    setInfoDropdownOpen(false);
-    setCommunityDropdownOpen(false);
-    setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setKnowledgeCenterDropdownOpen(false);
-  };
-
-  const handleAdvisoriesMouseLeave = () => {
-    closeTimerRef.current = setTimeout(() => {
-      setAdvisoriesDropdownOpen(false);
-    }, 500);
-  };
-
-
-  const handleKnowledgeCenterMouseEnter = () => {
-    if (closeTimerRef.current) {
-      clearTimeout(closeTimerRef.current);
-      closeTimerRef.current = null;
-    }
-    setKnowledgeCenterDropdownOpen(true);
-    setInfoDropdownOpen(false);
-    setCommunityDropdownOpen(false);
-    setNewsDropdownOpen(false);
-    setInitiativesDropdownOpen(false);
-    setCoesDropdownOpen(false);
-    setEventsOutreachDropdownOpen(false);
-    setPolicyAdvocacyDropdownOpen(false);
-    setThoughtLeadershipDropdownOpen(false);
-    setSkillsCapabilityDropdownOpen(false);
-    setAdvisoriesDropdownOpen(false);
-  };
-
-  const handleKnowledgeCenterMouseLeave = () => {
-    closeTimerRef.current = setTimeout(() => {
-      setKnowledgeCenterDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
     }, 500);
   };
 
 
   return (
     <div className="w-full shadow">
-      <nav className="bg-[#222222] text-white relative flex flex-col lg:flex-row items-start lg:items-center justify-between p-3 mx-auto xl:px-5"> {/* Removed 'container' class */}
+      <nav className="bg-[#222222] text-white relative flex flex-col lg:flex-row items-start lg:items-center **justify-start** p-3 mx-auto xl:px-5"> {/* Changed back to justify-start */}
         {/* Logo - Big enough to span both levels */}
-        <div className="lg:mr-12 mb-4 lg:mb-0"> {/* Added margin-right for logo on desktop */}
+        <div className="lg:mr-12 mb-4 lg:mb-0">
           <Link
             href="/"
             className="flex items-center space-x-2 text-2xl font-medium dark:text-gray-100"
           >
             <Image
               src="/img/favicon4.png"
-              width={300} // Increased width to be bigger
-              height={90} // Adjusted height to maintain aspect ratio
+              width={300}
+              height={90}
               alt="Cyber Colloquy"
               className="hover:scale-105 transition-transform duration-300 ease-in-out"
             />
@@ -401,18 +341,18 @@ export const Navbar = ({
         </div>
 
         {/* Navigation Links Container - Flex Column on Desktop */}
-        <div className="lg:flex lg:flex-col lg:items-start"> {/* Changed lg:items-end to lg:items-start */}
+        <div className="lg:flex lg:flex-col lg:items-start">
           {/* Top Navigation */}
-          <div className="hidden text-center lg:flex lg:items-center mb-2"> {/* Added mb-2 for spacing between top and bottom nav on desktop */}
-            <ul className="items-center justify-start flex-1 pt-6 list-none lg:pt-0 lg:flex"> {/* Changed justify-end to justify-start */}
+          <div className="hidden text-center lg:flex lg:items-center mb-2">
+            <ul className="items-center justify-start flex-none pt-6 list-none lg:pt-0 lg:flex">
               {topNavigation.map((item, index) => (
                 <li
                   className="mr-8 nav__item relative"
                   key={index}
-                  onMouseEnter={item.label === 'About Us' ? handleInfoMouseEnter : item.label === 'Our Community' ? handleCommunityMouseEnter : item.label === 'News' ? handleNewsMouseEnter : undefined}
-                  onMouseLeave={item.label === 'About Us' ? handleInfoMouseLeave : item.label === 'Our Community' ? handleCommunityMouseLeave : item.label === 'News' ? handleNewsMouseLeave : undefined}
+                  onMouseEnter={item.label === 'About Us' ? handleInfoMouseEnter : item.label === 'Our Community' ? handleCommunityMouseEnter : item.label === 'Events' ? undefined : item.label === 'Nomination & Registration' ? handleNominationRegistrationMouseEnter : undefined} // removed news from top nav mouseover, removed Events
+                  onMouseLeave={item.label === 'About Us' ? handleInfoMouseLeave : item.label === 'Our Community' ? handleCommunityMouseLeave : item.label === 'Events' ? undefined : item.label === 'Nomination & Registration' ? handleNominationRegistrationMouseLeave : undefined} // removed news from top nav mouseover, removed Events
                 >
-                  {item.label !== 'Events' ? ( // Render button for dropdowns, Link for Events
+                  {item.label !== 'Events' && item.label !== 'Nomination & Registration' && item.label !== 'News' ? (
                     <button className="inline-block text-lg font-normal text-white no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-300 group">
                       <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
                         {item.label}
@@ -440,7 +380,7 @@ export const Navbar = ({
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -458,7 +398,7 @@ export const Navbar = ({
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -466,17 +406,18 @@ export const Navbar = ({
                     </div>
                   )}
 
-                  {item.label === 'News' && newsDropdownOpen && (
+
+                   {item.label === 'Nomination & Registration' && nominationRegistrationDropdownOpen && (
                     <div
-                      ref={newsDropdownRef}
+                      ref={nominationRegistrationDropdownRef}
                       className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handleNewsMouseLeave}
+                      onMouseLeave={handleNominationRegistrationMouseLeave}
                     >
-                      {newsLinks.map((dropdownItem, dropdownIndex) => (
+                      {nominationRegistrationLinks.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -488,155 +429,119 @@ export const Navbar = ({
             </ul>
           </div>
 
-          {/* Bottom Navigation - RE-INTRODUCED as Dropdowns */}
+          {/* Bottom Navigation */}
           <div className="hidden lg:flex lg:items-center text-center">
-            <ul className="items-center justify-start flex-1 pt-6 list-none lg:pt-0 lg:flex">
+            <ul className="items-center justify-start flex-none pt-6 list-none lg:pt-0 lg:flex">
               {bottomNavigation.map((item, index) => (
                 <li
                   className="mr-8 nav__item relative"
                   key={index}
-                  onMouseEnter={item.label === 'Initiatives' ? handleInitiativesMouseEnter : item.label === 'CoEs' ? handleCoesMouseEnter : item.label === 'Events & Outreach' ? handleEventsOutreachMouseEnter : item.label === 'Policy Advocacy' ? handlePolicyAdvocacyMouseEnter : item.label === 'Thought Leadership' ? handleThoughtLeadershipMouseEnter : item.label === 'Skills & Capability' ? handleSkillsCapabilityMouseEnter : item.label === 'Advisories' ? handleAdvisoriesMouseEnter : item.label === 'Knowledge Center' ? handleKnowledgeCenterMouseEnter : undefined}
-                  onMouseLeave={item.label === 'Initiatives' ? handleInitiativesMouseLeave : item.label === 'CoEs' ? handleCoesMouseLeave : item.label === 'Events & Outreach' ? handleEventsOutreachMouseLeave : item.label === 'Policy Advocacy' ? handlePolicyAdvocacyMouseLeave : item.label === 'Thought Leadership' ? handleThoughtLeadershipMouseLeave : item.label === 'Skills & Capability' ? handleSkillsCapabilityMouseLeave : item.label === 'Advisories' ? handleAdvisoriesMouseLeave : handleKnowledgeCenterMouseLeave}
-
+                  onMouseEnter={item.label === 'News' ? handleBottomNewsMouseEnter : item.label === 'Initiatives & Research' ? handleInitiativesResearchMouseEnter : item.label === 'Play a game' ? handlePlayAGameMouseEnter : item.label === 'Knowledge Hub' ? handleKnowledgeHubMouseEnter : item.label === 'Contact & FAQ' ? handleContactFaqMouseEnter : undefined} // Added bottom news handler
+                  onMouseLeave={item.label === 'News' ? handleBottomNewsMouseLeave : item.label === 'Initiatives & Research' ? handleInitiativesResearchMouseLeave : item.label === 'Play a game' ? handlePlayAGameMouseLeave : item.label === 'Knowledge Hub' ? handleKnowledgeHubMouseLeave : item.label === 'Contact & FAQ' ? handleContactFaqMouseLeave : undefined} // Added bottom news handler
                 >
-                  <button className="inline-block text-sm font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group">
+                  {item.label === 'Achievements' || item.label === 'News' ? ( // News and Achievement are now Links
+                    <Link
+                      href={item.href}
+                      className="inline-block text-sm font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group"
+                    >
+                      <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
+                        {item.label}
+                      </span>
+                    </Link>
+                  ) : (
+                    <button className="inline-block text-sm font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group">
                     <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
                       {item.label}
                     </span>
                   </button>
+                  )}
 
 
-                  {/* Dropdown Render Condition for Bottom Nav Items - Reusing communityLinks for all for now */}
-                  {item.label === 'Initiatives' && initiativesDropdownOpen && (
+                  {/* Dropdown Render Condition for Bottom Nav Items */}
+                  {item.label === 'Initiatives & Research' && initiativesResearchDropdownOpen && (
                     <div
-                      ref={initiativesDropdownRef}
+                      ref={initiativesResearchDropdownRef}
                       className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handleInitiativesMouseLeave}
+                      onMouseLeave={handleInitiativesResearchMouseLeave}
                     >
-                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
+                      {initiativesResearchLinks.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                         >
                           {dropdownItem.label}
                         </Link>
                       ))}
                     </div>
                   )}
-                   {item.label === 'CoEs' && coesDropdownOpen && (
+
+
+                   {item.label === 'Play a game' && playAGameDropdownOpen && (
                     <div
-                      ref={coesDropdownRef}
+                      ref={playAGameDropdownRef}
                       className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handleCoesMouseLeave}
+                      onMouseLeave={handlePlayAGameMouseLeave}
                     >
-                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
+                      {newsLinks.map((dropdownItem, dropdownIndex) => ( //Reusing newsLinks - you can change this to a dedicated array if needed
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                         >
                           {dropdownItem.label}
                         </Link>
                       ))}
                     </div>
                   )}
-                   {item.label === 'Events & Outreach' && eventsOutreachDropdownOpen && (
+
+                   {item.label === 'Knowledge Hub' && knowledgeHubDropdownOpen && (
                     <div
-                      ref={eventsOutreachDropdownRef}
+                      ref={knowledgeHubDropdownRef}
                       className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handleEventsOutreachMouseLeave}
+                      onMouseLeave={handleKnowledgeHubMouseLeave}
                     >
-                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
+                      {knowledgeHubLinks.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                         >
                           {dropdownItem.label}
                         </Link>
                       ))}
                     </div>
                   )}
-                   {item.label === 'Policy Advocacy' && policyAdvocacyDropdownOpen && (
+
+                   {item.label === 'Contact & FAQ' && contactFaqDropdownOpen && (
                     <div
-                      ref={policyAdvocacyDropdownRef}
+                      ref={contactFaqDropdownRef}
                       className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handlePolicyAdvocacyMouseLeave}
+                      onMouseLeave={handleContactFaqMouseLeave}
                     >
-                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
+                      {contactFaqLinks.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                         >
                           {dropdownItem.label}
                         </Link>
                       ))}
                     </div>
                   )}
-                   {item.label === 'Thought Leadership' && thoughtLeadershipDropdownOpen && (
+
+                  {item.label === 'News' && bottomNewsDropdownOpen && ( // Bottom News dropdown rendering
                     <div
-                      ref={thoughtLeadershipDropdownRef}
-                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handleThoughtLeadershipMouseLeave}
+                      ref={bottomNewsDropdownRef}
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      onMouseLeave={handleBottomNewsMouseLeave}
                     >
-                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
+                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Using communityLinks for bottom news dropdown
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
-                        >
-                          {dropdownItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                   {item.label === 'Skills & Capability' && skillsCapabilityDropdownOpen && (
-                    <div
-                      ref={skillsCapabilityDropdownRef}
-                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handleSkillsCapabilityMouseLeave}
-                    >
-                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
-                        <Link
-                          key={dropdownIndex}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
-                        >
-                          {dropdownItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                   {item.label === 'Advisories' && advisoriesDropdownOpen && (
-                    <div
-                      ref={advisoriesDropdownRef}
-                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handleAdvisoriesMouseLeave}
-                    >
-                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
-                        <Link
-                          key={dropdownIndex}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
-                        >
-                          {dropdownItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                   {item.label === 'Knowledge Center' && knowledgeCenterDropdownOpen && (
-                    <div
-                      ref={knowledgeCenterDropdownRef}
-                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                      onMouseLeave={handleKnowledgeCenterMouseLeave}
-                    >
-                      {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
-                        <Link
-                          key={dropdownIndex}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -652,18 +557,7 @@ export const Navbar = ({
         </div>
 
 
-        {/* Get Started Button and Theme Changer - Right Side, Flex Column on Desktop */}
-        <div className="gap-3 nav__item mr-2 lg:flex lg:flex-col lg:ml-8 lg:order-2 items-center"> {/* Flex column for button and theme changer on desktop, added ml-8 for spacing */}
-          <div className="hidden mr-3 lg:flex nav__item mb-2"> {/* Added mb-2 for spacing */}
-            <button
-              onClick={() => setGetStartedModalOpen()}
-              className="px-6 py-2 text-white bg-[#6366f1] rounded-md hover:bg-[#4f46e5] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors duration-300"
-            >
-              Get Started
-            </button>
-          </div>
-          <ThemeChanger />
-        </div>
+        <ThemeChanger /> {/* Removed className="ml-auto" */}
 
 
         {/* Mobile Menu - No Changes */}
