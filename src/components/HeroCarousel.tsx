@@ -35,15 +35,18 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
 
     return (
         <Slider {...settings}>
-            {slides.map((slide, index) => (
-                <div key={index}>
-                    <HeroBanner
-                        imageUrl={slide.imageUrl}
-                        title={slide.title}
-                        description={slide.description}
-                    />
-                </div>
-            ))}
+            {slides.map((slide, index) => {
+                console.log("Slide Data:", slide);
+                return (
+                    <div key={index}>
+                        <HeroBanner
+                            imageUrl={slide.imageUrl}
+                            title={slide.title}
+                            description={slide.description}
+                        />
+                    </div>
+                )
+            })}
         </Slider>
     );
 };

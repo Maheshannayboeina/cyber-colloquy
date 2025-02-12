@@ -8,7 +8,7 @@ import { Benefits } from "@/components/Benefits";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 import { Impact } from "@/components/impact";
-import HeroCarousel from "@/components/HeroCarousel";
+import HeroCarousel from "@/components/HeroCarousel"; // Import HeroCarousel
 import { benefitOne, benefitTwo } from "@/components/data";
 import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoCarousel
 
@@ -20,12 +20,12 @@ export default function Home() {
       description: "",
     },
     {
-      imageUrl: "/img/events/banner2.png",
+      imageUrl: "/img/events/colloquy4.0_banner.png",
       title: "",
       description: "",
     },
     {
-      imageUrl: "/img/events/banner3.png",
+      imageUrl: "/img/events/colloquy4.0_banner.png",
       title: "",
       description: "",
     },
