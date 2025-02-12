@@ -433,14 +433,14 @@ export const Navbar = ({
                   {item.label === 'About Us' && infoDropdownOpen && (
                     <div
                       ref={infoDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleInfoMouseLeave}
                     >
                       {infoLinks.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -451,14 +451,14 @@ export const Navbar = ({
                   {item.label === 'Our Community' && communityDropdownOpen && (
                     <div
                       ref={communityDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleCommunityMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -469,14 +469,14 @@ export const Navbar = ({
                   {item.label === 'News' && newsDropdownOpen && (
                     <div
                       ref={newsDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleNewsMouseLeave}
                     >
                       {newsLinks.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -510,14 +510,14 @@ export const Navbar = ({
                   {item.label === 'Initiatives' && initiativesDropdownOpen && (
                     <div
                       ref={initiativesDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleInitiativesMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -527,14 +527,14 @@ export const Navbar = ({
                    {item.label === 'CoEs' && coesDropdownOpen && (
                     <div
                       ref={coesDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleCoesMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -544,14 +544,14 @@ export const Navbar = ({
                    {item.label === 'Events & Outreach' && eventsOutreachDropdownOpen && (
                     <div
                       ref={eventsOutreachDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleEventsOutreachMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -561,14 +561,14 @@ export const Navbar = ({
                    {item.label === 'Policy Advocacy' && policyAdvocacyDropdownOpen && (
                     <div
                       ref={policyAdvocacyDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handlePolicyAdvocacyMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -578,14 +578,14 @@ export const Navbar = ({
                    {item.label === 'Thought Leadership' && thoughtLeadershipDropdownOpen && (
                     <div
                       ref={thoughtLeadershipDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleThoughtLeadershipMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -595,14 +595,14 @@ export const Navbar = ({
                    {item.label === 'Skills & Capability' && skillsCapabilityDropdownOpen && (
                     <div
                       ref={skillsCapabilityDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleSkillsCapabilityMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -612,14 +612,14 @@ export const Navbar = ({
                    {item.label === 'Advisories' && advisoriesDropdownOpen && (
                     <div
                       ref={advisoriesDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleAdvisoriesMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -629,14 +629,14 @@ export const Navbar = ({
                    {item.label === 'Knowledge Center' && knowledgeCenterDropdownOpen && (
                     <div
                       ref={knowledgeCenterDropdownRef}
-                      className="absolute top-full left-0 z-10 **bg-white dark:bg-gray-800** text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                      className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
                       onMouseLeave={handleKnowledgeCenterMouseLeave}
                     >
                       {communityLinks.map((dropdownItem, dropdownIndex) => ( // Reusing communityLinks
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-lg font-normal **text-gray-800 dark:text-gray-200** no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 transition-colors duration-300 hover:scale-105 hover:bg-gray-100"
                         >
                           {dropdownItem.label}
                         </Link>
