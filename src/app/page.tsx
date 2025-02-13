@@ -81,7 +81,7 @@ export default function Home() {
       {/* <Container> */}
         {/* <Hero /> */}
         {/* Other Sections */}
-        {/* <SectionTitle
+         {/* <SectionTitle
           preTitle="Cyber Security Department"
           title="Welcome to Our Cyber Event Platform"
         >
@@ -89,22 +89,22 @@ export default function Home() {
           cyber security communities.
         </SectionTitle>
         <Benefits data={benefitOne} />
-        <Benefits imgPos="right" data={benefitTwo} />
+        <Benefits imgPos="right" data={benefitTwo} /> */}
         <SectionTitle
             preTitle="Our Accomplishments"
             title="Achievements and Impact"
           >
            Explore the measurable impact of our Cyber Security Department.
-        </SectionTitle> */}
+        </SectionTitle> 
         <Impact />
-        {/* <SectionTitle
+        <SectionTitle
           preTitle="Explore Our Work"
           title="Learn More About Our Activities"
         >
           Discover the various projects, achievements, events, and research
           initiatives carried out by our department. Dive into the world of Cyber
           Security with us.
-        </SectionTitle> */}
+        </SectionTitle>
         {/* <Video videoId="dQw4w9WgXcQ" /> Remove the old video component*/}
         <VideoCarousel videos={videoSlides} />{" "}
         {/*Use the new video carousel component*/}
