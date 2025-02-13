@@ -15,17 +15,17 @@ import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoC
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/events/colloquy4.0_banner.png",
+      imageUrl: "/img/Banner.png",
       title: "",
       description: "",
     },
     {
-      imageUrl: "/img/events/colloquy4.0_banner.png",
+      imageUrl: "/img/Banner.png",
       title: "",
       description: "",
     },
     {
-      imageUrl: "/img/events/colloquy4.0_banner.png",
+      imageUrl: "/img/Banner.png",
       title: "",
       description: "",
     },
