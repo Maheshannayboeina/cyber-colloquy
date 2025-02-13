@@ -8,3 +8,9 @@
     @apply dark:bg-trueGray-900;
   }
 }
+
+@layer components {
+  .bg-image-url {
+    background-image: url('/img/nav-bar-bg.png'); /* Replace with your image path */
+  }
+}

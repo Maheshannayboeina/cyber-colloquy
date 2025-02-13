@@ -53,7 +53,7 @@ export const Navbar = ({
   ];
 
   const nominationRegistrationLinks: NavItem[] = [
-    { label: "Register", href: "#" },
+    { label: "Register", href: "/register" },
     { label: "Award ceremony", href: "/award-ceremony" },
     { label: "Project expo", href: "#" },
     { label: "Call for sponsors", href: "#" },
@@ -323,7 +323,7 @@ export const Navbar = ({
 
   return (
     <div className="w-full shadow">
-      <nav className="bg-[#222222] text-white relative flex flex-col lg:flex-row items-start lg:items-center **justify-start** p-3 mx-auto xl:px-5"> {/* Changed back to justify-start */}
+      <nav className={`text-white relative flex flex-col lg:flex-row items-start lg:items-center justify-start p-3 mx-auto xl:px-5 bg-cover bg-center`} style={{ backgroundImage: `url('/img/navbar-bg.png')` }}>
         {/* Logo - Big enough to span both levels */}
         <div className="lg:mr-12 mb-4 lg:mb-0">
           <Link
