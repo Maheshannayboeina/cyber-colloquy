@@ -22,7 +22,7 @@ const ThemeChanger = () => {
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
+            className="w-7 h-7"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -39,7 +39,7 @@ const ThemeChanger = () => {
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             fill="none"
             stroke="currentColor"
             strokeWidth="1"

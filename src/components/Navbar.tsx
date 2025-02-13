@@ -1,7 +1,7 @@
 //src/components/Navbar.tsx
 "use client";
 import Link from "next/link";
-import ThemeChanger from "./DarkSwitch";
+import ThemeChanger from "./DarkSwitch"; // Assuming your ThemeChanger is in DarkSwitch.tsx
 import Image from "next/image";
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -16,6 +16,8 @@ export const Navbar = ({
 }: {
   setGetStartedModalOpen: () => void;
 }) => {
+  // ... (rest of your Navbar component code as provided)
+
   const infoLinks: NavItem[] = [
     { label: "Department Info", href: "/department-info" },
     { label: "Faculty", href: "/faculty" }, // corrected href to faculty
@@ -311,6 +313,10 @@ export const Navbar = ({
       setBottomNewsDropdownOpen(false);
     }, 500);
   };
+  const imageStyle = {
+    maxWidth: '100%',
+    maxHeight: '100%',
+  };
 
   return (
     <div className="w-full shadow">
@@ -321,18 +327,21 @@ export const Navbar = ({
         }}
       >
         {/* Logo */}
-        <div className="lg:mr-12 mb-4 lg:mb-0">
+        <div className="lg:mr-12 mb-4 lg:mb-0 **w-[300px] h-[90px] overflow-hidden**"> {/* MODIFIED: Added fixed width, height, and overflow hidden */}
           <Link
             href="/"
             className="flex items-center space-x-2 text-2xl font-medium dark:text-gray-100"
           >
-            <Image
-              src="/img/favicon4.png"
-              width={300}
-              height={90}
-              alt="Cyber Colloquy"
-              className="hover:scale-105 transition-transform duration-300 ease-in-out"
-            />
+
+
+<Image
+  src="/img/favicon4.png"
+  width={300}
+  height={90}
+  alt="Cyber Colloquy"
+  className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain"
+  style={imageStyle} // Use the defined style object here
+/>
           </Link>
         </div>
 
@@ -451,7 +460,7 @@ export const Navbar = ({
           {/* Bottom Navigation */}
           <div
             className="hidden text-center lg:flex lg:items-center text-center"
-            style={{ backgroundColor: "#1f2937" }}
+            style={{ backgroundColor: "#0D5EDF" }}
           >
             <ul className="items-center justify-start flex-none pt-1 pb-0 list-none lg:pt-0 lg:flex">
               {bottomNavigation.map((item, index) => (
@@ -517,6 +526,7 @@ export const Navbar = ({
                             href={dropdownItem.href}
                             className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                           >
+                            
                             {dropdownItem.label}
                           </Link>
                         )
@@ -601,7 +611,9 @@ export const Navbar = ({
           </div>
         </div>
 
-        <ThemeChanger />
+        <div className="absolute top-5 right-5"> {/* ADDED POSITIONING HERE */}
+          <ThemeChanger />
+        </div>
 
         {/* Mobile Menu - You can add your mobile menu implementation here */}
         <div className="lg:hidden">
