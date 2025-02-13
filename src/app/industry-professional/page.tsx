@@ -3,137 +3,115 @@ import React from "react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { motion } from "framer-motion";
+import { FaBuilding, FaUsers, FaHandshake, FaArrowRight } from 'react-icons/fa'; // Import icons
 
 const industryProfessionalForm = {
-  title: "Industry Professional Registration", // Keep full title for form context
+  title: "Industry Professional Registration",
   description: "Industry professionals can register here to connect with our department.",
   link: "https://docs.google.com/forms/d/1_hIOg7-UGJT47wJ4uxl2zFF0xepSSLQyDwqxrulrPao/edit?usp=sharing_eil&ts=67aaf15e",
 };
 
-const IndustryProfessionalPage: React.FC = () => { // Component name shortened
+const IndustryProfessionalPage: React.FC = () => {
   return (
     <Container>
       <SectionTitle
         preTitle="Connect with Us"
-        title="Industry Professional Registration" // Keeping full title for clarity in heading
+        title="Industry Professional Registration"
         align="center"
-        className="text-indigo-700 dark:text-indigo-500"
+        className="text-blue-700 dark:text-blue-500"
       >
         Join our network of industry professionals and collaborate with our Cyber Security Department.
       </SectionTitle>
 
       <motion.div
-        className="bg-gray-50 dark:bg-gray-900 p-8 rounded-lg shadow-md mb-8 max-w-screen-md mx-auto animate-fade-in-container"
+        className="bg-white dark:bg-gray-800 p-10 rounded-2xl shadow-xl mb-12 max-w-screen-lg mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.3 }}
       >
-        {/* Introduction for Industry Professionals Section */}
+        {/* Introduction Section */}
         <motion.div
-          className="mb-8 flex flex-col items-center text-center animate-form-item"
-          initial={{ opacity: 0, scale: 0.95, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: 0 * 0.07,
-            ease: "easeInOut",
-          }}
-          whileHover={{ scale: 1.02, boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.99 }}
+          className="mb-10 flex items-center space-x-6"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <h2 className="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">
-            Engage with Future Cyber Security Leaders
-          </h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
-            Our department is dedicated to fostering the next generation of cyber security experts. We invite industry professionals like you to connect with our students, faculty, and research initiatives. Your expertise and insights are invaluable to our community.
-          </p>
+          <FaBuilding className="text-blue-500 dark:text-blue-400 text-4xl" />
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+              Engage with Future Cyber Security Leaders
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">
+              Connect with our students, faculty, and research initiatives. Your expertise is invaluable to our community.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Benefits of Registration for Industry Professionals Section */}
+        {/* Benefits Section */}
         <motion.div
-          className="mb-8 flex flex-col items-center text-center animate-form-item"
-          initial={{ opacity: 0, scale: 0.95, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: 0.1 * 0.07,
-            ease: "easeInOut",
-          }}
-          whileHover={{ scale: 1.02, boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.99 }}
+          className="mb-10"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">
-            Benefits of Joining Our Industry Network
+          <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4 flex items-center space-x-2">
+            <FaUsers className="text-blue-500" />
+            <span>Benefits of Joining Our Industry Network</span>
           </h3>
-          <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 mb-4">
-            <li>Access to a pool of talented and motivated cyber security students.</li>
-            <li>Opportunities to participate in guest lectures, workshops, and mentorship programs.</li>
-            <li>Early access to research findings and innovative projects from our department.</li>
-            <li>Networking events and forums to connect with faculty and other industry professionals.</li>
-            <li>Potential to shape curriculum and research directions to align with industry needs.</li>
+          <ul className="list-disc pl-8 text-gray-700 dark:text-gray-300 space-y-2">
+            <li>Access to talented cyber security students.</li>
+            <li>Guest lectures, workshops, and mentorship opportunities.</li>
+            <li>Early access to research findings.</li>
+            <li>Networking events with faculty and industry peers.</li>
+            <li>Shape curriculum to align with industry needs.</li>
           </ul>
         </motion.div>
 
-        {/* Areas of Collaboration (Example Section - Adapt based on your department's focus) */}
+        {/* Collaboration Areas Section */}
         <motion.div
-          className="mb-8 flex flex-col items-center text-center animate-form-item"
-          initial={{ opacity: 0, scale: 0.95, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: 0.2 * 0.07,
-            ease: "easeInOut",
-          }}
-          whileHover={{ scale: 1.02, boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.99 }}
+          className="mb-10"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">
-            Potential Areas for Collaboration
+          <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4 flex items-center space-x-2">
+            <FaHandshake className="text-blue-500" />
+            <span>Potential Areas for Collaboration</span>
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
-            We are open to collaboration in various areas, including:
-          </p>
-          <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 mb-4">
+          <ul className="list-disc pl-8 text-gray-700 dark:text-gray-300 space-y-2">
             <li>Project sponsorships and research partnerships.</li>
-            <li>Internship and co-op opportunities for our students.</li>
-            <li>Curriculum development and industry-relevant course content.</li>
-            <li>Guest speaking and industry seminars.</li>
+            <li>Internships and co-op opportunities.</li>
+            <li>Curriculum development.</li>
+            <li>Guest speaking and seminars.</li>
             <li>Joint workshops and training programs.</li>
           </ul>
         </motion.div>
 
-
-        {/* Call to Action - Register as Industry Professional Section */}
+        {/* Call to Action Section */}
         <motion.div
-          className="mb-8 flex flex-col items-center text-center animate-form-item"
-          initial={{ opacity: 0, scale: 0.95, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: 0.3 * 0.07,
-            ease: "easeInOut",
-          }}
-          whileHover={{ scale: 1.02, boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.99 }}
+          className="text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">
-            Register to Connect with Our Department
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+            Ready to Connect?
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
-            Take the first step to partner with us!  Register as an industry professional to stay informed about our activities and explore collaboration opportunities. Click the button below to access the registration form.
+          <p className="text-gray-700 dark:text-gray-300 mb-6">
+            Register to connect with our department and explore collaboration opportunities.
           </p>
           <a
             href={industryProfessionalForm.link}
-            className="inline-block bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition duration-300"
             target="_blank" rel="noopener noreferrer"
           >
-            Register as Industry Professional {/* Shortened button text */}
+            Register as Industry Professional
+            <FaArrowRight className="ml-2" />
           </a>
         </motion.div>
-
       </motion.div>
     </Container>
   );
 };
 
-export default IndustryProfessionalPage; // Component name shortened
+export default IndustryProfessionalPage;

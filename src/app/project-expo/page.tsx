@@ -3,140 +3,129 @@ import React from "react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { motion } from "framer-motion";
+import { FaLightbulb, FaMicrochip, FaUsers, FaCalendarAlt, FaArrowRight } from 'react-icons/fa'; // Import icons
 
-const registrationForm = { // Renamed to registrationForm to clarify its purpose
-  title: "Project Expo Registration", // Keep title for button text and potential sub-heading
-  description: "Register your project for the upcoming Project Expo.", // Keep description for registration section
+const registrationForm = {
+  title: "Project Expo Registration",
+  description: "Register your project for the upcoming Project Expo.",
   link: "https://docs.google.com/forms/d/1UvQmlhxpkJmMn2L0PZ0c8SdATgTg1wLljtbF0MQeKVY/edit?usp=sharing_eil&ts=67aaf27f",
 };
 
-const ProjectExpoPage: React.FC = () => { // Renamed component to ProjectExpoPage
+const ProjectExpoPage: React.FC = () => {
   return (
     <Container>
       <SectionTitle
         preTitle="Annual Showcase"
-        title="Cyber Security Project Expo" // More general title for the Expo Page
+        title="Cyber Security Project Expo"
         align="center"
-        className="text-indigo-700 dark:text-indigo-500"
+        className="text-blue-700 dark:text-blue-500" // Updated Color
       >
         Discover innovation, network with experts, and celebrate the best projects in Cyber Security.
-        {/* General description of the Project Expo event */}
       </SectionTitle>
 
       <motion.div
-        className="bg-gray-50 dark:bg-gray-900 p-8 rounded-lg shadow-md mb-8 max-w-screen-md mx-auto animate-fade-in-container"
+        className="bg-white dark:bg-gray-800 p-10 rounded-2xl shadow-xl mb-12 max-w-screen-lg mx-auto" // Updated Styles
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.3 }}
       >
-        {/* Introduction to Project Expo Section (Moved to the top) */}
+        {/* Welcome Section */}
         <motion.div
-          className="mb-8 flex flex-col items-center text-center animate-form-item"
-          initial={{ opacity: 0, scale: 0.95, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: 0 * 0.07,
-            ease: "easeInOut",
-          }}
-          whileHover={{ scale: 1.02, boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.99 }}
+          className="mb-10 flex items-center space-x-6"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <h2 className="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">
-            Welcome to the Cyber Security Project Expo!
-          </h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
-            The Cyber Security Project Expo is our premier annual event dedicated to showcasing outstanding projects from students, researchers, and professionals in the field. It's a unique opportunity to witness cutting-edge innovations, engage with creators, and explore the future of cyber security.
-            {/* Add more general descriptive content about the expo here: overall purpose, highlights, target audience for visitors, etc. */}
-          </p>
-          {/* You could add key highlights of the expo here, like keynote speakers, workshops, networking events etc. */}
+          <FaLightbulb className="text-blue-500 dark:text-blue-400 text-4xl" /> {/* Icon */}
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+              Welcome to the Cyber Security Project Expo!
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">
+              Witness cutting-edge innovations, engage with creators, and explore the future of cyber security.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Explore Inspiring Projects Section (Keep this section) */}
+        {/* Project Highlights Section */}
         <motion.div
-          className="mb-8 flex flex-col items-center text-center animate-form-item"
-          initial={{ opacity: 0, scale: 0.95, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: 0.1 * 0.07,
-            ease: "easeInOut",
-          }}
-          whileHover={{ scale: 1.02, boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.99 }}
+          className="mb-10"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">
-            Discover Project Highlights
+          <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4 flex items-center space-x-2">
+            <FaMicrochip className="text-blue-500" /> {/* Icon */}
+            <span>Discover Project Highlights</span>
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
-            Browse through a selection of featured projects from past expos and get a glimpse of the innovation and talent within our community.
-            {/* Replace with actual project highlights - use a list, grid, or carousel. */}
-            [Project Highlight 1 Title and Short Description] <br/>
-            [Project Highlight 2 Title and Short Description] <br/>
-            [Project Highlight 3 Title and Short Description] <br/>
-            {/* ... more project highlights ... */}
-          </p>
-        </motion.div>
-
-        {/* Why Attend Section (New Section - Focus on visitors/attendees) */}
-        <motion.div
-          className="mb-8 flex flex-col items-center text-center animate-form-item"
-          initial={{ opacity: 0, scale: 0.95, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: 0.2 * 0.07,
-            ease: "easeInOut",
-          }}
-          whileHover={{ scale: 1.02, boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.99 }}
-        >
-          <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">
-            Why Attend the Project Expo?
-          </h3>
-          <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 mb-4">
-            <li>Witness the latest innovations in Cyber Security.</li>
-            <li>Network with leading experts and professionals.</li>
-            <li>Discover potential collaborations and partnerships.</li>
-            <li>Learn about emerging trends and technologies.</li>
-            <li>Support and celebrate the achievements of our community.</li>
-            {/* Add more reasons for people to ATTEND the expo as visitors */}
+          <ul className="list-disc pl-8 text-gray-700 dark:text-gray-300 space-y-2">
+            <li><b>[Project 1 Title]:</b> [Short Description].</li>
+            <li><b>[Project 2 Title]:</b> [Short Description].</li>
+            <li><b>[Project 3 Title]:</b> [Short Description].</li>
           </ul>
         </motion.div>
 
-
-        {/* Call for Project Submissions / Registration Section (Moved Registration here) */}
+        {/* Why Attend Section */}
         <motion.div
-          className="mb-8 flex flex-col items-center text-center animate-form-item"
-          initial={{ opacity: 0, scale: 0.95, y: 5 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: 0.3 * 0.07,
-            ease: "easeInOut",
-          }}
-          whileHover={{ scale: 1.02, boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.99 }}
+          className="mb-10"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">
-            Submit Your Project to the Expo
+          <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4 flex items-center space-x-2">
+            <FaUsers className="text-blue-500" /> {/* Icon */}
+            <span>Why Attend the Project Expo?</span>
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
-            Are you working on an exciting Cyber Security project?  Showcase your work at the Project Expo!  Submit your project for a chance to gain recognition, receive valuable feedback, and connect with the community.
-            {/* Add information about project submission guidelines, deadlines, eligibility criteria etc. */}
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
-             {registrationForm.description} {/* Re-using the original description */}
+          <ul className="list-disc pl-8 text-gray-700 dark:text-gray-300 space-y-2">
+            <li>Witness the latest innovations.</li>
+            <li>Network with leading experts.</li>
+            <li>Discover potential collaborations.</li>
+            <li>Learn about emerging trends.</li>
+            <li>Support the Cyber Security community.</li>
+          </ul>
+        </motion.div>
+
+        {/* Submit Project Section */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
+        >
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+            Ready to Showcase Your Project?
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-6">
+            Submit your project and gain recognition at the Project Expo!
           </p>
           <a
             href={registrationForm.link}
-            className="inline-block bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition duration-300"
             target="_blank" rel="noopener noreferrer"
           >
-            Register Your Project Here
+            Register Your Project <FaArrowRight className="ml-2" /> {/* Icon */}
           </a>
         </motion.div>
 
+         {/* Expo Date and Location Section */}
+         <motion.div
+          className="mb-10 flex items-center space-x-6"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+          <FaCalendarAlt className="text-blue-500 dark:text-blue-400 text-4xl" />
+          <div>
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
+              Expo Date and Location
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
+             Date: 21st to 24th March <br/>
+              Location: Seminar Hall
+              {/* Add actual location, date, time here */}
+            </p>
+          </div>
+        </motion.div>
       </motion.div>
     </Container>
   );
