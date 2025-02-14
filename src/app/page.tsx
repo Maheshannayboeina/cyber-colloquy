@@ -11,6 +11,7 @@ import { Impact } from "@/components/impact";
 import HeroCarousel from "@/components/HeroCarousel"; // Import HeroCarousel
 import { benefitOne, benefitTwo } from "@/components/data";
 import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoCarousel
+import { AuroraHero } from "@/components/AurorHero";
 
 export default function Home() {
   const heroSlides = [
@@ -76,7 +77,8 @@ export default function Home() {
   return (
     <> {/*  Changed Container to a Fragment (<>) */}
       {/* Add the HeroCarousel component */}
-      <HeroCarousel slides={heroSlides} />
+      <AuroraHero />
+      {/* <HeroCarousel slides={heroSlides} /> */}
       {/* Hero Section */}
       {/* <Container> */}
         {/* <Hero /> */}
