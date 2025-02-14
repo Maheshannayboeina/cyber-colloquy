@@ -8,29 +8,34 @@ import { Benefits } from "@/components/Benefits";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 import { Impact } from "@/components/impact";
-import HeroCarousel from "@/components/HeroCarousel"; // Import HeroCarousel
+import HeroCarousel from "@/components/HeroCarousel"; // Import HeroCarousel - not used but kept import just in case for future
 import { benefitOne, benefitTwo } from "@/components/data";
 import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoCarousel
-import { AuroraHero } from "@/components/AurorHero";
+// import { AuroraHero } from "@/components/AurorHero"; // Assuming you are not using AuroraHero anymore
+import { HeroBanner } from "@/components/HeroBanner"; // Import HeroBanner
 
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/Banner.png",
-      title: "",
-      description: "",
+      imageUrl: "/img/Banner.png", // Replace with your actual banner image path
+      title: "Cyber Colloquy 4.0",
+      description: "Join us for Cyber Colloquy 4.0, the premier event for cybersecurity enthusiasts and professionals alike! Explore cutting-edge topics, engage with industry experts, and network with peers.",
+      subtitle: "Engage | Learn | Innovate",
+      buttonText: "Explore Events",
+      buttonHref: "/events", // Adjust this link to your events page
     },
-    {
-      imageUrl: "/img/Banner.png",
-      title: "",
-      description: "",
-    },
-    {
-      imageUrl: "/img/Banner.png",
-      title: "",
-      description: "",
-    },
-    // Add more slides as needed
+    // You can remove the other slides as we are displaying only one static banner
+    // {
+    //   imageUrl: "/img/Banner.png",
+    //   title: "",
+    //   description: "",
+    // },
+    // {
+    //   imageUrl: "/img/Banner.png",
+    //   title: "",
+    //   description: "",
+    // },
+    // Add more slides as needed if you decide to revert to carousel later
   ];
 
   const videoSlides = [
@@ -78,7 +83,15 @@ export default function Home() {
     <> {/*  Changed Container to a Fragment (<>) */}
       {/* Add the HeroCarousel component */}
       {/* <AuroraHero /> */}
-       <HeroCarousel slides={heroSlides} /> 
+       {/* <HeroCarousel slides={heroSlides} /> */} {/* Commented out HeroCarousel */}
+       <HeroBanner
+          imageUrl={heroSlides[0].imageUrl}
+          title={heroSlides[0].title}
+          description={heroSlides[0].description}
+          subtitle={heroSlides[0].subtitle}
+          buttonText={heroSlides[0].buttonText}
+          buttonHref={heroSlides[0].buttonHref}
+        />
       {/* Hero Section */}
       {/* <Container> */}
         {/* <Hero /> */}
@@ -97,7 +110,7 @@ export default function Home() {
             title="Achievements and Impact"
           >
            Explore the measurable impact of our Cyber Security Department.
-        </SectionTitle> 
+        </SectionTitle>
         <Impact />
         <SectionTitle
           preTitle="Explore Our Work"
