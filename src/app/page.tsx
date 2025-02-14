@@ -77,8 +77,8 @@ export default function Home() {
   return (
     <> {/*  Changed Container to a Fragment (<>) */}
       {/* Add the HeroCarousel component */}
-      <AuroraHero />
-      {/* <HeroCarousel slides={heroSlides} /> */}
+      {/* <AuroraHero /> */}
+       <HeroCarousel slides={heroSlides} /> 
       {/* Hero Section */}
       {/* <Container> */}
         {/* <Hero /> */}
