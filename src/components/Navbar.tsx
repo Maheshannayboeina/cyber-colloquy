@@ -19,13 +19,15 @@ export const Navbar = ({
 }) => {
   const infoLinks: NavItem[] = [
     { label: "Department Info", href: "/department-info" },
-    { label: "Faculty", href: "/faculty" },
+    { label: "Faculty", href: "/about" },
     { label: "Values & Impact", href: "/values-impact" },
   ];
 
   const communityLinks: NavItem[] = [
-    { label: "Announcements", href: "/news/announcements" },
-    { label: "Press Coverage", href: "/news/press-coverage" },
+    { label: "Alumni", href: "/contributors/alumni" },
+    { label: "Contributors", href: "/contributors/all" },
+    { label: "Organizers", href: "/contributors/organizers" },
+    { label: "Partners", href: "/contributors/partners" },
   ];
 
   const playAGameLinks: NavItem[] = [
@@ -34,9 +36,8 @@ export const Navbar = ({
   ];
 
   const initiativesResearchLinks: NavItem[] = [
-    { label: "Projects", href: "/research/projects" },
-    { label: "Patents", href: "/research/patents" },
-    { label: "Publications", href: "/research/publications" },
+    { label: "Projects", href: "/projects" },
+    { label: "Patents", href: "/patents" },
     { label: "Grants", href: "/research/grants" },
   ];
 
@@ -56,10 +57,11 @@ export const Navbar = ({
   ];
 
   const nominationRegistrationLinks: NavItem[] = [
-    { label: "Register", href: "/register" },
-    { label: "Award ceremony", href: "/award-ceremony" },
-    { label: "Project expo", href: "#" },
-    { label: "Call for sponsors", href: "#" },
+    { label: "Register", href: "/cyber-colloquy-4.0" },
+    { label: "Call for Industry professionals", href: "/industry-professional" },
+    { label: "Project Expo", href: "/project-expo" },
+    { label: "Call for sponsors", href: "/sponsor" },
+    { label: "Award Ceremony", href: "#" },
   ];
 
   const topNavigation: NavItem[] = [
@@ -606,6 +608,7 @@ export const Navbar = ({
 
 
   return (
+    
     <div className="w-full shadow">
       <nav
         className={`text-white relative flex flex-col lg:flex-row lg:items-center justify-between p-1 xl:px-10 w-full`}
@@ -629,6 +632,7 @@ export const Navbar = ({
             />
           </Link>
         </div>
+        
 
         {/* Conditionally render desktop navigation or mobile menu based on isZoomed */}
         {!isZoomed ? (
@@ -741,7 +745,12 @@ export const Navbar = ({
                     </li>
                   ))}
                 </ul>
+                
+              <div className="top-0 right-100 lg:static lg:top-auto lg:right-auto">
+                <ThemeChanger />
               </div>
+              </div>
+              
 
               {/* Bottom Navigation */}
               <div
@@ -898,7 +907,7 @@ export const Navbar = ({
                 </ul>
               </div>
             </div>
-
+            
             {/* Mobile Menu Icon (for desktop view - hidden when zoomed) */}
             <div className="lg:hidden flex items-center"> {/* Only show on mobile when not zoomed */}
               <button
@@ -931,13 +940,9 @@ export const Navbar = ({
           /* Render Menubar component when isZoomed is true */
           <MenuBarContent />
         )}
-
-        <div className="absolute top-3 right-4 lg:static lg:top-auto lg:right-auto">
-          <ThemeChanger />
-        </div>
-
-
+        
       </nav>
+      
       {/* Bottom Navigation Bar - Conditionally render only when zoomed and mobile menu NOT open */}
       {isZoomed && !mobileMenuOpen && (
         <div
