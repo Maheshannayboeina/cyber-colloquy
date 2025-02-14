@@ -29,7 +29,7 @@ function MousePosition(): MousePosition {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, []); // No changes here, this one works fine.
 
   return mousePosition;
 }
@@ -78,7 +78,7 @@ type Circle = {
 
 export const Particles: React.FC<ParticlesProps> = ({
   className = "",
-  quantity = 100,
+  quantity = 150,
   staticity = 50,
   ease = 50,
   size = 0.4,
@@ -126,15 +126,15 @@ export const Particles: React.FC<ParticlesProps> = ({
       }
       window.removeEventListener("resize", handleResize);
     };
-  }, [color]);
+  }, [color]); // Now it listens for changes in 'color'
 
   useEffect(() => {
     onMouseMove();
-  }, [mousePosition.x, mousePosition.y]);
+  }, [mousePosition.x, mousePosition.y]); // This effect depends on mouse position
 
   useEffect(() => {
     initCanvas();
-  }, [refresh]);
+  }, [refresh]); // Only rerun when 'refresh' prop changes
 
   const initCanvas = () => {
     resizeCanvas();
@@ -180,7 +180,7 @@ export const Particles: React.FC<ParticlesProps> = ({
     const y = Math.floor(Math.random() * canvasSize.current.h);
     const translateX = 0;
     const translateY = 0;
-    const pSize = Math.floor(Math.random() * 2) + size;
+    const pSize = Math.floor(Math.random() * 2.5) + size;
     const alpha = 0;
     const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
     const dx = (Math.random() - 0.5) * 0.1;
@@ -275,11 +275,9 @@ export const Particles: React.FC<ParticlesProps> = ({
       circle.x += circle.dx + vx;
       circle.y += circle.dy + vy;
       circle.translateX +=
-        (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) /
-        ease;
+        (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) / ease;
       circle.translateY +=
-        (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) /
-        ease;
+        (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) / ease;
 
       drawCircle(circle, true);
 

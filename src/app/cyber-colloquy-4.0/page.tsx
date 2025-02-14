@@ -76,7 +76,7 @@ const CyberColloquy4Page: React.FC = () => {
         >
           <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4 flex items-center space-x-2">
             <FaMicrophone className="text-blue-500" /> {/* Icon - Mic for Learning/Speaking */}
-            <span>What You'll Gain at Cyber Colloquy 4.0</span>
+            <span>What You&apos;ll Gain at Cyber Colloquy 4.0</span>
           </h3>
           <ul className="list-disc pl-8 text-gray-700 dark:text-gray-300 space-y-2">
             <li>Stay Updated: Learn the latest in cyber security.</li>
@@ -118,7 +118,7 @@ const CyberColloquy4Page: React.FC = () => {
             Ready to Join Cyber Colloquy 4.0?
           </h3>
           <p className="text-gray-700 dark:text-gray-300 mb-6">
-            Don't miss out! Register to secure your spot and be part of the conversation.
+            Don&apos;t miss out! Register to secure your spot and be part of the conversation.
           </p>
           <a
             href={cyberColloquyForm.link}
