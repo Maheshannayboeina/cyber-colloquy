@@ -37,8 +37,8 @@ export const Navbar = ({
 
   const initiativesResearchLinks: NavItem[] = [
     { label: "Projects", href: "/projects" },
-    { label: "Publications", href: "/patents" },
-    // { label: "Grants", href: "/research/grants" },
+    { label: "Publications", href: "/publications" },
+    { label: "Patents", href: "/patents" },
   ];
 
   const knowledgeHubLinks: NavItem[] = [
@@ -58,7 +58,7 @@ export const Navbar = ({
 
   const nominationRegistrationLinks: NavItem[] = [
     { label: "Register", href: "/cyber-colloquy-4.0" },
-    { label: "Call for Industry professionals", href: "/industry-professional" },
+    { label: "Industry Attendies", href: "/industry-professional" },
     { label: "Project Expo", href: "/project-expo" },
     { label: "Call for sponsors", href: "/sponsor" },
     { label: "Award Ceremony", href: "/awards" },
@@ -71,26 +71,18 @@ export const Navbar = ({
     { label: "Nomination & Registration", href: "#" },
   ];
 
-  const bottomNavigation: NavItem[] = [
+  const bottomNavigationItems: NavItem[] = [ // Renamed to bottomNavigationItems
     { label: "Initiatives & Research", href: "#" },
     { label: "Achievements", href: "/achievements" },
-    { label: "News", href: "#" }, 
+    { label: "News", href: "https://www.sakec.ac.in/cyse/cyse-announcements/" },
     { label: "Play a game", href: "#" },
     { label: "Knowledge Hub", href: "#" },
     { label: "Contact & FAQ", href: "#" },
-// News moved to bottom navigation
-  ];
-
-  // New newsLinks array for News dropdown
-  const newsLinks: NavItem[] = [
-    { label: "Announcements", href: "/news/announcements" },
-    { label: "Press coverage", href: "/news/press-coverage" },
   ];
 
 
   const [infoDropdownOpen, setInfoDropdownOpen] = useState(false);
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
-  const [bottomNewsDropdownOpen, setBottomNewsDropdownOpen] = useState(false); // Renamed to bottomNewsDropdownOpen
   const [initiativesResearchDropdownOpen, setInitiativesResearchDropdownOpen] = useState(false);
   const [playAGameDropdownOpen, setPlayAGameDropdownOpen] = useState(false);
   const [knowledgeHubDropdownOpen, setKnowledgeHubDropdownOpen] = useState(false);
@@ -103,7 +95,6 @@ export const Navbar = ({
 
   const infoDropdownRef = useRef<HTMLDivElement>(null);
   const communityDropdownRef = useRef<HTMLDivElement>(null);
-  const bottomNewsDropdownRef = useRef<HTMLDivElement>(null); // Renamed to bottomNewsDropdownRef
   const initiativesResearchDropdownRef = useRef<HTMLDivElement>(null);
   const playAGameDropdownRef = useRef<HTMLDivElement>(null);
   const knowledgeHubDropdownRef = useRef<HTMLDivElement>(null);
@@ -129,7 +120,6 @@ export const Navbar = ({
       // Close all dropdowns on resize/zoom change for better UX
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
@@ -148,7 +138,6 @@ export const Navbar = ({
       setMobileMenuOpen(false);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
@@ -165,7 +154,6 @@ export const Navbar = ({
       }
       setInfoDropdownOpen(true);
       setCommunityDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
@@ -190,7 +178,6 @@ export const Navbar = ({
       }
       setCommunityDropdownOpen(true);
       setInfoDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
@@ -207,30 +194,6 @@ export const Navbar = ({
     }
   };
 
-  const handleNewsMouseEnter = () => { // handleNewsMouseEnter - now for bottom news
-    if (!isZoomed) {
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setBottomNewsDropdownOpen(true); // Open Bottom News Dropdown
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    }
-  };
-
-  const handleNewsMouseLeave = () => { // handleNewsMouseLeave - now for bottom news
-    if (!isZoomed) {
-      closeTimerRef.current = setTimeout(() => {
-        setBottomNewsDropdownOpen(false); // Close Bottom News Dropdown
-      }, 500);
-    }
-  };
 
   const handleInitiativesResearchMouseEnter = () => {
     if (!isZoomed) {
@@ -241,7 +204,6 @@ export const Navbar = ({
       setInitiativesResearchDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
@@ -266,7 +228,6 @@ export const Navbar = ({
       setPlayAGameDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
@@ -291,7 +252,6 @@ export const Navbar = ({
       setKnowledgeHubDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setContactFaqDropdownOpen(false);
@@ -316,7 +276,6 @@ export const Navbar = ({
       setContactFaqDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
@@ -341,12 +300,9 @@ export const Navbar = ({
       setNominationRegistrationDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     }
   };
 
@@ -372,7 +328,6 @@ export const Navbar = ({
     const [mobilePlayAGameDropdownOpen, setMobilePlayAGameDropdownOpen] = useState(false);
     const [mobileKnowledgeHubDropdownOpen, setMobileKnowledgeHubDropdownOpen] = useState(false);
     const [mobileContactFaqDropdownOpen, setMobileContactFaqDropdownOpen] = useState(false);
-    const [mobileBottomNewsDropdownOpen, setMobileBottomNewsDropdownOpen] = useState(false); // Renamed to mobileBottomNewsDropdownOpen
 
 
     return (
@@ -485,18 +440,17 @@ export const Navbar = ({
               </ul>
             </div>
             <div className="bg-gray-100 dark:bg-gray-700 h-[1px] mx-4 my-2"></div>
-            <div className="px-6 py-4">
+             <div className="px-6 py-4">
               <ul className="space-y-4">
                 <li className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">Bottom Navigation</li>
-                {bottomNavigation.map((item, index) => (
+                {bottomNavigationItems.map((item, index) => ( // Use bottomNavigationItems here
                   <li key={`bottom-mobile-${index}`}>
                      <button
-                      onClick={() => {
+                       onClick={() => {
                         if (item.label === "Initiatives & Research") setMobileInitiativesResearchDropdownOpen(!mobileInitiativesResearchDropdownOpen);
                         if (item.label === "Play a game") setMobilePlayAGameDropdownOpen(!mobilePlayAGameDropdownOpen);
                         if (item.label === "Knowledge Hub") setMobileKnowledgeHubDropdownOpen(!mobileKnowledgeHubDropdownOpen);
                         if (item.label === "Contact & FAQ") setMobileContactFaqDropdownOpen(!mobileContactFaqDropdownOpen);
-                        if (item.label === "News") setMobileBottomNewsDropdownOpen(!mobileBottomNewsDropdownOpen); // Mobile Bottom News Dropdown
                       }}
                       className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
                     >
@@ -517,7 +471,7 @@ export const Navbar = ({
                       </ul>
                     )}
                      {(item.label === "Play a game" && mobilePlayAGameDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
+                       <ul className="ml-4 space-y-2">
                         {playAGameLinks.map((dropdownItem, dropdownIndex) => (
                           <li key={dropdownIndex}>
                             <Link
@@ -547,20 +501,6 @@ export const Navbar = ({
                      {(item.label === "Contact & FAQ" && mobileContactFaqDropdownOpen) && (
                       <ul className="ml-4 space-y-2">
                         {contactFaqLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {(item.label === "News" && mobileBottomNewsDropdownOpen) && ( // Mobile Bottom News Dropdown
-                      <ul className="ml-4 space-y-2">
-                        {newsLinks.map((dropdownItem, dropdownIndex) => ( // Use newsLinks here
                           <li key={dropdownIndex}>
                             <Link
                               href={dropdownItem.href}
@@ -616,8 +556,6 @@ export const Navbar = ({
             <div className="lg:flex lg:flex-col lg:items-start">
               {/* Top Navigation */}
               <div className="hidden text-center lg:flex lg:items-center mb-1 lg:mb-0 pb-1 ">
-                {/* Desktop Top Navigation - UL and Links (same as before) */}
-                {/* ... */}
                 <ul className="items-center justify-start flex-none pt-1 list-none lg:pt-2 lg:flex lg:items-center">
                   {topNavigation.map((item, index) => (
                     <li
@@ -642,8 +580,6 @@ export const Navbar = ({
                               : undefined
                       }
                     >
-                      {/* ... Desktop Top Navigation Links ... */}
-                      {/* ... Desktop Top Navigation Links and Dropdowns (same as before) ... */}
                        {item.label !== "Events" &&
                         item.label !== "Nomination & Registration" ? (
                         <button className="inline-block text-[1.7rem] font-bold text-white no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-300 group">
@@ -727,162 +663,139 @@ export const Navbar = ({
               </div>
 
 
-              {/* Bottom Navigation */}
-              <div
-                className="hidden text-center lg:flex lg:items-center text-center"
-                style={{ backgroundColor: "#0D5EDF" }}
-              >
-                {/* Desktop Bottom Navigation - UL and Links (same as before) */}
-                {/* ... */}
-                <ul className="items-center justify-start flex-none pt-1 pb-0 list-none lg:pt-0 lg:flex">
-                  {bottomNavigation.map((item, index) => (
-                    <li
-                      className="mr-20 nav__item relative"
-                      key={index}
-                      onMouseEnter={
-                        item.label === "News"
-                          ? handleNewsMouseEnter // handleNewsMouseEnter for bottom nav news
-                          : item.label === "Initiatives & Research"
-                            ? handleInitiativesResearchMouseEnter
-                            : item.label === "Play a game"
-                              ? handlePlayAGameMouseEnter
-                              : item.label === "Knowledge Hub"
-                                ? handleKnowledgeHubMouseEnter
-                                : item.label === "Contact & FAQ"
-                                  ? handleContactFaqMouseEnter
-                                  : undefined
-                      }
-                      onMouseLeave={
-                        item.label === "News"
-                          ? handleNewsMouseLeave // handleNewsMouseLeave for bottom nav news
-                          : item.label === "Initiatives & Research"
-                            ? handleInitiativesResearchMouseLeave
-                            : item.label === "Play a game"
-                              ? handlePlayAGameMouseLeave
-                              : item.label === "Knowledge Hub"
-                                ? handleKnowledgeHubMouseLeave
-                                : item.label === "Contact & FAQ"
-                                  ? handleContactFaqMouseLeave
-                                  : undefined
-                      }
-                    >
-                      {/* ... Desktop Bottom Navigation Links ... */}
-                      {/* ... Desktop Bottom Navigation Links and Dropdowns (same as before) ... */}
-                      {item.label === "Achievements" || item.label === "News" ? (
-                        <Link
-                          href={item.href}
-                          className="inline-block text-xl font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group"
-                        >
-                          <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
-                            {item.label}
-                          </span>
-                        </Link>
-                      ) : (
-                        <button className="inline-block text-xl font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group">
-                          <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
-                            {item.label}
-                          </span>
-                        </button>
-                      )}
+              {/* Bottom Navigation (Desktop - **NOW CONDITIONAL**) */}
+              { !mobileMenuOpen && ( // **CONDITION ADDED: Render only if mobileMenuOpen is false**
+                <div
+                  className="hidden text-center lg:flex lg:items-center text-center"
+                  style={{ backgroundColor: "#0D5EDF" }}
+                >
+                  <ul className="items-center justify-start flex-none pt-1 pb-0 list-none lg:pt-0 lg:flex">
+                    {bottomNavigationItems.map((item, index) => ( // Use bottomNavigationItems here
+                      <li
+                        className="mr-20 nav__item relative"
+                        key={index}
+                        onMouseEnter={
+                          item.label === "Initiatives & Research"
+                              ? handleInitiativesResearchMouseEnter
+                              : item.label === "Play a game"
+                                ? handlePlayAGameMouseEnter
+                                : item.label === "Knowledge Hub"
+                                  ? handleKnowledgeHubMouseEnter
+                                  : item.label === "Contact & FAQ"
+                                    ? handleContactFaqMouseEnter
+                                    : undefined
+                        }
+                        onMouseLeave={
+                          item.label === "Initiatives & Research"
+                              ? handleInitiativesResearchMouseLeave
+                              : item.label === "Play a game"
+                                ? handlePlayAGameMouseLeave
+                                : item.label === "Knowledge Hub"
+                                  ? handleKnowledgeHubMouseLeave
+                                  : item.label === "Contact & FAQ"
+                                    ? handleContactFaqMouseLeave
+                                    : undefined
+                        }
+                      >
+                        {item.label === "Achievements" || item.label === "News" ? (
+                          <Link
+                            href={item.href}
+                            className="inline-block text-xl font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group"
+                          >
+                            <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
+                              {item.label}
+                            </span>
+                          </Link>
+                        ) : (
+                          <button className="inline-block text-xl font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group">
+                            <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
+                              {item.label}
+                            </span>
+                          </button>
+                        )}
 
-                      {/* Dropdown Render Condition for Bottom Nav Items */}
-                      {item.label === "Initiatives & Research" && initiativesResearchDropdownOpen && (
-                        <div
-                          ref={initiativesResearchDropdownRef}
-                          className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handleInitiativesResearchMouseLeave}
-                        >
-                          {initiativesResearchLinks.map((dropdownItem, dropdownIndex) => (
-                            <Link
-                              key={dropdownIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                        {/* Dropdown Render Condition for Bottom Nav Items */}
+                        {item.label === "Initiatives & Research" && initiativesResearchDropdownOpen && (
+                          <div
+                            ref={initiativesResearchDropdownRef}
+                            className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                            onMouseLeave={handleInitiativesResearchMouseLeave}
+                          >
+                            {initiativesResearchLinks.map((dropdownItem, dropdownIndex) => (
+                              <Link
+                                key={dropdownIndex}
+                                href={dropdownItem.href}
+                                className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
 
 
-                      {item.label === "Play a game" && playAGameDropdownOpen && (
-                        <div
-                          ref={playAGameDropdownRef}
-                          className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handlePlayAGameMouseLeave}
-                        >
-                          {playAGameLinks.map((dropdownItem, dropdownIndex) => (
-                            <Link
-                              key={dropdownIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                        {item.label === "Play a game" && playAGameDropdownOpen && (
+                          <div
+                            ref={playAGameDropdownRef}
+                            className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                            onMouseLeave={handlePlayAGameMouseLeave}
+                          >
+                            {playAGameLinks.map((dropdownItem, dropdownIndex) => (
+                              <Link
+                                key={dropdownIndex}
+                                href={dropdownItem.href}
+                                className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
 
-                      {item.label === "Knowledge Hub" && knowledgeHubDropdownOpen && (
-                        <div
-                          ref={knowledgeHubDropdownRef}
-                          className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handleKnowledgeHubMouseLeave}
-                        >
-                          {knowledgeHubLinks.map((dropdownItem, dropdownIndex) => (
-                            <Link
-                              key={dropdownIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                        {item.label === "Knowledge Hub" && knowledgeHubDropdownOpen && (
+                          <div
+                            ref={knowledgeHubDropdownRef}
+                            className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                            onMouseLeave={handleKnowledgeHubMouseLeave}
+                          >
+                            {knowledgeHubLinks.map((dropdownItem, dropdownIndex) => (
+                              <Link
+                                key={dropdownIndex}
+                                href={dropdownItem.href}
+                                className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
 
-                      {item.label === "Contact & FAQ" && contactFaqDropdownOpen && (
-                        <div
-                          ref={contactFaqDropdownRef}
-                          className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handleContactFaqMouseLeave}
-                        >
-                          {contactFaqLinks.map((dropdownItem, dropdownIndex) => (
-                            <Link
-                              key={dropdownIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                      {item.label === "News" && bottomNewsDropdownOpen && ( // Bottom News Dropdown
-                        <div
-                          ref={bottomNewsDropdownRef}
-                          className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handleNewsMouseLeave} // handleNewsMouseLeave for bottom news
-                        >
-                          {newsLinks.map((dropdownItem, dropdownIndex) => ( // Use newsLinks here
-                            <Link
-                              key={dropdownIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                        {item.label === "Contact & FAQ" && contactFaqDropdownOpen && (
+                          <div
+                            ref={contactFaqDropdownRef}
+                            className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
+                            onMouseLeave={handleContactFaqMouseLeave}
+                          >
+                            {contactFaqLinks.map((dropdownItem, dropdownIndex) => (
+                              <Link
+                                key={dropdownIndex}
+                                href={dropdownItem.href}
+                                className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* Mobile Menu Icon (for desktop view - hidden when zoomed) */}
-            <div className="lg:hidden flex items-center"> {/* Only show on mobile when not zoomed */}
+            <div className="lg:hidden flex items-center">
               <MenuBarContent />
             </div>
           </>
@@ -892,43 +805,6 @@ export const Navbar = ({
         )}
 
       </nav>
-
-      {/* Bottom Navigation Bar - Conditionally render only when zoomed and mobile menu NOT open */}
-      {isZoomed && !mobileMenuOpen && (
-        <div
-            className="lg:hidden text-center flex justify-center text-center"
-            style={{ backgroundColor: "#0D5EDF" }}
-          >
-            {/* Bottom Mobile Navigation - UL and Links (same as before) */}
-            {/* ... */}
-            <ul className="flex justify-around w-full items-center pt-2 pb-2 list-none lg:pt-0 lg:flex">
-              {bottomNavigation.map((item, index) => (
-                <li
-                  className="nav__item relative"
-                  key={index}
-                >
-                  {/* ... Bottom Mobile Navigation Links ... */}
-                  {item.label === "Achievements" || item.label === "News" ? (
-                    <Link
-                      href={item.href}
-                      className="inline-block text-base font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group"
-                    >
-                      <span className="block px-2 py-1 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
-                        {item.label}
-                      </span>
-                    </Link>
-                  ) : (
-                    <button className="inline-block text-base font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group">
-                      <span className="block px-2 py-1 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
-                        {item.label}
-                      </span>
-                    </button>
-                  )}
-                </li>
-              ))}
-            </ul>
-        </div>
-      )}
     </div>
   );
 };
