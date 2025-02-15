@@ -24,18 +24,6 @@ export default function Home() {
       buttonText: "Explore Events",
       buttonHref: "/events", // Adjust this link to your events page
     },
-    // You can remove the other slides as we are displaying only one static banner
-    // {
-    //   imageUrl: "/img/Banner.png",
-    //   title: "",
-    //   description: "",
-    // },
-    // {
-    //   imageUrl: "/img/Banner.png",
-    //   title: "",
-    //   description: "",
-    // },
-    // Add more slides as needed if you decide to revert to carousel later
   ];
 
   const videoSlides = [

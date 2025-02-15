@@ -8,7 +8,7 @@ import { FaBuilding, FaUsers, FaHandshake, FaArrowRight } from 'react-icons/fa';
 const industryProfessionalForm = {
   title: "Industry Professional Registration",
   description: "Industry professionals can register here to connect with our department.",
-  link: "https://docs.google.com/forms/d/1_hIOg7-UGJT47wJ4uxl2zFF0xepSSLQyDwqxrulrPao/edit?usp=sharing_eil&ts=67aaf15e",
+  link: "https://forms.gle/KuWNQjPX2KypN7Kt5",
 };
 
 const IndustryProfessionalPage: React.FC = () => {
@@ -36,7 +36,7 @@ const IndustryProfessionalPage: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <FaBuilding className="text-blue-500 dark:text-blue-400 text-4xl" />
+          <FaBuilding className="text-blue-500 dark:text-yellow-500 text-4xl" />
           <div>
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
               Engage with Future Cyber Security Leaders
@@ -54,8 +54,8 @@ const IndustryProfessionalPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4 flex items-center space-x-2">
-            <FaUsers className="text-blue-500" />
+          <h3 className="text-xl font-semibold text-blue-600 dark:text-yellow-500 mb-4 flex items-center space-x-2">
+            <FaUsers className="text-yellow-500" />
             <span>Benefits of Joining Our Industry Network</span>
           </h3>
           <ul className="list-disc pl-8 text-gray-700 dark:text-gray-300 space-y-2">
@@ -74,8 +74,8 @@ const IndustryProfessionalPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4 flex items-center space-x-2">
-            <FaHandshake className="text-blue-500" />
+          <h3 className="text-xl font-semibold text-blue-600 dark:text-yellow-500 mb-4 flex items-center space-x-2">
+            <FaHandshake className="text-yellow-500" />
             <span>Potential Areas for Collaboration</span>
           </h3>
           <ul className="list-disc pl-8 text-gray-700 dark:text-gray-300 space-y-2">
@@ -102,7 +102,7 @@ const IndustryProfessionalPage: React.FC = () => {
           </p>
           <a
             href={industryProfessionalForm.link}
-            className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition duration-300"
+            className="inline-flex items-center bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-xl transition duration-300"
             target="_blank" rel="noopener noreferrer"
           >
             Register as Industry Professional

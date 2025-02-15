@@ -8,7 +8,7 @@ import { FaShieldAlt, FaCalendarAlt, FaMicrophone, FaUsers, FaArrowRight } from 
 const cyberColloquyForm = {
   title: "Cyber Colloquy 4.0 Registration",
   description: "Register for Cyber Colloquy 4.0 event.",
-  link: "https://docs.google.com/forms/d/1vnzfI_CtaqPpMxWMifcgMYV99nZMCfjeMoMuFP7dzMY/edit?usp=sharing_eil&ts=67aaf11f",
+  link: "https://forms.gle/PKJUsn61ran1Q7tH6",
 };
 
 const CyberColloquy4Page: React.FC = () => {

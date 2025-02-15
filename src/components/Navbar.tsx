@@ -37,8 +37,8 @@ export const Navbar = ({
 
   const initiativesResearchLinks: NavItem[] = [
     { label: "Projects", href: "/projects" },
-    { label: "Patents", href: "/patents" },
-    { label: "Grants", href: "/research/grants" },
+    { label: "Publications", href: "/patents" },
+    // { label: "Grants", href: "/research/grants" },
   ];
 
   const knowledgeHubLinks: NavItem[] = [
@@ -61,7 +61,7 @@ export const Navbar = ({
     { label: "Call for Industry professionals", href: "/industry-professional" },
     { label: "Project Expo", href: "/project-expo" },
     { label: "Call for sponsors", href: "/sponsor" },
-    { label: "Award Ceremony", href: "#" },
+    { label: "Award Ceremony", href: "/awards" },
   ];
 
   const topNavigation: NavItem[] = [
@@ -74,34 +74,42 @@ export const Navbar = ({
   const bottomNavigation: NavItem[] = [
     { label: "Initiatives & Research", href: "#" },
     { label: "Achievements", href: "/achievements" },
-    { label: "News", href: "#" },
+    { label: "News", href: "#" }, 
     { label: "Play a game", href: "#" },
     { label: "Knowledge Hub", href: "#" },
     { label: "Contact & FAQ", href: "#" },
+// News moved to bottom navigation
   ];
+
+  // New newsLinks array for News dropdown
+  const newsLinks: NavItem[] = [
+    { label: "Announcements", href: "/news/announcements" },
+    { label: "Press coverage", href: "/news/press-coverage" },
+  ];
+
 
   const [infoDropdownOpen, setInfoDropdownOpen] = useState(false);
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
-  const [newsDropdownOpen, setNewsDropdownOpen] = useState(false);
+  const [bottomNewsDropdownOpen, setBottomNewsDropdownOpen] = useState(false); // Renamed to bottomNewsDropdownOpen
   const [initiativesResearchDropdownOpen, setInitiativesResearchDropdownOpen] = useState(false);
   const [playAGameDropdownOpen, setPlayAGameDropdownOpen] = useState(false);
   const [knowledgeHubDropdownOpen, setKnowledgeHubDropdownOpen] = useState(false);
   const [contactFaqDropdownOpen, setContactFaqDropdownOpen] = useState(false);
   const [nominationRegistrationDropdownOpen, setNominationRegistrationDropdownOpen] = useState(false);
-  const [bottomNewsDropdownOpen, setBottomNewsDropdownOpen] = useState(false);
+
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const infoDropdownRef = useRef<HTMLDivElement>(null);
   const communityDropdownRef = useRef<HTMLDivElement>(null);
-  const newsDropdownRef = useRef<HTMLDivElement>(null);
+  const bottomNewsDropdownRef = useRef<HTMLDivElement>(null); // Renamed to bottomNewsDropdownRef
   const initiativesResearchDropdownRef = useRef<HTMLDivElement>(null);
   const playAGameDropdownRef = useRef<HTMLDivElement>(null);
   const knowledgeHubDropdownRef = useRef<HTMLDivElement>(null);
   const contactFaqDropdownRef = useRef<HTMLDivElement>(null);
   const nominationRegistrationDropdownRef = useRef<HTMLDivElement>(null);
-  const bottomNewsDropdownRef = useRef<HTMLDivElement>(null);
+
 
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -121,13 +129,12 @@ export const Navbar = ({
       // Close all dropdowns on resize/zoom change for better UX
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     };
 
     window.addEventListener('resize', handleResize);
@@ -141,13 +148,12 @@ export const Navbar = ({
       setMobileMenuOpen(false);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     }
   }, [isZoomed, pathname]);
 
@@ -159,13 +165,12 @@ export const Navbar = ({
       }
       setInfoDropdownOpen(true);
       setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     }
   };
 
@@ -185,13 +190,12 @@ export const Navbar = ({
       }
       setCommunityDropdownOpen(true);
       setInfoDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     }
   };
 
@@ -203,13 +207,13 @@ export const Navbar = ({
     }
   };
 
-  const handleNewsMouseEnter = () => {
+  const handleNewsMouseEnter = () => { // handleNewsMouseEnter - now for bottom news
     if (!isZoomed) {
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
         closeTimerRef.current = null;
       }
-      setNewsDropdownOpen(true);
+      setBottomNewsDropdownOpen(true); // Open Bottom News Dropdown
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
@@ -217,14 +221,13 @@ export const Navbar = ({
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     }
   };
 
-  const handleNewsMouseLeave = () => {
+  const handleNewsMouseLeave = () => { // handleNewsMouseLeave - now for bottom news
     if (!isZoomed) {
       closeTimerRef.current = setTimeout(() => {
-        setNewsDropdownOpen(false);
+        setBottomNewsDropdownOpen(false); // Close Bottom News Dropdown
       }, 500);
     }
   };
@@ -238,12 +241,11 @@ export const Navbar = ({
       setInitiativesResearchDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     }
   };
 
@@ -264,12 +266,11 @@ export const Navbar = ({
       setPlayAGameDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setContactFaqDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     }
   };
 
@@ -290,7 +291,7 @@ export const Navbar = ({
       setKnowledgeHubDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setContactFaqDropdownOpen(false);
@@ -315,12 +316,11 @@ export const Navbar = ({
       setContactFaqDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
-      setBottomNewsDropdownOpen(false);
     }
   };
 
@@ -341,7 +341,7 @@ export const Navbar = ({
       setNominationRegistrationDropdownOpen(true);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
+      setBottomNewsDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
@@ -358,31 +358,7 @@ export const Navbar = ({
     }
   };
 
-  const handleBottomNewsMouseEnter = () => {
-    if (!isZoomed) {
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setBottomNewsDropdownOpen(true);
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setNewsDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    }
-  };
 
-  const handleBottomNewsMouseLeave = () => {
-    if (!isZoomed) {
-      closeTimerRef.current = setTimeout(() => {
-        setBottomNewsDropdownOpen(false);
-      }, 500);
-    }
-  };
   const imageStyle = {
     maxWidth: '100%',
     maxHeight: '100%',
@@ -396,7 +372,7 @@ export const Navbar = ({
     const [mobilePlayAGameDropdownOpen, setMobilePlayAGameDropdownOpen] = useState(false);
     const [mobileKnowledgeHubDropdownOpen, setMobileKnowledgeHubDropdownOpen] = useState(false);
     const [mobileContactFaqDropdownOpen, setMobileContactFaqDropdownOpen] = useState(false);
-    const [mobileNewsDropdownOpen, setMobileNewsDropdownOpen] = useState(false);
+    const [mobileBottomNewsDropdownOpen, setMobileBottomNewsDropdownOpen] = useState(false); // Renamed to mobileBottomNewsDropdownOpen
 
 
     return (
@@ -520,7 +496,7 @@ export const Navbar = ({
                         if (item.label === "Play a game") setMobilePlayAGameDropdownOpen(!mobilePlayAGameDropdownOpen);
                         if (item.label === "Knowledge Hub") setMobileKnowledgeHubDropdownOpen(!mobileKnowledgeHubDropdownOpen);
                         if (item.label === "Contact & FAQ") setMobileContactFaqDropdownOpen(!mobileContactFaqDropdownOpen);
-                        if (item.label === "News") setMobileNewsDropdownOpen(!mobileNewsDropdownOpen);
+                        if (item.label === "News") setMobileBottomNewsDropdownOpen(!mobileBottomNewsDropdownOpen); // Mobile Bottom News Dropdown
                       }}
                       className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
                     >
@@ -582,9 +558,9 @@ export const Navbar = ({
                         ))}
                       </ul>
                     )}
-                     {(item.label === "News" && mobileNewsDropdownOpen) && (
+                    {(item.label === "News" && mobileBottomNewsDropdownOpen) && ( // Mobile Bottom News Dropdown
                       <ul className="ml-4 space-y-2">
-                        {communityLinks.map((dropdownItem, dropdownIndex) => (
+                        {newsLinks.map((dropdownItem, dropdownIndex) => ( // Use newsLinks here
                           <li key={dropdownIndex}>
                             <Link
                               href={dropdownItem.href}
@@ -608,7 +584,7 @@ export const Navbar = ({
 
 
   return (
-    
+
     <div className="w-full shadow">
       <nav
         className={`text-white relative flex flex-col lg:flex-row lg:items-center justify-between p-1 xl:px-10 w-full`}
@@ -632,7 +608,7 @@ export const Navbar = ({
             />
           </Link>
         </div>
-        
+
 
         {/* Conditionally render desktop navigation or mobile menu based on isZoomed */}
         {!isZoomed ? (
@@ -669,8 +645,7 @@ export const Navbar = ({
                       {/* ... Desktop Top Navigation Links ... */}
                       {/* ... Desktop Top Navigation Links and Dropdowns (same as before) ... */}
                        {item.label !== "Events" &&
-                        item.label !== "Nomination & Registration" &&
-                        item.label !== "News" ? (
+                        item.label !== "Nomination & Registration" ? (
                         <button className="inline-block text-[1.7rem] font-bold text-white no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-300 group">
                           <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
                             {item.label}
@@ -745,12 +720,12 @@ export const Navbar = ({
                     </li>
                   ))}
                 </ul>
-                
+
               <div className="top-0 right-100 lg:static lg:top-auto lg:right-auto">
                 <ThemeChanger />
               </div>
               </div>
-              
+
 
               {/* Bottom Navigation */}
               <div
@@ -766,7 +741,7 @@ export const Navbar = ({
                       key={index}
                       onMouseEnter={
                         item.label === "News"
-                          ? handleBottomNewsMouseEnter
+                          ? handleNewsMouseEnter // handleNewsMouseEnter for bottom nav news
                           : item.label === "Initiatives & Research"
                             ? handleInitiativesResearchMouseEnter
                             : item.label === "Play a game"
@@ -779,7 +754,7 @@ export const Navbar = ({
                       }
                       onMouseLeave={
                         item.label === "News"
-                          ? handleBottomNewsMouseLeave
+                          ? handleNewsMouseLeave // handleNewsMouseLeave for bottom nav news
                           : item.label === "Initiatives & Research"
                             ? handleInitiativesResearchMouseLeave
                             : item.label === "Play a game"
@@ -883,19 +858,17 @@ export const Navbar = ({
                           ))}
                         </div>
                       )}
-
-
-                      {item.label === "News" && bottomNewsDropdownOpen && (
+                      {item.label === "News" && bottomNewsDropdownOpen && ( // Bottom News Dropdown
                         <div
                           ref={bottomNewsDropdownRef}
                           className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handleBottomNewsMouseLeave}
+                          onMouseLeave={handleNewsMouseLeave} // handleNewsMouseLeave for bottom news
                         >
-                          {communityLinks.map((dropdownItem, dropdownIndex) => (
+                          {newsLinks.map((dropdownItem, dropdownIndex) => ( // Use newsLinks here
                             <Link
                               key={dropdownIndex}
                               href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
+                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
                             >
                               {dropdownItem.label}
                             </Link>
@@ -907,42 +880,19 @@ export const Navbar = ({
                 </ul>
               </div>
             </div>
-            
+
             {/* Mobile Menu Icon (for desktop view - hidden when zoomed) */}
             <div className="lg:hidden flex items-center"> {/* Only show on mobile when not zoomed */}
-              <button
-                className="text-white focus:outline-none"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {mobileMenuOpen ? (
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M18.278 16.859l-4.242 4.243-1.414-1.414 4.242-4.243-4.242-4.243 1.414-1.414 4.242 4.243 4.243 4.242 1.414 1.414-4.243-4.242 4.243 4.242 1.414 1.414-4.242-4.243z"
-                    />
-                  ) : (
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M4 5h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"
-                    />
-                  )}
-                </svg>
-              </button>
+              <MenuBarContent />
             </div>
           </>
         ) : (
           /* Render Menubar component when isZoomed is true */
           <MenuBarContent />
         )}
-        
+
       </nav>
-      
+
       {/* Bottom Navigation Bar - Conditionally render only when zoomed and mobile menu NOT open */}
       {isZoomed && !mobileMenuOpen && (
         <div
