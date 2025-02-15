@@ -8,21 +8,53 @@ import { Benefits } from "@/components/Benefits";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 import { Impact } from "@/components/impact";
-import HeroCarousel from "@/components/HeroCarousel"; // Import HeroCarousel - not used but kept import just in case for future
+import HeroCarousel from "@/components/HeroCarousel"; // Import HeroCarousel
 import { benefitOne, benefitTwo } from "@/components/data";
 import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoCarousel
 // import { AuroraHero } from "@/components/AurorHero"; // Assuming you are not using AuroraHero anymore
-import { HeroBanner } from "@/components/HeroBanner"; // Import HeroBanner
+// import { HeroBanner } from "@/components/HeroBanner"; // Import HeroBanner - No longer needed
 
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/Banner.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/8.png", // Replace with your actual banner image path
       title: "Cyber Colloquy 4.0",
       description: "Join us for Cyber Colloquy 4.0, the premier event for cybersecurity enthusiasts and professionals alike! Explore cutting-edge topics, engage with industry experts, and network with peers.",
       subtitle: "Engage | Learn | Innovate",
       buttonText: "Explore Events",
       buttonHref: "/events", // Adjust this link to your events page
+    },
+    {
+      imageUrl: "/img/banners/4.png", // Replace with your actual banner image path
+      title: "Cybersecurity Workshops",
+      description: "Enhance your cybersecurity skills with our hands-on workshops. From beginner to advanced levels, we have something for everyone.",
+      subtitle: "Skill Up | Protect | Advance",
+      buttonText: "View Workshops",
+      buttonHref: "/workshops", // Adjust this link to your workshops page
+    },
+    {
+      imageUrl: "/img/banners/5.png", // Replace with your actual banner image path
+      title: "Industry Expert Talks",
+      description: "Gain insights from leading cybersecurity experts. Attend our talks and webinars to stay ahead of the curve.",
+      subtitle: "Insights | Knowledge | Future",
+      buttonText: "See Speakers",
+      buttonHref: "/speakers", // Adjust this link to your speakers page
+    },
+    {
+      imageUrl: "/img/banners/6.png", // Replace with your actual banner image path
+      title: "Networking Opportunities",
+      description: "Connect with professionals and peers in the cybersecurity field. Expand your network and collaborate on future projects.",
+      subtitle: "Connect | Collaborate | Grow",
+      buttonText: "Join Community",
+      buttonHref: "/community", // Adjust this link to your community page
+    },
+    {
+      imageUrl: "/img/banners/1.png", // Replace with your actual banner image path
+      title: "Latest Cyber Threats",
+      description: "Stay informed about the latest cybersecurity threats and vulnerabilities. Our platform provides up-to-date information and resources.",
+      subtitle: "Inform | Secure | Vigilant",
+      buttonText: "Read More",
+      buttonHref: "/threats", // Adjust this link to your threats page
     },
   ];
 
@@ -62,8 +94,6 @@ export default function Home() {
       title: "Cybersecurity in Action",
       description: "Demo on cyber security",
     },
-
-
     // Add More videos
   ];
 
@@ -71,15 +101,15 @@ export default function Home() {
     <> {/*  Changed Container to a Fragment (<>) */}
       {/* Add the HeroCarousel component */}
       {/* <AuroraHero /> */}
-       {/* <HeroCarousel slides={heroSlides} /> */} {/* Commented out HeroCarousel */}
-       <HeroBanner
+       <HeroCarousel slides={heroSlides} /> {/* HeroCarousel Component is added here */}
+       {/* <HeroBanner  // HeroBanner Component Removed
           imageUrl={heroSlides[0].imageUrl}
           title={heroSlides[0].title}
           description={heroSlides[0].description}
           subtitle={heroSlides[0].subtitle}
           buttonText={heroSlides[0].buttonText}
           buttonHref={heroSlides[0].buttonHref}
-        />
+        /> */}
       {/* Hero Section */}
       {/* <Container> */}
         {/* <Hero /> */}
