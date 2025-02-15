@@ -70,7 +70,7 @@ const Banner = () => {
           Know More
         </Link>
         <Link
-          href="/register"
+          href="/cyber-colloquy-4.0"
           className="bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-100"
         >
           Register

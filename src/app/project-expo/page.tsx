@@ -48,7 +48,7 @@ const ProjectExpoPage: React.FC = () => {
                 Showcase Your Innovation at Project EXPO!
               </h2>
               <p className="text-gray-600 dark:text-gray-400">
-                Showcase your creativity, innovation, and technical expertise at Project EXPO, where students present groundbreaking projects across various domains! Whether it's cybersecurity, AI, IoT, software development, robotics, or any other field, this is your platform to shine.
+                Showcase your creativity, innovation, and technical expertise at Project EXPO, where students present groundbreaking projects across various domains! Whether it&apos;s cybersecurity, AI, IoT, software development, robotics, or any other field, this is your platform to shine.
               </p>
             </div>
           </motion.div>
