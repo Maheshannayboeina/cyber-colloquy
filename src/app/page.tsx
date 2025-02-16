@@ -17,12 +17,12 @@ import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoC
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/banners/8.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/5.png", // Replace with your actual banner image path
       title: "Cyber Colloquy 4.0",
       description: "Join us for Cyber Colloquy 4.0, the premier event for cybersecurity enthusiasts and professionals alike! Explore cutting-edge topics, engage with industry experts, and network with peers.",
       subtitle: "Engage | Learn | Innovate",
       buttonText: "Explore Events",
-      buttonHref: "/events", // Adjust this link to your events page
+      buttonHref: "/cyber-colloquy-4.0", // Adjust this link to your events page
     },
     {
       imageUrl: "/img/banners/4.png", // Replace with your actual banner image path
@@ -30,31 +30,31 @@ export default function Home() {
       description: "Enhance your cybersecurity skills with our hands-on workshops. From beginner to advanced levels, we have something for everyone.",
       subtitle: "Skill Up | Protect | Advance",
       buttonText: "View Workshops",
-      buttonHref: "/workshops", // Adjust this link to your workshops page
+      buttonHref: "/project-expo", // Adjust this link to your workshops page
     },
     {
-      imageUrl: "/img/banners/5.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/6.png", // Replace with your actual banner image path
       title: "Industry Expert Talks",
       description: "Gain insights from leading cybersecurity experts. Attend our talks and webinars to stay ahead of the curve.",
       subtitle: "Insights | Knowledge | Future",
       buttonText: "See Speakers",
-      buttonHref: "/speakers", // Adjust this link to your speakers page
+      buttonHref: "/industry-professional", // Adjust this link to your speakers page
     },
     {
-      imageUrl: "/img/banners/6.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/1.png", // Replace with your actual banner image path
       title: "Networking Opportunities",
       description: "Connect with professionals and peers in the cybersecurity field. Expand your network and collaborate on future projects.",
       subtitle: "Connect | Collaborate | Grow",
       buttonText: "Join Community",
-      buttonHref: "/community", // Adjust this link to your community page
+      buttonHref: "/sponsor", // Adjust this link to your community page
     },
     {
-      imageUrl: "/img/banners/1.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/8.png", // Replace with your actual banner image path
       title: "Latest Cyber Threats",
       description: "Stay informed about the latest cybersecurity threats and vulnerabilities. Our platform provides up-to-date information and resources.",
       subtitle: "Inform | Secure | Vigilant",
       buttonText: "Read More",
-      buttonHref: "/threats", // Adjust this link to your threats page
+      buttonHref: "/awards", // Adjust this link to your threats page
     },
   ];
 
