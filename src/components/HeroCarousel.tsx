@@ -1,4 +1,3 @@
-// components/HeroCarousel.tsx
 'use client'; // Mark this as a client component
 import React from 'react';
 import dynamic from 'next/dynamic';
@@ -20,9 +19,8 @@ interface HeroCarouselProps {
 }
 
 const Slider = dynamic(() => import('react-slick'), {
-        ssr: false
+    ssr: false
 });
-
 
 const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
     const settings = {
@@ -37,20 +35,31 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
     };
 
     return (
-        <Slider {...settings}>
-            {slides.map((slide, index) => (
-                <div key={index}>
-                    <HeroBanner
-                        imageUrl={slide.imageUrl}
-                        title={slide.title}
-                        description={slide.description}
-                        subtitle={slide.subtitle} 
-                        buttonText={slide.buttonText} 
-                        buttonHref={slide.buttonHref} 
-                    />
-                </div>
-            ))}
-        </Slider>
+        <>
+            <style jsx global>{`
+                .slick-dots li button:before {
+                    color: white; /* Change this to the color you want for the dots */
+                }
+
+                .slick-dots li.slick-active button:before {
+                    color: white; /* Change this to the color you want for the active dot */
+                }
+            `}</style>
+            <Slider {...settings}>
+                {slides.map((slide, index) => (
+                    <div key={index}>
+                        <HeroBanner
+                            imageUrl={slide.imageUrl}
+                            title={slide.title}
+                            description={slide.description}
+                            subtitle={slide.subtitle}
+                            buttonText={slide.buttonText}
+                            buttonHref={slide.buttonHref}
+                        />
+                    </div>
+                ))}
+            </Slider>
+        </>
     );
 };
 

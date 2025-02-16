@@ -33,7 +33,7 @@ export default function CommunityContributionsPage() {
   return (
     <Container>
       <SectionTitle preTitle="Our Impact" title="Community Contributions - Cyber Security Branches">
-        Explore our branches' impactful contributions to the community in cyber security.
+        Explore our branches impactful contributions to the community in cyber security.
       </SectionTitle>
 
       <div className="mt-12 space-y-8">

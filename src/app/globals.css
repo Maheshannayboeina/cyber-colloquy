@@ -1,3 +1,4 @@
+/* src/app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,4 +9,12 @@
     @apply text-gray-800 dark:text-gray-100 bg-transparent; /* Changed light mode background */
     position: relative;
   }
+}
+
+:root {
+  --color-1: 0 100% 63%;
+  --color-2: 270 100% 63%;
+  --color-3: 210 100% 63%;
+  --color-4: 195 100% 63%;
+  --color-5: 90 100% 63%;
 }
