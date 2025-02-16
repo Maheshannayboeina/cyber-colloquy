@@ -27,7 +27,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
 
   return (
     <div className="relative w-full">
-      <div className="relative">
+      <div className="">
         <Image
           src={imageUrl}
           alt={title || "Cyber Colloquy Event Banner"}

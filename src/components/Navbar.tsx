@@ -1,7 +1,6 @@
 //src/components/Navbar.tsx
 "use client";
 import Link from "next/link";
-import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -658,7 +657,7 @@ export const Navbar = ({
                 </ul>
 
               <div className="top-0 right-100 lg:static lg:top-auto lg:right-auto">
-                <ThemeChanger />
+
               </div>
               </div>
 

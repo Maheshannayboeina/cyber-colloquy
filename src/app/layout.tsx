@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Particles } from "@/components/Particles"; // Import the Particles component
 import { Footer } from "@/components/Footer";
@@ -27,12 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
-      <body className={`${inter.className} relative`}
-      style={{
-        background: "black",
-        zIndex: 1,
-      }}
-      > {/* Make body relative */}
+      <body
+        className={`${inter.className} relative text-gray-100 bg-black`} // Apply dark mode styles
+        style={{
+          background: "black",
+          zIndex: 1,
+        }}
+      >
+        {/* Make body relative */}
         <Particles
           className="fixed inset-0 -z-10" // Make particles fixed and cover the whole area
           quantity={150}
@@ -40,13 +41,11 @@ export default function RootLayout({
           size={0.6}
           color="#0D5EDF"
         />
-        <ThemeProvider attribute="class">
-          <Banner />
-          <ClientLayout>{children}</ClientLayout>
-          <Footer />
-          <PopupWidget />
-          <Toaster />
-        </ThemeProvider>
+        <Banner />
+        <ClientLayout>{children}</ClientLayout>
+        <Footer />
+        <PopupWidget />
+        <Toaster />
       </body>
     </html>
   );

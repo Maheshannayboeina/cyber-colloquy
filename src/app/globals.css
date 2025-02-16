@@ -6,7 +6,7 @@
 @layer base {
   html,
   body {
-    @apply text-gray-800 dark:text-gray-100 bg-transparent; /* Changed light mode background */
+    @apply text-gray-100 bg-black; /* Changed light mode background */
     position: relative;
   }
 }
