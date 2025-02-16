@@ -1,20 +1,20 @@
 // src/components/HeroBanner.tsx
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { BoxReveal } from "@/components/BoxReveal";
+import InteractiveHoverButton from "@/components/InteractiveHoverButton"; // Direct import
 
 interface HeroBannerProps {
   imageUrl: string;
   title: string;
   description: string;
-  subtitle?: string; // Optional subtitle prop
-  buttonText?: string; // Optional button text prop
-  buttonHref?: string; // Optional button link prop
+  subtitle?: string;
+  buttonText?: string;
+  buttonHref?: string;
 }
 
 export const HeroBanner: React.FC<HeroBannerProps> = ({
-  imageUrl = "/img/events/cybercolloquy4.0_banner.png", // Default image URL
+  imageUrl = "/img/events/cybercolloquy4.0_banner.png", // Provide a default image URL
   title,
   description,
   subtitle = "Your Gateway to Cybersecurity Insights", // Default subtitle
@@ -34,7 +34,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
         <div className="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black to-transparent flex items-start justify-between">
           <div>
             <BoxReveal>
-              <h1 className="text-7xl font-extrabold text-white mb-2">{title}</h1>
+              <h1 className="text-5xl font-extrabold text-white mb-2">{title}</h1>
             </BoxReveal>
             <BoxReveal duration={0.75}>
               <p className="text-lg text-gray-300 mb-4">{subtitle}</p> {/* Use subtitle prop */}
@@ -42,12 +42,15 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                 {description}
               </p>
             </BoxReveal>
-            <Link
-              href={buttonHref} // Use buttonHref prop
-              className="px-6 py-3 text-white bg-indigo-600 rounded-xl mt-6 inline-block"
+            <InteractiveHoverButton
+              onClick={() => {
+                if (buttonHref) { // Check if buttonHref is defined
+                  window.location.href = buttonHref;
+                }
+              }}
             >
-              {buttonText} {/* Use buttonText prop */}
-            </Link>
+              {buttonText}
+            </InteractiveHoverButton>
           </div>
         </div>
       </div>

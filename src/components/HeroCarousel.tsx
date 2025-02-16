@@ -10,6 +10,9 @@ interface HeroSlide {
     imageUrl: string;
     title: string;
     description: string;
+    subtitle?: string; // Make these optional in the interface
+    buttonText?: string;
+    buttonHref?: string;
 }
 
 interface HeroCarouselProps {
@@ -35,18 +38,18 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
 
     return (
         <Slider {...settings}>
-            {slides.map((slide, index) => {
-                console.log("Slide Data:", slide);
-                return (
-                    <div key={index}>
-                        <HeroBanner
-                            imageUrl={slide.imageUrl}
-                            title={slide.title}
-                            description={slide.description}
-                        />
-                    </div>
-                )
-            })}
+            {slides.map((slide, index) => (
+                <div key={index}>
+                    <HeroBanner
+                        imageUrl={slide.imageUrl}
+                        title={slide.title}
+                        description={slide.description}
+                        subtitle={slide.subtitle} 
+                        buttonText={slide.buttonText} 
+                        buttonHref={slide.buttonHref} 
+                    />
+                </div>
+            ))}
         </Slider>
     );
 };
