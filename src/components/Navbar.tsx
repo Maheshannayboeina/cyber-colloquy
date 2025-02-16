@@ -31,7 +31,7 @@ export const Navbar = ({
   ];
 
   const playAGameLinks: NavItem[] = [
-    { label: "CTF", href: "/ctf" },
+    { label: "CTF", href: "https://www.hacktheway.com/" },
     { label: "Phishing", href: "/phishing" },
   ];
 
@@ -50,9 +50,9 @@ export const Navbar = ({
   ];
 
   const contactFaqLinks: NavItem[] = [
-    { label: "General Inquiries", href: "/contact/inquiries" },
-    { label: "Support", href: "/contact/support" },
-    { label: "FAQs", href: "/contact/faqs" },
+    { label: "General Inquiries", href: "/inquiries" },
+    { label: "Contact", href: "#contact" },
+    { label: "FAQs", href: "/faq" },
     { label: "Feedback", href: "/contact/feedback" },
   ];
 

@@ -122,7 +122,7 @@ export function Footer() {
 
           {/* --- Re-added "Get In Touch" Section in Footer - Updated with new Address --- */}
           <div className="lg:col-span-2">
-            <div className="font-semibold text-gray-700 dark:text-gray-50 mb-2 transition-colors duration-300">Get In Touch</div>
+            <div className="font-semibold text-gray-700 dark:text-gray-50 mb-2 transition-colors duration-300" id="contact">Get In Touch</div>
             <div className="mt-5 text-gray-700 dark:text-gray-50">
               {/* Google Map Embed  */}
               <div className="aspect-w-16 aspect-h-9 mb-3 rounded-md overflow-hidden">
