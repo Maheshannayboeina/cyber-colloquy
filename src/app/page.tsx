@@ -18,8 +18,8 @@ export default function Home() {
     {
       imageUrl: "/img/banners/5.png", // Replace with your actual banner image path
       title: "Cyber Colloquy 4.0",
-      description: "Join us for Cyber Colloquy 4.0, the premier event for cybersecurity enthusiasts and professionals alike! Explore cutting-edge topics, engage with industry experts, and network with peers.",
-      subtitle: "Engage | Learn | Innovate",
+      description: "ADOPTING INDIA'S DPDP FOR A PRIVACY-CENTRIC FUTURE",
+      subtitle: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
       buttonText: "Explore Events",
       buttonHref: "/cyber-colloquy-4.0", // Adjust this link to your events page
     },
