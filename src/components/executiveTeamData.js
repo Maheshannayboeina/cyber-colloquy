@@ -60,7 +60,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Core Committee",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/kashyap-gohil.jpg", // Replace with actual image path
+      image: "/img/executive-team/kashyap-gohil.png", // Replace with actual image path
     },
     {
       category: "Core Committee",
@@ -69,7 +69,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Core Committee",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/deep-joisher.jpg", // Replace with actual image path
+      image: "/img/executive-team/deep-joisher.png", // Replace with actual image path
     },
     {
       category: "Core Committee",
@@ -87,7 +87,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Core Committee",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/vaidehi-pathak.jpg", // Replace with actual image path
+      image: "/img/executive-team/vaidehi-pathak.png", // Replace with actual image path
     },
     {
       category: "Core Committee",
@@ -96,7 +96,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Core Committee",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/saahil-sawant.jpg", // Replace with actual image path
+      image: "/img/executive-team/saahil-sawant.png", // Replace with actual image path
     },
     {
       category: "Core Committee",
@@ -141,7 +141,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Core Committee",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/purva-nalawade.jpg", // Replace with actual image path
+      image: "/img/executive-team/purva-nalawade.png", // Replace with actual image path
     },
     {
       category: "Core Committee",
@@ -224,7 +224,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Members",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/raja-mishra.jpg", // Replace with actual image path
+      image: "/img/executive-team/raja-mishra.png", // Replace with actual image path
     },
     {
       category: "Members",
@@ -233,7 +233,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Members",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/shamlaan-sayyed.jpg", // Replace with actual image path
+      image: "/img/executive-team/shamlaan-sayyed.png", // Replace with actual image path
     },
     {
       category: "Members",
@@ -242,7 +242,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Members",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/kushagra-tiwari.jpg", // Replace with actual image path
+      image: "/img/executive-team/kushagra-tiwari.png", // Replace with actual image path
     },
     {
       category: "Members",
@@ -251,7 +251,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Members",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/kayaan-billimoria.jpg", // Replace with actual image path
+      image: "/img/executive-team/kayaan-billimoria.png", // Replace with actual image path
     },
     {
       category: "Members",
@@ -260,7 +260,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Members",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/sejal-doshi.jpg", // Replace with actual image path
+      image: "/img/executive-team/sejal-doshi.png", // Replace with actual image path
     },
     {
       category: "Members",
@@ -269,7 +269,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Members",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/rajvi-savla.jpg", // Replace with actual image path
+      image: "/img/executive-team/rajvi-savla.png", // Replace with actual image path
     },
     {
       category: "Members",
@@ -287,7 +287,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Members",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/mahesh-annayboeina.jpg", // Replace with actual image path
+      image: "/img/executive-team/mahesh-annayboeina.png", // Replace with actual image path
     },
     {
       category: "Members",
@@ -296,7 +296,7 @@ const executiveTeamData = [
       year: "Second Year", // Add Year if available
       team: "Members",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/sayee-patil.jpg", // Replace with actual image path
+      image: "/img/executive-team/sayee-patil.png", // Replace with actual image path
     },
     {
       category: "Members",
@@ -424,7 +424,7 @@ const executiveTeamData = [
       year: "", // Add Year if available
       team: "CoE",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/kayaan-billimoria-coe.jpg", // Replace with actual image path (consider different image if needed)
+      image: "/img/executive-team/kayaan-billimoria.png", // Replace with actual image path (consider different image if needed)
     },
     {
       category: "CoE Coordinators",
@@ -433,7 +433,7 @@ const executiveTeamData = [
       year: "", // Add Year if available
       team: "CoE",
       linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/kushagra-tiwari-coe.jpg", // Replace with actual image path (consider different image if needed)
+      image: "/img/executive-team/kushagra-tiwari.png", // Replace with actual image path (consider different image if needed)
     },
     {
       category: "CoE Coordinators",
@@ -441,8 +441,8 @@ const executiveTeamData = [
       designation: "Co-coordinators",
       year: "", // Add Year if available
       team: "CoE",
-      linkedin: "", // Add LinkedIn profile URL if available
-      image: "/img/executive-team/shamlaan-sayyed-coe.jpg", // Replace with actual image path (consider different image if needed)
+      linkedin: "", // Add LinkedIn profile URL if aailable
+      image: "/img/executive-team/shamlaan-sayyed.png", // Replace with actual image path (consider different image if needed)
     },
   
     // Advisory Board
