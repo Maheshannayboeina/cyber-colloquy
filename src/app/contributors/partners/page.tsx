@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { motion } from "framer-motion"; // Import
 import { FaHandshake, FaBuilding, FaStar, FaArrowRight, FaWrench } from 'react-icons/fa';
+import Image from "next/image";
 
 
 interface Partner {
@@ -53,7 +54,7 @@ const PartnersPage: React.FC = () => {
                   transition={{ duration: 0.3, delay: index * 0.1 }} // Staggered delay
                  >
                    {partner.imageUrl && (
-                      <img
+                      <Image
                         src={partner.imageUrl}
                        alt={partner.name}
                        className="w-full h-48 object-cover rounded-md mb-4"

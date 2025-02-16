@@ -11,7 +11,6 @@ import { Impact } from "@/components/impact";
 import HeroCarousel from "@/components/HeroCarousel"; // Import HeroCarousel
 import { benefitOne, benefitTwo } from "@/components/data";
 import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoCarousel
-// import { AuroraHero } from "@/components/AurorHero"; // Assuming you are not using AuroraHero anymore
 // import { HeroBanner } from "@/components/HeroBanner"; // Import HeroBanner - No longer needed
 
 export default function Home() {
@@ -100,7 +99,6 @@ export default function Home() {
   return (
     <> {/*  Changed Container to a Fragment (<>) */}
       {/* Add the HeroCarousel component */}
-      {/* <AuroraHero /> */}
        <HeroCarousel slides={heroSlides} /> {/* HeroCarousel Component is added here */}
        {/* <HeroBanner  // HeroBanner Component Removed
           imageUrl={heroSlides[0].imageUrl}

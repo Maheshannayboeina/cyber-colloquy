@@ -1,7 +1,7 @@
 // tailwind.config.ts
 import type { Config } from "tailwindcss";
-const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
+import defaultTheme from "tailwindcss/defaultTheme";
+import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
@@ -18,7 +18,7 @@ const config: Config = {
     },
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
-      stock: [defaultTheme.fontFamily.sans],
+      stock: defaultTheme.fontFamily.sans,
     },
     container: { // Add this container configuration
       center: true, // Keep content centered

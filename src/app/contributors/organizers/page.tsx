@@ -1,9 +1,11 @@
+//src/app/contributors/organizers/page.tsx
 "use client";
 import React from "react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { motion } from "framer-motion"; // Import
 import { FaUserTie, FaUsers, FaCode, FaPencilAlt, FaArrowRight, FaWrench, FaUserGraduate } from 'react-icons/fa'; // Import icons
+import Image from "next/image";
 
 interface Organizer {
   name: string;
@@ -77,7 +79,7 @@ const OrganizersPage: React.FC = () => {
             transition={{ duration: 0.3, delay: index * 0.1 }} // Staggered animation
             >
              {organizer.imageUrl && (
-              <img
+              <Image
                  src={organizer.imageUrl}
                  alt={organizer.name}
                  className="w-full h-48 object-cover rounded-md mb-4"

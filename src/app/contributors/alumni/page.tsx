@@ -1,9 +1,11 @@
+//src/app/contributors/alumni/page.tsx
 "use client";
 import React from "react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { motion } from "framer-motion"; // Import
 import { FaGraduationCap, FaUsers, FaBriefcase, FaEnvelope, FaCalendarAlt } from 'react-icons/fa'; // Import icons
+import Image from "next/image";
 
 // Interface for Alumni
 interface Alumni {
@@ -55,7 +57,7 @@ const AlumniPage: React.FC = () => {
                                 transition={{ duration: 0.3, delay: index * 0.1 }}  // Staggered animation
                             >
                                 {alumnus.imageUrl && (
-                                    <img
+                                    <Image
                                         src={alumnus.imageUrl}
                                         alt={alumnus.name}
                                         className="w-full h-48 object-cover rounded-md mb-4"
