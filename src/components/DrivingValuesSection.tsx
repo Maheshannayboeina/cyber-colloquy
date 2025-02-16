@@ -87,10 +87,10 @@ const DrivingValuesSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 xl:gap-10">
           <ValueCard
             title="Executive Team"
-            href="/values-impact/executive-team" // Update hrefs to your dedicated pages
+            href="/executive-team" // Update hrefs to your dedicated pages
             // iconSrc="/img/icons/executive-team.svg"
             // iconAlt="Executive Team Icon"
-            modalContent={<p>Detailed information about the Executive Team will be displayed here. This is just example modal content.</p>}
+            // modalContent={<p>Detailed information about the Executive Team will be displayed here. This is just example modal content.</p>}
             description="Meet the leaders driving our cybersecurity initiatives. This description is intentionally a bit longer to test card height equalization."
           />
           <ValueCard
@@ -103,15 +103,15 @@ const DrivingValuesSection: React.FC = () => {
           />
           <ValueCard
             title="Centres of Excellence"
-            href="/values-impact/centres-of-excellence" // Update hrefs to your dedicated pages
+            href="/centres-of-excellence" // Update hrefs to your dedicated pages
             // iconSrc="/img/icons/centres-of-excellence.svg"
             // iconAlt="Centres of Excellence Icon"
-            modalContent={<p>Explore our Centres of Excellence and their contributions to cybersecurity innovation.</p>}
+            // modalContent={<p>Explore our Centres of Excellence and their contributions to cybersecurity innovation.</p>}
             description="Discover our specialized centers pushing the boundaries of cybersecurity knowledge."
           />
           <ValueCard
-            title="Community and Contributions"
-            href="/values-impact/community-contributions" // Update hrefs to your dedicated pages
+            title="Contributions to the community"
+            href="/community-contributions" // Update hrefs to your dedicated pages
             // iconSrc="/img/icons/community-contributions.svg"
             // iconAlt="Community and Contributions Icon"
             description="Learn about our community engagement and contributions to the cybersecurity field. This is another longer description to test height."
