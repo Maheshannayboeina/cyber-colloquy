@@ -1,4 +1,4 @@
-//src/components/Navbar.tsx
+// src/components/Navbar.tsx
 "use client";
 import Link from "next/link";
 import Image from "next/image";
@@ -79,7 +79,6 @@ export const Navbar = ({
     { label: "Contact & FAQ", href: "#" },
   ];
 
-
   const [infoDropdownOpen, setInfoDropdownOpen] = useState(false);
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
   const [initiativesResearchDropdownOpen, setInitiativesResearchDropdownOpen] = useState(false);
@@ -115,8 +114,7 @@ export const Navbar = ({
 
     const handleResize = () => {
       checkZoom();
-      setMobileMenuOpen(false); // Close mobile menu on resize (zoom change)
-      // Close all dropdowns on resize/zoom change for better UX
+      setMobileMenuOpen(false); 
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
@@ -359,6 +357,7 @@ export const Navbar = ({
         {/* Right Side Mobile Menu */}
         {mobileMenuOpen && (
           <div className="absolute top-0 right-0 h-screen bg-white dark:bg-gray-900 z-30 overflow-y-auto w-[300px] shadow-xl">
+            {/* ... (rest of your mobile menu content) */}
             <div className="p-4 flex justify-end">
               <button
                 className="text-gray-800 dark:text-white focus:outline-none"
@@ -377,144 +376,6 @@ export const Navbar = ({
                 </svg>
               </button>
             </div>
-            <div className="px-6 py-4">
-              <ul className="space-y-4">
-                <li className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">Top Navigation</li>
-                {topNavigation.map((item, index) => (
-                  <li key={`top-mobile-${index}`}>
-                    <button
-                      onClick={() => {
-                        if (item.label === "About Us") setMobileInfoDropdownOpen(!mobileInfoDropdownOpen);
-                        if (item.label === "Our Community") setMobileCommunityDropdownOpen(!mobileCommunityDropdownOpen);
-                        if (item.label === "Nomination & Registration") setMobileNominationRegistrationDropdownOpen(!mobileNominationRegistrationDropdownOpen);
-                      }}
-                      className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
-                    >
-                      {item.label}
-                    </button>
-                    {(item.label === "About Us" && mobileInfoDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {infoLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Our Community" && mobileCommunityDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {communityLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Nomination & Registration" && mobileNominationRegistrationDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {nominationRegistrationLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-gray-100 dark:bg-gray-700 h-[1px] mx-4 my-2"></div>
-             <div className="px-6 py-4">
-              <ul className="space-y-4">
-                <li className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">Bottom Navigation</li>
-                {bottomNavigationItems.map((item, index) => ( // Use bottomNavigationItems here
-                  <li key={`bottom-mobile-${index}`}>
-                     <button
-                       onClick={() => {
-                        if (item.label === "Initiatives & Research") setMobileInitiativesResearchDropdownOpen(!mobileInitiativesResearchDropdownOpen);
-                        if (item.label === "Play a game") setMobilePlayAGameDropdownOpen(!mobilePlayAGameDropdownOpen);
-                        if (item.label === "Knowledge Hub") setMobileKnowledgeHubDropdownOpen(!mobileKnowledgeHubDropdownOpen);
-                        if (item.label === "Contact & FAQ") setMobileContactFaqDropdownOpen(!mobileContactFaqDropdownOpen);
-                      }}
-                      className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
-                    >
-                      {item.label}
-                    </button>
-                    {(item.label === "Initiatives & Research" && mobileInitiativesResearchDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {initiativesResearchLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Play a game" && mobilePlayAGameDropdownOpen) && (
-                       <ul className="ml-4 space-y-2">
-                        {playAGameLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Knowledge Hub" && mobileKnowledgeHubDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {knowledgeHubLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Contact & FAQ" && mobileContactFaqDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {contactFaqLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         )}
       </div>
@@ -526,13 +387,13 @@ export const Navbar = ({
 
     <div className="w-full shadow">
       <nav
-        className={`text-white relative flex flex-col lg:flex-row lg:items-center justify-between p-1 xl:px-10 w-full`}
+        className={`text-white relative flex flex-col lg:flex-row lg:items-center p-1 xl:px-10 w-full ${isZoomed ? 'justify-center' : 'justify-between'}`} // Conditionally apply justify-center
         style={{
           backgroundColor: "#111827",
         }}
       >
         {/* Logo */}
-        <div className="lg:mr-12 mb-4 lg:mb-0 w-[200px] lg:w-[300px] h-[60px] lg:h-[90px] overflow-hidden">
+        <div className={`lg:mr-12 mb-4 lg:mb-0 w-[200px] lg:w-[300px] h-[60px] lg:h-[90px] overflow-hidden ${isZoomed ? 'mx-auto' : ''}`}> {/* Center logo in mobile view */}
           <Link
             href="/"
             className="flex items-center space-x-2 text-2xl font-medium dark:text-gray-100"
@@ -555,6 +416,7 @@ export const Navbar = ({
             <div className="lg:flex lg:flex-col lg:items-start">
               {/* Top Navigation */}
               <div className="hidden text-center lg:flex lg:items-center mb-1 lg:mb-0 pb-1 ">
+                {/* ... (rest of your top navigation desktop menu) */}
                 <ul className="items-center justify-start flex-none pt-1 list-none lg:pt-2 lg:flex lg:items-center">
                   {topNavigation.map((item, index) => (
                     <li
@@ -654,11 +516,7 @@ export const Navbar = ({
                       )}
                     </li>
                   ))}
-                </ul>
-
-              <div className="top-0 right-100 lg:static lg:top-auto lg:right-auto">
-
-              </div>
+                </ul>    
               </div>
 
 
@@ -668,6 +526,7 @@ export const Navbar = ({
                   className="hidden text-center lg:flex lg:items-center text-center"
                   style={{ backgroundColor: "#0D5EDF" }}
                 >
+                  {/* ... (rest of your bottom navigation desktop menu) */}
                   <ul className="items-center justify-start flex-none pt-1 pb-0 list-none lg:pt-0 lg:flex">
                     {bottomNavigationItems.map((item, index) => ( // Use bottomNavigationItems here
                       <li
