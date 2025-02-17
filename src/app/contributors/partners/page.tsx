@@ -23,14 +23,14 @@ const partners: Partner[] = [
   {
     name: "Partner 1",
     description: "A leading tech company.",
-    imageUrl: "/img/partners/partner1.jpg",
+    imageUrl: "",
   },
   {
     name: "Partner 2",
     description: "Specializes in network security.",
-    imageUrl: "/img/partners/partner2.jpg",
+    imageUrl: "",
   },
-  { name: "Partner 3", imageUrl: "/img/partners/partner2.jpg" },
+  { name: "Partner 3", imageUrl: "" },
 ];
 
 const PartnersPage: React.FC = () => {

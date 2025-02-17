@@ -20,18 +20,18 @@ const contributors: Contributor[] = [
     name: "Contributor 1",
     role: "Lead Developer",
     description: "Specializes in backend systems.",
-    imageUrl: "/img/contributors/contributor1.jpg",
+    imageUrl: "",
   },
   {
     name: "Contributor 2",
     role: "UI/UX Designer",
     description: "Focuses on user experience.",
-    imageUrl: "/img/contributors/contributor2.jpg",
+    imageUrl: "",
   },
   {
     name: "Contributor 3",
     role: "Content Writer",
-    imageUrl: "/img/contributors/contributor2.jpg",
+    imageUrl: "",
   },
   {
     name: "Contributor 4",

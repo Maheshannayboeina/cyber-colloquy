@@ -45,7 +45,7 @@ const ValueCard: React.FC<ValueCardProps> = ({
       {modalContent ? (
         <div
           onClick={handleCardClick}
-          className="cursor-pointer block rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group flex flex-col h-full"
+          className="cursor-pointer rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group flex flex-col h-full"
         >
           <div className="p-8 bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl border border-gray-700 flex flex-col h-full justify-between">
             {iconSrc && (
@@ -76,7 +76,7 @@ const ValueCard: React.FC<ValueCardProps> = ({
       ) : (
         <Link
           href={href}
-          className="block rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group flex flex-col h-full"
+          className="rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 group flex flex-col h-full"
         >
           <div className="p-8 bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl border border-gray-700 flex flex-col h-full justify-between">
             {iconSrc && (

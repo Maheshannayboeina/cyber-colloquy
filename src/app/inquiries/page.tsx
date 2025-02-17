@@ -81,7 +81,7 @@ export default function GeneralInquiriesPage() {
         className="text-blue-500"
         id="contact-faq" //Adding code
       >
-        We're here to help! Send us your questions or comments using the form
+        We&apos;re here to help! Send us your questions or comments using the form
         below.
       </SectionTitle>
 

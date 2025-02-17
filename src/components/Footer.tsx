@@ -142,7 +142,7 @@ export function Footer() {
                 <p className="mb-1">Cyber Security Department,</p>
                 <p className="mb-1">Shah & Anchor Kutchhi Engineering College,</p>
                 <p className="mb-1">Mahavir Education Trust Chowk, W.T Patil Marg, D P Rd,</p>
-                <p className="mb-1">next to Duke's Company, Chembur,</p>
+                <p className="mb-1">next to Duke&apos;s Company, Chembur,</p>
                 <p className="mb-1">Mumbai, Maharashtra 400088</p>
               </address>
               <div className="mt-3">

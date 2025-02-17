@@ -121,7 +121,7 @@ const SponsorPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3, ease: "easeInOut" }}
           >
-            Let's collaborate to create an impactful and memorable event! 🚀
+            Let&apos;s collaborate to create an impactful and memorable event! 🚀
           </motion.p>
           <motion.p
             className="text-gray-400"

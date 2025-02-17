@@ -25,7 +25,7 @@ export const Navbar = ({
   const communityLinks: NavItem[] = [
     { label: "Alumni", href: "/contributors/alumni" },
     { label: "Contributors", href: "/contributors/all" },
-    { label: "Organizers", href: "/contributors/organizers" },
+    { label: "Organizers", href: "/executive-team" },
     { label: "Partners", href: "/contributors/partners" },
   ];
 
