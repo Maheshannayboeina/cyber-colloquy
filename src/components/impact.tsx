@@ -1,4 +1,4 @@
-// src/components/impact.tsx
+// src/components/Impact.tsx
 "use client";
 import React, { useState } from "react";
 import {
@@ -90,11 +90,11 @@ export function Impact() {
 
   return (
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 mt-8"> {/* Added 2xl breakpoint and responsiveness to padding */}
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="p-4 rounded-xl border border-dashed border-blue-800 flex flex-col items-center text-center transition-all duration-300 ease-in-out"
+            className="p-6 sm:p-8 rounded-xl border border-dashed border-blue-800 flex flex-col items-center text-center transition-all duration-300 ease-in-out" // Added responsive padding
             style={{
               borderColor: hoveredIndex === index ? "rgb(59, 130, 246)" : "",
               backgroundColor:
@@ -104,7 +104,7 @@ export function Impact() {
             onMouseLeave={() => setHoveredIndex(null)}
           >
             <div
-              className="mb-3"
+              className="mb-4 sm:mb-6" // Added responsive margin-bottom
               style={{
                 color:
                   hoveredIndex === index
@@ -114,14 +114,14 @@ export function Impact() {
             >
               {stat.icon}
             </div>
-            <h3 className="text-2xl font-bold mb-1 text-white">
+            <h3 className="text-3xl sm:text-4xl font-bold mb-2 text-white"> {/* Increased font size and made it responsive */}
               <Counter
                 end={stat.number}
                 suffix={stat.suffix || "+"}
                 duration={2}
               />
             </h3>
-            <p className="text-sm text-gray-300">
+            <p className="text-lg text-gray-300"> {/* Increased font size */}
               {stat.label}
             </p>
           </div>
