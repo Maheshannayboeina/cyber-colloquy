@@ -1,352 +1,138 @@
 // src/components/Navbar.tsx
-// Dont make any changes to this file.
+// Responsive Navbar.tsx - Desktop & Mobile, Adjusted Logo Spacing & Sizing for All Devices - COMPLETE CODE
 
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { MouseEventHandler } from 'react'; // Import MouseEventHandler
 
 interface NavItem {
   label: string;
   href: string;
+  dropdown?: NavItem[];
 }
 
-export const Navbar = ({
-  setGetStartedModalOpen,
-}: {
-  setGetStartedModalOpen: () => void;
-}) => {
-  const infoLinks: NavItem[] = [
-    { label: "Department Info", href: "/department-info" },
-    { label: "Faculty", href: "/about" },
-    { label: "Values & Impact", href: "/values-impact" },
-  ];
-
-  const communityLinks: NavItem[] = [
-    { label: "Alumni", href: "/contributors/alumni" },
-    { label: "Contributors", href: "/contributors/all" },
-    { label: "Organizers", href: "/contributors/organizers" },
-    { label: "Partners", href: "/contributors/partners" },
-  ];
-
-  const playAGameLinks: NavItem[] = [
-    { label: "CTF", href: "https://www.hacktheway.com/" },
-    { label: "Phishing", href: "/phishing" },
-  ];
-
-  const initiativesResearchLinks: NavItem[] = [
-    { label: "Projects", href: "/projects" },
-    { label: "Publications", href: "/publications" },
-    { label: "Patents", href: "/patents" },
-  ];
-
-  const knowledgeHubLinks: NavItem[] = [
-    { label: "Articles", href: "/knowledge-hub/articles" },
-    { label: "Cybersecurity guide", href: "/knowledge-hub/cybersecurity-guide" },
-    { label: "White papers", href: "/knowledge-hub/white-papers" },
-    { label: "Advisories", href: "/knowledge-hub/advisories" },
-    { label: "Tools & Resources", href: "/knowledge-hub/tools-resources" },
-  ];
-
-  const contactFaqLinks: NavItem[] = [
-    { label: "General Inquiries", href: "/inquiries" },
-    { label: "Contact", href: "#contact" },
-    { label: "FAQs", href: "/faq" },
-    { label: "Feedback", href: "/contact/feedback" },
-  ];
-
-  const nominationRegistrationLinks: NavItem[] = [
-    { label: "Register", href: "/cyber-colloquy-4.0" },
-    { label: "Industry Attendies", href: "/industry-professional" },
-    { label: "Project Expo", href: "/project-expo" },
-    { label: "Call for sponsors", href: "/sponsor" },
-    { label: "Award Ceremony", href: "/awards" },
-  ];
-
-  const topNavigation: NavItem[] = [
-    { label: "About Us", href: "#" },
-    { label: "Our Community", href: "#" },
+const navigationData = {
+  topNavigation: [
+    {
+      label: "About Us",
+      href: "#",
+      dropdown: [
+        { label: "Department Info", href: "/department-info" },
+        { label: "Faculty", href: "/about" },
+        { label: "Values & Impact", href: "/values-impact" },
+      ],
+    },
+    {
+      label: "Our Community",
+      href: "#",
+      dropdown: [
+        { label: "Alumni", href: "/contributors/alumni" },
+        { label: "Contributors", href: "/contributors/all" },
+        { label: "Organizers", href: "/contributors/organizers" },
+        { label: "Partners", href: "/contributors/partners" },
+      ],
+    },
     { label: "Events", href: "/events" },
-    { label: "Nomination & Registration", href: "#" },
-  ];
-
-  const bottomNavigationItems: NavItem[] = [ // Renamed to bottomNavigationItems
-    { label: "Initiatives & Research", href: "#" },
+    {
+      label: "Nomination & Registration",
+      href: "#",
+      dropdown: [
+        { label: "Register", href: "/cyber-colloquy-4.0" },
+        { label: "Industry Attendies", href: "/industry-professional" },
+        { label: "Project Expo", href: "/project-expo" },
+        { label: "Call for sponsors", href: "/sponsor" },
+        { label: "Award Ceremony", href: "/awards" },
+      ],
+    },
+  ],
+  bottomNavigationItems: [
+    {
+      label: "Initiatives & Research",
+      href: "#",
+      dropdown: [
+        { label: "Projects", href: "/projects" },
+        { label: "Publications", href: "/publications" },
+        { label: "Patents", href: "/patents" },
+      ],
+    },
     { label: "Achievements", href: "/achievements" },
     { label: "News", href: "https://www.sakec.ac.in/cyse/cyse-announcements/" },
-    { label: "Play a game", href: "#" },
-    { label: "Knowledge Hub", href: "#" },
-    { label: "Contact & FAQ", href: "#" },
-  ];
+    {
+      label: "Play a game",
+      href: "#",
+      dropdown: [
+        { label: "CTF", href: "https://www.hacktheway.com/" },
+        { label: "Phishing", href: "/phishing" },
+      ],
+    },
+    {
+      label: "Knowledge Hub",
+      href: "#",
+      dropdown: [
+        { label: "Articles", href: "/knowledge-hub/articles" },
+        { label: "Cybersecurity guide", href: "/knowledge-hub/cybersecurity-guide" },
+        { label: "White papers", href: "/knowledge-hub/white-papers" },
+        { label: "Advisories", href: "/knowledge-hub/advisories" },
+        { label: "Tools & Resources", href: "/knowledge-hub/tools-resources" },
+      ],
+    },
+    {
+      label: "Contact & FAQ",
+      href: "#",
+      dropdown: [
+        { label: "General Inquiries", href: "/inquiries" },
+        { label: "Contact", href: "#contact" },
+        { label: "FAQs", href: "/faq" },
+        { label: "Feedback", href: "/contact/feedback" },
+      ],
+    },
+  ],
+};
 
-
-  const [infoDropdownOpen, setInfoDropdownOpen] = useState(false);
-  const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
-  const [initiativesResearchDropdownOpen, setInitiativesResearchDropdownOpen] = useState(false);
-  const [playAGameDropdownOpen, setPlayAGameDropdownOpen] = useState(false);
-  const [knowledgeHubDropdownOpen, setKnowledgeHubDropdownOpen] = useState(false);
-  const [contactFaqDropdownOpen, setContactFaqDropdownOpen] = useState(false);
-  const [nominationRegistrationDropdownOpen, setNominationRegistrationDropdownOpen] = useState(false);
-
-
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(false); // Renamed and simplified
-  const pathname = usePathname();
-
-  const infoDropdownRef = useRef<HTMLDivElement>(null);
-  const communityDropdownRef = useRef<HTMLDivElement>(null);
-  const initiativesResearchDropdownRef = useRef<HTMLDivElement>(null);
-  const playAGameDropdownRef = useRef<HTMLDivElement>(null);
-  const knowledgeHubDropdownRef = useRef<HTMLDivElement>(null);
-  const contactFaqDropdownRef = useRef<HTMLDivElement>(null);
-  const nominationRegistrationDropdownRef = useRef<HTMLDivElement>(null);
-
-  const navbarRef = useRef<HTMLElement>(null); // Ref for the navbar element
-
-
+export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () => void }) => {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-
-  useEffect(() => {
-
-
-    const checkSmallScreen = () => {
-      setIsSmallScreen(window.innerWidth < 1700); // Adjusted breakpoint to 1200px
-    };
-
-    checkSmallScreen(); // Initial check for mobile view
-
-    const handleResize = () => {
-      checkSmallScreen();
-      setMobileMenuOpen(false); // Close mobile menu on resize
-      // Close all dropdowns on resize for better UX
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []); // Removed navbarRef from dependency array as it's not used for overflow check
-
-
-  useEffect(() => {
-    if (isSmallScreen) { // Now using isSmallScreen
-      setMobileMenuOpen(false);
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
+  const handleMouseEnter = (label: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
     }
-  }, [isSmallScreen, pathname]); // Now using isSmallScreen
-
-
-  const handleInfoMouseEnter = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setInfoDropdownOpen(true);
-      setCommunityDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    }
+    setOpenDropdown(label);
   };
 
-  const handleInfoMouseLeave = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      closeTimerRef.current = setTimeout(() => {
-        setInfoDropdownOpen(false);
-      }, 500);
-    }
-   };
-
-  const handleCommunityMouseEnter = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setCommunityDropdownOpen(true);
-      setInfoDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    }
+  const handleMouseLeave = () => {
+    closeTimerRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 300);
   };
-
-  const handleCommunityMouseLeave = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      closeTimerRef.current = setTimeout(() => {
-        setCommunityDropdownOpen(false);
-      }, 500);
-    }
-  };
-
-
-  const handleInitiativesResearchMouseEnter = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setInitiativesResearchDropdownOpen(true);
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    }
-  };
-
-  const handleInitiativesResearchMouseLeave = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      closeTimerRef.current = setTimeout(() => {
-        setInitiativesResearchDropdownOpen(false);
-      }, 500);
-    }
-  };
-
-  const handlePlayAGameMouseEnter = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-       if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setPlayAGameDropdownOpen(true);
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    }
-  };
-
-  const handlePlayAGameMouseLeave = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      closeTimerRef.current = setTimeout(() => {
-        setPlayAGameDropdownOpen(false);
-      }, 500);
-    }
-  };
-
-  const handleKnowledgeHubMouseEnter = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setKnowledgeHubDropdownOpen(true);
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    }
-  };
-
-  const handleKnowledgeHubMouseLeave = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      closeTimerRef.current = setTimeout(() => {
-        setKnowledgeHubDropdownOpen(false);
-      }, 500);
-    }
-  };
-
-  const handleContactFaqMouseEnter = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setContactFaqDropdownOpen(true);
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setNominationRegistrationDropdownOpen(false);
-    }
-  };
-
-  const handleContactFaqMouseLeave = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      closeTimerRef.current = setTimeout(() => {
-        setContactFaqDropdownOpen(false);
-      }, 500);
-    }
-  };
-  const handleNominationRegistrationMouseEnter = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setNominationRegistrationDropdownOpen(true);
-      setInfoDropdownOpen(false);
-      setCommunityDropdownOpen(false);
-      setInitiativesResearchDropdownOpen(false);
-      setPlayAGameDropdownOpen(false);
-      setKnowledgeHubDropdownOpen(false);
-      setContactFaqDropdownOpen(false);
-    }
-  };
-
-  const handleNominationRegistrationMouseLeave = () => {
-    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
-      closeTimerRef.current = setTimeout(() => {
-        setNominationRegistrationDropdownOpen(false);
-      }, 500);
-    }
-  };
-
 
   const imageStyle = {
-    maxWidth: '100%',
-    maxHeight: '100%',
+    maxWidth: "100%",
+    maxHeight: "100%",
+  };
+
+  const logoStyle = {
+    maxWidth: "100%", // Let container control max width
+    maxHeight: "100%", // Let container control max height
   };
 
   const MenuBarContent = () => {
-    const [mobileInfoDropdownOpen, setMobileInfoDropdownOpen] = useState(false);
-    const [mobileCommunityDropdownOpen, setMobileCommunityDropdownOpen] = useState(false);
-    const [mobileNominationRegistrationDropdownOpen, setMobileNominationRegistrationDropdownOpen] = useState(false);
-    const [mobileInitiativesResearchDropdownOpen, setMobileInitiativesResearchDropdownOpen] = useState(false);
-    const [mobilePlayAGameDropdownOpen, setMobilePlayAGameDropdownOpen] = useState(false);
-    const [mobileKnowledgeHubDropdownOpen, setMobileKnowledgeHubDropdownOpen] = useState(false);
-    const [mobileContactFaqDropdownOpen, setMobileContactFaqDropdownOpen] = useState(false);
+    const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
 
+    const handleMobileDropdownToggle = (label: string) => {
+      setMobileOpenDropdown(mobileOpenDropdown === label ? null : label);
+    };
 
     return (
-      <div className="flex justify-end w-full items-center"> {/* Added items-center here */}
-        <button
-          className="text-white focus:outline-none"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <svg
-            className="h-6 w-6 fill-current"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+      <div className="flex justify-end w-full items-center">
+        <button className="text-gray-50 focus:outline-none" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             {mobileMenuOpen ? (
               <path
                 fillRule="evenodd"
@@ -363,19 +149,14 @@ export const Navbar = ({
           </svg>
         </button>
 
-        {/* Right Side Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="absolute top-0 right-0 h-screen bg-white dark:bg-gray-900 z-30 overflow-y-auto w-[300px] shadow-xl">
+          <div className="absolute top-0 right-0 h-screen bg-gray-900 z-30 overflow-y-auto w-[300px] shadow-xl">
             <div className="p-4 flex justify-end">
               <button
-                className="text-gray-800 dark:text-white focus:outline-none"
+                className="text-white focus:outline-none"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <svg
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path
                     fillRule="evenodd"
                     clipRule="evenodd"
@@ -386,137 +167,84 @@ export const Navbar = ({
             </div>
             <div className="px-6 py-4">
               <ul className="space-y-4">
-                <li className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">Top Navigation</li>
-                {topNavigation.map((item, index) => (
+                <li className="font-bold text-xl mb-2 text-gray-100">
+                  Top Navigation
+                </li>
+                {navigationData.topNavigation.map((item, index) => (
                   <li key={`top-mobile-${index}`}>
-                    <button
-                      onClick={() => {
-                        if (item.label === "About Us") setMobileInfoDropdownOpen(!mobileInfoDropdownOpen);
-                        if (item.label === "Our Community") setMobileCommunityDropdownOpen(!mobileCommunityDropdownOpen);
-                        if (item.label === "Nomination & Registration") setMobileNominationRegistrationDropdownOpen(!mobileNominationRegistrationDropdownOpen);
-                      }}
-                      className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
-                    >
-                      {item.label}
-                    </button>
-                    {(item.label === "About Us" && mobileInfoDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {infoLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Our Community" && mobileCommunityDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {communityLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Nomination & Registration" && mobileNominationRegistrationDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {nominationRegistrationLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                    {item.dropdown ? (
+                      <>
+                        <button
+                          onClick={() => handleMobileDropdownToggle(item.label)}
+                          className="block px-4 py-2 text-gray-200 hover:bg-gray-700 rounded-md w-full text-left"
+                        >
+                          {item.label}
+                        </button>
+                        {mobileOpenDropdown === item.label && (
+                          <ul className="ml-4 space-y-2">
+                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                              <li key={dropdownIndex}>
+                                <Link
+                                  href={dropdownItem.href}
+                                  className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                                >
+                                  {dropdownItem.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
+                      >
+                        {item.label}
+                      </Link>
                     )}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-gray-100 dark:bg-gray-700 h-[1px] mx-4 my-2"></div>
-             <div className="px-6 py-4">
-               <ul className="space-y-4">
-                <li className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">Bottom Navigation</li>
-                {bottomNavigationItems.map((item, index) => ( // Use bottomNavigationItems here
+            <div className="bg-gray-100 dark:bg-gray-700 h-[1px] mx-4 my-2" />
+            <div className="px-6 py-4">
+              <ul className="space-y-4">
+                <li className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">
+                  Bottom Navigation
+                </li>
+                {navigationData.bottomNavigationItems.map((item, index) => (
                   <li key={`bottom-mobile-${index}`}>
-                     <button
-                       onClick={() => {
-                        if (item.label === "Initiatives & Research") setMobileInitiativesResearchDropdownOpen(!mobileInitiativesResearchDropdownOpen);
-                        if (item.label === "Play a game") setMobilePlayAGameDropdownOpen(!mobilePlayAGameDropdownOpen);
-                        if (item.label === "Knowledge Hub") setMobileKnowledgeHubDropdownOpen(!mobileKnowledgeHubDropdownOpen);
-                        if (item.label === "Contact & FAQ") setMobileContactFaqDropdownOpen(!mobileContactFaqDropdownOpen);
-                      }}
-                      className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
-                    >
-                      {item.label}
-                    </button>
-                    {(item.label === "Initiatives & Research" && mobileInitiativesResearchDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {initiativesResearchLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Play a game" && mobilePlayAGameDropdownOpen) && (
-                       <ul className="ml-4 space-y-2">
-                         {playAGameLinks.map((dropdownItem, dropdownIndex) => (
-                           <li key={dropdownIndex}>
-                             <Link
-                               href={dropdownItem.href}
-                               className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                             >
-                               {dropdownItem.label}
-                             </Link>
-                           </li>
-                         ))}
-                      </ul>
-                    )}
-                     {(item.label === "Knowledge Hub" && mobileKnowledgeHubDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {knowledgeHubLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                     {(item.label === "Contact & FAQ" && mobileContactFaqDropdownOpen) && (
-                      <ul className="ml-4 space-y-2">
-                        {contactFaqLinks.map((dropdownItem, dropdownIndex) => (
-                          <li key={dropdownIndex}>
-                            <Link
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                    {item.dropdown ? (
+                      <>
+                        <button
+                          onClick={() => handleMobileDropdownToggle(item.label)}
+                          className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
+                        >
+                          {item.label}
+                        </button>
+                        {mobileOpenDropdown === item.label && (
+                          <ul className="ml-4 space-y-2">
+                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                              <li key={dropdownIndex}>
+                                <Link
+                                  href={dropdownItem.href}
+                                  className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                                >
+                                  {dropdownItem.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
+                      >
+                        {item.label}
+                      </Link>
                     )}
                   </li>
                 ))}
@@ -528,295 +256,139 @@ export const Navbar = ({
     );
   };
 
-
   return (
-
     <div className="w-full shadow">
       <nav
-        className={`text-white relative flex flex-col lg:flex-row lg:items-center p-1 xl:px-10 w-full`}
-        ref={navbarRef} // Attach the ref to the nav element
-        style={{
-          backgroundColor: "#111827",
-        }}
+        className={`text-gray-50 relative flex flex-col lg:flex-row lg:items-center p-1 xl:px-10 w-full`}
+        style={{ backgroundColor: "#111827" }}
       >
         <div className="flex flex-row items-center justify-between w-full lg:w-auto">
           {/* Logo */}
-          <div className="lg:mr-12 mb-4 lg:mb-0 w-[200px] lg:w-[300px] h-[60px] lg:h-[90px] overflow-hidden">
+          <div className="lg:mr-2 mb-4 lg:mb-0 w-[120px] h-[36px] lg:w-[200px] lg:h-[60px] overflow-hidden">
             <Link
               href="/"
-              className="flex items-center space-x-2 text-2xl font-medium dark:text-gray-100"
+              className="flex items-center space-x-2 text-2xl font-medium text-white"
             >
               <Image
                 src="/img/favicon4.png"
-                width={300}
-                height={90}
+                width={210}
+                height={63}
                 alt="Cyber Colloquy"
                 className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain"
-                style={imageStyle}
+                style={logoStyle}
               />
             </Link>
           </div>
-{/* 
-          Mobile Menu Icon (for mobile view) - Conditionally Rendered - **MOVED HERE** */}
-          {/* {isSmallScreen ? ( // If it's mobile view, show mobile menu
-            <div className="lg:hidden flex items-center">
-              <MenuBarContent />
-            </div>
-          ) : null
-          } */}
+          <div className="lg:hidden flex items-center">
+            <MenuBarContent />
+          </div>
         </div>
 
-
-        {/* Conditionally render desktop navigation or mobile menu based on isSmallScreen */}
-        {!isSmallScreen ? (
-          <>
-            <div className="lg:flex lg:flex-col lg:items-start">
-              {/* Top Navigation */}
-              <div className="hidden text-center lg:flex lg:items-center mb-1 lg:mb-0 pb-1 ">
-                <ul className="items-center justify-start flex-none pt-1 list-none lg:pt-2 lg:flex lg:items-center">
-                  {topNavigation.map((item, index) => (
-                    <li
-                      className="mr-10 nav__item relative"
-                      key={index}
-                      onMouseEnter={
-                        item.label === "About Us"
-                          ? handleInfoMouseEnter
-                          : item.label === "Our Community"
-                            ? handleCommunityMouseEnter
-                            : item.label === "Nomination & Registration"
-                              ? handleNominationRegistrationMouseEnter
-                              : undefined
-                      }
-                      onMouseLeave={
-                        item.label === "About Us"
-                          ? handleInfoMouseLeave
-                          : item.label === "Our Community"
-                            ? handleCommunityMouseLeave
-                            : item.label === "Nomination & Registration"
-                              ? handleNominationRegistrationMouseLeave
-                              : undefined
-                      }
-                    >
-                       {item.label !== "Events" &&
-                        item.label !== "Nomination & Registration" ? (
-                        <button className="inline-block text-[1.7rem] font-bold text-white no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-300 group">
-                          <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
-                            {item.label}
-                          </span>
-                        </button>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className="inline-block text-[1.7rem] font-bold text-white no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-300 group"
-                        >
-                          <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
-                            {item.label}
-                          </span>
-                        </Link>
-                      )}
-
-                      {/* Dropdown Render Condition */}
-                      {item.label === "About Us" && infoDropdownOpen && (
-                        <div
-                          ref={infoDropdownRef}
-                          className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handleInfoMouseLeave}
-                        >
-                          {infoLinks.map((dropdownItem, dropdownIndex) => (
-                            <Link
-                              key={dropdownIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-
-
-                      {item.label === "Our Community" && communityDropdownOpen && (
-                        <div
-                          ref={communityDropdownRef}
-                          className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handleCommunityMouseLeave}
-                        >
-                          {communityLinks.map((dropdownItem, dropdownIndex) => (
-                            <Link
-                              key={dropdownIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-
-                      {item.label === "Nomination & Registration" && nominationRegistrationDropdownOpen && (
-                        <div
-                          ref={nominationRegistrationDropdownRef}
-                          className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                          onMouseLeave={handleNominationRegistrationMouseLeave}
-                        >
-                          {nominationRegistrationLinks.map((dropdownItem, dropdownIndex) => (
-                            <Link
-                              key={dropdownIndex}
-                              href={dropdownItem.href}
-                              className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-
-              <div className="top-0 right-100 lg:static lg:top-auto lg:right-auto">
-
-              </div>
-              </div>
-
-
-              {/* Bottom Navigation (Desktop - **NOW CONDITIONAL**) */}
-              { !mobileMenuOpen && (
-                <div
-                  className="hidden text-center lg:flex lg:items-center text-center"
-                  style={{ backgroundColor: "#0D5EDF" }}
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex lg:flex-col lg:items-start lg:flex-grow">
+          {/* Top Navigation */}
+          <div className="text-center lg:flex lg:items-center mb-1 lg:mb-0 pb-1 ">
+            <ul className="items-center justify-start flex-none pt-1 list-none lg:pt-2 lg:flex lg:items-center">
+              {navigationData.topNavigation.map((item, index) => (
+                <li
+                  className="mr-8 nav__item relative"
+                  key={index}
+                  onMouseEnter={() => handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <ul className="items-center justify-start flex-none pt-1 pb-0 list-none lg:pt-0 lg:flex">
-                    {bottomNavigationItems.map((item, index) => (
-                      <li
-                        className="mr-20 nav__item relative"
-                        key={index}
-                        onMouseEnter={
-                          item.label === "Initiatives & Research"
-                              ? handleInitiativesResearchMouseEnter
-                              : item.label === "Play a game"
-                                ? handlePlayAGameMouseEnter
-                                : item.label === "Knowledge Hub"
-                                  ? handleKnowledgeHubMouseEnter
-                                  : item.label === "Contact & FAQ"
-                                    ? handleContactFaqMouseEnter
-                                    : undefined
-                        }
-                        onMouseLeave={
-                          item.label === "Initiatives & Research"
-                              ? handleInitiativesResearchMouseLeave
-                              : item.label === "Play a game"
-                                ? handlePlayAGameMouseLeave
-                                : item.label === "Knowledge Hub"
-                                  ? handleKnowledgeHubMouseLeave
-                                  : item.label === "Contact & FAQ"
-                                    ? handleContactFaqMouseLeave
-                                    : undefined
-                        }
-                      >
-                        {item.label === "Achievements" || item.label === "News" ? (
-                          <Link
-                            href={item.href}
-                            className="inline-block text-xl font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group"
-                          >
-                            <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
-                              {item.label}
-                            </span>
-                          </Link>
-                        ) : (
-                          <button className="inline-block text-xl font-normal text-gray-300 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400 group">
-                            <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
-                              {item.label}
-                            </span>
-                          </button>
-                        )}
+                  {item.label !== "Events" && item.dropdown ? (
+                    <button className="group inline-block text-[1.7rem] font-bold text-gray-50 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-300">
+                      <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
+                        {item.label}
+                      </span>
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="group inline-block text-[1.7rem] font-bold text-gray-50 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-300"
+                    >
+                      <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
+                        {item.label}
+                      </span>
+                    </Link>
+                  )}
 
-                        {/* Dropdown Render Condition for Bottom Nav Items */}
-                        {item.label === "Initiatives & Research" && initiativesResearchDropdownOpen && (
-                          <div
-                            ref={initiativesResearchDropdownRef}
-                            className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                            onMouseLeave={handleInitiativesResearchMouseLeave}
-                          >
-                            {initiativesResearchLinks.map((dropdownItem, dropdownIndex) => (
-                              <Link
-                                key={dropdownIndex}
-                                href={dropdownItem.href}
-                                className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                              >
-                                {dropdownItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
+                  {/* Generic Dropdown Render */}
+                  {item.dropdown && openDropdown === item.label && (
+                    <div
+                      ref={dropdownRef}
+                      className="absolute top-full left-0 z-10 mt-2 min-w-[200px] transform origin-top scale-y-100 transition-transform duration-300 ease-out rounded-md shadow-lg bg-white dark:bg-gray-800 p-2"
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                        <Link
+                          key={dropdownIndex}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
+                        >
+                          {dropdownItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          {/* Bottom Navigation (Desktop) */}
+          <div
+            className="hidden text-center lg:flex lg:items-center lg:flex-grow"
+            style={{ backgroundColor: "#0D5EDF" }}
+          >
+            <ul className="items-center justify-start flex-none pt-1 pb-0 list-none lg:pt-0 lg:flex">
+              {navigationData.bottomNavigationItems.map((item, index) => (
+                <li
+                  className="mr-12 nav__item relative"
+                  key={index}
+                  onMouseEnter={() => handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {item.label === "Achievements" || item.label === "News" || !item.dropdown ? (
+                    <Link
+                      href={item.href}
+                      className="group inline-block text-xl font-normal text-gray-50 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400"
+                    >
+                      <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
+                        {item.label}
+                      </span>
+                    </Link>
+                  ) : (
+                    <button className="group inline-block text-xl font-normal text-gray-50 no-underline rounded-md dark:text-gray-200 transition-colors duration-300 hover:text-gray-400">
+                      <span className="block px-4 py-2 rounded-md group-hover:bg-gray-900 group-focus:bg-gray-900">
+                        {item.label}
+                      </span>
+                    </button>
+                  )}
 
-                        {item.label === "Play a game" && playAGameDropdownOpen && (
-                          <div
-                            ref={playAGameDropdownRef}
-                            className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                            onMouseLeave={handlePlayAGameMouseLeave}
-                          >
-                            {playAGameLinks.map((dropdownItem, dropdownIndex) => (
-                              <Link
-                                key={dropdownIndex}
-                                href={dropdownItem.href}
-                                className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                              >
-                                {dropdownItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-
-                        {item.label === "Knowledge Hub" && knowledgeHubDropdownOpen && (
-                          <div
-                            ref={knowledgeHubDropdownRef}
-                            className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                            onMouseLeave={handleKnowledgeHubMouseLeave}
-                          >
-                            {knowledgeHubLinks.map((dropdownItem, dropdownIndex) => (
-                              <Link
-                                key={dropdownIndex}
-                                href={dropdownItem.href}
-                                className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                              >
-                                {dropdownItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-
-                        {item.label === "Contact & FAQ" && contactFaqDropdownOpen && (
-                          <div
-                            ref={contactFaqDropdownRef}
-                            className="absolute top-full left-0 z-10 bg-white dark:bg-gray-800 text-gray-800 rounded-md shadow-lg p-2 mt-2 min-w-[200px] transform scale-y-100 origin-top transition-transform duration-300 ease-out"
-                            onMouseLeave={handleContactFaqMouseLeave}
-                          >
-                            {contactFaqLinks.map((dropdownItem, dropdownIndex) => (
-                              <Link
-                                key={dropdownIndex}
-                                href={dropdownItem.href}
-                                className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
-                              >
-                                {dropdownItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </>
-        ) : (
-          /* Render Menubar component when isSmallScreen is true */
-          <MenuBarContent />
-         )}
-
-
+                  {/* Generic Dropdown Render for Bottom Nav */}
+                  {item.dropdown && openDropdown === item.label && (
+                    <div
+                      ref={dropdownRef}
+                      className="absolute top-full left-0 z-10 mt-2 min-w-[200px] transform origin-top scale-y-100 transition-transform duration-300 ease-out rounded-md shadow-lg bg-white dark:bg-gray-800 p-2"
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                        <Link
+                          key={dropdownIndex}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none transition-colors duration-300 hover:scale-105 hover:outline hover:outline-gray-700 dark:hover:outline-gray-500"
+                        >
+                          {dropdownItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </nav>
     </div>
   );
