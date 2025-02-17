@@ -1,3 +1,4 @@
+// components/HeroCarousel.tsx
 'use client'; // Mark this as a client component
 import React from 'react';
 import dynamic from 'next/dynamic';
@@ -9,7 +10,7 @@ interface HeroSlide {
     imageUrl: string;
     title: string;
     description: string;
-    subtitle?: string; // Make these optional in the interface
+    subtitle?: string;
     buttonText?: string;
     buttonHref?: string;
 }
@@ -21,6 +22,7 @@ interface HeroCarouselProps {
 const Slider = dynamic(() => import('react-slick'), {
     ssr: false
 });
+
 
 const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
     const settings = {
@@ -35,19 +37,10 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
     };
 
     return (
-        <>
-            <style jsx global>{`
-                .slick-dots li button:before {
-                    color: white; /* Change this to the color you want for the dots */
-                }
-
-                .slick-dots li.slick-active button:before {
-                    color: white; /* Change this to the color you want for the active dot */
-                }
-            `}</style>
+        <div className="w-full overflow-hidden rounded-md"> {/* Removed fixed height from here */}
             <Slider {...settings}>
                 {slides.map((slide, index) => (
-                    <div key={index}>
+                    <div key={index} className="h-[450px] lg:h-[600px]"> {/* Added responsive height here */}
                         <HeroBanner
                             imageUrl={slide.imageUrl}
                             title={slide.title}
@@ -59,7 +52,7 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
                     </div>
                 ))}
             </Slider>
-        </>
+        </div>
     );
 };
 
