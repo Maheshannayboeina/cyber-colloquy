@@ -25,18 +25,18 @@ const alumniData: Alumni[] = [
     name: "Alumni Name 1",
     title: "Software Engineer",
     description: "Working at a leading tech company.",
-    imageUrl: "/img/alumni/alumni1.jpg",
+    imageUrl: "",
   }, //Use correct path
   {
     name: "Alumni Name 2",
     title: "Cybersecurity Analyst",
     description: "Protecting critical infrastructure.",
-    imageUrl: "/img/alumni/alumni2.jpg",
+    imageUrl: "",
   },
   {
     name: "Alumni Name 3",
     title: "Data Scientist",
-    imageUrl: "/img/alumni/alumni2.jpg",
+    imageUrl: "",
   },
   {
     name: "Alumni Name 4",
