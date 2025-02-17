@@ -25,7 +25,7 @@ export const Faq = () => {
                       } w-5 h-5 text-indigo-500`}
                     />
                   </DisclosureButton>
-                  <DisclosurePanel className="px-4 pt-4 pb-2 text-gray-500 dark:text-gray-300">
+                  <DisclosurePanel className="px-4 pt-4 pb-2 text-gray-300">
                     {item.answer}
                   </DisclosurePanel>
                 </div>

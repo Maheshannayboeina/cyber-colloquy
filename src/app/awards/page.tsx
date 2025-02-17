@@ -1,3 +1,4 @@
+//src/app/awards/page.tsx
 "use client";
 import React from "react";
 import { Container } from "@/components/Container";
@@ -18,13 +19,13 @@ const AwardCeremonyPage: React.FC = () => {
         preTitle="Recognize Excellence"
         title="Award Ceremony Nominations"
         align="center"
-        className="text-yellow-700 dark:text-yellow-500" // Updated color for awards theme
+        className="text-yellow-500" // Updated color for awards theme
       >
         Help us celebrate outstanding contributions in cyber security at Colloquy 4.0.
       </SectionTitle>
 
       <motion.div
-        className="bg-white dark:bg-gray-800 p-10 rounded-2xl shadow-xl mb-12 max-w-screen-lg mx-auto" // Updated styling - keeping consistent with SponsorPage
+        className="bg-gray-800 p-10 rounded-2xl shadow-xl mb-12 max-w-screen-lg mx-auto" // Updated styling - keeping consistent with SponsorPage
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
@@ -36,12 +37,12 @@ const AwardCeremonyPage: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <FaAward className="text-yellow-500 dark:text-yellow-400 text-4xl" /> {/* Award Icon */}
+          <FaAward className="text-yellow-400 text-4xl" /> {/* Award Icon */}
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+            <h2 className="text-2xl font-semibold text-gray-100 mb-2">
               About the Colloquy 4.0 Award Ceremony
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-400">
               We are excited to host the Award Ceremony at Colloquy 4.0, recognizing individuals and teams who have made significant contributions to the field of cyber security.
             </p>
           </div>
@@ -54,11 +55,11 @@ const AwardCeremonyPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-yellow-600 dark:text-yellow-400 mb-4 flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-yellow-400 mb-4 flex items-center space-x-2">
             <FaClipboardCheck className="text-yellow-500" /> {/* Nomination Icon */}
             <span>Nomination Categories</span>
           </h3>
-          <ul className="list-disc pl-8 text-gray-700 dark:text-gray-300 space-y-2">
+          <ul className="list-disc pl-8 text-gray-300 space-y-2">
             <li><b>Cyber Security Professional of the Year:</b> Recognizing outstanding contributions to the industry.</li>
             <li><b>Emerging Talent Award:</b> For promising students or newcomers in cyber security.</li>
             <li><b>Innovation in Cyber Security Award:</b> Celebrating groundbreaking projects and ideas.</li>
@@ -74,11 +75,11 @@ const AwardCeremonyPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-yellow-600 dark:text-yellow-400 mb-4 flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-yellow-400 mb-4 flex items-center space-x-2">
             <FaBullhorn className="text-yellow-500" /> {/* Bullhorn/Announcement Icon */}
             <span>How to Nominate</span>
           </h3>
-          <ol className="list-decimal pl-8 text-gray-700 dark:text-gray-300 space-y-2">
+          <ol className="list-decimal pl-8 text-gray-300 space-y-2">
             <li><b>Review Categories:</b> Familiarize yourself with the award categories.</li>
             <li><b>Prepare Nomination:</b> Gather information about your nominee and their achievements.</li>
             <li><b>Submit Form:</b> Click the button below to access the nomination form and complete it.</li>
@@ -93,10 +94,10 @@ const AwardCeremonyPage: React.FC = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
         >
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+          <h3 className="text-xl font-semibold text-gray-100 mb-4">
             Ready to Nominate?
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-6">
+          <p className="text-gray-300 mb-6">
             Recognize the cyber security champions! Click the button below to submit your nominations.
           </p>
           <a

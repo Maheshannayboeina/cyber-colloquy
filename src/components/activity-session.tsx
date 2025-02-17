@@ -1,3 +1,4 @@
+//src/components/activity-session.tsx
 'use client'
 
 import { useState } from 'react'
@@ -26,11 +27,7 @@ export function ActivitiesSection({ activities }: ActivitiesSectionProps) {
           <button
             key={day}
             onClick={() => setSelectedDay(day)}
-            className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-              selectedDay === day
-                ? 'bg-emerald-500 text-white'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-            }`}
+            className="px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-gray-800 text-gray-400 hover:bg-gray-700"
           >
             {day}
           </button>
@@ -67,7 +64,7 @@ export function ActivitiesSection({ activities }: ActivitiesSectionProps) {
           animate={{ opacity: 1 }}
           className="text-center py-12"
         >
-          <div className="text-gray-500 dark:text-gray-400">
+          <div className="text-gray-400">
             No activities scheduled for this day
           </div>
         </motion.div>

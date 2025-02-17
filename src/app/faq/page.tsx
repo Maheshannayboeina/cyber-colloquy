@@ -1,3 +1,4 @@
+//src/app/faq/page.tsx
 "use client";
 import React from "react";
 import { Container } from "@/components/Container";
@@ -9,7 +10,7 @@ import {
 } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion"; // Import motion
-import { FaQuestionCircle } from 'react-icons/fa';
+import { FaQuestionCircle } from "react-icons/fa";
 
 interface FaqItem {
   question: string;
@@ -81,14 +82,15 @@ const FaqPage: React.FC = () => {
           preTitle="Need More Information?"
           title="Frequently Asked Questions"
           align="center"
-          className="text-blue-700 dark:text-blue-500" // Changed color
+          className="text-blue-500" // Changed color
         >
-          Find answers to common queries about our platform, events, and community.
+          Find answers to common queries about our platform, events, and
+          community.
         </SectionTitle>
       </motion.div>
 
       <motion.div // Add a motion.div for container animation
-        className="bg-white dark:bg-gray-800 p-10 rounded-2xl shadow-xl max-w-2xl mx-auto"
+        className="bg-gray-800 p-10 rounded-2xl shadow-xl max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -102,7 +104,7 @@ const FaqPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }} // Animate in
                 transition={{ duration: 0.3, delay: index * 0.05 }} // Staggered animation
               >
-                <DisclosureButton className="flex items-center justify-between w-full px-6 py-4 text-lg text-left text-gray-800 rounded-xl bg-gray-50 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75 dark:bg-gray-700 dark:text-gray-200">
+                <DisclosureButton className="flex items-center justify-between w-full px-6 py-4 text-lg text-left text-gray-200 rounded-xl bg-gray-700 hover:bg-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
                   <span className="flex items-center space-x-2">
                     <FaQuestionCircle className="text-blue-500" />
                     <span>{item.question}</span>
@@ -114,9 +116,12 @@ const FaqPage: React.FC = () => {
                   </motion.span>
                 </DisclosureButton>
                 <DisclosurePanel
-                  className="px-6 pt-4 pb-4 text-gray-700 dark:text-gray-300 leading-relaxed"
+                  className="px-6 pt-4 pb-4 text-gray-300 leading-relaxed"
                   static={false}
-                  style={{ overflow: "hidden" , transition: 'height 0.3s ease, opacity 0.3s ease'}}
+                  style={{
+                    overflow: "hidden",
+                    transition: "height 0.3s ease, opacity 0.3s ease",
+                  }}
                 >
                   {item.answer}
                 </DisclosurePanel>

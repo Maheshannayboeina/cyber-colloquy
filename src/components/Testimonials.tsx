@@ -1,5 +1,5 @@
+"use client";
 import Image from "next/image";
-import React from "react";
 import { Container } from "@/components/Container";
 
 import userOneImg from "../../public/img/user1.jpg";
@@ -11,9 +11,9 @@ export const Testimonials = () => {
     <Container>
       <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
         <div className="lg:col-span-2 xl:col-auto">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
+          <div className="flex flex-col justify-between w-full h-full bg-trueGray-800 px-14 rounded-2xl py-14">
             <p className="text-2xl leading-normal ">
-              &quot;The events I&apos;ve attended have consistently provided valuable insights and practical knowledge to improve my skill set.&quot;
+              "The events I've attended have consistently provided valuable insights and practical knowledge to improve my skill set."
             </p>
 
             <Avatar
@@ -24,9 +24,9 @@ export const Testimonials = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
+          <div className="flex flex-col justify-between w-full h-full bg-trueGray-800 px-14 rounded-2xl py-14">
             <p className="text-2xl leading-normal ">
-              &quot;I greatly appreciate the high quality of speakers and the networking opportunities that were present in these events&quot;
+              "I greatly appreciate the high quality of speakers and the networking opportunities that were present in these events"
             </p>
 
             <Avatar
@@ -37,9 +37,9 @@ export const Testimonials = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
+          <div className="flex flex-col justify-between w-full h-full bg-trueGray-800 px-14 rounded-2xl py-14">
             <p className="text-2xl leading-normal ">
-              &quot;I highly recommend this platform to anyone that is looking to explore the different areas of cybersecurity and wants to improve their expertise.&quot;
+              "I highly recommend this platform to anyone that is looking to explore the different areas of cybersecurity and wants to improve their expertise."
             </p>
 
             <Avatar
@@ -74,7 +74,7 @@ function Avatar(props: Readonly<AvatarProps>) {
       </div>
       <div>
         <div className="text-lg font-medium">{props.name}</div>
-        <div className="text-gray-600 dark:text-gray-400">{props.title}</div>
+        <div className="text-gray-400">{props.title}</div>
       </div>
     </div>
   );

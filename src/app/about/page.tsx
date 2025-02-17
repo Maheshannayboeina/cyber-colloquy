@@ -165,8 +165,8 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ title, children }) => (
-  <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md mb-8">
-    <h2 className="text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-5 border-b pb-2">
+  <div className="bg-gray-800 p-8 rounded-lg shadow-md mb-8">
+    <h2 className="text-3xl font-semibold text-indigo-400 mb-5 border-b pb-2">
       {title}
     </h2>
     {children}
@@ -183,12 +183,20 @@ const AboutPage: React.FC = () => {
 
   return (
     <Container>
-      <SectionTitle preTitle="Meet Our Team" title="Faculty of Cyber Security Department"> {/* Main Title Section */}
-        Passionate Educators and Technical Experts Shaping Future Cyber Security Leaders.
+      <SectionTitle
+        preTitle="Meet Our Team"
+        title="Faculty of Cyber Security Department"
+      >
+        {" "}
+        {/* Main Title Section */}
+        Passionate Educators and Technical Experts Shaping Future Cyber Security
+        Leaders.
       </SectionTitle>
 
-      <Section title="Our Teaching Faculty"> {/* Teaching Faculty Section */}
-        <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+      <Section title="Our Teaching Faculty">
+        {" "}
+        {/* Teaching Faculty Section */}
+        <p className="text-gray-300 mb-6 text-lg leading-relaxed">
           Meet the experienced faculty members of the Cyber Security Department.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
@@ -198,8 +206,10 @@ const AboutPage: React.FC = () => {
         </div>
       </Section>
 
-      <Section title="Our Technical Staff"> {/* Technical Staff Section */}
-        <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+      <Section title="Our Technical Staff">
+        {" "}
+        {/* Technical Staff Section */}
+        <p className="text-gray-300 mb-6 text-lg leading-relaxed">
           Meet the dedicated non-teaching members of the Cyber Security
           Department.
         </p>

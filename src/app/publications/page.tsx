@@ -1,16 +1,25 @@
+//src/app/publications/page.tsx
 "use client";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import React, { useState, useEffect } from "react";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
-interface Publication {
+type Publication = {
   applicantName: string;
   titleOfWork: string;
   certificateDate: string;
   ay: string;
   status?: string;
   serialNumber?: number;
-}
+};
 
 export default function PublicationsPage() {
   const [publications, setPublications] = useState<Publication[]>([]);
@@ -21,396 +30,442 @@ export default function PublicationsPage() {
     // Hardcoded data based on the provided image
     const data = [
       {
-        "applicantName": "Dr Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data",
-        "certificateDate": "16-05-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data",
+        certificateDate: "16-05-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data (part2)",
-        "certificateDate": "16-05-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data (part2)",
+        certificateDate: "16-05-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "Network Security",
-        "certificateDate": "11-1-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain",
+        titleOfWork: "Network Security",
+        certificateDate: "11-1-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "The Crime Portal",
-        "certificateDate": "11-1-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain",
+        titleOfWork: "The Crime Portal",
+        certificateDate: "11-1-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Prof. Kiran Talele",
-        "titleOfWork": "AI based student attendance management system using face recognition",
-        "certificateDate": "14-09-2022",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Prof. Kiran Talele",
+        titleOfWork:
+          "AI based student attendance management system using face recognition",
+        certificateDate: "14-09-2022",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya, Mr. Sachin Khadatare",
-        "titleOfWork": "A system for digital certificate authentication using Block Chain",
-        "certificateDate": "14-09-2022",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName:
+          "Dr. Nilakshi Jain, Dr. Dhirendra Maurya, Mr. Sachin Khadatare",
+        titleOfWork:
+          "A system for digital certificate authentication using Block Chain",
+        certificateDate: "14-09-2022",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "A Novel Method for Dynamic Content Management in IoT for Smart Cities",
-        "certificateDate": "14-09-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName: "Prof. Neha More, Prof. Priyanka Sonawane",
+        titleOfWork:
+          "A Novel Method for Dynamic Content Management in IoT for Smart Cities",
+        certificateDate: "14-09-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "A Novel Method for Dynamic Content Management in IoT for Smart Cities Part 2",
-        "certificateDate": "14-09-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName: "Prof. Neha More, Prof. Priyanka Sonawane",
+        titleOfWork:
+          "A Novel Method for Dynamic Content Management in IoT for Smart Cities Part 2",
+        certificateDate: "14-09-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Snehal Patil, Prof. Komal Sutar, Prof. Vihang Bhole",
-        "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots",
-        "certificateDate": "12-04-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName:
+          "Prof. Snehal Patil, Prof. Komal Sutar, Prof. Vihang Bhole",
+        titleOfWork:
+          "A Methodology for Securing Network from Threats by Using Honeypots",
+        certificateDate: "12-04-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Pratik Gaikwad, Prof. Vihang Bhole, Mr. Vivek Jadhav",
-        "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots Part 2",
-        "certificateDate": "12-04-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName:
+          "Prof. Pratik Gaikwad, Prof. Vihang Bhole, Mr. Vivek Jadhav",
+        titleOfWork:
+          "A Methodology for Securing Network from Threats by Using Honeypots Part 2",
+        certificateDate: "12-04-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Mr. Vivek Jadhav, Dr. Nilakshi Jain",
-        "titleOfWork": "Smart Contract for a Secure and Decentralized Voting System",
-        "certificateDate": "12-04-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName: "Prof. Komal Sutar, Mr. Vivek Jadhav, Dr. Nilakshi Jain",
+        titleOfWork:
+          "Smart Contract for a Secure and Decentralized Voting System",
+        certificateDate: "12-04-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Mr. Vivek Jadhav, Dr. Nilakshi Jain",
-        "titleOfWork": "Smart Contract for a Secure and Decentralized Voting System Part 2",
-        "certificateDate": "12-04-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName: "Prof. Komal Sutar, Mr. Vivek Jadhav, Dr. Nilakshi Jain",
+        titleOfWork:
+          "Smart Contract for a Secure and Decentralized Voting System Part 2",
+        certificateDate: "12-04-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Mr. Vivek Jadhav",
-        "titleOfWork": "The Use of AI in Social Network Data Analysis Part 1",
-        "certificateDate": "12-04-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName: "Prof. Komal Sutar, Mr. Vivek Jadhav",
+        titleOfWork: "The Use of AI in Social Network Data Analysis Part 1",
+        certificateDate: "12-04-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Mr. Vivek Jadhav",
-        "titleOfWork": "The Use of AI in Social Network Data Analysis Part 2",
-        "certificateDate": "12-04-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName: "Prof. Komal Sutar, Mr. Vivek Jadhav",
+        titleOfWork: "The Use of AI in Social Network Data Analysis Part 2",
+        certificateDate: "12-04-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Framework for secure and transparent online examination",
-        "certificateDate": "29-06-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Framework for secure and transparent online examination",
+        certificateDate: "29-06-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane, Dr. Amit Singh",
-        "titleOfWork": "A Real-Time Patient Monitoring System for Smart Hospitals",
-        "certificateDate": "29-06-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName:
+          "Prof. Neha More, Prof. Priyanka Sonawane, Dr. Amit Singh",
+        titleOfWork:
+          "A Real-Time Patient Monitoring System for Smart Hospitals",
+        certificateDate: "29-06-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Snehal Patil, Prof. Komal Sutar, Dr. Prachi Gharpure, Dr. Dhirendra Maurya",
-        "titleOfWork": "Cybersecurity Training Program on Data Privacy",
-        "certificateDate": "29-06-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName:
+          "Prof. Snehal Patil, Prof. Komal Sutar, Dr. Prachi Gharpure, Dr. Dhirendra Maurya",
+        titleOfWork: "Cybersecurity Training Program on Data Privacy",
+        certificateDate: "29-06-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane, Dr. Amit Singh, Dr. Nilakshi Jain",
-        "titleOfWork": "Securing Smart Cities with a Novel Data Analytics Framework Based on IoT",
-        "certificateDate": "29-06-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName:
+          "Prof. Neha More, Prof. Priyanka Sonawane, Dr. Amit Singh, Dr. Nilakshi Jain",
+        titleOfWork:
+          "Securing Smart Cities with a Novel Data Analytics Framework Based on IoT",
+        certificateDate: "29-06-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Ms. Shivangi M., Mr. Yash L",
-        "titleOfWork": "Online Crime Report Portal",
-        "certificateDate": "14-09-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Ms. Shivangi M., Mr. Yash L",
+        titleOfWork: "Online Crime Report Portal",
+        certificateDate: "14-09-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Mr. Omkar Shelar, Mr. Pratik Patil",
-        "titleOfWork": "A Comparative Study of Machine Learning Algorithms for Cyber Attack Detection",
-        "certificateDate": "29-06-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Mr. Omkar Shelar, Mr. Pratik Patil",
+        titleOfWork:
+          "A Comparative Study of Machine Learning Algorithms for Cyber Attack Detection",
+        certificateDate: "29-06-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "A Methodology for Data Leak Prevention in Cloud Computing ",
-        "certificateDate": "12-04-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName: "Prof. Neha More, Prof. Priyanka Sonawane",
+        titleOfWork:
+          "A Methodology for Data Leak Prevention in Cloud Computing ",
+        certificateDate: "12-04-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 3)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 3)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 4)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 4)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 5)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 5)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 6)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 6)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 7)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 7)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 8)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 8)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 9)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 9)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 10)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 10)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 11)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 11)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "Software Implementation for Secure Cloud Data(Part 12)",
-        "certificateDate": "07-08-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "Software Implementation for Secure Cloud Data(Part 12)",
+        certificateDate: "07-08-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Pratik Gaikwad, Mr. Shivam Sharma, Mr. Pratik Patil",
-        "titleOfWork": "Data mining technique for effective intrusion detection on web servers",
-        "certificateDate": "27-07-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName:
+          "Prof. Pratik Gaikwad, Mr. Shivam Sharma, Mr. Pratik Patil",
+        titleOfWork:
+          "Data mining technique for effective intrusion detection on web servers",
+        certificateDate: "27-07-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "AI based approach for identifying ransomware attack",
-        "certificateDate": "27-07-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "AI based approach for identifying ransomware attack",
+        certificateDate: "27-07-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "An optimized secure IoT framework for agricultural monitoring and environmental analysis",
-        "certificateDate": "27-07-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Prof. Neha More, Prof. Priyanka Sonawane",
+        titleOfWork:
+          "An optimized secure IoT framework for agricultural monitoring and environmental analysis",
+        certificateDate: "27-07-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "The Crime Portal (part 2)",
-        "certificateDate": "15-03-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain",
+        titleOfWork: "The Crime Portal (part 2)",
+        certificateDate: "15-03-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "The Crime Portal (part 3)",
-        "certificateDate": "15-03-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain",
+        titleOfWork: "The Crime Portal (part 3)",
+        certificateDate: "15-03-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "Data Analytics with IoT: Smart Cities and Environmental Challenges",
-        "certificateDate": "15-03-2023",
-        "ay": "2022-23",
-        "status": "registered"
+        applicantName: "Prof. Neha More, Prof. Priyanka Sonawane",
+        titleOfWork:
+          "Data Analytics with IoT: Smart Cities and Environmental Challenges",
+        certificateDate: "15-03-2023",
+        ay: "2022-23",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
-        "titleOfWork": "A framework for secure data management",
-        "certificateDate": "08-08-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain, Dr. Dhirendra Maurya",
+        titleOfWork: "A framework for secure data management",
+        certificateDate: "08-08-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Prof. Snehal Patil, Dr. Nilakshi Jain",
-        "titleOfWork": "Blockchain based secure and decentralized voting system",
-        "certificateDate": "13-09-2022",
-        "ay": "2021-22",
-        "status": "registered"
+        applicantName:
+          "Prof. Komal Sutar, Prof. Snehal Patil, Dr. Nilakshi Jain",
+        titleOfWork: "Blockchain based secure and decentralized voting system",
+        certificateDate: "13-09-2022",
+        ay: "2021-22",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "A Study of Different Cryptographic Algorithms for Network Security Part 1",
-        "certificateDate": "29-06-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain",
+        titleOfWork:
+          "A Study of Different Cryptographic Algorithms for Network Security Part 1",
+        certificateDate: "29-06-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "A Study of Different Cryptographic Algorithms for Network Security Part 2",
-        "certificateDate": "29-06-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain",
+        titleOfWork:
+          "A Study of Different Cryptographic Algorithms for Network Security Part 2",
+        certificateDate: "29-06-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots Part 3",
-        "certificateDate": "29-06-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName: "Prof. Neha More, Prof. Priyanka Sonawane",
+        titleOfWork:
+          "A Methodology for Securing Network from Threats by Using Honeypots Part 3",
+        certificateDate: "29-06-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Dr. Prachi Gharpure, Dr. Dhirendra Maurya",
-        "titleOfWork": "Framework for secure and transparent online examination",
-        "certificateDate": "29-06-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName:
+          "Prof. Komal Sutar, Dr. Prachi Gharpure, Dr. Dhirendra Maurya",
+        titleOfWork: "Framework for secure and transparent online examination",
+        certificateDate: "29-06-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Mr. Vivek Jadhav, Prof. Snehal Patil",
-        "titleOfWork": "Implementation of Secure Smart Contracts for E Voting System",
-        "certificateDate": "29-06-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName:
+          "Prof. Komal Sutar, Mr. Vivek Jadhav, Prof. Snehal Patil",
+        titleOfWork:
+          "Implementation of Secure Smart Contracts for E Voting System",
+        certificateDate: "29-06-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Dhirendra Maurya",
-        "titleOfWork": "Application of Cryptography in cloud computing for the data security",
-        "certificateDate": "29-06-2022",
-        "ay": "2020-21",
-        "status": "registered"
+        applicantName: "Dr. Dhirendra Maurya",
+        titleOfWork:
+          "Application of Cryptography in cloud computing for the data security",
+        certificateDate: "29-06-2022",
+        ay: "2020-21",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Pratik Gaikwad, Prof. Snehal Patil",
-        "titleOfWork": "Secure Authentication Framework for E-Learning Applications",
-        "certificateDate": "12-04-2022",
-        "ay": "2019-20",
-        "status": "registered"
+        applicantName: "Prof. Pratik Gaikwad, Prof. Snehal Patil",
+        titleOfWork:
+          "Secure Authentication Framework for E-Learning Applications",
+        certificateDate: "12-04-2022",
+        ay: "2019-20",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane, Dr. Amit Singh",
-        "titleOfWork": "A Real-Time Patient Monitoring System for Smart Hospitals Part 2",
-        "certificateDate": "12-04-2022",
-        "ay": "2019-20",
-        "status": "registered"
+        applicantName:
+          "Prof. Neha More, Prof. Priyanka Sonawane, Dr. Amit Singh",
+        titleOfWork:
+          "A Real-Time Patient Monitoring System for Smart Hospitals Part 2",
+        certificateDate: "12-04-2022",
+        ay: "2019-20",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Dr. Dhirendra Maurya",
-        "titleOfWork": "System for Detection of Malicious Attacks through IoT devices using Machine Learning Algorithms Part 1",
-        "certificateDate": "29-06-2022",
-        "ay": "2019-20",
-        "status": "registered"
+        applicantName: "Prof. Komal Sutar, Dr. Dhirendra Maurya",
+        titleOfWork:
+          "System for Detection of Malicious Attacks through IoT devices using Machine Learning Algorithms Part 1",
+        certificateDate: "29-06-2022",
+        ay: "2019-20",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Komal Sutar, Dr. Dhirendra Maurya",
-        "titleOfWork": "System for Detection of Malicious Attacks through IoT devices using Machine Learning Algorithms Part 2",
-        "certificateDate": "29-06-2022",
-        "ay": "2019-20",
-        "status": "registered"
+        applicantName: "Prof. Komal Sutar, Dr. Dhirendra Maurya",
+        titleOfWork:
+          "System for Detection of Malicious Attacks through IoT devices using Machine Learning Algorithms Part 2",
+        certificateDate: "29-06-2022",
+        ay: "2019-20",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain",
-        "titleOfWork": "Study of data hiding and compression techniques in digital images ",
-        "certificateDate": "29-06-2022",
-        "ay": "2019-20",
-        "status": "registered"
+        applicantName: "Dr. Nilakshi Jain",
+        titleOfWork:
+          "Study of data hiding and compression techniques in digital images ",
+        certificateDate: "29-06-2022",
+        ay: "2019-20",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Komal Sutar",
-        "titleOfWork": "Design and Implementation of Energy Efficient Routing protocol for Wireless Sensor Network",
-        "certificateDate": "12-04-2022",
-        "ay": "2018-19",
-        "status": "registered"
+        applicantName: "Prof. Neha More, Prof. Komal Sutar",
+        titleOfWork:
+          "Design and Implementation of Energy Efficient Routing protocol for Wireless Sensor Network",
+        certificateDate: "12-04-2022",
+        ay: "2018-19",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Snehal Patil, Prof. Komal Sutar, Prof. Vihang Bhole",
-        "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots Part 4",
-        "certificateDate": "12-04-2022",
-        "ay": "2018-19",
-        "status": "registered"
+        applicantName:
+          "Prof. Snehal Patil, Prof. Komal Sutar, Prof. Vihang Bhole",
+        titleOfWork:
+          "A Methodology for Securing Network from Threats by Using Honeypots Part 4",
+        certificateDate: "12-04-2022",
+        ay: "2018-19",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Pratik Gaikwad, Prof. Vihang Bhole, Mr. Vivek Jadhav",
-        "titleOfWork": "A Methodology for Securing Network from Threats by Using Honeypots Part 5",
-        "certificateDate": "12-04-2022",
-        "ay": "2018-19",
-        "status": "registered"
+        applicantName:
+          "Prof. Pratik Gaikwad, Prof. Vihang Bhole, Mr. Vivek Jadhav",
+        titleOfWork:
+          "A Methodology for Securing Network from Threats by Using Honeypots Part 5",
+        certificateDate: "12-04-2022",
+        ay: "2018-19",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Snehal Patil, Prof. Komal Sutar, Dr. Nilakshi Jain",
-        "titleOfWork": "Smart Contract for a Secure and Decentralized Voting System Part 3",
-        "certificateDate": "12-04-2022",
-        "ay": "2018-19",
-        "status": "registered"
+        applicantName:
+          "Prof. Snehal Patil, Prof. Komal Sutar, Dr. Nilakshi Jain",
+        titleOfWork:
+          "Smart Contract for a Secure and Decentralized Voting System Part 3",
+        certificateDate: "12-04-2022",
+        ay: "2018-19",
+        status: "registered",
       },
       {
-        "applicantName": "Prof. Neha More, Prof. Priyanka Sonawane",
-        "titleOfWork": "An Improved Approach for Detection of Phishing Attacks on Smart Phones",
-        "certificateDate": "12-04-2022",
-        "ay": "2018-19",
-        "status": "registered"
+        applicantName: "Prof. Neha More, Prof. Priyanka Sonawane",
+        titleOfWork:
+          "An Improved Approach for Detection of Phishing Attacks on Smart Phones",
+        certificateDate: "12-04-2022",
+        ay: "2018-19",
+        status: "registered",
       },
       {
-        "applicantName": "Dr. Nilakshi Jain, Mr. Vivek Jadhav, Dr. Dhirendra Maurya",
-        "titleOfWork": "Online Examination System Using Cryptography and Steganography Techniques",
-        "certificateDate": "12-04-2022",
-        "ay": "2018-19",
-        "status": "registered"
+        applicantName:
+          "Dr. Nilakshi Jain, Mr. Vivek Jadhav, Dr. Dhirendra Maurya",
+        titleOfWork:
+          "Online Examination System Using Cryptography and Steganography Techniques",
+        certificateDate: "12-04-2022",
+        ay: "2018-19",
+        status: "registered",
       },
       // {
       //   "applicantName": "Prof. Komal Sutar, Dr. Prachi Gharpure, Dr. Dhirendra Maurya",
@@ -553,48 +608,67 @@ export default function PublicationsPage() {
       //   "status": "registered"
       // }
     ];
-        const registeredPublications = data
-            .filter((publication) => publication.status === "registered")
-            .map((item, index) => ({ ...item, serialNumber: index + 1 })); // Added S.No field
-        setPublications(registeredPublications);
-        setLoading(false);
-    }, []);
+    const registeredPublications = data
+      .filter((publication) => publication.status === "registered")
+      .map((item, index) => ({ ...item, serialNumber: index + 1 })); // Added S.No field
+    setPublications(registeredPublications);
+    setLoading(false);
+  }, []);
 
-    if (loading) {
-        return <Container>Loading publications...</Container>;
-    }
-    if (error) {
-        return <Container>Error: {error}</Container>;
-    }
-    return (
-        <Container>
-            <SectionTitle preTitle="Our College" title="Publications">
-              In these patents, our college&apos;s vision shines.
-            </SectionTitle>
-            <div className="overflow-x-auto">
-                <table className="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-md overflow-hidden">
-                    <thead className="bg-indigo-500 dark:bg-indigo-700 text-white">
-                    <tr>
-                        <th className="text-left py-3 px-4 font-semibold text-sm">S.No</th>
-                        <th className="text-left py-3 px-4 font-semibold text-sm">Applicant Name</th>
-                        <th className="text-left py-3 px-4 font-semibold text-sm">Title of Work</th>
-                        <th className="text-left py-3 px-4 font-semibold text-sm">Copyright Certificate Received Date</th>
-                        <th className="text-left py-3 px-4 font-semibold text-sm">AY</th>
-                    </tr>
-                    </thead>
-                    <tbody className="text-gray-700 dark:text-gray-300">
-                    {publications.map((publication) => (
-                        <tr key={publication.serialNumber} className="hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors duration-200">
-                            <td className="py-3 px-4 border-b text-sm">{publication.serialNumber}</td>
-                            <td className="py-3 px-4 border-b text-sm">{publication.applicantName}</td>
-                            <td className="py-3 px-4 border-b text-sm">{publication.titleOfWork}</td>
-                            <td className="py-3 px-4 border-b text-sm">{publication.certificateDate}</td>
-                            <td className="py-3 px-4 border-b text-sm">{publication.ay}</td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
-        </Container>
-    );
+  if (loading) {
+    return <Container>Loading publications...</Container>;
+  }
+  if (error) {
+    return <Container>Error: {error}</Container>;
+  }
+  return (
+    <Container>
+      <SectionTitle preTitle="Our College" title="Publications">
+        In these patents, our college's vision shines.
+      </SectionTitle>
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-gray-800 shadow-md rounded-md overflow-hidden">
+          <thead className="bg-indigo-700 text-white">
+            <tr>
+              <th className="text-left py-3 px-4 font-semibold text-sm">
+                S.No
+              </th>
+              <th className="text-left py-3 px-4 font-semibold text-sm">
+                Applicant Name
+              </th>
+              <th className="text-left py-3 px-4 font-semibold text-sm">
+                Title of Work
+              </th>
+              <th className="text-left py-3 px-4 font-semibold text-sm">
+                Copyright Certificate Received Date
+              </th>
+              <th className="text-left py-3 px-4 font-semibold text-sm">AY</th>
+            </tr>
+          </thead>
+          <tbody className="text-gray-300">
+            {publications.map((publication) => (
+              <tr
+                key={publication.serialNumber}
+                className="hover:bg-indigo-900 transition-colors duration-200"
+              >
+                <td className="py-3 px-4 border-b text-sm">
+                  {publication.serialNumber}
+                </td>
+                <td className="py-3 px-4 border-b text-sm">
+                  {publication.applicantName}
+                </td>
+                <td className="py-3 px-4 border-b text-sm">
+                  {publication.titleOfWork}
+                </td>
+                <td className="py-3 px-4 border-b text-sm">
+                  {publication.certificateDate}
+                </td>
+                <td className="py-3 px-4 border-b text-sm">{publication.ay}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Container>
+  );
 }

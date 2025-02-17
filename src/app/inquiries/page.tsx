@@ -1,5 +1,6 @@
+//src/app/inquiries/page.tsx
 "use client";
-import React, { useState } from "react";
+import React, { useState } from "react"; // ADDED useState import here
 import { useForm, useWatch } from "react-hook-form";
 import {
   databases,
@@ -10,7 +11,7 @@ import {
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaUser, FaQuestion } from "react-icons/fa";  // Install react-icons
+import { FaEnvelope, FaUser, FaQuestion } from "react-icons/fa"; // Install react-icons
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -64,7 +65,8 @@ export default function GeneralInquiriesPage() {
     } catch (error: any) {
       setIsSuccess(false);
       setMessage(
-        error.message || "Client Error. Please check the console.log for more info"
+        error.message ||
+          "Client Error. Please check the console.log for more info"
       );
       console.log(error);
     }
@@ -76,21 +78,26 @@ export default function GeneralInquiriesPage() {
         preTitle="Get in Touch"
         title="General Inquiries"
         align="center"
-        className="text-blue-700 dark:text-blue-500"
-        id = "contact-faq" //Adding code
+        className="text-blue-500"
+        id="contact-faq" //Adding code
       >
-        We&apos;re here to help!  Send us your questions or comments using the form below.
+        We're here to help! Send us your questions or comments using the form
+        below.
       </SectionTitle>
 
       <motion.div
-        className="bg-white dark:bg-gray-800 p-10 rounded-2xl shadow-xl max-w-lg mx-auto"
+        className="bg-gray-800 p-10 rounded-2xl shadow-xl max-w-lg mx-auto"
         variants={fadeInUp}
         initial="initial"
         animate="animate"
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         {!isSubmitSuccessful && (
-          <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+            className="space-y-6"
+          >
             <input
               type="hidden"
               value={`${userName} sent a message from Cyber Colloquy`}
@@ -112,7 +119,7 @@ export default function GeneralInquiriesPage() {
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="full_name"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center space-x-1"
+                className="text-sm font-medium text-gray-300 flex items-center space-x-1"
               >
                 <FaUser className="text-gray-500" />
                 <span>Full Name</span>
@@ -125,10 +132,12 @@ export default function GeneralInquiriesPage() {
                   required: "Full name is required",
                   maxLength: 80,
                 })}
-                className={`w-full px-3 py-2 text-gray-700 dark:text-gray-200 placeholder-gray-400 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className={`w-full px-3 py-2 text-gray-200 placeholder-gray-400 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-red-500">{errors.name.message as string}</p>
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.name.message as string}
+                </p>
               )}
             </motion.div>
 
@@ -136,7 +145,7 @@ export default function GeneralInquiriesPage() {
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center space-x-1"
+                className="text-sm font-medium text-gray-300 flex items-center space-x-1"
               >
                 <FaEnvelope className="text-gray-500" />
                 <span>Email Address</span>
@@ -152,10 +161,12 @@ export default function GeneralInquiriesPage() {
                   },
                 })}
                 placeholder="you@company.com"
-                className={`w-full px-3 py-2 text-gray-700 dark:text-gray-200 placeholder-gray-400 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className={`w-full px-3 py-2 text-gray-200 placeholder-gray-400 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-500">{errors.email.message as string}</p>
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.email.message as string}
+                </p>
               )}
             </motion.div>
 
@@ -163,7 +174,7 @@ export default function GeneralInquiriesPage() {
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center space-x-2"
+                className="text-sm font-medium text-gray-300 flex items-center space-x-2"
               >
                 <FaQuestion className="text-gray-500" />
                 <span>Your Message</span>
@@ -175,10 +186,12 @@ export default function GeneralInquiriesPage() {
                   required: "Enter your Message",
                 })}
                 placeholder="Your Message"
-                className={`w-full px-3 py-2 text-gray-700 dark:text-gray-200 placeholder-gray-400 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className={`w-full px-3 py-2 text-gray-200 placeholder-gray-400 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
               />
               {errors.message && (
-                <p className="mt-1 text-sm text-red-500">{errors.message.message as string}</p>
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.message.message as string}
+                </p>
               )}
             </motion.div>
 
@@ -214,7 +227,7 @@ export default function GeneralInquiriesPage() {
                   "Send Message"
                 )}
               </button>
-              <p className="mt-3 text-xs text-center text-gray-500 dark:text-gray-400">
+              <p className="mt-3 text-xs text-center text-gray-500">
                 Powered by CYSE Department
               </p>
             </motion.div>
@@ -246,7 +259,7 @@ export default function GeneralInquiriesPage() {
             <h3 className="py-5 text-xl text-green-500">
               Message sent successfully!
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 md:px-3">{Message}</p>
+            <p className="text-gray-300 md:px-3">{Message}</p>
             <button
               className="mt-6 text-blue-600 focus:outline-none"
               onClick={() => reset()}
@@ -281,7 +294,7 @@ export default function GeneralInquiriesPage() {
             <h3 className="text-xl text-red-400 py-7">
               Oops, Something went wrong!
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 md:px-3">{Message}</p>
+            <p className="text-gray-300 md:px-3">{Message}</p>
             <button
               className="mt-6 text-blue-600 focus:outline-none"
               onClick={() => reset()}

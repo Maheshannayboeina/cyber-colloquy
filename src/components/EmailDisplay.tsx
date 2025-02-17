@@ -16,7 +16,7 @@ interface EmailProps {
 
 export const EmailDisplay: React.FC<EmailProps> = ({ email }) => {
   return (
-    <div className="bg-gray-700 dark:bg-gray-800  p-6 rounded-md shadow-md max-w-2xl w-full text-white">
+    <div className="bg-gray-800  p-6 rounded-md shadow-md max-w-2xl w-full text-white">
       <div className="flex items-center gap-2 mb-2">
         <span className="font-semibold">From:</span>
         <span className="text-gray-200">

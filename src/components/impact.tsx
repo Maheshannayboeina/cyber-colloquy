@@ -94,7 +94,7 @@ export function Impact() {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="p-4 rounded-xl border border-dashed border-blue-200 dark:border-blue-800 flex flex-col items-center text-center transition-all duration-300 ease-in-out"
+            className="p-4 rounded-xl border border-dashed border-blue-800 flex flex-col items-center text-center transition-all duration-300 ease-in-out"
             style={{
               borderColor: hoveredIndex === index ? "rgb(59, 130, 246)" : "",
               backgroundColor:
@@ -114,14 +114,14 @@ export function Impact() {
             >
               {stat.icon}
             </div>
-            <h3 className="text-2xl font-bold mb-1 dark:text-white">
+            <h3 className="text-2xl font-bold mb-1 text-white">
               <Counter
                 end={stat.number}
                 suffix={stat.suffix || "+"}
                 duration={2}
               />
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-300">
               {stat.label}
             </p>
           </div>

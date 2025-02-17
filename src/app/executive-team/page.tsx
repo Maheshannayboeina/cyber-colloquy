@@ -14,11 +14,12 @@ const ExecutiveTeamPage: React.FC = () => {
         preTitle="Leadership"
         title="Executive Team"
         align="center"
+        className="text-blue-500"
       >
         Meet our dedicated Executive Team
       </SectionTitle>
 
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md mb-8">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-md mb-8">
         {sectionCategories.map((category, index) => {
           const membersInCategory = executiveTeamData.filter(
             (member) => member.category === category
@@ -30,7 +31,7 @@ const ExecutiveTeamPage: React.FC = () => {
 
           return (
             <section key={index} className="mb-12">
-              <h2 className="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-5 border-b pb-2">
+              <h2 className="text-2xl font-semibold text-indigo-400 mb-5 border-b pb-2">
                 {category}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-4">

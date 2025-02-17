@@ -1,3 +1,4 @@
+//src/app/department-info/page.tsx
 "use client";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -9,8 +10,8 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ title, children }) => (
-  <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md mb-8">
-    <h2 className="text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-5 border-b pb-2">
+  <div className="bg-gray-800 p-8 rounded-lg shadow-md mb-8">
+    <h2 className="text-3xl font-semibold text-indigo-400 mb-5 border-b pb-2">
       {title}
     </h2>
     {children}
@@ -22,13 +23,13 @@ interface ListItemProps {
 }
 
 const ListItem: React.FC<ListItemProps> = ({ children }) => (
-  <li className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-3">
+  <li className="text-gray-300 text-lg leading-relaxed mb-3">
     {children}
   </li>
 );
 
 const Vision = () => (
-    <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+    <p className="text-gray-300 mb-6 text-lg leading-relaxed">
       To be a nationally recognized Cyber Security Department, ethically preparing
       students for leadership roles that drive technological, economic, social,
       and ethical progress.
@@ -36,7 +37,7 @@ const Vision = () => (
 );
 
 const Mission = () => (
-  <ul className="text-gray-700 dark:text-gray-300 list-disc list-inside text-lg space-y-3">
+  <ul className="text-gray-300 list-disc list-inside text-lg space-y-3">
     <ListItem>
       Cultivate leaders in Cyber Security, equipped with cutting-edge knowledge,
       critical thinking, and a commitment to ethical practice.
@@ -53,7 +54,7 @@ const Mission = () => (
 );
 
 const ProgramSpecificOutcomes = () => (
-  <ul className="text-gray-700 dark:text-gray-300 list-disc list-inside text-lg space-y-3">
+  <ul className="text-gray-300 list-disc list-inside text-lg space-y-3">
     <ListItem>
       Master the core principles of cyber security, encompassing threats,
       vulnerabilities, and risk management.
@@ -72,7 +73,7 @@ const ProgramSpecificOutcomes = () => (
 );
 
 const ProgramEducationalObjectives = () => (
-  <ul className="text-gray-700 dark:text-gray-300 list-disc list-inside text-lg space-y-3">
+  <ul className="text-gray-300 list-disc list-inside text-lg space-y-3">
     <ListItem>
       Excel as ethical cyber security professionals, building secure products and
       implementing solutions that benefit society.
@@ -89,7 +90,7 @@ const ProgramEducationalObjectives = () => (
 );
 
 const ProgramOutcomes = () => (
-  <ul className="text-gray-700 dark:text-gray-300 list-disc list-inside text-lg space-y-3">
+  <ul className="text-gray-300 list-disc list-inside text-lg space-y-3">
     <ListItem>
       <strong>Engineering knowledge:</strong> Apply mathematical, scientific, and
       engineering principles to solve complex cyber security challenges.
@@ -122,16 +123,16 @@ const ProgramOutcomes = () => (
 
 const Accreditations = () => (
   <>
-    <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
+    <p className="text-gray-300 mb-4 text-lg">
       <strong>Computer Engineering and Information Technology Programs:</strong> Accredited by NBA for 3 years from AY 2022-23.
     </p>
-    <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
+    <p className="text-gray-300 mb-4 text-lg">
       <strong>Electronics and Telecommunication Program:</strong> Accredited by NBA for 3 years from AY 2024-25.
     </p>
-    <p className="text-gray-700 dark:text-gray-300 text-lg mb-4">
-        <strong>NAAC Accreditation:</strong> Accredited with &apos;A&apos; Grade (2021) by NAAC for 5 years.
+    <p className="text-gray-300 text-lg mb-4">
+        <strong>NAAC Accreditation:</strong> Accredited with 'A' Grade (2021) by NAAC for 5 years.
     </p>
-    <p className="text-gray-700 dark:text-gray-300 text-lg">
+    <p className="text-gray-300 text-lg">
      <strong>NIRF Ranking:</strong> Ranked in band 251-300 (2020) by NIRF.
     </p>
   </>
@@ -145,7 +146,7 @@ export default function DepartmentInfoPage() {
       </SectionTitle>
 
       <Section title="About Us">
-        <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+        <p className="text-gray-300 mb-6 text-lg leading-relaxed">
           Welcome to the Cyber Security Department at Shah and Anchor Kutchhi
           Engineering College! We are committed to fostering ethical cyber security
           professionals who are not only technically skilled but also equipped to

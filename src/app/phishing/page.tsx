@@ -1,3 +1,4 @@
+//src/app/phishing/page.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -204,21 +205,18 @@ const PhishingAttackRecognizer: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white dark:bg-trueGray-900 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 w-full max-w-2xl">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-gray-200 text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-trueGray-900 p-4">
+      <div className="bg-gray-800 rounded-lg shadow-md p-8 w-full max-w-2xl">
+        <h2 className="text-3xl font-bold mb-6 text-gray-200 text-center">
           Phishing Attack Recognizer
         </h2>
         {!gameStarted ? (
           <div className="flex flex-col items-center justify-center gap-4">
-            <div className="text-gray-700 dark:text-gray-300">
+            <div className="text-gray-300">
               <h3 className="text-xl font-semibold text-center mb-4">Rules</h3>
               <ul className="list-disc pl-5">
                 {rules.map((rule, index) => (
-                  <li
-                    key={index}
-                    className="mb-2 text-gray-700 dark:text-gray-300"
-                  >
+                  <li key={index} className="mb-2 text-gray-300">
                     {rule}
                   </li>
                 ))}

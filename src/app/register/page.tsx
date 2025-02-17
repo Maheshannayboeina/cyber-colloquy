@@ -1,3 +1,4 @@
+//src/app/register/page.tsx
 "use client";
 
 import React from "react";
@@ -79,8 +80,7 @@ const RegisterPage: React.FC = () => {
           title: "Registration Successful! 🎉",
           description:
             "You have been registered for the event. We'll send you more details via email.",
-          className:
-            "bg-green-50 dark:bg-green-900 border-green-200 dark:border-green-800",
+          className: "bg-green-900 border-green-800", // Dark mode toast styles - light mode removed
         });
         form.reset();
       }
@@ -118,7 +118,7 @@ const RegisterPage: React.FC = () => {
             available!
           </SectionTitle>
 
-          <Card className="max-w-2xl mx-auto backdrop-blur-sm bg-white/10 dark:bg-gray-900/50 border-white/20">
+          <Card className="max-w-2xl mx-auto backdrop-blur-sm bg-gray-900/50 border-white/20">
             <CardContent className="p-6">
               <Form {...form}>
                 <form
@@ -266,7 +266,7 @@ const RegisterPage: React.FC = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white"
+                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:bg-blue-600 hover:to-indigo-600 text-white"
                   >
                     {isSubmitting ? (
                       <>

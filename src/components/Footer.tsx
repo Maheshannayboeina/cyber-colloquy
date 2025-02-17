@@ -16,14 +16,14 @@ export function Footer() {
   const legal = ["Terms", "Privacy", "Legal"];
 
   return (
-    <div className="bg-gradient-to-t from-purple-200 to-blue-300 dark:from-blue-700 dark:to-purple-1000">
+    <div className="bg-gradient-to-t from-blue-700 to-purple-1000">
       <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-6">
+        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <div>
               <Link
                 href="/"
-                className="flex items-center space-x-2 text-2xl font-medium text-indigo-700 dark:text-indigo-200" // Using indigo colors to match Navbar logo
+                className="flex items-center space-x-2 text-2xl font-medium text-indigo-700" // Using indigo colors to match Navbar logo
               >
                 <Image
                   src="/img/favicon4.png" // Updated logo image to favicon4.png (same as Navbar)
@@ -36,20 +36,20 @@ export function Footer() {
               </Link>
             </div>
 
-            <div className="max-w-md mt-4 text-gray-700 dark:text-gray-50 transition-colors duration-300"> {/* Added transition for description text color */}
+            <div className="max-w-md mt-4 text-gray-50 transition-colors duration-300"> {/* Added transition for description text color */}
               Cyber Events is the website for the Cyber Security Department at
               Shah and Anchor Kutchhi Engineering College.
             </div>
           </div>
 
           <div>
-            <div className="font-semibold text-gray-700 dark:text-gray-50 mb-2 transition-colors duration-300">Quick links</div> {/* Heading with color transition */}
+            <div className="font-semibold text-gray-50 mb-2 transition-colors duration-300">Quick links</div> {/* Heading with color transition */}
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {navigation.map((item, index) => (
                 <Link
                   key={index}
                   href={`/${item.toLowerCase().replace(" ", "-")}`}
-                  className="w-full px-4 py-2 text-gray-50 rounded-md dark:text-gray-50 hover:text-indigo-500 transition-colors duration-300 ease-in-out hover:scale-105" // Navigation Links with Hover Scale and Color Transition
+                  className="w-full px-4 py-2 text-gray-50 rounded-md hover:text-indigo-500 transition-colors duration-300 ease-in-out hover:scale-105" // Navigation Links with Hover Scale and Color Transition
                 >
                   {item}
                 </Link>
@@ -70,8 +70,8 @@ export function Footer() {
             </div>
           </div> */}
           <div className="">
-            <div className="font-semibold text-gray-900 dark:text-gray-50 mb-2 transition-colors duration-300">Follow us</div>
-            <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
+            <div className="font-semibold text-gray-50 mb-2 transition-colors duration-300">Follow us</div>
+            <div className="flex mt-5 space-x-5 text-gray-500">
               <a
                 href="https://x.com/sakec"
                 target="_blank"
@@ -122,8 +122,8 @@ export function Footer() {
 
           {/* --- Re-added "Get In Touch" Section in Footer - Updated with new Address --- */}
           <div className="lg:col-span-2">
-            <div className="font-semibold text-gray-700 dark:text-gray-50 mb-2 transition-colors duration-300" id="contact">Get In Touch</div>
-            <div className="mt-5 text-gray-700 dark:text-gray-50">
+            <div className="font-semibold text-gray-50 mb-2 transition-colors duration-300" id="contact">Get In Touch</div>
+            <div className="mt-5 text-gray-50">
               {/* Google Map Embed  */}
               <div className="aspect-w-16 aspect-h-9 mb-3 rounded-md overflow-hidden">
                 <iframe
@@ -142,18 +142,18 @@ export function Footer() {
                 <p className="mb-1">Cyber Security Department,</p>
                 <p className="mb-1">Shah & Anchor Kutchhi Engineering College,</p>
                 <p className="mb-1">Mahavir Education Trust Chowk, W.T Patil Marg, D P Rd,</p>
-                <p className="mb-1">next to Duke&apos;s Company, Chembur,</p>
+                <p className="mb-1">next to Duke's Company, Chembur,</p>
                 <p className="mb-1">Mumbai, Maharashtra 400088</p>
               </address>
               <div className="mt-3">
-                <p className="mb-1">Email: <a href="mailto:info@cyberevents.com" className="text-gray-50 hover:text-gray-700 dark:text-gray-50 dark:hover:text-indigo-300 transition-colors duration-200">cyber.council@sakec.ac.in</a></p>
-                <p className="mb-1">Phone: <span className="text-gray-50 hover:text-gray-700 dark:text-gray-50 dark:hover:text-indigo-300 transition-colors duration-200">+91 9967039388</span></p>
+                <p className="mb-1">Email: <a href="mailto:info@cyberevents.com" className="text-gray-50 hover:text-indigo-300 transition-colors duration-200">cyber.council@sakec.ac.in</a></p>
+                <p className="mb-1">Phone: <span className="text-gray-50 hover:text-indigo-300 transition-colors duration-200">+91 9967039388</span></p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="my-10 text-sm text-center text-gray-700 dark:text-gray-50">
+        <div className="my-10 text-sm text-center text-gray-50">
           Copyright © {new Date().getFullYear()} Cyber Security Department
           
         </div>

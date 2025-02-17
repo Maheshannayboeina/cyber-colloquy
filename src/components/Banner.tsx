@@ -1,3 +1,4 @@
+//src/components/Banner.tsx
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
@@ -65,13 +66,13 @@ const Banner = () => {
         <p className="text-sm">Join us for Cyber Colloquy 4.0!</p>
         <Link
           href="/events/4"
-          className="bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-100"
+          className="bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-200"
         >
           Know More
         </Link>
         <Link
           href="/cyber-colloquy-4.0"
-          className="bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-100"
+          className="bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-200"
         >
           Register
         </Link>

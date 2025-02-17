@@ -1,3 +1,4 @@
+//src/app/board-of-studies-members/page.tsx
 "use client";
 import React from "react";
 import { Container } from "@/components/Container";
@@ -71,7 +72,6 @@ const boardMembers: BoardMember[] = [
   },
 ];
 
-
 const BoardOfStudiesMembersPage: React.FC = () => {
   return (
     <Container>
@@ -84,13 +84,12 @@ const BoardOfStudiesMembersPage: React.FC = () => {
       </SectionTitle>
 
       {/* Mimic the Section styling from AboutPage directly here */}
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md mb-8">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-md mb-8">
         {/* Section Title (if you want a subtitle within this section - optional) */}
-        {/* <h2 className="text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-5 border-b pb-2">
+        {/* <h2 className="text-3xl font-semibold text-indigo-400 mb-5 border-b pb-2">
           Members {/* Example Subtitle - Remove if you don't want it */}
         {/* </h2> */}
 
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
           {boardMembers.map((member, index) => (
             <TeacherCard
