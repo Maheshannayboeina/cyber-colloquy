@@ -1,4 +1,6 @@
 // src/components/Navbar.tsx
+// Dont make any changes to this file.
+
 "use client";
 import Link from "next/link";
 import Image from "next/image";
@@ -25,7 +27,7 @@ export const Navbar = ({
   const communityLinks: NavItem[] = [
     { label: "Alumni", href: "/contributors/alumni" },
     { label: "Contributors", href: "/contributors/all" },
-    { label: "Organizers", href: "/executive-team" },
+    { label: "Organizers", href: "/contributors/organizers" },
     { label: "Partners", href: "/contributors/partners" },
   ];
 
@@ -79,6 +81,7 @@ export const Navbar = ({
     { label: "Contact & FAQ", href: "#" },
   ];
 
+
   const [infoDropdownOpen, setInfoDropdownOpen] = useState(false);
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
   const [initiativesResearchDropdownOpen, setInitiativesResearchDropdownOpen] = useState(false);
@@ -89,6 +92,7 @@ export const Navbar = ({
 
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false); // Renamed and simplified
   const pathname = usePathname();
 
   const infoDropdownRef = useRef<HTMLDivElement>(null);
@@ -99,22 +103,25 @@ export const Navbar = ({
   const contactFaqDropdownRef = useRef<HTMLDivElement>(null);
   const nominationRegistrationDropdownRef = useRef<HTMLDivElement>(null);
 
+  const navbarRef = useRef<HTMLElement>(null); // Ref for the navbar element
+
 
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
-    const checkZoom = () => {
-      const zoomLevel = Math.round(window.devicePixelRatio * 100); // Estimate zoom percentage
-      setIsZoomed(zoomLevel >= 120); // Adjusted zoom threshold
+
+
+    const checkSmallScreen = () => {
+      setIsSmallScreen(window.innerWidth < 1700); // Adjusted breakpoint to 1200px
     };
 
-    checkZoom(); // Initial check on component mount
+    checkSmallScreen(); // Initial check for mobile view
 
     const handleResize = () => {
-      checkZoom();
-      setMobileMenuOpen(false); 
+      checkSmallScreen();
+      setMobileMenuOpen(false); // Close mobile menu on resize
+      // Close all dropdowns on resize for better UX
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
       setInitiativesResearchDropdownOpen(false);
@@ -128,10 +135,11 @@ export const Navbar = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, []); // Removed navbarRef from dependency array as it's not used for overflow check
+
 
   useEffect(() => {
-    if (!isZoomed) {
+    if (isSmallScreen) { // Now using isSmallScreen
       setMobileMenuOpen(false);
       setInfoDropdownOpen(false);
       setCommunityDropdownOpen(false);
@@ -141,10 +149,11 @@ export const Navbar = ({
       setContactFaqDropdownOpen(false);
       setNominationRegistrationDropdownOpen(false);
     }
-  }, [isZoomed, pathname]);
+  }, [isSmallScreen, pathname]); // Now using isSmallScreen
+
 
   const handleInfoMouseEnter = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
         closeTimerRef.current = null;
@@ -160,15 +169,15 @@ export const Navbar = ({
   };
 
   const handleInfoMouseLeave = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       closeTimerRef.current = setTimeout(() => {
         setInfoDropdownOpen(false);
       }, 500);
     }
-  };
+   };
 
   const handleCommunityMouseEnter = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
         closeTimerRef.current = null;
@@ -184,7 +193,7 @@ export const Navbar = ({
   };
 
   const handleCommunityMouseLeave = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       closeTimerRef.current = setTimeout(() => {
         setCommunityDropdownOpen(false);
       }, 500);
@@ -193,7 +202,7 @@ export const Navbar = ({
 
 
   const handleInitiativesResearchMouseEnter = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
         closeTimerRef.current = null;
@@ -209,7 +218,7 @@ export const Navbar = ({
   };
 
   const handleInitiativesResearchMouseLeave = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       closeTimerRef.current = setTimeout(() => {
         setInitiativesResearchDropdownOpen(false);
       }, 500);
@@ -217,8 +226,8 @@ export const Navbar = ({
   };
 
   const handlePlayAGameMouseEnter = () => {
-    if (!isZoomed) {
-      if (closeTimerRef.current) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
+       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
         closeTimerRef.current = null;
       }
@@ -233,7 +242,7 @@ export const Navbar = ({
   };
 
   const handlePlayAGameMouseLeave = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       closeTimerRef.current = setTimeout(() => {
         setPlayAGameDropdownOpen(false);
       }, 500);
@@ -241,7 +250,7 @@ export const Navbar = ({
   };
 
   const handleKnowledgeHubMouseEnter = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
         closeTimerRef.current = null;
@@ -257,7 +266,7 @@ export const Navbar = ({
   };
 
   const handleKnowledgeHubMouseLeave = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       closeTimerRef.current = setTimeout(() => {
         setKnowledgeHubDropdownOpen(false);
       }, 500);
@@ -265,7 +274,7 @@ export const Navbar = ({
   };
 
   const handleContactFaqMouseEnter = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
         closeTimerRef.current = null;
@@ -281,15 +290,14 @@ export const Navbar = ({
   };
 
   const handleContactFaqMouseLeave = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       closeTimerRef.current = setTimeout(() => {
         setContactFaqDropdownOpen(false);
       }, 500);
     }
   };
-
   const handleNominationRegistrationMouseEnter = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
         closeTimerRef.current = null;
@@ -300,11 +308,12 @@ export const Navbar = ({
       setInitiativesResearchDropdownOpen(false);
       setPlayAGameDropdownOpen(false);
       setKnowledgeHubDropdownOpen(false);
+      setContactFaqDropdownOpen(false);
     }
   };
 
   const handleNominationRegistrationMouseLeave = () => {
-    if (!isZoomed) {
+    if (!isSmallScreen) { // Check isSmallScreen instead of isZoomed
       closeTimerRef.current = setTimeout(() => {
         setNominationRegistrationDropdownOpen(false);
       }, 500);
@@ -328,7 +337,7 @@ export const Navbar = ({
 
 
     return (
-      <div className="flex justify-end w-full">
+      <div className="flex justify-end w-full items-center"> {/* Added items-center here */}
         <button
           className="text-white focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -357,7 +366,6 @@ export const Navbar = ({
         {/* Right Side Mobile Menu */}
         {mobileMenuOpen && (
           <div className="absolute top-0 right-0 h-screen bg-white dark:bg-gray-900 z-30 overflow-y-auto w-[300px] shadow-xl">
-            {/* ... (rest of your mobile menu content) */}
             <div className="p-4 flex justify-end">
               <button
                 className="text-gray-800 dark:text-white focus:outline-none"
@@ -376,6 +384,144 @@ export const Navbar = ({
                 </svg>
               </button>
             </div>
+            <div className="px-6 py-4">
+              <ul className="space-y-4">
+                <li className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">Top Navigation</li>
+                {topNavigation.map((item, index) => (
+                  <li key={`top-mobile-${index}`}>
+                    <button
+                      onClick={() => {
+                        if (item.label === "About Us") setMobileInfoDropdownOpen(!mobileInfoDropdownOpen);
+                        if (item.label === "Our Community") setMobileCommunityDropdownOpen(!mobileCommunityDropdownOpen);
+                        if (item.label === "Nomination & Registration") setMobileNominationRegistrationDropdownOpen(!mobileNominationRegistrationDropdownOpen);
+                      }}
+                      className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
+                    >
+                      {item.label}
+                    </button>
+                    {(item.label === "About Us" && mobileInfoDropdownOpen) && (
+                      <ul className="ml-4 space-y-2">
+                        {infoLinks.map((dropdownItem, dropdownIndex) => (
+                          <li key={dropdownIndex}>
+                            <Link
+                              href={dropdownItem.href}
+                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                     {(item.label === "Our Community" && mobileCommunityDropdownOpen) && (
+                      <ul className="ml-4 space-y-2">
+                        {communityLinks.map((dropdownItem, dropdownIndex) => (
+                          <li key={dropdownIndex}>
+                            <Link
+                              href={dropdownItem.href}
+                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                     {(item.label === "Nomination & Registration" && mobileNominationRegistrationDropdownOpen) && (
+                      <ul className="ml-4 space-y-2">
+                        {nominationRegistrationLinks.map((dropdownItem, dropdownIndex) => (
+                          <li key={dropdownIndex}>
+                            <Link
+                              href={dropdownItem.href}
+                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-gray-100 dark:bg-gray-700 h-[1px] mx-4 my-2"></div>
+             <div className="px-6 py-4">
+               <ul className="space-y-4">
+                <li className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">Bottom Navigation</li>
+                {bottomNavigationItems.map((item, index) => ( // Use bottomNavigationItems here
+                  <li key={`bottom-mobile-${index}`}>
+                     <button
+                       onClick={() => {
+                        if (item.label === "Initiatives & Research") setMobileInitiativesResearchDropdownOpen(!mobileInitiativesResearchDropdownOpen);
+                        if (item.label === "Play a game") setMobilePlayAGameDropdownOpen(!mobilePlayAGameDropdownOpen);
+                        if (item.label === "Knowledge Hub") setMobileKnowledgeHubDropdownOpen(!mobileKnowledgeHubDropdownOpen);
+                        if (item.label === "Contact & FAQ") setMobileContactFaqDropdownOpen(!mobileContactFaqDropdownOpen);
+                      }}
+                      className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md w-full text-left"
+                    >
+                      {item.label}
+                    </button>
+                    {(item.label === "Initiatives & Research" && mobileInitiativesResearchDropdownOpen) && (
+                      <ul className="ml-4 space-y-2">
+                        {initiativesResearchLinks.map((dropdownItem, dropdownIndex) => (
+                          <li key={dropdownIndex}>
+                            <Link
+                              href={dropdownItem.href}
+                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                     {(item.label === "Play a game" && mobilePlayAGameDropdownOpen) && (
+                       <ul className="ml-4 space-y-2">
+                         {playAGameLinks.map((dropdownItem, dropdownIndex) => (
+                           <li key={dropdownIndex}>
+                             <Link
+                               href={dropdownItem.href}
+                               className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                             >
+                               {dropdownItem.label}
+                             </Link>
+                           </li>
+                         ))}
+                      </ul>
+                    )}
+                     {(item.label === "Knowledge Hub" && mobileKnowledgeHubDropdownOpen) && (
+                      <ul className="ml-4 space-y-2">
+                        {knowledgeHubLinks.map((dropdownItem, dropdownIndex) => (
+                          <li key={dropdownIndex}>
+                            <Link
+                              href={dropdownItem.href}
+                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                     {(item.label === "Contact & FAQ" && mobileContactFaqDropdownOpen) && (
+                      <ul className="ml-4 space-y-2">
+                        {contactFaqLinks.map((dropdownItem, dropdownIndex) => (
+                          <li key={dropdownIndex}>
+                            <Link
+                              href={dropdownItem.href}
+                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
       </div>
@@ -387,36 +533,46 @@ export const Navbar = ({
 
     <div className="w-full shadow">
       <nav
-        className={`text-white relative flex flex-col lg:flex-row lg:items-center p-1 xl:px-10 w-full ${isZoomed ? 'justify-center' : 'justify-between'}`} // Conditionally apply justify-center
+        className={`text-white relative flex flex-col lg:flex-row lg:items-center p-1 xl:px-10 w-full`}
+        ref={navbarRef} // Attach the ref to the nav element
         style={{
           backgroundColor: "#111827",
         }}
       >
-        {/* Logo */}
-        <div className={`lg:mr-12 mb-4 lg:mb-0 w-[200px] lg:w-[300px] h-[60px] lg:h-[90px] overflow-hidden ${isZoomed ? 'mx-auto' : ''}`}> {/* Center logo in mobile view */}
-          <Link
-            href="/"
-            className="flex items-center space-x-2 text-2xl font-medium dark:text-gray-100"
-          >
-            <Image
-              src="/img/favicon4.png"
-              width={300}
-              height={90}
-              alt="Cyber Colloquy"
-              className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain"
-              style={imageStyle} // Use the defined style object here
-            />
-          </Link>
+        <div className="flex flex-row items-center justify-between w-full lg:w-auto">
+          {/* Logo */}
+          <div className="lg:mr-12 mb-4 lg:mb-0 w-[200px] lg:w-[300px] h-[60px] lg:h-[90px] overflow-hidden">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 text-2xl font-medium dark:text-gray-100"
+            >
+              <Image
+                src="/img/favicon4.png"
+                width={300}
+                height={90}
+                alt="Cyber Colloquy"
+                className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain"
+                style={imageStyle}
+              />
+            </Link>
+          </div>
+{/* 
+          Mobile Menu Icon (for mobile view) - Conditionally Rendered - **MOVED HERE** */}
+          {/* {isSmallScreen ? ( // If it's mobile view, show mobile menu
+            <div className="lg:hidden flex items-center">
+              <MenuBarContent />
+            </div>
+          ) : null
+          } */}
         </div>
 
 
-        {/* Conditionally render desktop navigation or mobile menu based on isZoomed */}
-        {!isZoomed ? (
+        {/* Conditionally render desktop navigation or mobile menu based on isSmallScreen */}
+        {!isSmallScreen ? (
           <>
             <div className="lg:flex lg:flex-col lg:items-start">
               {/* Top Navigation */}
               <div className="hidden text-center lg:flex lg:items-center mb-1 lg:mb-0 pb-1 ">
-                {/* ... (rest of your top navigation desktop menu) */}
                 <ul className="items-center justify-start flex-none pt-1 list-none lg:pt-2 lg:flex lg:items-center">
                   {topNavigation.map((item, index) => (
                     <li
@@ -516,19 +672,22 @@ export const Navbar = ({
                       )}
                     </li>
                   ))}
-                </ul>    
+                </ul>
+
+              <div className="top-0 right-100 lg:static lg:top-auto lg:right-auto">
+
+              </div>
               </div>
 
 
               {/* Bottom Navigation (Desktop - **NOW CONDITIONAL**) */}
-              { !mobileMenuOpen && ( // **CONDITION ADDED: Render only if mobileMenuOpen is false**
+              { !mobileMenuOpen && (
                 <div
                   className="hidden text-center lg:flex lg:items-center text-center"
                   style={{ backgroundColor: "#0D5EDF" }}
                 >
-                  {/* ... (rest of your bottom navigation desktop menu) */}
                   <ul className="items-center justify-start flex-none pt-1 pb-0 list-none lg:pt-0 lg:flex">
-                    {bottomNavigationItems.map((item, index) => ( // Use bottomNavigationItems here
+                    {bottomNavigationItems.map((item, index) => (
                       <li
                         className="mr-20 nav__item relative"
                         key={index}
@@ -651,16 +810,12 @@ export const Navbar = ({
                 </div>
               )}
             </div>
-
-            {/* Mobile Menu Icon (for desktop view - hidden when zoomed) */}
-            <div className="lg:hidden flex items-center">
-              <MenuBarContent />
-            </div>
           </>
         ) : (
-          /* Render Menubar component when isZoomed is true */
+          /* Render Menubar component when isSmallScreen is true */
           <MenuBarContent />
-        )}
+         )}
+
 
       </nav>
     </div>
