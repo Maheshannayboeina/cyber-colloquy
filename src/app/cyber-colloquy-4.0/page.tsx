@@ -20,34 +20,24 @@ const cyberColloquyForm = {
 
 const CyberColloquy4Page: React.FC = () => {
   return (
-    <Container>
-      <SectionTitle
-        preTitle="Join the Conversation"
-        title="Cyber Colloquy 4.0"
-        align="center"
-        className="text-blue-500" // Updated color
-      >
-        Engage in insightful discussions and explore the latest trends in cyber
-        security at Cyber Colloquy 4.0.
-      </SectionTitle>
+    <div>
+      {/* Banner Image */}
+      <div className="relative h-[300px] w-full"> {/* Adjust height as needed */}
+        <Image
+          src="/img/banners/1.png" // Replace with your banner image path in public directory
+          alt="Cyber Colloquy 4.0 Banner"
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+        />
+      </div>
 
       <motion.div
-        className="bg-gray-800 rounded-2xl shadow-xl mb-12 max-w-screen-lg mx-auto overflow-hidden" // Added overflow-hidden to container
+        className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Adjusted width to fit the whole page dynamically
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        {/* Banner Image */}
-        <div className="relative h-[200px] w-full"> {/* Adjust height as needed */}
-          <Image
-            src="/img/banners/1.png" // Replace with your banner image path in public directory
-            alt="Cyber Colloquy 4.0 Banner"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-        </div>
-
         <div className="p-10"> {/* Padding for content moved inside */}
           {/* Welcome Section */}
           <motion.div
@@ -172,7 +162,7 @@ const CyberColloquy4Page: React.FC = () => {
           </motion.div>
         </div> {/* End of padding div */}
       </motion.div>
-    </Container>
+    </div>
   );
 };
 
