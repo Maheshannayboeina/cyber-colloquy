@@ -16,8 +16,8 @@ import {
 
 const ITEMS_PER_PAGE = 6;
 
-const formattedAchievements = achievementsData.map((achievement,index) => ({
-    key: index,
+const formattedAchievements = achievementsData.map((achievement, index) => ({
+  key: index,
   title: achievement.achievement,
   description: achievement.name,
   src: achievement.banner || "/placeholder.svg?height=400&width=600",
@@ -35,7 +35,8 @@ export default function AchievementsPage() {
         Here are the achievements of our Cyber Security Department.
       </SectionTitle>
 
-      <div className="mt-12 space-y-8">
+      <div className="mt-8 sm:mt-12 space-y-6 sm:space-y-8">
+        {/* Responsive margin and spacing */}
         <ExpandableCard
           cards={formattedAchievements}
           currentPage={currentPage}
@@ -56,17 +57,72 @@ export default function AchievementsPage() {
                 />
               </PaginationItem>
 
-              {[...Array(totalPages)].map((_, i) => (
-                <PaginationItem key={i}>
-                  <PaginationLink
-                    onClick={() => setCurrentPage(i + 1)}
-                    isActive={currentPage === i + 1}
-                    className="cursor-pointer"
-                  >
-                    {i + 1}
-                  </PaginationLink>
-                </PaginationItem>
-              ))}
+              {/* Show fewer page numbers on small screens */}
+              {totalPages <= 5 ? ( // Show all page numbers if 5 or fewer
+                [...Array(totalPages)].map((_, i) => (
+                  <PaginationItem key={i}>
+                    <PaginationLink
+                      onClick={() => setCurrentPage(i + 1)}
+                      isActive={currentPage === i + 1}
+                    >
+                      {i + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))
+              ) : (
+                <>
+                  {/* Show first page */}
+                  <PaginationItem>
+                    <PaginationLink
+                      onClick={() => setCurrentPage(1)}
+                      isActive={currentPage === 1}
+                    >
+                      1
+                    </PaginationLink>
+                  </PaginationItem>
+
+                  {/* Show ... if needed */}
+                  {currentPage > 2 && (
+                    <PaginationItem>
+                      <span>...</span>
+                    </PaginationItem>
+                  )}
+
+                  {/* Show current page and immediate neighbors */}
+                  {Array.from(
+                    { length: 3 },
+                    (_, index) => currentPage - 1 + index
+                  )
+                    .filter((page) => page > 1 && page < totalPages)
+                    .map((page) => (
+                      <PaginationItem key={page}>
+                        <PaginationLink
+                          onClick={() => setCurrentPage(page)}
+                          isActive={currentPage === page}
+                        >
+                          {page}
+                        </PaginationLink>
+                      </PaginationItem>
+                    ))}
+
+                  {/* Show ... if needed */}
+                  {currentPage < totalPages - 1 && (
+                    <PaginationItem>
+                      <span>...</span>
+                    </PaginationItem>
+                  )}
+
+                  {/* Show last page */}
+                  <PaginationItem>
+                    <PaginationLink
+                      onClick={() => setCurrentPage(totalPages)}
+                      isActive={currentPage === totalPages}
+                    >
+                      {totalPages}
+                    </PaginationLink>
+                  </PaginationItem>
+                </>
+              )}
 
               <PaginationItem>
                 <PaginationNext

@@ -143,7 +143,7 @@ const Accreditations = () => (
     </p>
     <p className="text-gray-300 text-base sm:text-lg mb-2 sm:mb-4">
       {/* Responsive font size and margin */}
-      <strong>NAAC Accreditation:</strong> Accredited with 'A' Grade
+      <strong>NAAC Accreditation:</strong> Accredited with &apos;A&apos; Grade
       (2021) by NAAC for 5 years.
     </p>
     <p className="text-gray-300 text-base sm:text-lg">

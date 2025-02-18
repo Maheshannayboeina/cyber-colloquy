@@ -1,5 +1,6 @@
 // components/ProjectCard.tsx (or ProjectCard.js)
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface Student {
@@ -31,7 +32,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
+      <Image
         src={project.image}
         alt={project.name}
         className="w-full h-48 object-cover" // Adjust height as needed
