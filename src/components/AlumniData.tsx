@@ -1,4 +1,4 @@
-// src/data/AluminiData.js
+// src/data/AlumniData.tsx
 export const alumniData = [
     {
       name: "Auti Atharva Sachin",

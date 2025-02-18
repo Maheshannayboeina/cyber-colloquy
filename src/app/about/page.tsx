@@ -165,8 +165,10 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ title, children }) => (
-  <div className="bg-gray-800 p-8 rounded-lg shadow-md mb-8">
-    <h2 className="text-3xl font-semibold text-indigo-400 mb-5 border-b pb-2">
+  <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg shadow-md mb-6 sm:mb-8">
+    {/* Responsive padding and margin */}
+    <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-indigo-400 mb-3 sm:mb-5 border-b pb-2">
+      {/* Responsive heading */}
       {title}
     </h2>
     {children}
@@ -187,19 +189,17 @@ const AboutPage: React.FC = () => {
         preTitle="Meet Our Team"
         title="Faculty of Cyber Security Department"
       >
-        {" "}
-        {/* Main Title Section */}
         Passionate Educators and Technical Experts Shaping Future Cyber Security
         Leaders.
       </SectionTitle>
 
       <Section title="Our Teaching Faculty">
-        {" "}
-        {/* Teaching Faculty Section */}
-        <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+        <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+          {/* Responsive text */}
           Meet the experienced faculty members of the Cyber Security Department.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8 py-4 sm:py-6 md:py-8">
+          {/* Responsive grid */}
           {teachingStaff.map((teacher, index) => (
             <TeacherCard key={index} teacher={teacher} />
           ))}
@@ -207,13 +207,13 @@ const AboutPage: React.FC = () => {
       </Section>
 
       <Section title="Our Technical Staff">
-        {" "}
-        {/* Technical Staff Section */}
-        <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+        <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+          {/* Responsive text */}
           Meet the dedicated non-teaching members of the Cyber Security
           Department.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8 py-4 sm:py-6 md:py-8">
+          {/* Responsive grid */}
           {nonTeachingStaff.map((teacher, index) => (
             <TeacherCard key={index} teacher={teacher} />
           ))}

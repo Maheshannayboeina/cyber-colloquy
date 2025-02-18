@@ -10,8 +10,10 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ title, children }) => (
-  <div className="bg-gray-800 p-8 rounded-lg shadow-md mb-8">
-    <h2 className="text-3xl font-semibold text-indigo-400 mb-5 border-b pb-2">
+  <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg shadow-md mb-6 sm:mb-8">
+    {/* Responsive padding and margin */}
+    <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-indigo-400 mb-3 sm:mb-4 md:mb-5 border-b pb-2">
+      {/* Responsive font size */}
       {title}
     </h2>
     {children}
@@ -23,21 +25,24 @@ interface ListItemProps {
 }
 
 const ListItem: React.FC<ListItemProps> = ({ children }) => (
-  <li className="text-gray-300 text-lg leading-relaxed mb-3">
+  <li className="text-gray-300 text-base sm:text-lg leading-relaxed mb-2 sm:mb-3">
+    {/* Responsive font size and margin */}
     {children}
   </li>
 );
 
 const Vision = () => (
-    <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-      To be a nationally recognized Cyber Security Department, ethically preparing
-      students for leadership roles that drive technological, economic, social,
-      and ethical progress.
-    </p>
+  <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+    {/* Responsive font size and margin */}
+    To be a nationally recognized Cyber Security Department, ethically preparing
+    students for leadership roles that drive technological, economic, social,
+    and ethical progress.
+  </p>
 );
 
 const Mission = () => (
-  <ul className="text-gray-300 list-disc list-inside text-lg space-y-3">
+  <ul className="text-gray-300 list-disc list-inside text-base sm:text-lg space-y-2 sm:space-y-3">
+    {/* Responsive font size and spacing */}
     <ListItem>
       Cultivate leaders in Cyber Security, equipped with cutting-edge knowledge,
       critical thinking, and a commitment to ethical practice.
@@ -54,7 +59,8 @@ const Mission = () => (
 );
 
 const ProgramSpecificOutcomes = () => (
-  <ul className="text-gray-300 list-disc list-inside text-lg space-y-3">
+  <ul className="text-gray-300 list-disc list-inside text-base sm:text-lg space-y-2 sm:space-y-3">
+    {/* Responsive font size and spacing */}
     <ListItem>
       Master the core principles of cyber security, encompassing threats,
       vulnerabilities, and risk management.
@@ -73,7 +79,8 @@ const ProgramSpecificOutcomes = () => (
 );
 
 const ProgramEducationalObjectives = () => (
-  <ul className="text-gray-300 list-disc list-inside text-lg space-y-3">
+  <ul className="text-gray-300 list-disc list-inside text-base sm:text-lg space-y-2 sm:space-y-3">
+    {/* Responsive font size and spacing */}
     <ListItem>
       Excel as ethical cyber security professionals, building secure products and
       implementing solutions that benefit society.
@@ -90,7 +97,8 @@ const ProgramEducationalObjectives = () => (
 );
 
 const ProgramOutcomes = () => (
-  <ul className="text-gray-300 list-disc list-inside text-lg space-y-3">
+  <ul className="text-gray-300 list-disc list-inside text-base sm:text-lg space-y-2 sm:space-y-3">
+    {/* Responsive font size and spacing */}
     <ListItem>
       <strong>Engineering knowledge:</strong> Apply mathematical, scientific, and
       engineering principles to solve complex cyber security challenges.
@@ -123,17 +131,24 @@ const ProgramOutcomes = () => (
 
 const Accreditations = () => (
   <>
-    <p className="text-gray-300 mb-4 text-lg">
-      <strong>Computer Engineering and Information Technology Programs:</strong> Accredited by NBA for 3 years from AY 2022-23.
+    <p className="text-gray-300 mb-2 sm:mb-4 text-base sm:text-lg">
+      {/* Responsive font size and margin */}
+      <strong>Computer Engineering and Information Technology Programs:</strong>{" "}
+      Accredited by NBA for 3 years from AY 2022-23.
     </p>
-    <p className="text-gray-300 mb-4 text-lg">
-      <strong>Electronics and Telecommunication Program:</strong> Accredited by NBA for 3 years from AY 2024-25.
+    <p className="text-gray-300 mb-2 sm:mb-4 text-base sm:text-lg">
+      {/* Responsive font size and margin */}
+      <strong>Electronics and Telecommunication Program:</strong> Accredited by
+      NBA for 3 years from AY 2024-25.
     </p>
-    <p className="text-gray-300 text-lg mb-4">
-        <strong>NAAC Accreditation:</strong> Accredited with &apos;A&apos; Grade (2021) by NAAC for 5 years.
+    <p className="text-gray-300 text-base sm:text-lg mb-2 sm:mb-4">
+      {/* Responsive font size and margin */}
+      <strong>NAAC Accreditation:</strong> Accredited with 'A' Grade
+      (2021) by NAAC for 5 years.
     </p>
-    <p className="text-gray-300 text-lg">
-     <strong>NIRF Ranking:</strong> Ranked in band 251-300 (2020) by NIRF.
+    <p className="text-gray-300 text-base sm:text-lg">
+      {/* Responsive font size */}
+      <strong>NIRF Ranking:</strong> Ranked in band 251-300 (2020) by NIRF.
     </p>
   </>
 );
@@ -141,16 +156,22 @@ const Accreditations = () => (
 export default function DepartmentInfoPage() {
   return (
     <Container>
-      <SectionTitle preTitle="Cyber Security Department" title="Empowering Ethical Cyber Security Leaders">
-        Explore our vision, mission, and objectives in shaping the next generation of cyber security experts.
+      <SectionTitle
+        preTitle="Cyber Security Department"
+        title="Empowering Ethical Cyber Security Leaders"
+      >
+        Explore our vision, mission, and objectives in shaping the next
+        generation of cyber security experts.
       </SectionTitle>
 
       <Section title="About Us">
-        <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+        <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+          {/* Responsive font size and margin */}
           Welcome to the Cyber Security Department at Shah and Anchor Kutchhi
-          Engineering College! We are committed to fostering ethical cyber security
-          professionals who are not only technically skilled but also equipped to
-          lead with integrity and address the global challenges of our digital world.
+          Engineering College! We are committed to fostering ethical cyber
+          security professionals who are not only technically skilled but also
+          equipped to lead with integrity and address the global challenges of
+          our digital world.
         </p>
       </Section>
 
