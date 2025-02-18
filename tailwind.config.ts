@@ -1,4 +1,3 @@
-// tailwind.config.ts
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 import colors from "tailwindcss/colors";
@@ -55,6 +54,14 @@ const config: Config = {
         "aurora-3": "aurora-3 12s ease-in-out infinite alternate",
         "aurora-4": "aurora-4 12s ease-in-out infinite alternate",
       },
+    },
+    // ADD THIS SECTION BELOW -  Define your screens here
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
     },
   },
   variants: {

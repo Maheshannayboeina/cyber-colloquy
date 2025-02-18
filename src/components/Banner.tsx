@@ -1,4 +1,3 @@
-//src/components/Banner.tsx
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
@@ -9,9 +8,8 @@ const Banner = () => {
   const [gradientPosition, setGradientPosition] = useState(0);
   const bannerRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number | null>(null);
-  const duration = 20000; // Defined as a constant
+  const duration = 20000;
 
-  // Using useCallback for memoized function
   const animateGradient = useCallback(
     (timestamp: number) => {
       const startTime =
@@ -21,10 +19,9 @@ const Banner = () => {
       const progress = (timestamp - startTime) / duration;
       const position = progress % 1;
       setGradientPosition(position);
-
       animationFrameRef.current = requestAnimationFrame(animateGradient);
     },
-    [duration] // duration is now a dependency, although it doesn't change
+    [duration]
   );
 
   const handleClose = () => {
@@ -35,7 +32,6 @@ const Banner = () => {
     if (isVisible && bannerRef.current) {
       animationFrameRef.current = requestAnimationFrame(animateGradient);
     }
-
     return () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
@@ -61,25 +57,29 @@ const Banner = () => {
     <div className="relative overflow-hidden" ref={bannerRef}>
       <div
         style={gradientStyle}
-        className="text-white py-3 px-4 flex items-center justify-center gap-4"
+        className="text-white py-2 px-2 sm:py-3 sm:px-4 flex items-center justify-center gap-1 sm:gap-4 flex-wrap sm:flex-nowrap" // Responsive adjustments here
       >
-        <p className="text-sm">Join us for Cyber Colloquy 4.0!</p>
-        <Link
-          href="/events/4"
-          className="bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-200"
-        >
-          Know More
-        </Link>
-        <Link
-          href="/cyber-colloquy-4.0"
-          className="bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-semibold hover:bg-gray-200"
-        >
-          Register
-        </Link>
+        <p className="text-sm text-center sm:text-left">
+          Join us for Cyber Colloquy 4.0!
+        </p>
+        <div className="flex gap-1 sm:gap-4"> {/* Container for buttons */}
+          <Link
+            href="/events/4"
+            className="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold hover:bg-gray-200 whitespace-nowrap" // whitespace-nowrap added
+          >
+            Know More
+          </Link>
+          <Link
+            href="/cyber-colloquy-4.0"
+            className="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold hover:bg-gray-200 whitespace-nowrap" // whitespace-nowrap added
+          >
+            Register
+          </Link>
+        </div>
       </div>
       <button
         onClick={handleClose}
-        className="text-white hover:text-gray-300 absolute right-4 top-1/2 -translate-y-1/2 focus:outline-none"
+        className="text-white hover:text-gray-300 absolute right-2 top-1/2 -translate-y-1/2 sm:right-4 focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ const Banner = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-4 h-4"
+          className="w-4 h-4 sm:w-5 sm:h-5"
         >
           <path
             strokeLinecap="round"
