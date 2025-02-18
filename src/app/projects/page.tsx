@@ -3,6 +3,7 @@
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import React, { useState, useEffect } from "react";
+import { projectsData } from "@/components/ProjectsData"; // Import projectsData
 
 type Project = {
   sNo: number;
@@ -20,76 +21,15 @@ export default function ProjectsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null); // Track hovered card index
 
   useEffect(() => {
-    // Hardcoded data based on the provided image, with separate faculty and students
-    const data: Project[] = [
-      {
-        sNo: 1,
-        productName: "HoneyTrack",
-        faculty: "Dr.Rupali Vairagade Ms Meghali Kalyankar Maj Vineet Kumar",
-        students:
-          "Archita Jain Swarangi Patil Aditya Ubale Darshit rupareliya Devansh Sanghvi Nikhil Mokal Vivek Bhagwat",
-        academicYear: "2024-25",
-        shortIntro: "HoneyTrack",
-      },
-      {
-        sNo: 2,
-        productName: "LinuxAdmin",
-        faculty: "Dr Nilakshi Jain Maj Vineet Kumar",
-        students:
-          "Parasar Sikdar Shubham Kolaskar Pratham Shah Jayan Shah Kayaan Kaizad Billimoria Kushagra Tiwari Sayyed Shamlaan Shuaib",
-        academicYear: "2024-25",
-        shortIntro: "A Linux administration learning and practice platform.",
-      },
-      {
-        sNo: 3,
-        productName: "Cygiene",
-        faculty: "Dr Shwetambari Borade Ms. Priyanka Singh Maj Vineet Kumar",
-        students:
-          "Parasar Sikdar Devansh Sanghvi Nikhil Mokal Vivek Bhagwat Archita Jain Swarangi Patil Aditya Ubale Darshit rupareliya",
-        academicYear: "2024-25",
-        shortIntro: "Cyber Hygiene awareness and training program.",
-      },
-      {
-        sNo: 4,
-        productName: "HackTheWay",
-        faculty: "Dr Nilakshi Jain Dr. Shwetambari Borade",
-        students:
-          "Parasar Sikdar Yash Nagare Jasjyot Singh Saini Devendra Mishra Gayatri Tawade Deep Parasiya",
-        academicYear: "2024-25",
-        shortIntro: "Capture The Flag portal for cybersecurity education.",
-      },
-      {
-        sNo: 5,
-        productName: "Trusttrace",
-        faculty: "Dr Nilakshi Jain Dr Shwetambari Borade Maj Vineet Kumar",
-        students: "Shubham Kolaskar Pratham Shah Jayan Shah",
-        academicYear: "2024-25",
-        shortIntro: "Platform for detecting deepfakes in multimedia content.",
-      },
-      {
-        sNo: 6,
-        productName: "Cyber Incident Portal",
-        faculty: "Dr Shwetambari Borade Maj Vineet Kumar",
-        students:
-          "Akshat Adavadkar Drashti Doshi Gaikwad Arya Gulab Chirag Prajapati Shlok Rawat Saahil Sawant Mahesh annayboeina Ronak Ghadge",
-        academicYear: "2024-25",
-        shortIntro:
-          "Centralized portal for reporting and managing cyber incidents.",
-      },
-      {
-        sNo: 7,
-        productName:
-          "Unmasking Digital Impersonation: Financial Fraud via Deepfakes",
-        faculty: "Dr Nilakshi Jain Ms Viskhakha Shinde Koli",
-        students:
-          "Yash Pratap Talawat Paxal Dilip Wagh Kedar Prashant Zunjarrao Sahil Shailesh",
-        academicYear: "2024-25",
-        shortIntro:
-          "Detecting deepfake-based financial fraud and impersonation.",
-      },
-    ];
-    setProjects(data);
-    setLoading(false);
+    // Fetch data from ProjectsData.js
+    const data: Project[] = projectsData; // Directly use imported data
+    if (data) {
+      setProjects(data);
+      setLoading(false);
+    } else {
+      setError("Failed to load projects data.");
+      setLoading(false);
+    }
   }, []);
 
   if (loading) {
