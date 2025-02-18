@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { Target } from "lucide-react";
 
 interface NavItem {
   label: string;
@@ -56,12 +57,12 @@ const navigationData = {
       ],
     },
     { label: "Achievements", href: "/achievements" },
-    { label: "News", href: "https://www.sakec.ac.in/cyse/cyse-announcements/" },
+    { label: "News", href: "https://www.sakec.ac.in/cyse/cyse-announcements/" , Target: "_blank"},
     {
       label: "Play a game",
       href: "#",
       dropdown: [
-        { label: "CTF", href: "https://www.hacktheway.com/" },
+        { label: "CTF", href: "https://www.hacktheway.com/" , Target: "_blank"},
         { label: "Phishing", href: "/phishing" },
       ],
     },
@@ -71,9 +72,7 @@ const navigationData = {
       dropdown: [
         { label: "Articles", href: "/knowledge-hub/articles" },
         { label: "Cybersecurity guide", href: "/knowledge-hub/cybersecurity-guide" },
-        { label: "White papers", href: "/knowledge-hub/white-papers" },
-        { label: "Advisories", href: "/knowledge-hub/advisories" },
-        { label: "Tools & Resources", href: "/knowledge-hub/tools-resources" },
+        { label: "Research papers", href: "https://www.sakec.ac.in/research/research-publications/", Target: "_blank" },
       ],
     },
     {
