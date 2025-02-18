@@ -177,11 +177,11 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
 
   return (
     <div className="w-full shadow-md">
-      <nav className="bg-black text-white relative flex flex-col lg:flex-row lg:items-center w-full">  {/* Changed to bg-black */}
-        <div className="flex flex-row items-center justify-between w-full lg:w-auto px-4 py-3">
+      <nav className="bg-black text-white relative flex flex-col xl:flex-row xl:items-center w-full">  {/* Changed to bg-black */}
+        <div className="flex flex-row items-center justify-between w-full xl:w-auto px-4 py-3">
           {/* Logo */}
            {/* Adjusted logo size for mobile */}
-        <div className="lg:mr-2 lg:mb-0 h-[60px] w-auto lg:h-[60px]"> {/* Keep h-[60px] on larger screens */}
+        <div className="xl:mr-2 xl:mb-0 h-[60px] w-auto xl:h-[60px]"> {/* Keep h-[60px] on larger screens */}
           <Link href="/" className="flex items-center space-x-2 text-2xl font-medium">
             <Image
               src="/img/favicon4.png"
@@ -192,20 +192,20 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
             />
           </Link>
         </div>
-          <div className="lg:hidden">
+          <div className="xl:hidden">
             <MenuBarContent />
           </div>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:flex-col lg:items-start lg:flex-grow">
+        <div className="hidden xl:flex xl:flex-col xl:items-start xl:flex-grow">
 
            {/* Top Navigation */}
-          <div className="text-center lg:flex lg:items-center mb-0 lg:mb-0  px-4 ">
-           <ul className="items-center justify-start flex-none pt-2 list-none lg:flex lg:items-center">
+          <div className="text-center xl:flex xl:items-center mb-0 xl:mb-0  px-4 ">
+           <ul className="items-center justify-start flex-none pt-2 list-none xl:flex xl:items-center">
               {navigationData.topNavigation.map((item, index) => (
                 <li
-                  className={`mr-4 lg:mr-6 nav__item relative ${
+                  className={`mr-4 xl:mr-6 nav__item relative ${
                     hoveredItem === item.label ? "z-20" : "z-10"  // Higher z-index when hovered
                   }`}
                   key={index}
@@ -266,11 +266,11 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
           </div>
 
           {/* Bottom Navigation (Desktop) */}
-          <div className="hidden text-center lg:flex lg:items-center lg:flex-grow px-4 bg-blue-600 py-1">
-            <ul className="items-center justify-start flex-none  list-none lg:flex">
+          <div className="hidden text-center xl:flex xl:items-center xl:flex-grow px-4 bg-blue-600 py-1">
+            <ul className="items-center justify-start flex-none  list-none xl:flex">
               {navigationData.bottomNavigationItems.map((item, index) => (
                 <li
-                  className={`mr-4 lg:mr-6 nav__item relative ${
+                  className={`mr-4 xl:mr-6 nav__item relative ${
                     hoveredItem === item.label ? "z-20" : "z-10" // Higher z-index
                   }`}
                   key={index}
