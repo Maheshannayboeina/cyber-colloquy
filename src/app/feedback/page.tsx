@@ -20,14 +20,14 @@ const FeedbackPage: React.FC = () => {
       </SectionTitle>
       <div className="flex justify-center space-x-2 mt-2">
         {/* External link - keep the <a> tag */}
-        <a
+        {/* <a
           href="https://forms.gle/your-feedback-form-link"
           className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition duration-300"
           target="_blank"
           rel="noopener noreferrer"
         >
           Feedback Form
-        </a>
+        </a> */}
         {/* Internal link - use the <Link> component */}
         <Link
           href="/events/4"

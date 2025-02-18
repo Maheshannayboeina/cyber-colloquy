@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '../../lib/utils'
 import Image from 'next/image'
+import styles from './expandable-timeline-card.module.css' // Import CSS Module
 
 export interface Activity {
   time?: string
@@ -40,8 +41,24 @@ export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCard
       clearTimeout(hoverTimeout.current);
       hoverTimeout.current = null;
     }
-      setIsExpanded(false);
+    setIsExpanded(false);
   };
+
+  const cardInnerStyle = cn(
+    styles.cardInner,
+    styles[`cardInner_${event.status}`], // Dynamic status-based border color
+    isExpanded ? styles.cardInner_expanded : "" // Add margin when expanded
+  );
+
+  const statusTextStyle = cn(
+    styles.statusText,
+    styles[`statusText_${event.status}`] // Dynamic status-based text color
+  );
+
+  const statusBadgeStyle = cn(
+    styles.statusBadge,
+    styles[`statusBadge_${event.status}`] // Dynamic status-based badge color
+  );
 
   return (
     <motion.div
@@ -49,38 +66,24 @@ export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCard
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative cursor-pointer",
-        isEven ? "text-right" : "text-left"
+        styles.cardContainer,
+        isEven ? styles.cardContainer_even : "" // Even/odd alignment using CSS Modules
       )}
     >
       <motion.div
         layout
-        className={cn(
-          "bg-gray-800 rounded-lg p-6 shadow-lg border-l-4",
-          event.status === 'completed' ? 'border-green-500' :
-          event.status === 'current' ? 'border-blue-500' :
-          'border-gray-500',
-          isExpanded ? "mb-4" : ""
-        )}
+        className={cardInnerStyle}
       >
-        <motion.div layout className="flex items-center justify-between mb-2">
-          <div className={cn("text-sm font-medium", 
-            event.status === 'completed' ? 'text-green-400' :
-            event.status === 'current' ? 'text-blue-400' :
-            'text-gray-400'
-          )}>
+        <motion.div layout className={styles.statusContainer}>
+          <div className={statusTextStyle}>
             {event.date}
           </div>
-          <div className={cn("text-xs px-2 py-1 rounded-full", 
-            event.status === 'completed' ? 'bg-green-500/20 text-green-400' :
-            event.status === 'current' ? 'bg-blue-500/20 text-blue-400' :
-            'bg-gray-500/20 text-gray-400'
-          )}>
+          <div className={statusBadgeStyle}>
             {event.status}
           </div>
         </motion.div>
-        <motion.h3 layout className="text-xl font-bold mb-2 text-white">{event.title}</motion.h3>
-        <motion.p layout className="text-gray-300">{event.description}</motion.p>
+        <motion.h3 layout className={styles.cardTitle}>{event.title}</motion.h3>
+        <motion.p layout className={styles.cardDescription}>{event.description}</motion.p>
       </motion.div>
 
       {isExpanded && (
@@ -88,7 +91,7 @@ export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCard
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4"
+          className={styles.activitiesGrid}
         >
           {event.activities.map((activity, index) => (
             <motion.div
@@ -96,21 +99,21 @@ export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCard
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-gray-700 rounded-lg overflow-hidden"
+              className={styles.activityItem}
             >
-              <div className="relative h-40">
+              <div className={styles.activityImageContainer}>
                 <Image
                   src={activity.image}
                   alt={activity.description}
                   fill
-                  className="object-cover"
+                  className={styles.activityImage}
                 />
               </div>
-              <div className="p-4">
+              <div className={styles.activityContent}>
                 {(activity.time || activity.date) && (
-                  <p className="text-xs text-gray-400 mb-1">{activity.time || activity.date}</p>
+                  <p className={styles.activityTime}>{activity.time || activity.date}</p>
                 )}
-                <p className="text-sm text-gray-300">{activity.description}</p>
+                <p className={styles.activityDescription}>{activity.description}</p>
               </div>
             </motion.div>
           ))}

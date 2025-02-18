@@ -1,0 +1,134 @@
+/* src/components/expandable-timeline-card.module.css */
+
+.cardContainer {
+    @apply relative cursor-pointer text-left; /* Default left alignment, overridden for even cards */
+  }
+  
+  .cardContainer_even {
+    @apply text-right; /* Right alignment for even cards */
+  }
+  
+  .cardInner {
+    @apply bg-gray-800 rounded-lg p-6 shadow-lg border-l-4 mb-0; /* Default mb-0, adjusted when expanded */
+    border-color: theme('colors.gray.500'); /* Default border color */
+  }
+  
+  .cardInner_completed {
+    border-color: theme('colors.green.500');
+  }
+  
+  .cardInner_current {
+    border-color: theme('colors.blue.500');
+  }
+
+  .cardInner_upcoming {
+    /* existing styles */
+  }
+  
+  .cardInner_expanded {
+    margin-bottom: 1rem; /* Add margin when expanded to create space for activities */
+  }
+  
+  .statusContainer {
+    @apply flex items-center justify-between mb-2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .statusText {
+    @apply text-sm font-medium text-gray-400; /* Default status text color */
+  }
+  
+  .statusText_completed {
+    color: theme('colors.green.400');
+  }
+  
+  .statusText_current {
+    color: theme('colors.blue.400');
+  }
+
+  .statusText_upcoming {
+    /* existing styles */
+  }
+  
+  .statusBadge {
+    @apply text-xs px-2 py-1 rounded-full bg-gray-500/20 text-gray-400; /* Default badge style */
+  }
+  
+  .statusBadge_completed {
+    @apply bg-green-500/20 text-green-400;
+  }
+  
+  .statusBadge_current {
+    @apply bg-blue-500/20 text-blue-400;
+  }
+
+  .statusBadge_upcoming {
+    /* existing styles */
+  }
+  
+  .cardTitle {
+    @apply text-xl font-bold mb-2 text-white;
+  }
+  
+  .cardDescription {
+    @apply text-gray-300;
+  }
+  
+  .activitiesGrid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4;
+  }
+  
+  .activityItem {
+    @apply bg-gray-700 rounded-lg overflow-hidden;
+  }
+  
+  .activityImageContainer {
+    @apply relative h-40;
+  }
+  
+  .activityImage {
+    @apply object-cover;
+  }
+  
+  .activityContent {
+    @apply p-4;
+  }
+  
+  .activityTime {
+    @apply text-xs text-gray-400 mb-1;
+  }
+  
+  .activityDescription {
+    @apply text-sm text-gray-300;
+  }
+  
+  /* Media Queries for Mobile (adjust breakpoints as needed) */
+  @media (max-width: 768px) {
+    .cardInner {
+      @apply p-4; /* Slightly reduce padding on mobile */
+    }
+  
+    .cardTitle {
+      @apply text-lg; /* Slightly smaller title on mobile */
+    }
+  
+    .cardDescription {
+      @apply text-sm; /* Slightly smaller description on mobile */
+    }
+  
+    .activitiesGrid {
+      @apply grid-cols-1; /* Force single column for activities on mobile */
+    }
+
+    .statusContainer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .statusBadge {
+      margin-top: 4px;
+    }
+  }

@@ -30,6 +30,7 @@ const navigationData = {
         { label: "Contributors", href: "/contributors/all" },
         { label: "Executive Team", href: "/executive-team" },
         { label: "Partners", href: "/contributors/partners" },
+        { label: "Developers", href: "/contributors/developers" },
       ],
     },
     { label: "Events", href: "/events" },
@@ -57,7 +58,7 @@ const navigationData = {
       ],
     },
     { label: "Achievements", href: "/achievements" },
-    { label: "News", href: "https://www.sakec.ac.in/cyse/cyse-announcements/" , Target: "_blank"},
+    { label: "Announcements", href: "https://www.sakec.ac.in/cyse/cyse-announcements/" , Target: "_blank"},
     {
       label: "Play a game",
       href: "#",
