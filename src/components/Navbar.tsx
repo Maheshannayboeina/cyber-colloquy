@@ -27,7 +27,7 @@ const navigationData = {
       dropdown: [
         { label: "Alumni", href: "/contributors/alumni" },
         { label: "Contributors", href: "/contributors/all" },
-        { label: "Organizers", href: "/contributors/organizers" },
+        { label: "Executive Team", href: "/executive-team" },
         { label: "Partners", href: "/contributors/partners" },
       ],
     },
@@ -52,6 +52,7 @@ const navigationData = {
         { label: "Projects", href: "/projects" },
         { label: "Publications", href: "/publications" },
         { label: "Patents", href: "/patents" },
+        { label: "Copyrights", href: "/copyrights" },
       ],
     },
     { label: "Achievements", href: "/achievements" },
