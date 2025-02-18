@@ -16,7 +16,7 @@ import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoC
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/banners/1.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/project.png", // Replace with your actual banner image path
       title: "Cyber Colloquy 4.0",
       description: "ADOPTING INDIA'S DPDP FOR A PRIVACY-CENTRIC FUTURE",
       subtitle: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
@@ -24,7 +24,7 @@ export default function Home() {
       buttonHref: "/cyber-colloquy-4.0", // Adjust this link to your events page
     },
     {
-      imageUrl: "/img/banners/4.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/colloquy.png", // Replace with your actual banner image path
       title: "Project Expo",
       description: "Discover exciting cyber security projects at our annual Expo! Network with talent, explore potential collaborations, and see the latest advancements. Register now!",
       subtitle: "Skill Up | Protect | Advance",
@@ -32,7 +32,7 @@ export default function Home() {
       buttonHref: "/project-expo", // Adjust this link to your workshops page
     },
     {
-      imageUrl: "/img/banners/6.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/industry.png", // Replace with your actual banner image path
       title: "Industry Attendies",
       description: "Gain exclusive insights and partner with SAKEC's Cyber Security Department! Attend events, participate in research, and help drive innovation. Register as an Industry Attendee today.",
       subtitle: "Insights | Knowledge | Future",
@@ -40,7 +40,7 @@ export default function Home() {
       buttonHref: "/industry-professional", // Adjust this link to your speakers page
     },
     {
-      imageUrl: "/img/banners/5.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/sponsor.png", // Replace with your actual banner image path
       title: "Call For Sponsors",
       description: "Empower cyber security's future! Sponsor our events and gain recognition within a thriving community of students, researchers, and industry leaders. Inquire today!",
       subtitle: "Connect | Collaborate | Grow",
@@ -48,7 +48,7 @@ export default function Home() {
       buttonHref: "/sponsor", // Adjust this link to your community page
     },
     {
-      imageUrl: "/img/banners/8.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/award.png", // Replace with your actual banner image path
       title: "Award Nominations",
       description: "Give rising stars the spotlight they deserve! Award nominations provide valuable recognition and boost career opportunities. Nominate a deserving candidate for our prestigious awards.",
       subtitle: "Inform | Secure | Vigilant",
