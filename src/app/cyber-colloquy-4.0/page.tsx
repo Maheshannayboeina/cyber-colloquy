@@ -52,12 +52,19 @@ const CyberColloquy4Page: React.FC = () => {
               <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                 Welcome to Cyber Colloquy 4.0!
               </h2>
-              <p className="text-gray-400">
-                Your Gateway to Cyber Security Insights and Networking.
-              </p>
+              
             </div>
           </motion.div>
-
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
+          >
+            <div><p className="text-gray-100">
+                Your Gateway to Cyber Security Insights and Networking.
+              </p></div>
+          </motion.div>
           {/* Event Highlights Section */}
           <motion.div
             className="mb-10"
@@ -102,7 +109,7 @@ const CyberColloquy4Page: React.FC = () => {
             <h3 className="text-xl font-semibold text-blue-400 mb-4 flex items-center space-x-2">
               <FaMicrophone className="text-blue-500" />{" "}
               {/* Icon - Mic for Learning/Speaking */}
-              <span>What You'll Gain at Cyber Colloquy 4.0</span>
+              <span>What You&apos;ll Gain at Cyber Colloquy 4.0</span>
             </h3>
             <ul className="list-disc pl-8 text-gray-300 space-y-2">
               <li>Stay Updated: Learn the latest in cyber security.</li>
@@ -147,7 +154,7 @@ const CyberColloquy4Page: React.FC = () => {
               Ready to Join Cyber Colloquy 4.0?
             </h3>
             <p className="text-gray-300 mb-6">
-              Don't miss out! Register to secure your spot and be part of the
+              Don&apos;t miss out! Register to secure your spot and be part of the
               conversation.
             </p>
             <a

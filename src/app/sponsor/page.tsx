@@ -58,17 +58,24 @@ const SponsorPage: React.FC = () => {
                   <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                     Partner with Cyber Colloquy 4.0
                   </h2>
-                  <p className="text-gray-400">
+                 
+                </div>
+              </motion.div>
+              <motion.div
+          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div> <p className="text-gray-100">
                     Join us in making Cyber Colloquy 4.0 a grand success! We invite
                     esteemed organizations and brands to collaborate with us as
                     sponsors for this premier cybersecurity conclave. By partnering
                     with us, you get the opportunity to enhance brand visibility,
                     engage with a tech-savvy audience, and support the future of
                     cybersecurity.
-                  </p>
-                </div>
-              </motion.div>
-
+                  </p></div>
+        </motion.div>
               <motion.div
                 className="mb-6"
                 initial={{ opacity: 0, y: 50 }}
@@ -79,7 +86,7 @@ const SponsorPage: React.FC = () => {
                   <FaQuestionCircle className="text-blue-500" />
                   <span>Why Sponsor?</span>
                 </h3>
-                <ul className="list-disc pl-5 text-gray-400 space-y-2">
+                <ul className="list-disc pl-5 text-gray-100 space-y-2">
                   <li>
                     Gain exposure among students, professionals, and industry
                     leaders
@@ -115,12 +122,12 @@ const SponsorPage: React.FC = () => {
               </motion.div>
 
               <motion.p
-                className="text-gray-400 mt-6 mb-4"
+                className="text-gray-100 mt-6 mb-4"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3, ease: "easeInOut" }}
               >
-                Let's collaborate to create an impactful and memorable event! 🚀
+                Let&apos;s collaborate to create an impactful and memorable event! 🚀
               </motion.p>
               <motion.p
                 className="text-gray-400"

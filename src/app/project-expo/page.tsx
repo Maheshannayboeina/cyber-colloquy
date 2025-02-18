@@ -50,16 +50,21 @@ const ProjectExpoPage: React.FC = () => {
                   <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                     Showcase Your Innovation at Project EXPO!
                   </h2>
-                  <p className="text-gray-400">
-                    Showcase your creativity, innovation, and technical
-                    expertise at Project EXPO, where students present
-                    groundbreaking projects across various domains! Whether it's
-                    cybersecurity, AI, IoT, software development, robotics, or
-                    any other field, this is your platform to shine.
-                  </p>
+                  
                 </div>
               </motion.div>
-
+              <motion.div className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}>
+                          <div><p className="text-gray-100">
+                    Showcase your creativity, innovation, and technical
+                    expertise at Project EXPO, where students present
+                    groundbreaking projects across various domains! Whether it&apos;s
+                    cybersecurity, AI, IoT, software development, robotics, or
+                    any other field, this is your platform to shine.
+                  </p></div>
+                        </motion.div>
               <motion.div
                 className="mb-6"
                 initial={{ opacity: 0, y: 50 }}
@@ -70,7 +75,7 @@ const ProjectExpoPage: React.FC = () => {
                   <FaQuestionCircle className="text-purple-500" />
                   <span>Why Participate?</span>
                 </h3>
-                <ul className="list-disc pl-5 text-gray-400 space-y-2">
+                <ul className="list-disc pl-5 text-gray-100 space-y-2">
                   <li>Display your project to a wider audience</li>
                   <li>Gain valuable feedback from experts</li>
                   <li>
@@ -89,14 +94,14 @@ const ProjectExpoPage: React.FC = () => {
                   <FaCalendarAlt className="text-purple-500" />
                   <span>Date & Venue</span>
                 </h3>
-                <p className="text-gray-300 space-y-2">
+                <p className="text-gray-100 space-y-2">
                   📅 Date: 21st March - 24th March <br />
                   📍 Venue: 7th floor Auditorium SAKEC
                 </p>
               </motion.div>
 
               <motion.p
-                className="text-gray-400 mt-6"
+                className="text-gray-100 mt-6"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3, ease: "easeInOut" }}

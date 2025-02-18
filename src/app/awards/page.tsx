@@ -44,12 +44,19 @@ const AwardCeremonyPage: React.FC = () => {
                 <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                   About the Colloquy 4.0 Award Ceremony
                 </h2>
-                <p className="text-gray-400">
-                  We are excited to host the Award Ceremony at Colloquy 4.0, recognizing individuals and teams who have made significant contributions to the field of cyber security.
-                </p>
+                
               </div>
             </motion.div>
-
+            <motion.div
+              className="mb-10 flex items-center space-x-6"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <div><p className="text-gray-100">
+                  We are excited to host the Award Ceremony at Colloquy 4.0, recognizing individuals and teams who have made significant contributions to the field of cyber security.
+                </p></div>
+              </motion.div>
             {/* Nomination Categories Section */}
             <motion.div
               className="mb-10"
@@ -61,7 +68,7 @@ const AwardCeremonyPage: React.FC = () => {
                 <FaClipboardCheck className="text-yellow-500" />
                 <span>Nomination Categories</span>
               </h3>
-              <ul className="list-disc pl-8 text-gray-300 space-y-2">
+              <ul className="list-disc pl-8 text-gray-100 space-y-2">
                 <li><b>Cyber Security Professional of the Year:</b> Recognizing outstanding contributions to the industry.</li>
                 <li><b>Emerging Talent Award:</b> For promising students or newcomers in cyber security.</li>
                 <li><b>Innovation in Cyber Security Award:</b> Celebrating groundbreaking projects and ideas.</li>
@@ -81,7 +88,7 @@ const AwardCeremonyPage: React.FC = () => {
                 <FaBullhorn className="text-yellow-500" />
                 <span>How to Nominate</span>
               </h3>
-              <ol className="list-decimal pl-8 text-gray-300 space-y-2">
+              <ol className="list-decimal pl-8 text-gray-100 space-y-2">
                 <li><b>Review Categories:</b> Familiarize yourself with the award categories.</li>
                 <li><b>Prepare Nomination:</b> Gather information about your nominee and their achievements.</li>
                 <li><b>Submit Form:</b> Click the button below to access the nomination form and complete it.</li>
@@ -99,7 +106,7 @@ const AwardCeremonyPage: React.FC = () => {
               <h3 className="text-xl font-semibold text-gray-100 mb-4">
                 {nominationForm.title}
               </h3>
-              <p className="text-gray-300 mb-6">
+              <p className="text-gray-100 mb-6">
                 {nominationForm.description}
               </p>
               <a

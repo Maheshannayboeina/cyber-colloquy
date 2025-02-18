@@ -45,13 +45,21 @@ const IndustryProfessionalPage: React.FC = () => {
                 <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                   Engage with Future Cyber Security Leaders
                 </h2>
-                <p className="text-gray-400">
+                
+              </div>
+             
+            </motion.div>
+          <motion.div className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}>
+          <div>
+              <p className="text-gray-100">
                   Connect with our students, faculty, and research initiatives.
                   Your expertise is invaluable to our community.
                 </p>
               </div>
-            </motion.div>
-
+          </motion.div>
             {/* Benefits Section */}
             <motion.div
               className="mb-10"
@@ -79,6 +87,7 @@ const IndustryProfessionalPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
             >
+              
               <h3 className="text-xl font-semibold text-yellow-500 mb-4 flex items-center space-x-2">
                 <FaHandshake className="text-yellow-500" />
                 <span>Potential Areas for Collaboration</span>
