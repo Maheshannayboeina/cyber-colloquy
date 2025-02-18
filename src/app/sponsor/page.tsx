@@ -24,7 +24,7 @@ const SponsorPage: React.FC = () => {
       {/* Banner Image */}
       <div className="relative h-[300px] w-full">
         <Image
-          src="/img/banners/7.png"
+          src="/img/registration/sponsor.png"
           alt="Become a Sponsor Banner"
           fill
           style={{ objectFit: 'cover' }}

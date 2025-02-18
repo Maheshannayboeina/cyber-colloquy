@@ -25,34 +25,34 @@ export default function Home() {
     },
     {
       imageUrl: "/img/banners/4.png", // Replace with your actual banner image path
-      title: "Cybersecurity Workshops",
-      description: "Enhance your cybersecurity skills with our hands-on workshops. From beginner to advanced levels, we have something for everyone.",
+      title: "Project Expo",
+      description: "Discover exciting cyber security projects at our annual Expo! Network with talent, explore potential collaborations, and see the latest advancements. Register now!",
       subtitle: "Skill Up | Protect | Advance",
-      buttonText: "View Workshops",
+      buttonText: "Explore More",
       buttonHref: "/project-expo", // Adjust this link to your workshops page
     },
     {
       imageUrl: "/img/banners/6.png", // Replace with your actual banner image path
-      title: "Industry Expert Talks",
-      description: "Gain insights from leading cybersecurity experts. Attend our talks and webinars to stay ahead of the curve.",
+      title: "Industry Attendies",
+      description: "Gain exclusive insights and partner with SAKEC's Cyber Security Department! Attend events, participate in research, and help drive innovation. Register as an Industry Attendee today.",
       subtitle: "Insights | Knowledge | Future",
-      buttonText: "See Speakers",
+      buttonText: "Know More",
       buttonHref: "/industry-professional", // Adjust this link to your speakers page
     },
     {
       imageUrl: "/img/banners/5.png", // Replace with your actual banner image path
-      title: "Networking Opportunities",
-      description: "Connect with professionals and peers in the cybersecurity field. Expand your network and collaborate on future projects.",
+      title: "Call For Sponsors",
+      description: "Empower cyber security's future! Sponsor our events and gain recognition within a thriving community of students, researchers, and industry leaders. Inquire today!",
       subtitle: "Connect | Collaborate | Grow",
       buttonText: "Join Community",
       buttonHref: "/sponsor", // Adjust this link to your community page
     },
     {
       imageUrl: "/img/banners/8.png", // Replace with your actual banner image path
-      title: "Latest Cyber Threats",
-      description: "Stay informed about the latest cybersecurity threats and vulnerabilities. Our platform provides up-to-date information and resources.",
+      title: "Award Nominations",
+      description: "Give rising stars the spotlight they deserve! Award nominations provide valuable recognition and boost career opportunities. Nominate a deserving candidate for our prestigious awards.",
       subtitle: "Inform | Secure | Vigilant",
-      buttonText: "Read More",
+      buttonText: "Nominate",
       buttonHref: "/awards", // Adjust this link to your threats page
     },
   ];

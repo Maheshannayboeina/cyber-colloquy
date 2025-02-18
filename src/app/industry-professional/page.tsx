@@ -17,7 +17,7 @@ const IndustryProfessionalPage: React.FC = () => {
       {/* Banner Image */}
       <div className="relative h-[300px] w-full"> {/* Adjust height as needed */}
         <Image
-          src="/img/banners/5.png" // Replace with your banner image path in public directory
+          src="/img/registration/industry.png" // Replace with your banner image path in public directory
           alt="Industry Professional Banner"
           fill
           style={{ objectFit: 'cover' }}

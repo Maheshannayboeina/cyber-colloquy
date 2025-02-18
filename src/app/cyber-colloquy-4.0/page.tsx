@@ -24,7 +24,7 @@ const CyberColloquy4Page: React.FC = () => {
       {/* Banner Image */}
       <div className="relative h-[300px] w-full"> {/* Adjust height as needed */}
         <Image
-          src="/img/banners/1.png" // Replace with your banner image path in public directory
+          src="/img/registration/colloquy4.0.png" // Replace with your banner image path in public directory
           alt="Cyber Colloquy 4.0 Banner"
           fill
           style={{ objectFit: 'cover' }}
@@ -56,10 +56,10 @@ const CyberColloquy4Page: React.FC = () => {
             </div>
           </motion.div>
           <motion.div
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
+            className="mb-10 flex items-center space-x-6"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
           >
             <div><p className="text-gray-100">
                 Your Gateway to Cyber Security Insights and Networking.

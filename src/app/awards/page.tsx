@@ -16,7 +16,7 @@ const AwardCeremonyPage: React.FC = () => {
       {/* Banner Image */}
       <div className="relative h-[300px] w-full">
         <Image
-          src="/img/banners/8.png"
+          src="/img/registration/award.png"
           alt="Award Ceremony Banner"
           fill
           style={{ objectFit: 'cover' }}

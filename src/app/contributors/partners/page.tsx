@@ -15,16 +15,21 @@ interface Partner {
 
 const partners: Partner[] = [
   {
-    name: "Partner 1",
+    name: "CyberFrat",
     description: "A leading tech company.",
-    imageUrl: "",
+    imageUrl: "/img/cyberfrat.png",
   },
   {
-    name: "Partner 2",
+    name: "V4WEB",
     description: "Specializes in network security.",
-    imageUrl: "",
+    imageUrl: "/img/v4web.png",
   },
-  { name: "Partner 3", imageUrl: "" },
+  { name: "COE", 
+    imageUrl: "/img/coe.png" 
+  },
+  { name: "CyberBaap", 
+    imageUrl: "/img/cyberbaap.png" 
+  }
 ];
 
 const PartnersPage: React.FC = () => {
@@ -71,7 +76,7 @@ const PartnersPage: React.FC = () => {
                       alt={partner.name}
                       fill
                       className="object-cover" // Use object-cover
-                      style={{objectFit:"cover"}}
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
                 )}

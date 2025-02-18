@@ -74,7 +74,7 @@ export const coeProjects = [
     name: "Digitization & Letter Management System",
     briefDescription: "TERRITORIAL ARMY INNOVATION CELL Project",
     description: "Economy of effort and timely reply to each letter coming to the unit. Reduction in the usage of papers. Computer literacy for the jawans of the unit. Every jawan of the unit will have access to personal documents. Docketing and online repository management of all files branch wise.",
-    image: "/img/coe/projects/project-1.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Nilakshi Jain", "Ms Jalpa Mehta", "Maj V.K.Swamy"],
     students: [
@@ -89,7 +89,7 @@ export const coeProjects = [
     name: "HoneyTrack",
     briefDescription: "HoneyTrack is a cutting-edge project aimed at developing a comprehensive honeypot system",
     description: "HoneyTrack is a cutting-edge project aimed at developing a comprehensive honeypot system to track and analyze malicious activities on a network. This project involves: Designing and implementing honeypot traps. Monitoring and logging network attacks. Analyzing attack patterns to enhance cybersecurity measures.",
-    image: "/img/coe/projects/project-2.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Rupali Vairagade", "Ms Meghali Kalyankar", "Maj Vineet Kumar"],
     students: [
@@ -106,7 +106,7 @@ export const coeProjects = [
     name: "LinuxAdmin",
     briefDescription: "TERRITORIAL ARMY INNOVATION CELL Project",
     description: "LinuxAdmin focuses on creating an efficient and user-friendly administration tool for managing Linux servers. The objectives of this project include: Developing scripts and tools for automating server management tasks. Enhancing security and performance monitoring. Providing an intuitive interface for system administrators.",
-    image: "/img/coe/projects/project-3.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Nilakshi Jain", "Maj Vineet Kumar", "Parasar Sikdar"],
     students: [
@@ -123,7 +123,7 @@ export const coeProjects = [
     name: "Cygiene",
     briefDescription: "TERRITORIAL ARMY INNOVATION CELL Project",
     description: "Cygiene is dedicated to developing a cybersecurity hygiene application to educate users about safe online practices. Key components of this project are: Creating interactive tutorials and quizzes on cybersecurity topics. Implementing features to assess and improve users’ cybersecurity knowledge. Designing a user-friendly interface for an engaging learning experience.",
-    image: "/img/coe/projects/project-4.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Shwetambari Borade", "Ms. Priyanka Singh", "Maj Vineet Kumar", "Parasar Sikdar"],
     students: [
@@ -142,7 +142,7 @@ export const coeProjects = [
     name: "Financial Fraud Detection",
     briefDescription: "Financial Fraud Detection Project",
     description: "To analyze various types of financial fraud prevalent in different sectors. To identify key features and patterns indicative of fraudulent activities in financial transactions. To design and develop machine learning models capable of accurately detecting financial fraud. To evaluate the performance of the proposed models against existing fraud detection systems. To assess the scalability and real-world applicability of the developed framework.",
-    image: "/img/coe/projects/project-5.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Nilakshi Jain", "Ms Deepti Nikumb", "Maj Vineet Kumar", "Parasar Sikdar"],
     students: [
@@ -155,7 +155,7 @@ export const coeProjects = [
     name: "CTF Portal HackTheWay",
     briefDescription: "Challenge, Learn, Secure",
     description: "CTF Portal HackTheWay: Challenge, Learn, Secure",
-    image: "/img/coe/projects/project-6.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Nilakshi Jain", "Dr. Shwetambari Borade", "Parasar Sikdar"],
     students: [
@@ -173,7 +173,7 @@ export const coeProjects = [
     name: "Trusttrace",
     briefDescription: "A one stop solution for multimedia deepfake detection",
     description: "Trusttrace : A one stop solution for multimedia deepfake detection",
-    image: "/img/coe/projects/project-7.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Nilakshi Jain", "Dr Shwetambari Borade", "Maj Vineet Kumar"],
     students: [
@@ -191,7 +191,7 @@ export const coeProjects = [
     name: "Cyber Incident Portal",
     briefDescription: "Cyber Incident Portal Project",
     description: "Cyber Incident Portal",
-    image: "/img/coe/projects/project-8.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Nilakshi Jain", "Ms.Theres Bemila"],
     students: [
@@ -213,7 +213,7 @@ export const coeProjects = [
     name: "Unmasking Digital Impersonation",
     briefDescription: "Financial Fraud via Deepfakes",
     description: "Unmasking Digital Impersonation: Financial Fraud via Deepfakes",
-    image: "/img/coe/projects/project-9.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Shwetambari Borade", "Maj Vineet Kumar"],
     students: [
@@ -230,7 +230,7 @@ export const coeProjects = [
     name: "Secure Mitra",
     briefDescription: "Secure Mitra Project",
     description: "Secure Mitra",
-    image: "/img/coe/projects/project-10.jpg", // Placeholder
+    image: "", // Placeholder
     link: "",
     mentors: ["Dr Nilakshi Jain", "Ms. Vishakha Shinde"],
     students: [

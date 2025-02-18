@@ -21,7 +21,7 @@ const ProjectExpoPage: React.FC = () => {
       {/* Banner Image */}
       <div className="relative h-[300px] w-full">
         <Image
-          src="/img/banners/6.png"
+          src="/img/registration/project.png"
           alt="Cyber Security Project Expo Banner"
           fill
           style={{ objectFit: 'cover' }}
