@@ -19,7 +19,7 @@ export default function EventDetailsPage() {
   const [navbarHeight, setNavbarHeight] = useState(0);
 
   useEffect(() => {
-    const navbar = document.querySelector("nav"); // Adjust the selector to match your navbar
+    const navbar = document.querySelector("nav");
     if (navbar) {
       setNavbarHeight(navbar.offsetHeight);
     }
@@ -29,7 +29,9 @@ export default function EventDetailsPage() {
     return (
       <Container>
         <SectionTitle title="Event Not Found" />
-        The event with the id {eventId} could not be found.
+        <p className="text-gray-300">
+          The event with the id {eventId} could not be found.
+        </p>
       </Container>
     );
   }
@@ -68,7 +70,6 @@ export default function EventDetailsPage() {
           activities: [activity],
         });
       }
-
       return acc;
     },
     []
@@ -76,40 +77,40 @@ export default function EventDetailsPage() {
 
   return (
     <>
-      {/* Hero Section (Banner Image Only) */}
+      {/* Hero Banner Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative w-full h-[100px] md:h-[300px] mb-0 overflow-hidden"
-        style={{ marginTop: `0px` }} // Set margin-top dynamically based on navbar height
+        className="relative w-full aspect-video overflow-hidden" // Using aspect-video for 16:9 ratio
+        style={{ marginTop: `${navbarHeight}px` }}
       >
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0">
           {event.images && event.images.length > 0 && (
             <Image
               src={event.images[0]}
               alt={event.title}
               fill
-              className="object-contain object-center"
-              style={{ objectFit: "contain" }}
+              className="object-cover object-center transition-transform duration-500"
             />
           )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" /> {/* Keep gradient for visual effect if desired */}
+        {/* Gradient overlay for visual effect */}
+        <div className="absolute inset-0 bg-gradient-to-t to-transparent" />
       </motion.div>
 
-      {/* Event Title and Date Section - Below Banner */}
+      {/* Event Title & Details Section (moved below banner) */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-12 px-4" // Added mb-12 for spacing below text
+        className="text-center mb-12 px-4"
       >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-3xl md:text-5xl font-bold text-white mb-4"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
         >
-          Cyber Colloquy 4.0: From compliance to confidence
+          {event.title}
         </motion.h1>
         <motion.div
           initial={{ opacity: 0 }}
@@ -117,11 +118,9 @@ export default function EventDetailsPage() {
           transition={{ delay: 0.3 }}
           className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-gray-300"
         >
-          <p className="text-lg">21st to 24th March</p>
+          <p className="text-sm md:text-lg">{event.date}</p>
           <span className="hidden md:block">•</span>
-          <p>CYSE Department</p>
-          <span className="hidden md:block">•</span>
-          <p>Trusted by 500+ Students</p>
+          <p className="text-sm md:text-lg">CYSE Department</p>
         </motion.div>
       </motion.section>
 
@@ -130,7 +129,7 @@ export default function EventDetailsPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="flex justify-center mb-16 px-4"
+        className="w-full max-w-4xl mx-auto mb-16 px-4"
       >
         <Sponsors />
       </motion.div>
@@ -143,16 +142,16 @@ export default function EventDetailsPage() {
         className="mb-16 text-center max-w-3xl mx-auto px-4"
       >
         <SectionTitle preTitle="" title={event.description} />
-        <div className="space-y-4">
+        <div className="space-y-4 mt-6">
           <h4 className="text-xl font-semibold text-emerald-400">Topics</h4>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             {event.colloquyDetails?.topics.map((topic, index) => (
               <motion.li
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 + index * 0.1 }}
-                className="flex items-center gap-2 text-gray-200"
+                className="flex items-center gap-2 text-gray-200 text-sm"
               >
                 <span className="h-2 w-2 rounded-full bg-emerald-500" />
                 {topic}
@@ -172,7 +171,12 @@ export default function EventDetailsPage() {
         <h3 className="text-3xl font-bold text-center mb-8 text-white">
           Event Timeline
         </h3>
-        <Timeline events={timelineEvents} />
+        {/* Wrap timeline in a responsive container:
+            On mobile: allow horizontal scroll,
+            On larger screens: display normally */}
+        <div className="overflow-x-auto md:overflow-visible">
+          <Timeline events={timelineEvents} />
+        </div>
       </motion.div>
     </>
   );

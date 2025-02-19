@@ -29,79 +29,64 @@ export function EventCard({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        whileHover={{ y: -5 }}
+        whileHover={{ y: -5, scale: 1.02 }}
         transition={{ duration: 0.3 }}
-        className="group relative h-[400px] w-full rounded-xl overflow-hidden bg-gray-900"
+        // Fixed overall height with flex-col to ensure equal card sizes
+        className="group relative w-full rounded-xl overflow-hidden bg-gray-900 shadow-lg flex flex-col h-[450px] md:h-[500px]"
       >
-        {/* Image and Gradient Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* Image Section */}
+        <div className="relative w-full h-64 md:h-72 lg:h-80">
           {image ? (
             <Image
               src={image}
               alt={title}
               fill
-              className="object-contain object-center transition-transform duration-500"
-              style={{
-                objectFit: "contain",
-              }}
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-blue-900 to-purple-900" />
           )}
-          {/* Multiple gradient layers for better text visibility */}
-           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
         </div>
 
-        {/* Content */}
-        <div className="relative h-full p-4 flex flex-col justify-between z-10">
-          {/* Top Content */}
-          <div className="flex justify-between items-start mb-2">
-            <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-sm font-medium rounded-full">
-              {year}
-            </span>
-            <span className="text-gray-400 text-sm">{date}</span>
-          </div>
-
-          {/* Bottom Content */}
-          <div className="space-y-2">
-            <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+        {/* Text Section */}
+        <div className="p-4 sm:p-6 flex flex-col justify-between flex-1 overflow-hidden bg-gray-900">
+          <div>
+            <div className="flex justify-between items-center mb-2">
+              <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs sm:text-sm font-medium rounded-full">
+                {year}
+              </span>
+              <span className="text-gray-400 text-xs sm:text-sm">{date}</span>
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-1 line-clamp-1">
               {title}
             </h3>
-
-            <p className="text-gray-300 line-clamp-2 text-sm">
+            <p className="text-gray-300 text-xs sm:text-sm mb-2 line-clamp-2">
               {description}
             </p>
-
             {conductedBy && (
-              <div className="flex items-center gap-1 text-sm">
+              <div className="flex items-center gap-1 text-xs sm:text-sm mb-2">
                 <span className="text-gray-400">Conducted by:</span>
-                <span className="text-white">{conductedBy}</span>
+                <span className="text-white line-clamp-1">{conductedBy}</span>
               </div>
             )}
-
-            {/* Call to action */}
-            <div className="flex items-center gap-2 text-blue-400 text-sm font-medium">
-              <span>Learn More</span>
-              <svg
-                className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </div>
+          </div>
+          <div className="flex items-center gap-2 text-blue-400 text-xs sm:text-sm font-medium">
+            <span>Learn More</span>
+            <svg
+              className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </div>
         </div>
-
-        {/* Animated Border */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-800 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
       </motion.div>
     </Link>
   );

@@ -9,6 +9,7 @@ interface NavItem {
   label: string;
   href: string;
   dropdown?: NavItem[];
+  Target?: string;
 }
 
 const navigationData = {
@@ -52,18 +53,26 @@ const navigationData = {
       href: "#",
       dropdown: [
         { label: "Projects", href: "/projects" },
-        { label: "Publications", href: "/publications" },
+        { label: "Publications", href: "https://www.sakec.ac.in/cyse/cyse-faculty-publications/", Target: "_blank" },
         { label: "Patents", href: "/patents" },
         { label: "Copyrights", href: "/copyrights" },
       ],
     },
     { label: "Achievements", href: "/achievements" },
-    { label: "Announcements", href: "https://www.sakec.ac.in/cyse/cyse-announcements/" , Target: "_blank"},
+    {
+      label: "Announcements",
+      href: "https://www.sakec.ac.in/cyse/cyse-announcements/",
+      Target: "_blank",
+    },
     {
       label: "Play a game",
       href: "#",
       dropdown: [
-        { label: "CTF", href: "https://www.hacktheway.com/" , Target: "_blank"},
+        {
+          label: "CTF",
+          href: "https://www.hacktheway.com/",
+          Target: "_blank",
+        },
         { label: "Phishing", href: "/phishing" },
       ],
     },
@@ -73,7 +82,11 @@ const navigationData = {
       dropdown: [
         { label: "Articles", href: "https://www.cyberbaap.org/blog/" },
         { label: "Cybersecurity guide", href: "/cybersecurity-guide" },
-        { label: "Research papers", href: "https://www.sakec.ac.in/research/research-publications/", Target: "_blank" },
+        {
+          label: "Research papers",
+          href: "https://www.sakec.ac.in/research/research-publications/",
+          Target: "_blank",
+        },
       ],
     },
     {
@@ -89,15 +102,18 @@ const navigationData = {
   ],
 };
 
-export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () => void }) => {
+export const Navbar = ({
+  setGetStartedModalOpen,
+}: {
+  setGetStartedModalOpen: () => void;
+}) => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null); // Track hovered item
-
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -109,28 +125,28 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
       clearTimeout(closeTimerRef.current);
     }
     setOpenDropdown(label);
-    setHoveredItem(label); // Set hovered item
+    setHoveredItem(label);
   };
 
   const handleMouseLeave = () => {
     closeTimerRef.current = setTimeout(() => {
       setOpenDropdown(null);
-       setHoveredItem(null); // Clear hovered item on main item leave
+      setHoveredItem(null);
     }, 300);
   };
 
   const handleDropdownMouseEnter = () => {
-        if (closeTimerRef.current) {
-            clearTimeout(closeTimerRef.current); // Clear timer on entering dropdown
-        }
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+    }
   };
 
-    const handleDropdownMouseLeave = () => {
-        closeTimerRef.current = setTimeout(() => {
-            setOpenDropdown(null);
-            setHoveredItem(null);  //clear the setHovered item
-        }, 300);
-    };
+  const handleDropdownMouseLeave = () => {
+    closeTimerRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+      setHoveredItem(null);
+    }, 300);
+  };
 
   const handleMobileDropdownToggle = (label: string) => {
     setMobileOpenDropdown(mobileOpenDropdown === label ? null : label);
@@ -140,7 +156,7 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setOpenDropdown(null);
-         setHoveredItem(null); // Clear on outside click
+        setHoveredItem(null);
       }
     };
 
@@ -175,24 +191,23 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
     </div>
   );
 
-
   return (
     <div className="w-full shadow-md">
-      <nav className="bg-black text-white relative flex flex-col xl:flex-row xl:items-center w-full">  {/* Changed to bg-black */}
-        <div className="flex flex-row items-center justify-between w-full xl:w-auto px-4 py-3">
+      <nav className="bg-black text-white relative flex flex-col xl:flex-row xl:items-center w-full">
+        {/* Top Bar */}
+        <div className="flex flex-row items-center justify-between w-full xl:w-auto px-4 sm:px-6 py-3 sm:py-4">
           {/* Logo */}
-           {/* Adjusted logo size for mobile */}
-        <div className="xl:mr-2 xl:mb-0 h-[60px] w-auto xl:h-[60px]"> {/* Keep h-[60px] on larger screens */}
-          <Link href="/" className="flex items-center space-x-2 text-2xl font-medium">
-            <Image
-              src="/img/favicon4.png"
-              width={210}
-              height={63}
-              alt="Cyber Colloquy"
-              className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain h-full w-auto max-h-[40px] md:max-h-[60px]"  // Added max-h
-            />
-          </Link>
-        </div>
+          <div className="xl:mr-2 xl:mb-0 h-[60px] w-auto xl:h-[60px]">
+            <Link href="/" className="flex items-center space-x-2 text-2xl font-medium">
+              <Image
+                src="/img/favicon4.png"
+                width={210}
+                height={63}
+                alt="Cyber Colloquy"
+                className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain h-full w-auto max-h-[40px] md:max-h-[60px]"
+              />
+            </Link>
+          </div>
           <div className="xl:hidden">
             <MenuBarContent />
           </div>
@@ -200,16 +215,13 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
 
         {/* Desktop Navigation */}
         <div className="hidden xl:flex xl:flex-col xl:items-start xl:flex-grow">
-
-           {/* Top Navigation */}
-          <div className="text-center xl:flex xl:items-center mb-0 xl:mb-0  px-4 ">
-           <ul className="items-center justify-start flex-none pt-2 list-none xl:flex xl:items-center">
+          {/* Top Navigation */}
+          <div className="text-center xl:flex xl:items-center mb-0 px-4 sm:px-6">
+            <ul className="flex flex-col pt-2 xl:flex-row xl:items-center list-none">
               {navigationData.topNavigation.map((item, index) => (
                 <li
-                  className={`mr-4 xl:mr-6 nav__item relative ${
-                    hoveredItem === item.label ? "z-20" : "z-10"  // Higher z-index when hovered
-                  }`}
                   key={index}
+                  className={`mr-4 xl:mr-6 relative ${hoveredItem === item.label ? "z-20" : "z-10"}`}
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -234,7 +246,7 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
                   ) : (
                     <Link
                       href={item.href}
-                      className={`group inline-block text-base md:text-lg font-semibold text-blue-100 no-underline rounded-md transition-colors duration-300 hover:text-blue-200`}
+                      className="group inline-block text-base md:text-lg font-semibold text-blue-100 no-underline rounded-md transition-colors duration-300 hover:text-blue-200"
                     >
                       <span className="block px-4 py-2 rounded-md group-hover:bg-blue-600 group-focus:bg-blue-600">
                         {item.label}
@@ -242,39 +254,37 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
                     </Link>
                   )}
 
-                    {/* Dropdown */}
-                    {item.dropdown && openDropdown === item.label && (
-                        <div
-                        ref={dropdownRef}
-                        className="absolute left-0 mt-0 min-w-[200px] origin-top scale-y-100 transition-transform duration-300 ease-out rounded-md shadow-lg bg-blue-500" // Removed p-2
-                        onMouseEnter={handleDropdownMouseEnter}
-                        onMouseLeave={handleDropdownMouseLeave}
-                      >
-                        {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                  {/* Dropdown */}
+                  {item.dropdown && openDropdown === item.label && (
+                    <div
+                      ref={dropdownRef}
+                      className="absolute left-0 mt-0 min-w-[200px] origin-top transition-transform duration-300 ease-out rounded-md shadow-lg bg-blue-500"
+                      onMouseEnter={handleDropdownMouseEnter}
+                      onMouseLeave={handleDropdownMouseLeave}
+                    >
+                      {item.dropdown.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm font-medium text-blue-50  hover:bg-blue-600 rounded-md transition-colors duration-200"
+                          className="block px-4 py-2 text-sm font-medium text-blue-50 hover:bg-blue-600 rounded-md transition-colors duration-200"
                         >
                           {dropdownItem.label}
                         </Link>
                       ))}
-                      </div>
-                    )}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Bottom Navigation (Desktop) */}
-          <div className="hidden text-center xl:flex xl:items-center xl:flex-grow px-4 bg-blue-600 py-1">
-            <ul className="items-center justify-start flex-none  list-none xl:flex">
+          <div className="hidden text-center xl:flex xl:items-center xl:flex-grow px-4 sm:px-6 bg-blue-600 py-1 sm:py-2">
+            <ul className="flex list-none">
               {navigationData.bottomNavigationItems.map((item, index) => (
                 <li
-                  className={`mr-4 xl:mr-6 nav__item relative ${
-                    hoveredItem === item.label ? "z-20" : "z-10" // Higher z-index
-                  }`}
                   key={index}
+                  className={`mr-4 xl:mr-6 relative ${hoveredItem === item.label ? "z-20" : "z-10"}`}
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -307,15 +317,15 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
                     </Link>
                   )}
 
-                   {/* Dropdown */}
-                    {item.dropdown && openDropdown === item.label && (
-                        <div
-                        ref={dropdownRef}
-                        className="absolute left-0  mt-0 min-w-[200px]  origin-top  transition-transform duration-300 ease-out rounded-md shadow-lg bg-blue-500" // Removed p-2
-                        onMouseEnter={handleDropdownMouseEnter}
-                        onMouseLeave={handleDropdownMouseLeave}
-                      >
-                        {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                  {/* Dropdown */}
+                  {item.dropdown && openDropdown === item.label && (
+                    <div
+                      ref={dropdownRef}
+                      className="absolute left-0 mt-0 min-w-[200px] origin-top transition-transform duration-300 ease-out rounded-md shadow-lg bg-blue-500"
+                      onMouseEnter={handleDropdownMouseEnter}
+                      onMouseLeave={handleDropdownMouseLeave}
+                    >
+                      {item.dropdown.map((dropdownItem, dropdownIndex) => (
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
@@ -324,8 +334,8 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
                           {dropdownItem.label}
                         </Link>
                       ))}
-                      </div>
-                    )}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -334,7 +344,7 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="absolute top-0 right-0 h-screen bg-blue-900 z-30 overflow-y-auto w-[300px] shadow-xl">
+          <div className="absolute top-0 right-0 h-screen bg-blue-900 z-30 overflow-y-auto w-full max-w-[300px] shadow-xl">
             <div className="p-4 flex justify-end">
               <button className="text-blue-100 focus:outline-none" onClick={() => setMobileMenuOpen(false)}>
                 <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -346,7 +356,7 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
                 </svg>
               </button>
             </div>
-            <div className="px-6 py-4">
+            <div className="px-4 sm:px-6 py-4">
               <ul className="space-y-4">
                 <li className="font-bold text-xl mb-2 text-blue-100">Top Navigation</li>
                 {navigationData.topNavigation.map((item, index) => (
@@ -403,7 +413,7 @@ export const Navbar = ({ setGetStartedModalOpen }: { setGetStartedModalOpen: () 
               </ul>
             </div>
             <div className="bg-blue-700 h-[1px] mx-4 my-2" />
-            <div className="px-6 py-4">
+            <div className="px-4 sm:px-6 py-4">
               <ul className="space-y-4">
                 <li className="font-bold text-xl mb-2 text-blue-100">Bottom Navigation</li>
                 {navigationData.bottomNavigationItems.map((item, index) => (

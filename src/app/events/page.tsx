@@ -1,4 +1,4 @@
-//src/app/events/page.tsx
+// src/app/events/page.tsx
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { events } from "@/components/data";
@@ -14,7 +14,8 @@ export default function EventsPage() {
         A timeline of Colloquy events at our college.
       </SectionTitle>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 mb-16">
+      {/* Responsive Grid: 1 column on mobile, 2 on small & large screens */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mt-12 mb-16 animate-fadeIn">
         {sortedEvents.map((event) => (
           <EventCard
             key={event.id}

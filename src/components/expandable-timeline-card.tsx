@@ -1,63 +1,93 @@
-'use client'
+"use client";
 
-import { useState, useRef } from 'react'
-import { motion } from 'framer-motion'
-import { cn } from '../../lib/utils'
-import Image from 'next/image'
-import styles from './expandable-timeline-card.module.css' // Import CSS Module
+import { useState, useRef, useEffect } from "react"; // Import useEffect
+import { motion } from "framer-motion";
+import { cn } from "../../lib/utils";
+import Image from "next/image";
+import styles from "./expandable-timeline-card.module.css"; // Import CSS Module
 
 export interface Activity {
-  time?: string
-  date?: string
-  description: string
-  image: string
+  time?: string;
+  date?: string;
+  description: string;
+  image: string;
 }
 
 export interface TimelineEvent {
-  date: string
-  title: string
-  description: string
-  status: 'completed' | 'current' | 'upcoming'
-  activities: Activity[]
+  date: string;
+  title: string;
+  description: string;
+  status: "completed" | "current" | "upcoming";
+  activities: Activity[];
 }
 
 interface ExpandableTimelineCardProps {
-  event: TimelineEvent
-  isEven: boolean
+  event: TimelineEvent;
+  isEven: boolean;
 }
 
-export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCardProps) {
+export function ExpandableTimelineCard({
+  event,
+  isEven,
+}: ExpandableTimelineCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
+  const [isMobile, setIsMobile] = useState(false); // State to track mobile
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Use the same breakpoint as CSS media query
+    };
+
+    checkMobile(); // Initial check
+    window.addEventListener("resize", checkMobile); // Check on window resize
+
+    return () => {
+      window.removeEventListener("resize", checkMobile); // Cleanup listener
+    };
+  }, []);
 
   const handleMouseEnter = () => {
-    hoverTimeout.current = setTimeout(() => {
-      setIsExpanded(true);
-    }, 200); // Delay of 200ms, you can adjust this value
+    if (!isMobile) {
+      // Only handle hover if not mobile
+      hoverTimeout.current = setTimeout(() => {
+        setIsExpanded(true);
+      }, 200); // Delay of 200ms
+    }
   };
 
   const handleMouseLeave = () => {
-    if (hoverTimeout.current) {
-      clearTimeout(hoverTimeout.current);
-      hoverTimeout.current = null;
+    if (!isMobile) {
+      // Only handle mouse leave if not mobile
+      if (hoverTimeout.current) {
+        clearTimeout(hoverTimeout.current);
+        hoverTimeout.current = null;
+      }
+      setIsExpanded(false);
     }
-    setIsExpanded(false);
+  };
+
+  const handleClick = () => {
+    if (isMobile) {
+      // Only handle click if mobile
+      setIsExpanded(!isExpanded); // Toggle expanded state on click (for mobile)
+    }
   };
 
   const cardInnerStyle = cn(
     styles.cardInner,
-    styles[`cardInner_${event.status}`], // Dynamic status-based border color
-    isExpanded ? styles.cardInner_expanded : "" // Add margin when expanded
+    styles[`cardInner_${event.status}`],
+    isExpanded ? styles.cardInner_expanded : ""
   );
 
   const statusTextStyle = cn(
     styles.statusText,
-    styles[`statusText_${event.status}`] // Dynamic status-based text color
+    styles[`statusText_${event.status}`]
   );
 
   const statusBadgeStyle = cn(
     styles.statusBadge,
-    styles[`statusBadge_${event.status}`] // Dynamic status-based badge color
+    styles[`statusBadge_${event.status}`]
   );
 
   return (
@@ -65,25 +95,24 @@ export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCard
       layout
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick} // Add onClick handler
       className={cn(
         styles.cardContainer,
-        isEven ? styles.cardContainer_even : "" // Even/odd alignment using CSS Modules
+        styles.mobileClickable, // Add a class for mobile styling if needed
+        isEven ? styles.cardContainer_even : ""
       )}
     >
-      <motion.div
-        layout
-        className={cardInnerStyle}
-      >
+      <motion.div layout className={cardInnerStyle}>
         <motion.div layout className={styles.statusContainer}>
-          <div className={statusTextStyle}>
-            {event.date}
-          </div>
-          <div className={statusBadgeStyle}>
-            {event.status}
-          </div>
+          <div className={statusTextStyle}>{event.date}</div>
+          <div className={statusBadgeStyle}>{event.status}</div>
         </motion.div>
-        <motion.h3 layout className={styles.cardTitle}>{event.title}</motion.h3>
-        <motion.p layout className={styles.cardDescription}>{event.description}</motion.p>
+        <motion.h3 layout className={styles.cardTitle}>
+          {event.title}
+        </motion.h3>
+        <motion.p layout className={styles.cardDescription}>
+          {event.description}
+        </motion.p>
       </motion.div>
 
       {isExpanded && (
@@ -111,9 +140,13 @@ export function ExpandableTimelineCard({ event, isEven }: ExpandableTimelineCard
               </div>
               <div className={styles.activityContent}>
                 {(activity.time || activity.date) && (
-                  <p className={styles.activityTime}>{activity.time || activity.date}</p>
+                  <p className={styles.activityTime}>
+                    {activity.time || activity.date}
+                  </p>
                 )}
-                <p className={styles.activityDescription}>{activity.description}</p>
+                <p className={styles.activityDescription}>
+                  {activity.description}
+                </p>
               </div>
             </motion.div>
           ))}

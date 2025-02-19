@@ -20,8 +20,12 @@ const ITEMS_PER_PAGE = 6;
 // Format copyrights data to match ExpandableCard's expected format
 const formattedCopyrights = copyrightsData.map((copyright, index) => {
   const applicantNames = copyright.applicantName.join(", "); // Join applicant names into a string
-  const dateApplied = new Date(copyright.dateAppliedForCopyright).toLocaleDateString('en-US', {
-    year: 'numeric', month: 'short', day: 'numeric'
+  const dateApplied = new Date(
+    copyright.dateAppliedForCopyright
+  ).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
   }); // Format date
 
   return {
@@ -30,13 +34,33 @@ const formattedCopyrights = copyrightsData.map((copyright, index) => {
     description: `Diary No: ${copyright.diaryNo} | AY: ${copyright.ay}`, // Combine Diary No and AY for description
     src: "/img/copyright-placeholder.svg?height=400&width=600", // Placeholder image for copyrights, you can create copyright-placeholder.svg in public/img or use a generic one
     date: `Applied Date: ${dateApplied}`, // Display formatted applied date
-    content: () => ( // Changed to return a function that returns JSX
+    content: () => (
+      // Changed to return a function that returns JSX
       <div className="space-y-4">
-        <p><strong>Applicant Name(s):</strong> {applicantNames}</p>
-        <p><strong>Department:</strong> {copyright.departmentName}</p>
-        <p><strong>Status:</strong> {copyright.status}</p>
-        <p><strong>Copyright Certificate Received Date:</strong> {copyright.copyrightCertificateReceivedDate}</p>
-        <p><strong>ROC Number:</strong> {copyright.rocNumber}</p>
+        <p>
+          <strong>Applicant Name(s):</strong> {applicantNames}
+        </p>
+        <p>
+          <strong>Department:</strong> {copyright.departmentName}
+        </p>
+        <p>
+          <strong>Status:</strong> {copyright.status}
+        </p>
+        <p>
+          <strong>Copyright Certificate Received Date:</strong>{" "}
+          {copyright.copyrightCertificateReceivedDate
+            ? new Date(
+                copyright.copyrightCertificateReceivedDate
+              ).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })
+            : "N/A"}
+        </p>
+        <p>
+          <strong>ROC Number:</strong> {copyright.rocNumber}
+        </p>
       </div>
     ),
   };
@@ -48,8 +72,12 @@ export default function CopyrightsPage() {
 
   return (
     <Container>
-      <SectionTitle preTitle="Our Achievements" title="Copyrights - Cyber Security Department">
-        Explore the copyrights achieved by the Cyber Security Department, showcasing our innovative and creative works.
+      <SectionTitle
+        preTitle="Our Achievements"
+        title="Copyrights - Cyber Security Department"
+      >
+        Explore the copyrights achieved by the Cyber Security Department,
+        showcasing our innovative and creative works.
       </SectionTitle>
 
       <div className="mt-12 space-y-8">
@@ -59,6 +87,7 @@ export default function CopyrightsPage() {
           itemsPerPage={ITEMS_PER_PAGE}
         />
 
+        {/* Responsive Pagination */}
         <div className="flex justify-center">
           <Pagination>
             <PaginationContent>
@@ -73,17 +102,67 @@ export default function CopyrightsPage() {
                 />
               </PaginationItem>
 
-              {[...Array(totalPages)].map((_, i) => (
-                <PaginationItem key={i}>
-                  <PaginationLink
-                    onClick={() => setCurrentPage(i + 1)}
-                    isActive={currentPage === i + 1}
-                    className="cursor-pointer"
-                  >
-                    {i + 1}
-                  </PaginationLink>
-                </PaginationItem>
-              ))}
+              {/* Dynamic Pagination Links - Show fewer on small screens */}
+              {totalPages <= 7 ? ( // Show all if few pages
+                [...Array(totalPages)].map((_, i) => (
+                  <PaginationItem key={i}>
+                    <PaginationLink
+                      onClick={() => setCurrentPage(i + 1)}
+                      isActive={currentPage === i + 1}
+                      className="cursor-pointer"
+                    >
+                      {i + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))
+              ) : (
+                <>
+                  {/* Show first, last, current, and adjacent pages */}
+                  <PaginationItem>
+                    <PaginationLink
+                      onClick={() => setCurrentPage(1)}
+                      isActive={currentPage === 1}
+                      className="cursor-pointer"
+                    >
+                      1
+                    </PaginationLink>
+                  </PaginationItem>
+
+                  {currentPage > 2 && <PaginationItem>...</PaginationItem>}
+
+                  {/* Show current and adjacent pages */}
+                  {[...Array(3)].map((_, i) => {
+                    const page = currentPage - 1 + i;
+                    if (page > 1 && page < totalPages) {
+                      return (
+                        <PaginationItem key={page}>
+                          <PaginationLink
+                            onClick={() => setCurrentPage(page)}
+                            isActive={currentPage === page}
+                            className="cursor-pointer"
+                          >
+                            {page}
+                          </PaginationLink>
+                        </PaginationItem>
+                      );
+                    }
+                    return null;
+                  })}
+
+                  {currentPage < totalPages - 1 && (
+                    <PaginationItem>...</PaginationItem>
+                  )}
+                  <PaginationItem>
+                    <PaginationLink
+                      onClick={() => setCurrentPage(totalPages)}
+                      isActive={currentPage === totalPages}
+                      className="cursor-pointer"
+                    >
+                      {totalPages}
+                    </PaginationLink>
+                  </PaginationItem>
+                </>
+              )}
 
               <PaginationItem>
                 <PaginationNext

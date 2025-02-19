@@ -39,14 +39,22 @@ export function ExpandableCard({
       if (e.key === "Escape") setActive(null);
     };
 
+    // Use overflow-y-scroll on the body *only* when a modal is active.  Crucial for mobile!
     if (active) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";  // Prevent double scrollbars
+      document.documentElement.style.overflowY = 'hidden'; //for cross-browser
       window.addEventListener("keydown", onKeyDown);
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
+      document.documentElement.style.overflowY = 'auto';
     }
 
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      // Cleanup overflow styles on unmount, even if no modal was open.
+      document.body.style.overflowY = "auto";
+       document.documentElement.style.overflowY = 'auto';
+    };
   }, [active]);
 
   const handleOutsideClick = (e: MouseEvent) => {
@@ -70,18 +78,21 @@ export function ExpandableCard({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            // Use a fixed position and a backdrop filter for the overlay.
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
           />
         )}
       </AnimatePresence>
 
       <AnimatePresence>
         {active && (
-          <div className="fixed inset-0 grid place-items-center z-[60] p-4">
+          // Fixed positioning, full screen, with padding.  Use grid for centering.
+          <div className="fixed inset-0 z-[60] p-4 grid place-items-center overflow-y-auto">
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl bg-gray-900"
+              // Constrain the maximum width and height, allow scrolling within the modal.
+              className="w-full max-w-2xl max-h-[90vh] rounded-2xl overflow-y-auto bg-gray-900 shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -94,7 +105,7 @@ export function ExpandableCard({
                     alt={active.title}
                     width={800}
                     height={400}
-                    className="w-full h-[300px] object-cover"
+                    className="w-full h-auto max-h-[300px] object-cover" // Responsive image
                     priority
                   />
                 </motion.div>
@@ -135,6 +146,7 @@ export function ExpandableCard({
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
+                  {/* Render content, whether it's a string or a function */}
                   {typeof active.content === "function"
                     ? active.content()
                     : active.content}
@@ -145,35 +157,39 @@ export function ExpandableCard({
         )}
       </AnimatePresence>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Grid layout for the cards, responsive by default. */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentCards.map((card) => (
           <div
             key={card.key}
             onClick={() => setActive(card)}
             className="group relative overflow-hidden rounded-xl cursor-pointer transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
           >
-            <div className="relative h-[300px] w-full">
+            <div className="relative aspect-[4/3] w-full"> {/* Use aspect ratio for consistent image size */}
               <Image
                 src={card.src}
                 alt={card.title}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
+                priority={card.key < 6} // Prioritize the first 6 images
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-white mb-2 line-clamp-2"> {/* Limit title to 2 lines */}
                 {card.title}
               </h3>
-              <p className="text-gray-200 text-sm mb-2">{card.description}</p>
+              <p className="text-gray-200 text-sm mb-2 line-clamp-2"> {/* Limit description to 2 lines */}
+                {card.description}
+              </p>
               <p className="text-gray-300 text-xs">{card.date}</p>
             </div>
 
             <motion.div
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 1 }}
-              className="absolute inset-0 bg-black/40 flex items-center justify-center"
+              className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" // Better hover effect
             >
               <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm">
                 Click to view details

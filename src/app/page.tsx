@@ -1,59 +1,57 @@
-//src/app/page.tsx
+// src/app/page.tsx
 import { Container } from "@/components/Container";
-import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
-import { Benefits } from "@/components/Benefits";
-// import { Video } from "@/components/Video";  Remove the single video component import
-// import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 import { Impact } from "@/components/impact";
 import HeroCarousel from "@/components/HeroCarousel"; // Import HeroCarousel
-import { benefitOne, benefitTwo } from "@/components/data";
 import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoCarousel
-// import { HeroBanner } from "@/components/HeroBanner"; // Import HeroBanner - No longer needed
 
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/banners/project.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/project.png",
       title: "Cyber Colloquy 4.0",
       description: "ADOPTING INDIA'S DPDP FOR A PRIVACY-CENTRIC FUTURE",
       subtitle: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
       buttonText: "Explore Events",
-      buttonHref: "/cyber-colloquy-4.0", // Adjust this link to your events page
+      buttonHref: "/cyber-colloquy-4.0",
     },
     {
-      imageUrl: "/img/banners/colloquy.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/colloquy.png",
       title: "Project Expo",
-      description: "Discover exciting cyber security projects at our annual Expo! Network with talent, explore potential collaborations, and see the latest advancements. Register now!",
+      description:
+        "Discover exciting cyber security projects at our annual Expo! Network with talent, explore potential collaborations, and see the latest advancements. Register now!",
       subtitle: "Skill Up | Protect | Advance",
       buttonText: "Explore More",
-      buttonHref: "/project-expo", // Adjust this link to your workshops page
+      buttonHref: "/project-expo",
     },
     {
-      imageUrl: "/img/banners/industry.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/industry.png",
       title: "Industry Attendies",
-      description: "Gain exclusive insights and partner with SAKEC's Cyber Security Department! Attend events, participate in research, and help drive innovation. Register as an Industry Attendee today.",
+      description:
+        "Gain exclusive insights and partner with SAKEC's Cyber Security Department! Attend events, participate in research, and help drive innovation. Register as an Industry Attendee today.",
       subtitle: "Insights | Knowledge | Future",
       buttonText: "Know More",
-      buttonHref: "/industry-professional", // Adjust this link to your speakers page
+      buttonHref: "/industry-professional",
     },
     {
-      imageUrl: "/img/banners/sponsor.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/sponsor.png",
       title: "Call For Sponsors",
-      description: "Empower cyber security's future! Sponsor our events and gain recognition within a thriving community of students, researchers, and industry leaders. Inquire today!",
+      description:
+        "Empower cyber security's future! Sponsor our events and gain recognition within a thriving community of students, researchers, and industry leaders. Inquire today!",
       subtitle: "Connect | Collaborate | Grow",
       buttonText: "Join Community",
-      buttonHref: "/sponsor", // Adjust this link to your community page
+      buttonHref: "/sponsor",
     },
     {
-      imageUrl: "/img/banners/award.png", // Replace with your actual banner image path
+      imageUrl: "/img/banners/award.png",
       title: "Award Nominations",
-      description: "Give rising stars the spotlight they deserve! Award nominations provide valuable recognition and boost career opportunities. Nominate a deserving candidate for our prestigious awards.",
+      description:
+        "Give rising stars the spotlight they deserve! Award nominations provide valuable recognition and boost career opportunities. Nominate a deserving candidate for our prestigious awards.",
       subtitle: "Inform | Secure | Vigilant",
       buttonText: "Nominate",
-      buttonHref: "/awards", // Adjust this link to your threats page
+      buttonHref: "/awards",
     },
   ];
 
@@ -71,7 +69,7 @@ export default function Home() {
     {
       videoId: "d5K1g4qoHHc",
       title: "Cybersecurity Presentation",
-      description: "Presentation on cyber security ",
+      description: "Presentation on cyber security",
     },
     {
       videoId: "wipMlBMXhkk",
@@ -93,41 +91,23 @@ export default function Home() {
       title: "Cybersecurity in Action",
       description: "Demo on cyber security",
     },
-    // Add More videos
   ];
 
   return (
-    <> {/*  Changed Container to a Fragment (<>) */}
-      {/* Add the HeroCarousel component */}
-       <HeroCarousel slides={heroSlides} /> {/* HeroCarousel Component is added here */}
-       {/* <HeroBanner  // HeroBanner Component Removed
-          imageUrl={heroSlides[0].imageUrl}
-          title={heroSlides[0].title}
-          description={heroSlides[0].description}
-          subtitle={heroSlides[0].subtitle}
-          buttonText={heroSlides[0].buttonText}
-          buttonHref={heroSlides[0].buttonHref}
-        /> */}
-      {/* Hero Section */}
-      {/* <Container> */}
-        {/* <Hero /> */}
-        {/* Other Sections */}
-         {/* <SectionTitle
-          preTitle="Cyber Security Department"
-          title="Welcome to Our Cyber Event Platform"
-        >
-          Our source for all events, achievements, projects, and more from various
-          cyber security communities.
-        </SectionTitle>
-        <Benefits data={benefitOne} />
-        <Benefits imgPos="right" data={benefitTwo} /> */}
+    <>
+      {/* Full-width HeroCarousel */}
+      <HeroCarousel slides={heroSlides} />
+
+      {/* Main content wrapped in a responsive container */}
+      <Container>
         <SectionTitle
-            preTitle="Our Accomplishments"
-            title="Achievements and Impact"
-          >
-           Explore the measurable impact of our Cyber Security Department.
+          preTitle="Our Accomplishments"
+          title="Achievements and Impact"
+        >
+          Explore the measurable impact of our Cyber Security Department.
         </SectionTitle>
         <Impact />
+
         <SectionTitle
           preTitle="Explore Our Work"
           title="Learn More About Our Activities"
@@ -136,17 +116,8 @@ export default function Home() {
           initiatives carried out by our department. Dive into the world of Cyber
           Security with us.
         </SectionTitle>
-        {/* <Video videoId="dQw4w9WgXcQ" /> Remove the old video component*/}
-        <VideoCarousel videos={videoSlides} />{" "}
-        {/*Use the new video carousel component*/}
-        {/* <SectionTitle
-          preTitle="Student & Faculty Highlights"
-          title="Hear From Our Community"
-        >
-          Testimonials from our students and faculty, which showcase the vibrant
-          and collaborative environment of our department.
-        </SectionTitle> */}
-        {/* <Testimonials /> */}
+        <VideoCarousel videos={videoSlides} />
+
         <SectionTitle
           preTitle="Have Questions?"
           title="Frequently Asked Questions"
@@ -155,8 +126,9 @@ export default function Home() {
           any cyber security related questions.
         </SectionTitle>
         <Faq />
+
         <Cta />
-      {/* </Container> */}
+      </Container>
     </>
   );
 }
