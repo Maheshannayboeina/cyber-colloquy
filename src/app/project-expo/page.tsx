@@ -24,7 +24,7 @@ const ProjectExpoPage: React.FC = () => {
       {/* Banner Image */}
       <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
         <Image
-          src="/img/registration/project-expo_R.png"
+          src="/img/registration/Project-expo_R.png"
           alt="Cyber Security Project Expo Banner"
           fill
           style={{ objectFit: 'cover', objectPosition: 'center' }}
