@@ -63,7 +63,7 @@ const ProjectExpoPage: React.FC = () => {
                 <div><p className="text-gray-100">
                   Showcase your creativity, innovation, and technical
                   expertise at Project EXPO, where students present
-                  groundbreaking projects across various domains! Whether it's
+                  groundbreaking projects across various domains! Whether it&apos;s
                   cybersecurity, AI, IoT, software development, robotics, or
                   any other field, this is your platform to shine.
                 </p></div>
