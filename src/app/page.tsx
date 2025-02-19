@@ -27,7 +27,7 @@ export default function Home() {
       buttonHref: "/project-expo",
     },
     {
-      imageUrl: "/img/banners/industry.png",
+      imageUrl: "/img/banners/industry-professional.png",
       title: "Industry Attendies",
       description:
         "Gain exclusive insights and partner with SAKEC's Cyber Security Department! Attend events, participate in research, and help drive innovation. Register as an Industry Attendee today.",
@@ -36,7 +36,7 @@ export default function Home() {
       buttonHref: "/industry-professional",
     },
     {
-      imageUrl: "/img/banners/sponsor.png",
+      imageUrl: "/img/banners/sponsor-call.png",
       title: "Call For Sponsors",
       description:
         "Empower cyber security's future! Sponsor our events and gain recognition within a thriving community of students, researchers, and industry leaders. Inquire today!",
@@ -45,7 +45,7 @@ export default function Home() {
       buttonHref: "/sponsor",
     },
     {
-      imageUrl: "/img/banners/award.png",
+      imageUrl: "/img/banners/award-nominations.png",
       title: "Award Nominations",
       description:
         "Give rising stars the spotlight they deserve! Award nominations provide valuable recognition and boost career opportunities. Nominate a deserving candidate for our prestigious awards.",
