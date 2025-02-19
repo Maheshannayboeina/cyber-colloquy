@@ -1,3 +1,4 @@
+//src/app/project-expo/page.tsx
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
@@ -10,35 +11,37 @@ import {
 import Image from "next/image";
 
 const registrationForm = {
-  title: "Ready to Showcase Your Project?", // Updated title to match CyberColloquy style
-  description: "Submit your project and gain recognition at the Project Expo!", // Updated description
+  title: "Ready to Showcase Your Project?",
+  description: "Submit your project and gain recognition at the Project Expo!",
   link: "https://forms.gle/L5XDXJVVuGaJxTjN8",
 };
 
 const ProjectExpoPage: React.FC = () => {
+  const aspectRatio = 33.33; // 3:1 aspect ratio (width:height)
+
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative h-[300px] w-full">
+      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
         <Image
-          src="/img/registration/project.png"
+          src="/img/registration/project-expo_R.png"
           alt="Cyber Security Project Expo Banner"
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
           priority
         />
       </div>
 
-      <motion.div> {/* Outer motion.div to wrap the whole content for consistent styling */}
+      <motion.div>
         <motion.div
-          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
+          className="bg-gray-1000 rounded-2xl shadow-xl w-full overflow-hidden" // Removed mb-12
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="p-10"> {/* Padding for content moved inside */}
-            {/* Welcome Section (Info Card Content) */}
-            <motion.div className="mb-10"> {/* Kept mb-10 for spacing */}
+          <div className="p-10">
+            {/* ... (rest of your content) ... */}
+            <motion.div className="mb-10">
               <motion.div
                 className="flex items-center space-x-6 mb-8"
                 initial={{ opacity: 0, x: -50 }}
@@ -50,21 +53,21 @@ const ProjectExpoPage: React.FC = () => {
                   <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                     Showcase Your Innovation at Project EXPO!
                   </h2>
-                  
+
                 </div>
               </motion.div>
-              <motion.div className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}>
-                          <div><p className="text-gray-100">
-                    Showcase your creativity, innovation, and technical
-                    expertise at Project EXPO, where students present
-                    groundbreaking projects across various domains! Whether it&apos;s
-                    cybersecurity, AI, IoT, software development, robotics, or
-                    any other field, this is your platform to shine.
-                  </p></div>
-                        </motion.div>
+              <motion.div className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}>
+                <div><p className="text-gray-100">
+                  Showcase your creativity, innovation, and technical
+                  expertise at Project EXPO, where students present
+                  groundbreaking projects across various domains! Whether it's
+                  cybersecurity, AI, IoT, software development, robotics, or
+                  any other field, this is your platform to shine.
+                </p></div>
+              </motion.div>
               <motion.div
                 className="mb-6"
                 initial={{ opacity: 0, y: 50 }}
@@ -112,7 +115,6 @@ const ProjectExpoPage: React.FC = () => {
               </motion.p>
             </motion.div>
 
-            {/* Submit Project Section */}
             <motion.div
               className="text-center"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -134,7 +136,7 @@ const ProjectExpoPage: React.FC = () => {
                 Register Your Project <FaArrowRight className="ml-2" />
               </a>
             </motion.div>
-          </div>{/* End of padding div */}
+          </div>
         </motion.div>
       </motion.div>
     </div>

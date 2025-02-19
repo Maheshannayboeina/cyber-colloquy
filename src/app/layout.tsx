@@ -1,8 +1,8 @@
-// src/app/layout.tsx
+//src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Particles } from "@/components/Particles";
+import { Particles } from "@/components/Particles"; // Import the Particles component
 import { Footer } from "@/components/Footer";
 import { PopupWidget } from "@/components/PopupWidget";
 import { Toaster } from "@/components/ui/toaster";
@@ -28,26 +28,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <body
-        className={`${inter.className} relative z-10 min-h-screen text-gray-100 bg-black`}
+        className={`${inter.className} relative text-gray-100 bg-black`} // Apply dark mode styles
+        style={{
+          background: "black",
+          zIndex: 1,
+        }}
       >
+        {/* Make body relative */}
         <Particles
-          className="fixed inset-0 -z-10"
+          className="fixed inset-0 -z-10" // Make particles fixed and cover the whole area
           quantity={150}
           staticity={40}
           size={0.6}
           color="#0D5EDF"
         />
-
-        <div className="flex flex-col min-h-screen">
-          <Banner />
-          <main className="flex-grow">
-            {" "}
-            {/* Ensure NO mt-* or pt-* classes here */}
-            <ClientLayout>{children}</ClientLayout>
-          </main>
-          <Footer />
-        </div>
-
+        <Banner />
+        <ClientLayout>{children}</ClientLayout>
+        <Footer />
         <PopupWidget />
         <Toaster />
       </body>

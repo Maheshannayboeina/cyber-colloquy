@@ -1,38 +1,42 @@
+//src/app/industry-professional/page.tsx
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBuilding, FaUsers, FaHandshake, FaArrowRight } from "react-icons/fa"; // Import icons
-import Image from "next/image"; // Import Image component
+import { FaBuilding, FaUsers, FaHandshake, FaArrowRight } from "react-icons/fa";
+import Image from "next/image";
 
 const industryProfessionalForm = {
-  title: "Ready to Connect?", // Updated title to match CyberColloquy style
+  title: "Ready to Connect?",
   description:
-    "Register to connect with our department and explore collaboration opportunities.", // Updated description
+    "Register to connect with our department and explore collaboration opportunities.",
   link: "https://forms.gle/KuWNQjPX2KypN7Kt5",
 };
 
 const IndustryProfessionalPage: React.FC = () => {
+  // Calculate the aspect ratio (height / width).  Replace with your image's actual aspect ratio.
+  const aspectRatio = 33.33; // Example: 3:1 aspect ratio (width:height)
+
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative h-[300px] w-full"> {/* Adjust height as needed */}
+      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
         <Image
-          src="/img/registration/industry.png" // Replace with your banner image path in public directory
+          src="/img/registration/industry_R.png"
           alt="Industry Professional Banner"
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: 'center' }} // Added objectPosition
           priority
         />
       </div>
 
       <motion.div>
         <motion.div
-          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
+          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="p-10"> {/* Padding for content moved inside */}
+          <div className="p-10">
             {/* Introduction Section */}
             <motion.div
               className="mb-10 flex items-center space-x-6"
@@ -45,21 +49,21 @@ const IndustryProfessionalPage: React.FC = () => {
                 <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                   Engage with Future Cyber Security Leaders
                 </h2>
-                
+
               </div>
-             
+
             </motion.div>
-          <motion.div className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}>
-          <div>
-              <p className="text-gray-100">
+            <motion.div className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}>
+              <div>
+                <p className="text-gray-100">
                   Connect with our students, faculty, and research initiatives.
                   Your expertise is invaluable to our community.
                 </p>
               </div>
-          </motion.div>
+            </motion.div>
             {/* Benefits Section */}
             <motion.div
               className="mb-10"
@@ -87,7 +91,7 @@ const IndustryProfessionalPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
             >
-              
+
               <h3 className="text-xl font-semibold text-yellow-500 mb-4 flex items-center space-x-2">
                 <FaHandshake className="text-yellow-500" />
                 <span>Potential Areas for Collaboration</span>

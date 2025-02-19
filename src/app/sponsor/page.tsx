@@ -1,3 +1,4 @@
+//src/app/sponsor/page.tsx
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
@@ -19,27 +20,30 @@ const pitchDeckLink =
   "https://drive.google.com/file/d/1Uk4YyneIlUnPVrylcn3q8FfGOWFjhKhN/view";
 
 const SponsorPage: React.FC = () => {
+  // Calculate the aspect ratio (height / width).  Replace with your image's actual aspect ratio.
+  const aspectRatio = 33.33; // Example: 3:1 aspect ratio (width:height)
+
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative h-[300px] w-full">
+      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
         <Image
-          src="/img/registration/sponsor.png"
+          src="/img/registration/sponsor_R.png"
           alt="Become a Sponsor Banner"
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: 'center' }} // Added objectPosition
           priority
         />
       </div>
 
       <motion.div>
         <motion.div
-          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
+          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="p-10"> {/* Padding for content moved inside */}
+          <div className="p-10">
             {/* Welcome Section (Condensed Info Card Content) */}
             <motion.div
               className="mb-10"
@@ -53,29 +57,29 @@ const SponsorPage: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-                <FaHandshake className="text-blue-400 text-4xl" /> {/* Icon size adjusted to 4xl */}
+                <FaHandshake className="text-blue-400 text-4xl" />
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                     Partner with Cyber Colloquy 4.0
                   </h2>
-                 
+
                 </div>
               </motion.div>
               <motion.div
-          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Styling from CyberColloquy page
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div> <p className="text-gray-100">
-                    Join us in making Cyber Colloquy 4.0 a grand success! We invite
-                    esteemed organizations and brands to collaborate with us as
-                    sponsors for this premier cybersecurity conclave. By partnering
-                    with us, you get the opportunity to enhance brand visibility,
-                    engage with a tech-savvy audience, and support the future of
-                    cybersecurity.
-                  </p></div>
-        </motion.div>
+                className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div> <p className="text-gray-100">
+                  Join us in making Cyber Colloquy 4.0 a grand success! We invite
+                  esteemed organizations and brands to collaborate with us as
+                  sponsors for this premier cybersecurity conclave. By partnering
+                  with us, you get the opportunity to enhance brand visibility,
+                  engage with a tech-savvy audience, and support the future of
+                  cybersecurity.
+                </p></div>
+              </motion.div>
               <motion.div
                 className="mb-6"
                 initial={{ opacity: 0, y: 50 }}
@@ -127,7 +131,7 @@ const SponsorPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3, ease: "easeInOut" }}
               >
-                Let&apos;s collaborate to create an impactful and memorable event! 🚀
+                Let's collaborate to create an impactful and memorable event! 🚀
               </motion.p>
               <motion.p
                 className="text-gray-400"

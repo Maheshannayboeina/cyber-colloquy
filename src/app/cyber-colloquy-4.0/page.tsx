@@ -1,3 +1,4 @@
+//src/app/cyber-colloquy-4.0/page.tsx
 "use client";
 import React from "react";
 import { Container } from "@/components/Container";
@@ -19,26 +20,29 @@ const cyberColloquyForm = {
 };
 
 const CyberColloquy4Page: React.FC = () => {
+    // Calculate the aspect ratio (height / width).  Replace with your image's actual aspect ratio.
+  const aspectRatio = 33.33; // Example: 3:1 aspect ratio (width:height)
+
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative h-[300px] w-full"> {/* Adjust height as needed */}
+      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
         <Image
-          src="/img/registration/colloquy4.0.png" // Replace with your banner image path in public directory
+          src="/img/registration/colloquy4.0_R.png"
           alt="Cyber Colloquy 4.0 Banner"
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: 'center' }} // Added objectPosition
           priority
         />
       </div>
 
       <motion.div
-        className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Adjusted width to fit the whole page dynamically
+        className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="p-10"> {/* Padding for content moved inside */}
+        <div className="p-10">
           {/* Welcome Section */}
           <motion.div
             className="mb-10 flex items-center space-x-6"
@@ -46,17 +50,16 @@ const CyberColloquy4Page: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
-            <FaShieldAlt className="text-blue-400 text-4xl" />{" "}
-            {/* Icon - Shield for Security */}
+            <FaShieldAlt className="text-blue-400 text-4xl" />
             <div>
               <h2 className="text-2xl font-semibold text-gray-100 mb-2">
                 Welcome to Cyber Colloquy 4.0!
               </h2>
-              
+
             </div>
           </motion.div>
           <motion.div
-            className="mb-10 flex items-center space-x-6"
+            className="mb-10"   //removed flex items-center space-x-6
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -73,8 +76,7 @@ const CyberColloquy4Page: React.FC = () => {
             transition={{ duration: 0.4, delay: 0.1, ease: "easeInOut" }}
           >
             <h3 className="text-xl font-semibold text-blue-400 mb-4 flex items-center space-x-2">
-              <FaCalendarAlt className="text-blue-500" />{" "}
-              {/* Icon - Calendar for Events */}
+              <FaCalendarAlt className="text-blue-500" />
               <span>Event Highlights</span>
             </h3>
             <ul className="list-disc pl-8 text-gray-300 space-y-2">
@@ -107,9 +109,8 @@ const CyberColloquy4Page: React.FC = () => {
             transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
           >
             <h3 className="text-xl font-semibold text-blue-400 mb-4 flex items-center space-x-2">
-              <FaMicrophone className="text-blue-500" />{" "}
-              {/* Icon - Mic for Learning/Speaking */}
-              <span>What You&apos;ll Gain at Cyber Colloquy 4.0</span>
+              <FaMicrophone className="text-blue-500" />
+              <span>What You'll Gain at Cyber Colloquy 4.0</span>
             </h3>
             <ul className="list-disc pl-8 text-gray-300 space-y-2">
               <li>Stay Updated: Learn the latest in cyber security.</li>
@@ -130,8 +131,7 @@ const CyberColloquy4Page: React.FC = () => {
             transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
           >
             <h3 className="text-xl font-semibold text-blue-400 mb-4 flex items-center space-x-2">
-              <FaUsers className="text-blue-500" />{" "}
-              {/* Icon - Users for Community */}
+              <FaUsers className="text-blue-500" />
               <span>Who Should Attend?</span>
             </h3>
             <ul className="list-disc pl-8 text-gray-300 space-y-2">
@@ -154,7 +154,7 @@ const CyberColloquy4Page: React.FC = () => {
               Ready to Join Cyber Colloquy 4.0?
             </h3>
             <p className="text-gray-300 mb-6">
-              Don&apos;t miss out! Register to secure your spot and be part of the
+              Don't miss out! Register to secure your spot and be part of the
               conversation.
             </p>
             <a
@@ -163,8 +163,7 @@ const CyberColloquy4Page: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Register for Cyber Colloquy 4.0 <FaArrowRight className="ml-2" />{" "}
-              {/* Icon */}
+              Register for Cyber Colloquy 4.0 <FaArrowRight className="ml-2" />
             </a>
           </motion.div>
         </div> {/* End of padding div */}

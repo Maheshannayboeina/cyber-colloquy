@@ -25,8 +25,8 @@ const developers: Developer[] = [
     role: "Full Stack Alchemist", // Consistent role
     imageUrl: "/img/executive-team/mahesh-annayboeina.png",
     linkedinUrl: "https://www.linkedin.com/in/mahesh-annayboeina-06536428b/",
-    githubUrl: "https://github.com/yourusername",  // Replace
-    description: "In realms of code, where logic takes flight,<br>Mahesh weaves wonders, both day and night.<br>From frontend's grace to backend's might,<br>A full-stack alchemist, shining bright.<br>With React's dance and Node's command,<br>He crafts digital landscapes, close at hand.<br>Past ventures include [Project 1](#), a vibrant dream,<br>And [Project 2](#), where data streams.", // Poetic, project links
+    githubUrl: "https://github.com/Maheshannayboeina",  // Replace
+    description: "In realms of code, where logic takes flight,<br>Mahesh weaves wonders, both day and night.<br>From frontend's grace to backend's might,<br>A full-stack alchemist, shining bright.<br>With React's dance and Node's command,<br>He crafts digital landscapes, close at hand.", // Poetic, project links
     skills: ["React", "Next.js", "Node.js", "Express.js", "MongoDB", "JavaScript", "Tailwind CSS","Flask","SQL"], // Expanded skills
   },
   {
@@ -34,8 +34,8 @@ const developers: Developer[] = [
     role: "Full Stack Alchemist", // Consistent role
     imageUrl: "/img/executive-team/saahil-sawant.png",
     linkedinUrl: "https://www.linkedin.com/in/saahil-sawant-9b88b6302/",
-    githubUrl: "https://github.com/yourusername",  // Replace
-    description: "A coder of visions, Saahil by name,<br>Transforms the mundane, ignites the flame.<br>Full-stack mastery, his artful claim,<br>From server's whisper to user's acclaim.<br>He conjures databases, APIs strong,<br>Ensuring the digital heartbeat plays along.<br>His chronicles boast of [Project 3](#), a symphony's start,<br>And [Project 4](#), a work of pure heart.", // Poetic, project links
+    githubUrl: "https://github.com/Saahil-23",  // Replace
+    description: "A coder of visions, Saahil by name,<br>Transforms the mundane, ignites the flame.<br>Full-stack mastery, his artful claim,<br>From server's whisper to user's acclaim.<br>He conjures databases, APIs strong,<br>Ensuring the digital heartbeat plays along.", // Poetic, project links
     skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "JavaScript", "TypeScript", "React"], // Expanded skills
   },
   {
@@ -43,8 +43,8 @@ const developers: Developer[] = [
     role: "Full Stack Alchemist", // Consistent role
     imageUrl: "/img/executive-team/sayee-patil.png",
     linkedinUrl: "https://www.linkedin.com/in/sayee-p-79b0b828b/",
-    githubUrl: "https://github.com/yourusername", // Replace
-    description: "With keyboard as brush and screen as the stage,<br>Sayee paints solutions, turning every page.<br>A full-stack artist, wise and sage,<br>Bridging the digital divide, in every age.<br>From user interface, sleek and refined,<br>To backend structures, elegantly designed.<br>Her legacy whispers of [Project 5](#), a digital art,<br>And [Project 6](#), a captivating, smart restart.", // Poetic, project links
+    githubUrl: "https://github.com/Say-Ee", // Replace
+    description: "With keyboard as brush and screen as the stage,<br>Sayee paints solutions, turning every page.<br>A full-stack artist, wise and sage,<br>Bridging the digital divide, in every age.<br>From user interface, sleek and refined,<br>To backend structures, elegantly designed.", // Poetic, project links
     skills: ["React", "Next.js", "Node.js", "Express.js", "MongoDB", "Python", "Django", "JavaScript",], // Expanded Skills
   },
 ];

@@ -62,7 +62,7 @@ const navigationData = {
     {
       label: "Announcements",
       href: "https://www.sakec.ac.in/cyse/cyse-announcements/",
-      Target: "_blank",
+      target: "_blank",
     },
     {
       label: "Play a game",
@@ -71,7 +71,7 @@ const navigationData = {
         {
           label: "CTF",
           href: "https://www.hacktheway.com/",
-          Target: "_blank",
+          target: "_blank",
         },
         { label: "Phishing", href: "/phishing" },
       ],
@@ -85,7 +85,7 @@ const navigationData = {
         {
           label: "Research papers",
           href: "https://www.sakec.ac.in/research/research-publications/",
-          Target: "_blank",
+          target: "_blank",
         },
       ],
     },
@@ -196,18 +196,31 @@ export const Navbar = ({
       <nav className="bg-black text-white relative flex flex-col xl:flex-row xl:items-center w-full">
         {/* Top Bar */}
         <div className="flex flex-row items-center justify-between w-full xl:w-auto px-4 sm:px-6 py-3 sm:py-4">
-          {/* Logo */}
-          <div className="xl:mr-2 xl:mb-0 h-[60px] w-auto xl:h-[60px]">
-            <Link href="/" className="flex items-center space-x-2 text-2xl font-medium">
+          {/* Logo Section - Responsive Adjustments */}
+          <div className="flex items-center justify-between w-full xl:w-auto xl:mr-2 xl:mb-0">
+            {/* New Logo - Always on the Left */}
+            <Link href="https://www.sakec.ac.in/cyse/" className="flex items-center"  target="_blank">
+              <Image
+                src="/img/sakec-logo.png" // Replace with your new logo's path
+                width={40}
+                height={40}
+                alt="SAKEC"
+                className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain max-h-[40px] sm:max-h-[60px]"
+              />
+            </Link>
+
+            {/* Cyber Colloquy Logo - Centered on Mobile */}
+            <Link href="/" className="flex items-center w-full justify-center xl:w-auto xl:ml-4">
               <Image
                 src="/img/favicon4.png"
-                width={210}
-                height={63}
+                width={160}
+                height={50}
                 alt="Cyber Colloquy"
-                className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain h-full w-auto max-h-[40px] md:max-h-[60px]"
+                className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain max-h-[40px] sm:max-h-[60px]"
               />
             </Link>
           </div>
+
           <div className="xl:hidden">
             <MenuBarContent />
           </div>
