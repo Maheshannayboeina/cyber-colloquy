@@ -13,18 +13,21 @@ const industryProfessionalForm = {
 };
 
 const IndustryProfessionalPage: React.FC = () => {
-  // Calculate the aspect ratio (height / width).  Replace with your image's actual aspect ratio.
-  const aspectRatio = 33.33; // Example: 3:1 aspect ratio (width:height)
+  //  REPLACE WITH ACTUAL WIDTH from your image file
+  const imageWidth = 1920;
+    //  REPLACE WITH ACTUAL HEIGHT from your image file
+  const imageHeight = 480;
 
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
+      <div className="relative w-full">
         <Image
-          src="/img/registration/industry_R.png"
+          src="/img/nomination_banners/industry.png"
           alt="Industry Professional Banner"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center' }} // Added objectPosition
+          width={imageWidth}
+          height={imageHeight}
+          style={{ width: '100%', height: 'auto' }}
           priority
         />
       </div>
@@ -53,10 +56,12 @@ const IndustryProfessionalPage: React.FC = () => {
               </div>
 
             </motion.div>
-            <motion.div className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}>
+            <motion.div
+              className="mb-10" // Added mb-10, and removed duplicate div and bg classes
+              initial={{ opacity: 0, x:-50 }} //Added initial, animate, and transition
+              animate={{ opacity: 1, x:0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
               <div>
                 <p className="text-gray-100">
                   Connect with our students, faculty, and research initiatives.

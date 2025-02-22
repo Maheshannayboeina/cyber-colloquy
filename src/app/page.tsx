@@ -10,7 +10,7 @@ import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoC
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/banners/colloquy4.png",
+      imageUrl: "/img/home_banners/project_expo.png",
       title: "Cyber Colloquy 4.0",
       description: "ADOPTING INDIA'S DPDP FOR A PRIVACY-CENTRIC FUTURE",
       subtitle: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
@@ -18,7 +18,7 @@ export default function Home() {
       buttonHref: "/cyber-colloquy-4.0",
     },
     {
-      imageUrl: "/img/banners/project-expo.png",
+      imageUrl: "/img/home_banners/register.png",
       title: "Project Expo",
       description:
         "Discover exciting cyber security projects at our annual Expo! Network with talent, explore potential collaborations, and see the latest advancements. Register now!",
@@ -27,7 +27,7 @@ export default function Home() {
       buttonHref: "/project-expo",
     },
     {
-      imageUrl: "/img/banners/industry-professional.png",
+      imageUrl: "/img/home_banners/industry.png",
       title: "Industry Attendies",
       description:
         "Gain exclusive insights and partner with SAKEC's Cyber Security Department! Attend events, participate in research, and help drive innovation. Register as an Industry Attendee today.",
@@ -36,7 +36,7 @@ export default function Home() {
       buttonHref: "/industry-professional",
     },
     {
-      imageUrl: "/img/banners/sponsor-call.png",
+      imageUrl: "/img/home_banners/sponsors.png",
       title: "Call For Sponsors",
       description:
         "Empower cyber security's future! Sponsor our events and gain recognition within a thriving community of students, researchers, and industry leaders. Inquire today!",
@@ -45,7 +45,7 @@ export default function Home() {
       buttonHref: "/sponsor",
     },
     {
-      imageUrl: "/img/banners/award-nominations.png",
+      imageUrl: "/img/home_banners/projects.png",
       title: "Award Nominations",
       description:
         "Give rising stars the spotlight they deserve! Award nominations provide valuable recognition and boost career opportunities. Nominate a deserving candidate for our prestigious awards.",

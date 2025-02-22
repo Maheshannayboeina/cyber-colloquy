@@ -18,25 +18,29 @@ const nominationForm = {
 };
 
 const AwardCeremonyPage: React.FC = () => {
-  // Calculate the aspect ratio (height / width).  Replace with your image's actual aspect ratio.
-  const aspectRatio = 33.33; // Example: 3:1 aspect ratio (width:height)
+  //  REPLACE WITH ACTUAL WIDTH from your image file
+  const imageWidth = 1920;
+  //  REPLACE WITH ACTUAL HEIGHT from your image file
+  const imageHeight = 480;
+
 
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
+      <div className="relative w-full">
         <Image
-          src="/img/registration/award_R.png"
+          src="/img/nomination_banners/projects.png"
           alt="Award Ceremony Banner"
-          fill
-          style={{ objectFit: "cover", objectPosition: "center" }} // Added objectPosition
+          width={imageWidth}  // Use explicit width and height
+          height={imageHeight} // Use explicit width and height
+          style={{ width: '100%', height: 'auto' }}
           priority
         />
       </div>
 
       <motion.div>
         <motion.div
-          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
+          className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden" // Corrected background color
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -128,9 +132,8 @@ const AwardCeremonyPage: React.FC = () => {
                 </li>
                 <li>
                   <b>Deadline:</b> Ensure your nomination is submitted before
-                  the deadline [Insert Deadline Date].
+                  January 20, 2024.
                 </li>{" "}
-                {/* Add Deadline Date */}
               </ol>
             </motion.div>
 

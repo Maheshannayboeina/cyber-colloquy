@@ -20,18 +20,21 @@ const pitchDeckLink =
   "https://drive.google.com/file/d/1Uk4YyneIlUnPVrylcn3q8FfGOWFjhKhN/view";
 
 const SponsorPage: React.FC = () => {
-  // Calculate the aspect ratio (height / width).  Replace with your image's actual aspect ratio.
-  const aspectRatio = 33.33; // Example: 3:1 aspect ratio (width:height)
+  //  REPLACE WITH ACTUAL WIDTH from your image file
+  const imageWidth = 1920;
+    //  REPLACE WITH ACTUAL HEIGHT from your image file
+  const imageHeight = 480;
 
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
+      <div className="relative w-full">
         <Image
-          src="/img/registration/sponsor_R.png"
+          src="/img/nomination_banners/sponsors.png"
           alt="Become a Sponsor Banner"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center' }} // Added objectPosition
+          width={imageWidth}
+          height={imageHeight}
+          style={{ width: '100%', height: 'auto' }}
           priority
         />
       </div>
@@ -66,10 +69,10 @@ const SponsorPage: React.FC = () => {
                 </div>
               </motion.div>
               <motion.div
-                className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
+               className="mb-10" //removed unnessary bg class
+                initial={{ opacity: 0 , x:-50 }}
+                animate={{ opacity: 1, x:0 }}
+                transition={{ duration: 0.3, ease:"easeInOut" }}
               >
                 <div> <p className="text-gray-100">
                   Join us in making Cyber Colloquy 4.0 a grand success! We invite
@@ -104,7 +107,7 @@ const SponsorPage: React.FC = () => {
                     tech enthusiasts
                   </li>
                   <li>
-                    Showcase your company’s commitment to innovation and
+                    Showcase your company&apos;s commitment to innovation and
                     cybersecurity awareness
                   </li>
                 </ul>

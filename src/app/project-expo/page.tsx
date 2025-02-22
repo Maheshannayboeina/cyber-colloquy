@@ -17,17 +17,21 @@ const registrationForm = {
 };
 
 const ProjectExpoPage: React.FC = () => {
-  const aspectRatio = 33.33; // 3:1 aspect ratio (width:height)
+  //  REPLACE WITH ACTUAL WIDTH from your image file
+  const imageWidth = 1920;
+    //  REPLACE WITH ACTUAL HEIGHT from your image file
+  const imageHeight = 480;
 
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
+      <div className="relative w-full">
         <Image
-          src="/img/registration/Project-expo_R.png"
+          src="/img/nomination_banners/project_expo.png"
           alt="Cyber Security Project Expo Banner"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          width={imageWidth}
+          height={imageHeight}
+          style={{ width: '100%', height: 'auto' }}
           priority
         />
       </div>
@@ -56,10 +60,12 @@ const ProjectExpoPage: React.FC = () => {
 
                 </div>
               </motion.div>
-              <motion.div className="bg-gray-1000 rounded-2xl shadow-xl mb-12 w-full overflow-hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}>
+              <motion.div
+                className="mb-10"  //removed duplicate and unnessary div and bg classes
+                initial={{ opacity: 0,x:-50 }} // added initial, animate, transition
+                animate={{ opacity: 1, x:0 }}
+                transition={{ duration: 0.4, ease:"easeInOut" }}
+              >
                 <div><p className="text-gray-100">
                   Showcase your creativity, innovation, and technical
                   expertise at Project EXPO, where students present

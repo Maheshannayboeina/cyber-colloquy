@@ -20,18 +20,21 @@ const cyberColloquyForm = {
 };
 
 const CyberColloquy4Page: React.FC = () => {
-    // Calculate the aspect ratio (height / width).  Replace with your image's actual aspect ratio.
-  const aspectRatio = 33.33; // Example: 3:1 aspect ratio (width:height)
+  //  REPLACE WITH ACTUAL WIDTH from your image file
+  const imageWidth = 1920;
+    //  REPLACE WITH ACTUAL HEIGHT from your image file
+  const imageHeight = 480;
 
   return (
     <div>
       {/* Banner Image */}
-      <div className="relative w-full" style={{ paddingTop: `${aspectRatio}%` }}>
+      <div className="relative w-full">
         <Image
-          src="/img/registration/colloquy4.0_R.png"
+          src="/img/nomination_banners/register.png"
           alt="Cyber Colloquy 4.0 Banner"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center' }} // Added objectPosition
+          width={imageWidth}
+          height={imageHeight}
+          style={{ width: '100%', height: 'auto' }}
           priority
         />
       </div>
