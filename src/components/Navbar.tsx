@@ -53,7 +53,11 @@ const navigationData = {
       href: "#",
       dropdown: [
         { label: "Projects", href: "/projects" },
-        { label: "Publications", href: "https://www.sakec.ac.in/cyse/cyse-faculty-publications/", Target: "_blank" },
+        {
+          label: "Publications",
+          href: "https://www.sakec.ac.in/cyse/cyse-faculty-publications/",
+          Target: "_blank",
+        },
         { label: "Patents", href: "/patents" },
         { label: "Copyrights", href: "/copyrights" },
       ],
@@ -112,7 +116,9 @@ export const Navbar = ({
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(
+    null
+  );
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   useEffect(() => {
@@ -154,7 +160,10 @@ export const Navbar = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setOpenDropdown(null);
         setHoveredItem(null);
       }
@@ -171,8 +180,15 @@ export const Navbar = ({
 
   const MenuBarContent = () => (
     <div className="flex justify-end w-full items-center">
-      <button className="text-blue-100 focus:outline-none" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-        <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <button
+        className="text-blue-100 focus:outline-none"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        <svg
+          className="h-6 w-6 fill-current"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           {mobileMenuOpen ? (
             <path
               fillRule="evenodd"
@@ -199,7 +215,11 @@ export const Navbar = ({
           {/* Logo Section - Responsive Adjustments */}
           <div className="flex items-center justify-between w-full xl:w-auto xl:mr-2 xl:mb-0">
             {/* New Logo - Always on the Left */}
-            <Link href="https://www.sakec.ac.in/cyse/" className="flex items-center"  target="_blank">
+            <Link
+              href="https://www.sakec.ac.in/cyse/"
+              className="flex items-center"
+              target="_blank"
+            >
               <Image
                 src="/img/sakec-logo.png" // Replace with your new logo's path
                 width={40}
@@ -210,7 +230,10 @@ export const Navbar = ({
             </Link>
 
             {/* Cyber Colloquy Logo - Centered on Mobile */}
-            <Link href="/" className="flex items-center w-full justify-center xl:w-auto xl:ml-4">
+            <Link
+              href="/"
+              className="flex items-center w-full justify-center xl:w-auto xl:ml-4"
+            >
               <Image
                 src="/img/favicon4.png"
                 width={160}
@@ -234,7 +257,9 @@ export const Navbar = ({
               {navigationData.topNavigation.map((item, index) => (
                 <li
                   key={index}
-                  className={`mr-4 xl:mr-6 relative ${hoveredItem === item.label ? "z-20" : "z-10"}`}
+                  className={`mr-4 xl:mr-6 relative ${
+                    hoveredItem === item.label ? "z-20" : "z-10"
+                  }`}
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -252,7 +277,12 @@ export const Navbar = ({
                           viewBox="0 0 24 24"
                           stroke="currentColor"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
                       </span>
                     </button>
@@ -292,12 +322,16 @@ export const Navbar = ({
           </div>
 
           {/* Bottom Navigation (Desktop) */}
-          <div className="hidden text-center xl:flex xl:items-center xl:flex-grow px-4 sm:px-6 bg-blue-600 py-1 sm:py-2">
+          <div className="hidden text-center xl:flex xl:items-center xl:flex-grow px-4 sm:px-6 bg-blue-600 py-1 sm:py-2 rounded-md">
+            {" "}
+            {/* Added rounded-b-md here */}
             <ul className="flex list-none">
               {navigationData.bottomNavigationItems.map((item, index) => (
                 <li
                   key={index}
-                  className={`mr-4 xl:mr-6 relative ${hoveredItem === item.label ? "z-20" : "z-10"}`}
+                  className={`mr-4 xl:mr-6 relative ${
+                    hoveredItem === item.label ? "z-20" : "z-10"
+                  }`}
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -315,7 +349,12 @@ export const Navbar = ({
                           viewBox="0 0 24 24"
                           stroke="currentColor"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
                       </span>
                     </button>
@@ -359,8 +398,15 @@ export const Navbar = ({
         {mobileMenuOpen && (
           <div className="absolute top-0 right-0 h-screen bg-blue-900 z-30 overflow-y-auto w-full max-w-[300px] shadow-xl">
             <div className="p-4 flex justify-end">
-              <button className="text-blue-100 focus:outline-none" onClick={() => setMobileMenuOpen(false)}>
-                <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <button
+                className="text-blue-100 focus:outline-none"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <svg
+                  className="h-6 w-6 fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     fillRule="evenodd"
                     clipRule="evenodd"
@@ -371,7 +417,9 @@ export const Navbar = ({
             </div>
             <div className="px-4 sm:px-6 py-4">
               <ul className="space-y-4">
-                <li className="font-bold text-xl mb-2 text-blue-100">Top Navigation</li>
+                <li className="font-bold text-xl mb-2 text-blue-100">
+                  Top Navigation
+                </li>
                 {navigationData.topNavigation.map((item, index) => (
                   <li key={`top-mobile-${index}`}>
                     {item.dropdown ? (
@@ -387,7 +435,12 @@ export const Navbar = ({
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M19 9l-7 7-7-7"
+                            />
                           </svg>
                         </button>
                         {mobileOpenDropdown === item.label && (
@@ -428,7 +481,9 @@ export const Navbar = ({
             <div className="bg-blue-700 h-[1px] mx-4 my-2" />
             <div className="px-4 sm:px-6 py-4">
               <ul className="space-y-4">
-                <li className="font-bold text-xl mb-2 text-blue-100">Bottom Navigation</li>
+                <li className="font-bold text-xl mb-2 text-blue-100">
+                  Bottom Navigation
+                </li>
                 {navigationData.bottomNavigationItems.map((item, index) => (
                   <li key={`bottom-mobile-${index}`}>
                     {item.dropdown ? (
@@ -444,7 +499,12 @@ export const Navbar = ({
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M19 9l-7 7-7-7"
+                            />
                           </svg>
                         </button>
                         {mobileOpenDropdown === item.label && (
