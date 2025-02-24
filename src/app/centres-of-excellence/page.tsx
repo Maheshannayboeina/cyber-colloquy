@@ -20,13 +20,13 @@ const CentresOfExcellencePage: React.FC = () => {
 
       <div className="bg-gray-800 p-8 rounded-lg shadow-md mb-8">
 
-        {/* COE Faculty Section (Keep if needed - TeacherCard will still work for faculty/coordinators if you populate data) */}
+        {/* COE Faculty Section (Keep if needed - TeacherCard will still work for faculty/coordinators if you populate data)
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-indigo-400 mb-5 border-b pb-2">
             CoE Faculty
-          </h2>
+          </h2> */}
           {/* ... (Faculty section using TeacherCard - if you have faculty data, you can render TeacherCard here) */}
-        </section>
+        {/* </section> */}
 
         {/* COE Coordinators Section (Using MemberCards now) */}
         <section className="mb-12">
