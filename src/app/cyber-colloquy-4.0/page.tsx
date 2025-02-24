@@ -92,10 +92,6 @@ const CyberColloquy4Page: React.FC = () => {
                 challenges.
               </li>
               <li>
-                <b>Workshops & Tech Sessions:</b> Hands-on knowledge and practical
-                skills.
-              </li>
-              <li>
                 <b>Networking:</b> Connect with professionals, and students.
               </li>
               <li>
@@ -121,7 +117,6 @@ const CyberColloquy4Page: React.FC = () => {
               <li>
                 Expand Network: Connect with professionals and fellow students.
               </li>
-              <li>Skill Enhancement: Practical knowledge from workshops.</li>
               <li>Be Informed: Shape of the future of cyber security.</li>
             </ul>
           </motion.div>

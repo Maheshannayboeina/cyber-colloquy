@@ -85,7 +85,6 @@ const IndustryProfessionalPage: React.FC = () => {
                 <li>Guest lectures, workshops, and mentorship opportunities.</li>
                 <li>Early access to research findings.</li>
                 <li>Networking events with faculty and industry peers.</li>
-                <li>Shape curriculum to align with industry needs.</li>
               </ul>
             </motion.div>
 
@@ -104,7 +103,6 @@ const IndustryProfessionalPage: React.FC = () => {
               <ul className="list-disc pl-8 text-gray-300 space-y-2">
                 <li>Project sponsorships and research partnerships.</li>
                 <li>Internships and co-op opportunities.</li>
-                <li>Curriculum development.</li>
                 <li>Guest speaking and seminars.</li>
                 <li>Joint workshops and training programs.</li>
               </ul>
