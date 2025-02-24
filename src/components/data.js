@@ -319,7 +319,7 @@ const events = [
     date: "21st to 24th March",
     description: "Adopting the new rules for a privacy-centric future",
     location: "Seminar Hall",
-    images: ["/img/events/colloquy4.0_banner_2.png", "/img/events/banner2.png"],
+    images: ["/img/events/colloquy4.0.png", "/img/events/banner2.png"],
     tags: ["cybersecurity", "colloquy", "quantum computing", "data science"],
     colloquyDetails: {
       conductedBy: "CYSE Department",

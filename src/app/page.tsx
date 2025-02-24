@@ -10,7 +10,7 @@ import VideoCarousel from "@/components/VideoCarousel"; // Import the new VideoC
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/home_banners/project_expo.png",
+      imageUrl: "/img/home_banners/register.png",
       title: "Cyber Colloquy 4.0",
       description: "ADOPTING INDIA'S DPDP FOR A PRIVACY-CENTRIC FUTURE",
       subtitle: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
@@ -18,7 +18,7 @@ export default function Home() {
       buttonHref: "/cyber-colloquy-4.0",
     },
     {
-      imageUrl: "/img/home_banners/register.png",
+      imageUrl: "/img/home_banners/project_expo.png",
       title: "Project Expo",
       description:
         "Discover exciting cyber security projects at our annual Expo! Network with talent, explore potential collaborations, and see the latest advancements. Register now!",
