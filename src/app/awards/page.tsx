@@ -85,6 +85,394 @@ const AwardCeremonyPage: React.FC = () => {
                 <FaClipboardCheck className="text-yellow-500" />
                 <span>Nomination Categories</span>
               </h3>
+
+              {/* Award Categories Table */}
+              <div className="overflow-x-auto rounded-lg shadow-md">
+                <table className="min-w-full divide-y divide-gray-700 dark:divide-gray-600">
+                  <thead className="bg-gray-800 dark:bg-gray-700">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="px-3 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+                      >
+                        Award Name
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-3 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+                      >
+                        Criteria
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-3 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+                      >
+                        Evaluation
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-gray-900 divide-y divide-gray-700 dark:bg-gray-800 dark:divide-gray-600">
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Cybersecurity Educator of
+                        the Year
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Excellence in teaching and
+                        mentoring
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Student feedback, innovative
+                        curriculum, impact on student
+                        careers
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Cybersecurity
+                        Research Contribution
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Groundbreaking research in
+                        cybersecurity
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Research citations, impact factor,
+                        industry adoption
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Innovative Cybersecurity
+                        Curriculum Designer
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Development of cutting-edge
+                        courses
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Course structure, hands-on
+                        approach, industry relevance
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Excellence in
+                        Cybersecurity Training &
+                        Awareness
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Conducting impactful training
+                        programs
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Number of trainees, quality of
+                        training, community outreach
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Lifetime Achievement in
+                        Cybersecurity Education
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Long-term contribution to
+                        cybersecurity education
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Years of service, overall impact,
+                        recognition in the field
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Cybersecurity
+                        Department
+
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Excellence in cybersecurity
+                        education and research
+
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Research output, student success
+                        rate, industry partnerships
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Top Cybersecurity
+                        Research Lab
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Conducting pioneering research in
+                        cyber defense
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Research publications, patents,
+                        collaboration with industry
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Industry-Academia
+                        Cybersecurity
+                        Collaboration
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Strong partnerships with industry
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Number of collaborations, success
+                        stories, student benefits
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Excellence in
+                        Cybersecurity Skill
+                        Development
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Hands-on cybersecurity training
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Number of workshops, certifications
+                        offered, student engagement
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Student-Led
+                        Cybersecurity Initiative
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Encouragement of student-driven
+                        projects
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Innovation, student participation,
+                        community impact
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Most Cyber-Resilient
+                        Enterprise
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Strong cybersecurity infrastructure
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Security framework, incident
+                        response capability, risk
+                        management
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Cybersecurity
+                        Awareness Program
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Employee and public
+                        cybersecurity education
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Engagement metrics, behavioral
+                        improvements, reach
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Excellence in Cyber
+                        Threat Intelligence
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Advanced threat detection and
+                        response
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        AI-driven security, detection success
+                        rate, real-world impact
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Public-Private
+                        Cybersecurity Partnership
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Collaboration between industry
+                        and government/academia
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Policy impact, industry adoption,
+                        number of joint initiatives
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Top Cybersecurity
+                        Innovation by a Company
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Development of innovative
+                        cybersecurity solutions
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Innovation uniqueness, adoption
+                        rate, effectiveness
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Cybersecurity
+                        Initiative by an Institution
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Large-scale institutional
+                        cybersecurity projects
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Project reach, sustainability,
+                        effectiveness
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Government Leadership in
+                        Cybersecurity
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Effective implementation of
+                        cybersecurity policies
+
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Policy impact, success stories,
+                        national/international influence
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Top Cybersecurity Policy
+                        & Law Research
+                        Institution
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Research shaping cybersecurity
+                        laws
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Policy recommendations, influence
+                        on regulations, publications
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Cybersecurity
+                        Hackathon or Competition
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Organizing impactful
+                        cybersecurity competitions
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Number of participants, industry
+                        engagement, innovation
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Excellence in Cyber Peace
+                        & Ethics Advocacy
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Promotion of cyber ethics and
+                        peace initiatives
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Community engagement, ethical
+                        awareness programs
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        CyberPeace Rising Star
+                        Award
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Student with exceptional potential
+                        in cybersecurity
+
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Research, competitions won,
+                        academic performance
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Best Cybersecurity
+                        Capstone Project
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Outstanding final-year
+                        cybersecurity project
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Project innovation, practical
+                        application, impact
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        CyberPeace Ethical
+                        Hacker Award
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Excellence in ethical hacking
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        CTF competitions won, security
+                        research contributions
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        Cybersecurity Community
+                        Impact Award
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Significant contribution to
+                        cybersecurity awareness
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Outreach activities, public
+                        education, community engagement
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-100 dark:text-gray-200">
+                        CyberPeace COE Student
+                        Leader Award
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Leadership in cybersecurity
+                        advocacy
+                      </td>
+                      <td className="px-3 py-4 whitespace-normal text-sm text-gray-100 dark:text-gray-200">
+                        Club leadership, project impact,
+                        mentoring contributions
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Original List (You can remove or comment out if you only want the table)
               <ul className="list-disc pl-8 text-gray-100 space-y-2">
                 <li>
                   <b>Cyber Security Professional of the Year:</b> Recognizing
@@ -102,8 +490,8 @@ const AwardCeremonyPage: React.FC = () => {
                   <b>Community Contribution Award:</b> Acknowledging efforts in
                   cyber security education and outreach.
                 </li>
-                {/* Add more categories as needed */}
-              </ul>
+                {/* Add more categories as needed
+              </ul>*/}
             </motion.div>
 
             {/* How to Nominate Section */}
@@ -132,7 +520,7 @@ const AwardCeremonyPage: React.FC = () => {
                 </li>
                 <li>
                   <b>Deadline:</b> Ensure your nomination is submitted before
-                  January 20, 2024.
+                  March 15, 2025.
                 </li>{" "}
               </ol>
             </motion.div>
