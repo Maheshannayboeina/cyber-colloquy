@@ -8,7 +8,13 @@ interface Params {
   id: string;
 }
 
-export default function SpeakerPage({ params }: { params: Params }) {
+// Correct PageProps definition
+interface PageProps {
+  params: Params;
+}
+
+
+export default function SpeakerPage({ params }: PageProps) {
   const { id } = params;
   const speaker = speakerData.find((speaker) => speaker.id === id);
 
