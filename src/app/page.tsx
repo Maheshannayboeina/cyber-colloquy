@@ -1,13 +1,16 @@
 // src/app/page.tsx
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
-import { Faq } from "@/components/Faq";
-import { Cta } from "@/components/Cta";
+// import { Faq } from "@/components/Faq"; // Commented out
+// import { Cta } from "@/components/Cta"; // Commented out
 import { Impact } from "@/components/impact";
 import HeroCarousel from "@/components/HeroCarousel";
 import VideoCarousel from "@/components/VideoCarousel";
 import AboutUs from "@/components/about-us";
-import {Speakers} from "@/components/Speakers";
+import { Speakers } from "@/components/Speakers";
+// import { Skeleton } from "@/components/ui/skeleton"; // REMOVED
+// import React, { Suspense } from "react"; // REMOVED
+import React from "react"; // Reverted to original import
 
 export default function Home() {
   const heroSlides = [
@@ -15,9 +18,10 @@ export default function Home() {
       imageUrl: "/img/banners/colloquy4.0-r.png",
       title: "Cyber Colloquy 4.0",
       tagline: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
-      dateWithLocation: "MARCH 21ST -24TH |SAKEC-7TH FLR AUDITORIUM, MUMBAI",  //Format Changed
-      button1Text: "Register Now!", // Added exclamation
-      button1Href: "https://docs.google.com/forms/d/e/1FAIpQLSdYuWWmDu1T3Z2hQG3Kgd6EFZjFqp4yM0hC__ITg4cWiGgSmA/viewform", // REPLACE WITH ACTUAL FORM
+      dateWithLocation: "MARCH 21ST -24TH |SAKEC-7TH FLR AUDITORIUM, MUMBAI",
+      button1Text: "Register Now!",
+      button1Href:
+        "https://docs.google.com/forms/d/e/1FAIpQLSdYuWWmDu1T3Z2hQG3Kgd6EFZjFqp4yM0hC__ITg4cWiGgSmA/viewform", // REPLACE WITH ACTUAL FORM
       button2Text: "Learn More",
       button2Href: "/cyber-colloquy-4.0",
     },
@@ -27,40 +31,44 @@ export default function Home() {
       tagline: "Skill Up | Protect | Advance",
       dateWithLocation: "Nov 15, 2024 | SAKEC Campus",
       button1Text: "Submit Project",
-      button1Href: "https://docs.google.com/forms/d/e/1FAIpQLSdBTjPJH0DuFrrSB82Yl5ml492VlWNvLTUIhytKa5dDPLADGw/viewform",
+      button1Href:
+        "https://docs.google.com/forms/d/e/1FAIpQLSdBTjPJH0DuFrrSB82Yl5ml492VlWNvLTUIhytKa5dDPLADGw/viewform",
       button2Text: "Explore More",
       button2Href: "/project-expo",
     },
     {
-        imageUrl: "/img/banners/register-r.png",
-        title: "Industry Attendies",
-        tagline: "Insights | Knowledge | Future",
-        dateWithLocation: "Various Dates | Online & In-Person",  //Format Changed
-        button1Text: "Register",
-        button1Href: "https://docs.google.com/forms/d/e/1FAIpQLSeyCMCsyvNd7BGoc4dKr0dK502KjHMaaX-Lf3eAivj6zOp-EQ/viewform", // REPLACE
-        button2Text: "Know More",
-        button2Href: "/industry-professional",
-      },
-      {
-        imageUrl: "/img/banners/1-r.png",
-        title: "Call For Sponsors",
-        tagline: "Connect | Collaborate | Grow",
-        dateWithLocation: "Ongoing | Contact Us", //Format Changed
-        button1Text: "Sponsor Us",
-        button1Href: "https://docs.google.com/forms/d/e/1FAIpQLSfXwcZcd9M2TJt_1DkiSwYw3VgqSnndl00fmOU1OcF1kCgK5Q/viewform", // REPLACE
-        button2Text: "Join Community",
-        button2Href: "/sponsor",
-      },
-      {
-        imageUrl: "/img/banners/2-r.png",
-        title: "Award Nominations",
-        tagline: "Inform | Secure | Vigilant",
-        dateWithLocation: "Deadline: Dec 1, 2024",
-        button1Text: "Nominate",
-        button1Href: "https://docs.google.com/forms/d/e/1FAIpQLSenClnGM83nkAYG-wc1y8ROuQwddD4cXVuHq4DIsrbQrNpZhg/viewform", // REPLACE
-        button2Text: "Explore", //Changed text
-        button2Href: "/awards",
-      },
+      imageUrl: "/img/banners/register-r.png",
+      title: "Industry Attendies",
+      tagline: "Insights | Knowledge | Future",
+      dateWithLocation: "Various Dates | Online & In-Person",
+      button1Text: "Register",
+      button1Href:
+        "https://docs.google.com/forms/d/e/1FAIpQLSeyCMCsyvNd7BGoc4dKr0dK502KjHMaaX-Lf3eAivj6zOp-EQ/viewform", // REPLACE
+      button2Text: "Know More",
+      button2Href: "/industry-professional",
+    },
+    {
+      imageUrl: "/img/banners/1-r.png",
+      title: "Call For Sponsors",
+      tagline: "Connect | Collaborate | Grow",
+      dateWithLocation: "Ongoing | Contact Us",
+      button1Text: "Sponsor Us",
+      button1Href:
+        "https://docs.google.com/forms/d/e/1FAIpQLSfXwcZcd9M2TJt_1DkiSwYw3VgqSnndl00fmOU1OcF1kCgK5Q/viewform", // REPLACE
+      button2Text: "Join Community",
+      button2Href: "/sponsor",
+    },
+    {
+      imageUrl: "/img/banners/2-r.png",
+      title: "Award Nominations",
+      tagline: "Inform | Secure | Vigilant",
+      dateWithLocation: "Deadline: Dec 1, 2024",
+      button1Text: "Nominate",
+      button1Href:
+        "https://docs.google.com/forms/d/e/1FAIpQLSenClnGM83nkAYG-wc1y8ROuQwddD4cXVuHq4DIsrbQrNpZhg/viewform", // REPLACE
+      button2Text: "Explore",
+      button2Href: "/awards",
+    },
   ];
 
   const videoSlides = [
@@ -103,20 +111,17 @@ export default function Home() {
 
   return (
     <>
-      {/* Full-width HeroCarousel */}
+      {/* Removed Suspense and Skeleton */}
       <HeroCarousel slides={heroSlides} />
-      <SectionTitle
-          preTitle="Meet Our Experts"
-          title="Distinguished Speakers"
-        >
-          Learn from the best in the field. Our speakers bring a wealth of
-          knowledge and experience to our events.
-        </SectionTitle>
-        <Speakers />
 
-      {/* Main content wrapped in a responsive container */}
+      <SectionTitle preTitle="Meet Our Experts" title="Distinguished Speakers">
+        Learn from the best in the field. Our speakers bring a wealth of
+        knowledge and experience to our events.
+      </SectionTitle>
+      <Speakers />
+
       <Container>
-        <div className="space-y-16 md:space-y-24">  {/* Vertical spacing between sections */}
+        <div className="space-y-16 md:space-y-24">
           <section>
             <SectionTitle
               preTitle="Our Accomplishments"
@@ -124,21 +129,19 @@ export default function Home() {
             >
               Explore the measurable impact of our Cyber Security Department.
             </SectionTitle>
-            <Impact/>
+            <Impact />
           </section>
-
           <section>
             <SectionTitle
               preTitle="Explore Our Work"
               title="Learn More About Our Activities"
             >
               Discover the various projects, achievements, events, and research
-              initiatives carried out by our department. Dive into the world of Cyber
-              Security with us.
+              initiatives carried out by our department. Dive into the world of
+              Cyber Security with us.
             </SectionTitle>
             <VideoCarousel videos={videoSlides} />
           </section>
-
           {/* <section>
             <SectionTitle
               preTitle="Have Questions?"
@@ -150,7 +153,6 @@ export default function Home() {
             <Faq />
           </section> */}
           <AboutUs />
-
           {/* <section>
              <Cta />
           </section> */}

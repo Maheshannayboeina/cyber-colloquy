@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Target } from "lucide-react";
 
 interface NavItem {
   label: string;
@@ -12,6 +11,7 @@ interface NavItem {
   Target?: string;
 }
 
+// (navigationData remains the same - no changes needed there)
 const navigationData = {
   topNavigation: [
     {
@@ -105,7 +105,6 @@ const navigationData = {
     },
   ],
 };
-
 export const Navbar = ({
   setGetStartedModalOpen,
 }: {
@@ -121,11 +120,13 @@ export const Navbar = ({
   );
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
+  // Close mobile menu when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileOpenDropdown(null);
   }, [pathname]);
 
+  // --- Dropdown Hover Logic ---
   const handleMouseEnter = (label: string) => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
@@ -153,13 +154,16 @@ export const Navbar = ({
       setHoveredItem(null);
     }, 300);
   };
+  // --- End Dropdown Hover Logic ---
 
   const handleMobileDropdownToggle = (label: string) => {
     setMobileOpenDropdown(mobileOpenDropdown === label ? null : label);
   };
 
+  // --- Click Outside Logic (for both dropdowns and mobile menu) ---
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // Close dropdown if click is outside
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
@@ -167,20 +171,36 @@ export const Navbar = ({
         setOpenDropdown(null);
         setHoveredItem(null);
       }
+
+      // Close mobile menu if click is outside the menu and the menu button
+      if (
+        mobileMenuOpen &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target as Node) &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
+        setMobileMenuOpen(false);
+      }
     };
 
-    if (openDropdown) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [openDropdown]);
+  }, [openDropdown, mobileMenuOpen]); // Depend on both states
+  // --- End Click Outside Logic ---
 
+  // Refs for click-outside detection
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // --- Utility function for menu content ---
   const MenuBarContent = () => (
     <div className="flex justify-end w-full items-center">
       <button
+        ref={menuButtonRef} // Attach ref to menu button
         className="text-blue-100 focus:outline-none"
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
@@ -206,6 +226,7 @@ export const Navbar = ({
       </button>
     </div>
   );
+  // --- End utility function ---
 
   return (
     <div className="w-full shadow-md">
@@ -214,7 +235,7 @@ export const Navbar = ({
         <div className="flex flex-row items-center justify-between w-full xl:w-auto px-4 sm:px-6 py-3 sm:py-4">
           {/* Logo Section - Responsive Adjustments */}
           <div className="flex items-center justify-between w-full xl:w-auto xl:mr-2 xl:mb-0">
-            {/* New Logo - Always on the Left */}
+            {/* New Logo - Always on the Left (Commented Out) */}
             {/* <Link
               href="https://www.sakec.ac.in/cyse/"
               className="flex items-center"
@@ -229,13 +250,13 @@ export const Navbar = ({
               />
             </Link> */}
 
-            {/* Cyber Colloquy Logo - Centered on Mobile */}
+            {/* Cyber Colloquy Logo - Centered on Mobile, Left on Desktop */}
             <Link
               href="/"
-              className="flex items-center w-full justify-center xl:w-auto xl:ml-4"
+              className="flex items-center justify-center w-full xl:w-auto xl:justify-start"
             >
               <Image
-                src="/img/favicon4.png"
+                src="/img/favicon_r.png"
                 width={160}
                 height={50}
                 alt="Cyber Colloquy"
@@ -249,7 +270,7 @@ export const Navbar = ({
           </div>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* --- Desktop Navigation --- */}
         <div className="hidden xl:flex xl:flex-col xl:items-start xl:flex-grow">
           {/* Top Navigation */}
           <div className="text-center xl:flex xl:items-center mb-0 px-4 sm:px-6">
@@ -393,10 +414,14 @@ export const Navbar = ({
             </ul>
           </div>
         </div>
+        {/* --- End Desktop Navigation --- */}
 
-        {/* Mobile Menu */}
+        {/* --- Mobile Menu --- */}
         {mobileMenuOpen && (
-          <div className="absolute top-0 right-0 h-screen bg-blue-900 z-30 overflow-y-auto w-full max-w-[300px] shadow-xl">
+          <div
+            ref={mobileMenuRef} // Attach ref to mobile menu container
+            className="absolute top-0 right-0 h-screen bg-blue-900 z-30 overflow-y-auto w-full max-w-[300px] shadow-xl"
+          >
             <div className="p-4 flex justify-end">
               <button
                 className="text-blue-100 focus:outline-none"
@@ -415,6 +440,8 @@ export const Navbar = ({
                 </svg>
               </button>
             </div>
+
+            {/* Mobile Menu Content */}
             <div className="px-4 sm:px-6 py-4">
               <ul className="space-y-4">
                 <li className="font-bold text-xl mb-2 text-blue-100">
@@ -445,20 +472,22 @@ export const Navbar = ({
                         </button>
                         {mobileOpenDropdown === item.label && (
                           <ul className="ml-4 space-y-2">
-                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
-                              <li key={dropdownIndex}>
-                                <Link
-                                  href={dropdownItem.href}
-                                  onClick={() => {
-                                    setMobileMenuOpen(false);
-                                    setMobileOpenDropdown(null);
-                                  }}
-                                  className="block px-4 py-2 text-blue-300 hover:bg-blue-600 rounded-md"
-                                >
-                                  {dropdownItem.label}
-                                </Link>
-                              </li>
-                            ))}
+                            {item.dropdown.map(
+                              (dropdownItem, dropdownIndex) => (
+                                <li key={dropdownIndex}>
+                                  <Link
+                                    href={dropdownItem.href}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      setMobileOpenDropdown(null);
+                                    }}
+                                    className="block px-4 py-2 text-blue-300 hover:bg-blue-600 rounded-md"
+                                  >
+                                    {dropdownItem.label}
+                                  </Link>
+                                </li>
+                              )
+                            )}
                           </ul>
                         )}
                       </>
@@ -509,20 +538,22 @@ export const Navbar = ({
                         </button>
                         {mobileOpenDropdown === item.label && (
                           <ul className="ml-4 space-y-2">
-                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
-                              <li key={dropdownIndex}>
-                                <Link
-                                  href={dropdownItem.href}
-                                  onClick={() => {
-                                    setMobileMenuOpen(false);
-                                    setMobileOpenDropdown(null);
-                                  }}
-                                  className="block px-4 py-2 text-blue-300 hover:bg-blue-600 rounded-md"
-                                >
-                                  {dropdownItem.label}
-                                </Link>
-                              </li>
-                            ))}
+                            {item.dropdown.map(
+                              (dropdownItem, dropdownIndex) => (
+                                <li key={dropdownIndex}>
+                                  <Link
+                                    href={dropdownItem.href}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      setMobileOpenDropdown(null);
+                                    }}
+                                    className="block px-4 py-2 text-blue-300 hover:bg-blue-600 rounded-md"
+                                  >
+                                    {dropdownItem.label}
+                                  </Link>
+                                </li>
+                              )
+                            )}
                           </ul>
                         )}
                       </>
@@ -542,8 +573,10 @@ export const Navbar = ({
                 ))}
               </ul>
             </div>
+            {/* End Mobile Menu Content */}
           </div>
         )}
+        {/* --- End Mobile Menu --- */}
       </nav>
     </div>
   );
