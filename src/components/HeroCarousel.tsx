@@ -1,4 +1,4 @@
-// components/HeroCarousel.tsx
+//src/components/HeroCarousel.tsx
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
@@ -6,7 +6,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HeroBanner } from "./HeroBanner";
 import { FaPause, FaPlay } from "react-icons/fa";
-import Slider, { Settings } from "react-slick"; // Import Settings
+import Slider, { Settings } from "react-slick";
+
+// Dynamically import react-slick with forwardRef support
+const SliderComponent = dynamic<Settings>(
+  () =>
+    import("react-slick").then((mod) => {
+      // Wrap the default export with forwardRef
+      const SlickWithRef = React.forwardRef<Slider, Settings>((props, ref) => {
+        return <mod.default ref={ref} {...props} />;
+      });
+      SlickWithRef.displayName = "SlickWithRef";
+      return SlickWithRef;
+    }),
+  { ssr: false }
+);
 
 interface HeroSlide {
   imageUrl: string;
@@ -23,15 +37,10 @@ interface HeroCarouselProps {
   slides: HeroSlide[];
 }
 
-const SliderComponent = dynamic(() => import("react-slick"), {
-  //Rename the variable
-  ssr: false,
-});
-
 const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
-  const sliderRef = useRef<Slider>(null); // Use Slider type
+  const sliderRef = useRef<Slider>(null);
   const [windowWidth, setWindowWidth] = useState(0);
 
   const updateWindowDimensions = () => {
@@ -42,13 +51,11 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
     if (typeof window !== "undefined") {
       setWindowWidth(window.innerWidth);
     }
-
     window.addEventListener("resize", updateWindowDimensions);
     return () => window.removeEventListener("resize", updateWindowDimensions);
   }, []);
 
   const settings: Settings = {
-    // Explicitly type settings
     dots: true,
     infinite: true,
     speed: 500,
@@ -94,7 +101,6 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
     const newAutoplay = !autoplay;
     setAutoplay(newAutoplay);
     if (sliderRef.current) {
-      // Check if ref is set
       if (newAutoplay) {
         sliderRef.current.slickPlay();
       } else {
@@ -105,8 +111,6 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
 
   return (
     <div className="w-full overflow-hidden rounded-md relative">
-      {" "}
-      {/* Added relative */}
       <SliderComponent ref={sliderRef} {...settings}>
         {slides.map((slide, index) => (
           <div key={`${slide.imageUrl}-${slide.title}`} className="relative">
