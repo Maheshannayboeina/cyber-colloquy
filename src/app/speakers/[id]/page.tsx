@@ -4,12 +4,10 @@ import Image from 'next/image';
 import { speakerData } from '@/components/speakers-data';
 import { FaLinkedin } from 'react-icons/fa'; // Import LinkedIn icon
 
-// Define the Params interface
 interface Params {
   id: string;
 }
 
-//  Define PageProps using the Params interface.  No need for a separate interface.
 interface PageProps {
   params: Params;
 }
