@@ -1,26 +1,15 @@
-//src/components/HeroCarousel.tsx
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HeroBanner } from "./HeroBanner";
 import { FaPause, FaPlay } from "react-icons/fa";
-import Slider, { Settings } from "react-slick";
+import { Settings } from "react-slick";
 
-// Dynamically import react-slick with forwardRef support
-const SliderComponent = dynamic<Settings>(
-  () =>
-    import("react-slick").then((mod) => {
-      // Wrap the default export with forwardRef
-      const SlickWithRef = React.forwardRef<Slider, Settings>((props, ref) => {
-        return <mod.default ref={ref} {...props} />;
-      });
-      SlickWithRef.displayName = "SlickWithRef";
-      return SlickWithRef;
-    }),
-  { ssr: false }
-);
+const SliderComponent = dynamic(() => import("react-slick"), {
+  ssr: false,
+});
 
 interface HeroSlide {
   imageUrl: string;
@@ -40,7 +29,6 @@ interface HeroCarouselProps {
 const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
-  const sliderRef = useRef<Slider>(null);
   const [windowWidth, setWindowWidth] = useState(0);
 
   const updateWindowDimensions = () => {
@@ -65,7 +53,7 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
     autoplaySpeed: 3000,
     arrows: true,
     pauseOnHover: true,
-    beforeChange: (current: number, next: number) => setCurrentSlide(next),
+    beforeChange: (_: number, next: number) => setCurrentSlide(next),
     responsive: [
       {
         breakpoint: 1024,
@@ -98,20 +86,12 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
   };
 
   const toggleAutoplay = () => {
-    const newAutoplay = !autoplay;
-    setAutoplay(newAutoplay);
-    if (sliderRef.current) {
-      if (newAutoplay) {
-        sliderRef.current.slickPlay();
-      } else {
-        sliderRef.current.slickPause();
-      }
-    }
+    setAutoplay((prev) => !prev);
   };
 
   return (
     <div className="w-full overflow-hidden rounded-md relative">
-      <SliderComponent ref={sliderRef} {...settings}>
+      <SliderComponent {...settings}>
         {slides.map((slide, index) => (
           <div key={`${slide.imageUrl}-${slide.title}`} className="relative">
             <div className="h-[450px] lg:h-[600px]">

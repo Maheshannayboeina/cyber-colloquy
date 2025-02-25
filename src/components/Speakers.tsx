@@ -1,12 +1,14 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { speakerData } from '@/components/speakers-data';
-import { Container } from '@/components/Container'; // Import Container
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { speakerData } from "@/components/speakers-data";
+import { Container } from "@/components/Container"; // Import Container
 
 export const Speakers = () => {
   return (
-    <Container className="py-12"> {/* Use Container for padding and responsiveness */}
+    <Container className="py-12">
+      {" "}
+      {/* Use Container for padding and responsiveness */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {speakerData.map((speaker) => (
           <Link href={`/speakers/${speaker.id}`} key={speaker.id} passHref>
@@ -21,14 +23,18 @@ export const Speakers = () => {
                   <Image
                     src={speaker.imageUrl}
                     alt={speaker.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-opacity duration-300 group-hover:opacity-80"
+                    fill
+                    className="rounded-2xl object-cover"
+                    priority
                   />
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-100 text-center mb-1 sm:mb-2">{speaker.name}</h3>
-                <p className="text-gray-300 text-center text-sm sm:text-base">{speaker.title}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-100 text-center mb-1 sm:mb-2">
+                  {speaker.name}
+                </h3>
+                <p className="text-gray-300 text-center text-sm sm:text-base">
+                  {speaker.title}
+                </p>
               </div>
 
               {/* Animated Border (Bottom) -  Slightly thinner and faster transition */}

@@ -23,14 +23,16 @@ const partners: Partner[] = [
     description: "Specializes in network security.",
     imageUrl: "/img/v4web.png",
   },
-  { name: "COE", 
+  {
+    name: "COE",
     description: "A leading tech company.",
-    imageUrl: "/img/coe.png" 
+    imageUrl: "/img/coe.png",
   },
-  { name: "CyberBaap", 
+  {
+    name: "CyberBaap",
     description: "A leading tech company.",
-    imageUrl: "/img/cyberbaap.png" 
-  }
+    imageUrl: "/img/cyberbaap.png",
+  },
 ];
 
 const PartnersPage: React.FC = () => {
@@ -71,8 +73,9 @@ const PartnersPage: React.FC = () => {
                     <Image
                       src={partner.imageUrl}
                       alt={partner.name}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      className="rounded-2xl object-cover"
+                      priority
                     />
                   </div>
                 )}

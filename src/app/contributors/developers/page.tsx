@@ -109,9 +109,8 @@ const DevelopersPage: React.FC = () => {
               <Image
                 src={developer.imageUrl}
                 alt={developer.name}
-                layout="fill"
-                objectFit="cover"
-                className="absolute top-0 left-0 w-full h-full"
+                fill
+                className="rounded-2xl object-cover"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
