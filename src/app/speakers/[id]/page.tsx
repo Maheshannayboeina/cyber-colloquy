@@ -4,15 +4,15 @@ import Image from 'next/image';
 import { speakerData } from '@/components/speakers-data';
 import { FaLinkedin } from 'react-icons/fa'; // Import LinkedIn icon
 
+// Define the Params interface
 interface Params {
   id: string;
 }
 
-// Correct PageProps definition
+//  Define PageProps using the Params interface.  No need for a separate interface.
 interface PageProps {
   params: Params;
 }
-
 
 export default function SpeakerPage({ params }: PageProps) {
   const { id } = params;
@@ -42,6 +42,7 @@ export default function SpeakerPage({ params }: PageProps) {
                   layout="fill"
                   objectFit="cover"
                   className="rounded-2xl"
+                  priority // Add priority for improved performance, especially for above-the-fold images
                 />
               </div>
             </div>
