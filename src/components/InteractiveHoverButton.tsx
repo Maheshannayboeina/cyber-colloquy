@@ -4,34 +4,34 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils";
 
-// Define the props we want to ACCEPT, excluding conflicting event handlers
+// Define the props, including buttonColor and textColor
 interface InteractiveHoverButtonProps {
   children: React.ReactNode;
   className?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>; // Explicitly type onClick
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
-  // Add other props you *want* to allow here (e.g., style, id,  etc.)
-  // ... but DO NOT include onDrag, onDragStart, etc.
+  buttonColor?: string; // Button color prop
+  textColor?: string;   // Text color prop
 }
 
 const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
->(({ children, className, onClick, disabled, ...props }, ref) => { // Destructure onClick
+>(({ children, className, onClick, disabled, buttonColor = '#00008B', textColor = '#ffffff', ...props }, ref) => {
   return (
     <motion.button
       ref={ref}
       className={cn(
-        "px-6 py-3 text-white bg-blue-600 rounded-full font-semibold transition-colors duration-200",
-        "hover:bg-blue-700",
+        "px-6 py-3 rounded-full font-semibold transition-colors duration-200", // Removed bg-blue-600 and text-white
         className
       )}
-      whileHover={{ scale: 1.05 }}
+      style={{ backgroundColor: buttonColor, color: textColor }} // Use dynamic styles
+      whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: buttonColor }} // Invert on hover
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      onClick={onClick} // Pass onClick explicitly
+      onClick={onClick}
       disabled={disabled}
-      {...props} // Spread any *other* allowed props
+      {...props}
     >
       {children}
     </motion.button>
