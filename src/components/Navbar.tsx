@@ -215,7 +215,7 @@ export const Navbar = ({
           {/* Logo Section - Responsive Adjustments */}
           <div className="flex items-center justify-between w-full xl:w-auto xl:mr-2 xl:mb-0">
             {/* New Logo - Always on the Left */}
-            <Link
+            {/* <Link
               href="https://www.sakec.ac.in/cyse/"
               className="flex items-center"
               target="_blank"
@@ -227,7 +227,7 @@ export const Navbar = ({
                 alt="SAKEC"
                 className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain max-h-[40px] sm:max-h-[60px]"
               />
-            </Link>
+            </Link> */}
 
             {/* Cyber Colloquy Logo - Centered on Mobile */}
             <Link

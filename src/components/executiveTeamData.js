@@ -105,7 +105,7 @@ const executiveTeamData = [
     year: "Second Year", // Add Year if available
     team: "Sports & Infra Team",
     linkedin: "https://www.linkedin.com/in/swayam-poojari-6828b027a/", // Add LinkedIn profile URL if available
-    image: "/img/executive-team/swayam-poojari.png", // Replace with actual image path
+    image: "/img/executive-team/swayam.jpg", // Replace with actual image path
   },
   {
     category: "Core Committee",
