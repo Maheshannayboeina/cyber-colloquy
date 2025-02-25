@@ -79,7 +79,7 @@ export default function EventDetailsPage() {
               <Image
                 src={event.images[0]}
                 alt={event.title}
-                sizes="(max-width: 768px) 100vw, 95vw" // Simplified sizes - THIS IS KEY
+                sizes="(max-width: 768px) 100vw, 100vw" // Simplified sizes - THIS IS KEY
                 priority
                 className="object-cover md:object-contain md:max-w-full mx-auto" // md:max-w-full - THIS IS KEY
                 width={1920} // Replace with your image's actual width
