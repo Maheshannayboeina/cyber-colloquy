@@ -26,7 +26,7 @@ export function Footer() {
           <div className="w-full md:w-1/2 lg:w-1/4">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/img/favicon4.png"
+                src="/img/favicon_r.png"
                 alt="Cyber Events"
                 width={180}
                 height={40}

@@ -1,30 +1,24 @@
-import React from "react";
-import Image from "next/image";
-import { speakerData } from "@/components/speakers-data";
-import { FaLinkedin } from "react-icons/fa";
-import { Container } from "@/components/Container"; // Import Container
+import React from 'react';
+import Image from 'next/image';
+import { speakerData } from '@/components/speakers-data';
+import { FaLinkedin } from 'react-icons/fa';
+import { Container } from '@/components/Container';
 
 interface PageProps {
-  params: {
-    // Directly define params structure here
-    id: string;
-  };
+  params: Promise<{ id: string }>; // Make params a Promise
 }
 
-export default function SpeakerPage({ params }: PageProps) {
-  const { id } = params;
+// Async function that awaits params
+export default async function SpeakerPage({ params }: PageProps) {
+  const { id } = await params; // Await params before destructuring
   const speaker = speakerData.find((speaker) => speaker.id === id);
 
   if (!speaker) {
     return (
       <Container className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-            Speaker Not Found
-          </h1>
-          <p className="text-gray-400">
-            Sorry, the speaker you are looking for could not be found.
-          </p>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4">Speaker Not Found</h1>
+          <p className="text-gray-400">Sorry, the speaker you are looking for could not be found.</p>
         </div>
       </Container>
     );
@@ -39,23 +33,16 @@ export default function SpeakerPage({ params }: PageProps) {
               <Image
                 src={speaker.imageUrl}
                 alt={speaker.name}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-2xl"
+                fill // Use "fill" instead of legacy "layout"
+                className="rounded-2xl object-cover" // Use object-cover with Tailwind for object fitting
                 priority
               />
             </div>
           </div>
           <div className="md:w-2/3 p-6 sm:p-8">
-            <h1 className="text-3xl sm:text-4xl font-semibold text-gray-100 mb-3 sm:mb-4">
-              {speaker.name}
-            </h1>
-            <h2 className="text-lg sm:text-xl text-gray-300 mb-3 sm:mb-4">
-              {speaker.title}
-            </h2>
-            <p className="text-gray-200 leading-relaxed mb-5 sm:mb-6">
-              {speaker.description}
-            </p>
+            <h1 className="text-3xl sm:text-4xl font-semibold text-gray-100 mb-3 sm:mb-4">{speaker.name}</h1>
+            <h2 className="text-lg sm:text-xl text-gray-300 mb-3 sm:mb-4">{speaker.title}</h2>
+            <p className="text-gray-200 leading-relaxed mb-5 sm:mb-6">{speaker.description}</p>
             {speaker.linkedinUrl && (
               <a
                 href={speaker.linkedinUrl}
