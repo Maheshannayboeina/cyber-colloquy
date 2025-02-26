@@ -1,4 +1,4 @@
-// src/data/speaker-data.js
+// src/components/speakers-data.js
 export const speakerData = [
     {
       id: "dineshbareja", // Unique ID (used in URL)
@@ -12,7 +12,7 @@ export const speakerData = [
     {
       id: "shweta-tripathi", // Unique ID (used in URL)
       name: "Ms. Shweta Tripathi",
-      title: "Sr. Manager",
+      title: "Sr. Manager at TataAIA",
       imageUrl: "/img/speakers/shweta-tripathi-r.jpg",
       
       description: "Sr. Manager at TataAIA with 7+ years in Cybersecurity, Third Party Risk Management, and Auditing. Experienced in ISMS, Cyber Crisis Drills, and Cyber War Games, with certifications in CEM, CHFI, ISO 27001, CISM, and CISSP. Currently pursuing a PhD in Computer Engineering and aiming for a future career in cybersecurity across Canada, Australia, and the USA.", // New description field
@@ -33,7 +33,7 @@ export const speakerData = [
       id: "v4web", // Unique ID (used in URL)
       name: "Ritesh Bhatia",
       title: "Board Committee Member, Founder - V4WEB",
-      imageUrl: "/img/speakers/ritesh-bhatia-r.jpg",
+      imageUrl: "/img/board-members/ritesh-bhatia.jpg",
       
       description: "Ritesh Bhatia, a Cybercrime Investigator, Cybersecurity & Data Privacy Consultant, and Certified Fraud Examiner (USA), with 20 years of experience, is a TEDx speaker, board committee member, and trainer for top organizations, specializing in cybercrime investigations, security audits, and digital forensics.", // New description field
       linkedinUrl: "https://www.linkedin.com/in/v4web/",

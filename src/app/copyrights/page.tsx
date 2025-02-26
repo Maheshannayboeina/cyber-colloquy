@@ -1,10 +1,8 @@
+//src/app/copyrights/page.tsx
 "use client";
-
-import { useState } from "react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
-import { ExpandableCard } from "@/components/expandable-card";
-import { copyrightsData } from "@/components/CopyrightsData"; // Import Copyrights Data
+import React, { useState, useMemo } from "react";
 import {
   Pagination,
   PaginationContent,
@@ -13,62 +11,39 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import React from "react"; // Import React
+import { copyrightsData } from "@/components/CopyrightsData"; // Updated import path for copyrightsData
+
+type Copyright = { // Define a type for Copyright data
+  sNo: number;
+  diaryNo: string;
+  applicantName: string[];
+  titleOfWork: string;
+  departmentName: string;
+  status: string;
+  copyrightCertificateReceivedDate: string;
+  rocNumber: string;
+  dateAppliedForCopyright: string;
+  ay: string;
+  shortDescription?: string;
+};
 
 const ITEMS_PER_PAGE = 6;
 
-// Format copyrights data to match ExpandableCard's expected format
-const formattedCopyrights = copyrightsData.map((copyright, index) => {
-  const applicantNames = copyright.applicantName.join(", "); // Join applicant names into a string
-  const dateApplied = new Date(
-    copyright.dateAppliedForCopyright
-  ).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  }); // Format date
-
-  return {
-    key: index,
-    title: copyright.titleOfWork,
-    description: `Diary No: ${copyright.diaryNo} | AY: ${copyright.ay}`, // Combine Diary No and AY for description
-    src: "/img/copyright-placeholder.svg?height=400&width=600", // Placeholder image for copyrights, you can create copyright-placeholder.svg in public/img or use a generic one
-    date: `Applied Date: ${dateApplied}`, // Display formatted applied date
-    content: () => (
-      // Changed to return a function that returns JSX
-      <div className="space-y-4">
-        <p>
-          <strong>Applicant Name(s):</strong> {applicantNames}
-        </p>
-        <p>
-          <strong>Department:</strong> {copyright.departmentName}
-        </p>
-        <p>
-          <strong>Status:</strong> {copyright.status}
-        </p>
-        <p>
-          <strong>Copyright Certificate Received Date:</strong>{" "}
-          {copyright.copyrightCertificateReceivedDate
-            ? new Date(
-                copyright.copyrightCertificateReceivedDate
-              ).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })
-            : "N/A"}
-        </p>
-        <p>
-          <strong>ROC Number:</strong> {copyright.rocNumber}
-        </p>
-      </div>
-    ),
-  };
-});
-
 export default function CopyrightsPage() {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(formattedCopyrights.length / ITEMS_PER_PAGE);
+
+  const copyrights = useMemo(() => copyrightsData as Copyright[], []); // Use copyrightsData directly and type it
+
+  const totalPages = useMemo(
+    () => Math.ceil(copyrights.length / ITEMS_PER_PAGE),
+    [copyrights.length]
+  );
+
+  const paginatedCopyrights = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return copyrights.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [currentPage, copyrights]);
 
   return (
     <Container>
@@ -80,15 +55,68 @@ export default function CopyrightsPage() {
         showcasing our innovative and creative works.
       </SectionTitle>
 
-      <div className="mt-12 space-y-8">
-        <ExpandableCard
-          cards={formattedCopyrights}
-          currentPage={currentPage}
-          itemsPerPage={ITEMS_PER_PAGE}
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8">
+        {paginatedCopyrights.map((copyright, index) => (
+          <div
+            key={copyright.sNo}
+            className="bg-gray-800/30 hover:bg-gray-800/80 shadow-md rounded-lg p-4 sm:p-6 transition-all duration-300 hover:shadow-lg"
+            onMouseEnter={() => setHoveredCard(index)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="flex flex-col h-full">
+              <h3
+                className={`font-bold text-white text-lg sm:text-xl mb-2 transition-colors duration-300 ${
+                  hoveredCard === index ? "text-indigo-400" : ""
+                }`}
+              >
+                {copyright.titleOfWork}
+              </h3>
+              <p className="text-sm sm:text-base text-gray-400 mb-2 sm:mb-4 line-clamp-2">
+                {copyright.shortDescription}
+              </p>
+              {hoveredCard === index && (
+                <div className="mt-auto">
+                  <p className="text-gray-400 text-sm sm:text-base mb-1">
+                    <span className="font-semibold text-gray-300">
+                      Applicant Name(s):
+                    </span>
+                    {copyright.applicantName.join(", ") || "N/A"}
+                  </p>
+                  <p className="text-gray-400 text-sm sm:text-base mb-1">
+                    <span className="font-semibold text-gray-300">
+                      Department:
+                    </span>
+                    {copyright.departmentName || "N/A"}
+                  </p>
+                  <p className="text-gray-400 text-sm sm:text-base mb-1">
+                    <span className="font-semibold text-gray-300">
+                      Status:
+                    </span>
+                    {copyright.status || "N/A"}
+                  </p>
+                  <p className="text-gray-400 text-sm sm:text-base mb-1">
+                    <span className="font-semibold text-gray-300">
+                      Certificate Date:
+                    </span>
+                    {copyright.copyrightCertificateReceivedDate
+                      ? new Date(copyright.copyrightCertificateReceivedDate).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })
+                      : "N/A"}
+                  </p>
+                  <p className="text-gray-400 text-sm sm:text-base">
+                    <span className="font-semibold text-gray-300">
+                      ROC Number:
+                    </span>
+                    {copyright.rocNumber || "N/A"}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
 
-        {/* Responsive Pagination */}
-        <div className="flex justify-center">
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-6 sm:mt-8">
           <Pagination>
             <PaginationContent>
               <PaginationItem>
@@ -101,69 +129,19 @@ export default function CopyrightsPage() {
                   }
                 />
               </PaginationItem>
-
-              {/* Dynamic Pagination Links - Show fewer on small screens */}
-              {totalPages <= 7 ? ( // Show all if few pages
-                [...Array(totalPages)].map((_, i) => (
-                  <PaginationItem key={i}>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <PaginationItem key={page}>
                     <PaginationLink
-                      onClick={() => setCurrentPage(i + 1)}
-                      isActive={currentPage === i + 1}
+                      onClick={() => setCurrentPage(page)}
+                      isActive={currentPage === page}
                       className="cursor-pointer"
                     >
-                      {i + 1}
+                      {page}
                     </PaginationLink>
                   </PaginationItem>
-                ))
-              ) : (
-                <>
-                  {/* Show first, last, current, and adjacent pages */}
-                  <PaginationItem>
-                    <PaginationLink
-                      onClick={() => setCurrentPage(1)}
-                      isActive={currentPage === 1}
-                      className="cursor-pointer"
-                    >
-                      1
-                    </PaginationLink>
-                  </PaginationItem>
-
-                  {currentPage > 2 && <PaginationItem>...</PaginationItem>}
-
-                  {/* Show current and adjacent pages */}
-                  {[...Array(3)].map((_, i) => {
-                    const page = currentPage - 1 + i;
-                    if (page > 1 && page < totalPages) {
-                      return (
-                        <PaginationItem key={page}>
-                          <PaginationLink
-                            onClick={() => setCurrentPage(page)}
-                            isActive={currentPage === page}
-                            className="cursor-pointer"
-                          >
-                            {page}
-                          </PaginationLink>
-                        </PaginationItem>
-                      );
-                    }
-                    return null;
-                  })}
-
-                  {currentPage < totalPages - 1 && (
-                    <PaginationItem>...</PaginationItem>
-                  )}
-                  <PaginationItem>
-                    <PaginationLink
-                      onClick={() => setCurrentPage(totalPages)}
-                      isActive={currentPage === totalPages}
-                      className="cursor-pointer"
-                    >
-                      {totalPages}
-                    </PaginationLink>
-                  </PaginationItem>
-                </>
+                )
               )}
-
               <PaginationItem>
                 <PaginationNext
                   onClick={() =>
@@ -179,7 +157,7 @@ export default function CopyrightsPage() {
             </PaginationContent>
           </Pagination>
         </div>
-      </div>
+      )}
     </Container>
   );
 }

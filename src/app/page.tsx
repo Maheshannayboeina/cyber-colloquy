@@ -38,7 +38,7 @@ export default function Home() {
     },
     {
       imageUrl: "/img/banners/register-r.png",
-      title: "Industry Attendies",
+      title: "Industry Attendees",
       tagline: "Your Knowledge. Our Platform. The Future.",
       dateWithLocation: "22 March 2025, 9 am-5pm | 7th floor auditorium, SAKEC",
       button1Text: "Register Now!",

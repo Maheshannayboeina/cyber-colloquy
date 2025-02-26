@@ -11,7 +11,7 @@ export const Speakers = () => {
     <Container className="py-12">
       {" "}
       {/* Use Container for padding and responsiveness */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {speakerData.map((speaker) => (
           <Link href={`/speakers/${speaker.id}`} key={speaker.id} passHref>
             <div className="group relative overflow-hidden rounded-2xl bg-gray-900/80 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">

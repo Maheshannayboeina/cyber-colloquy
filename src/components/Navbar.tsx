@@ -1,3 +1,4 @@
+// src/components/Navbar.tsx
 "use client";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +12,7 @@ interface NavItem {
   Target?: string;
 }
 
-// (navigationData remains the same - no changes needed there)
+// (navigationData remains the same - no changes needed there except for "Contact" href)
 const navigationData = {
   topNavigation: [
     {
@@ -40,7 +41,7 @@ const navigationData = {
       href: "#",
       dropdown: [
         { label: "Register", href: "/cyber-colloquy-4.0" },
-        { label: "Industry Attendies", href: "/industry-professional" },
+        { label: "Industry Attendees", href: "/industry-professional" },
         { label: "Project Expo", href: "/project-expo" },
         { label: "Call for sponsors", href: "/sponsor" },
         { label: "Award Ceremony", href: "/awards" },
@@ -98,7 +99,7 @@ const navigationData = {
       href: "#",
       dropdown: [
         { label: "General Inquiries", href: "/inquiries" },
-        { label: "Contact", href: "#contact" },
+        { label: "Contact", href: "#footer" }, // Changed href to #footer
         { label: "FAQs", href: "/faq" },
         { label: "Feedback", href: "/feedback" },
       ],

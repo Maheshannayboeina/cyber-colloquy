@@ -205,7 +205,7 @@ const PhishingAttackRecognizer: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-trueGray-900 p-4">
+    <div className="**bg-black** flex flex-col items-center justify-center min-h-screen p-4"> {/* Added bg-black class here */}
       <div className="bg-gray-800 rounded-lg shadow-md p-8 w-full max-w-2xl">
         <h2 className="text-3xl font-bold mb-6 text-gray-200 text-center">
           Phishing Attack Recognizer

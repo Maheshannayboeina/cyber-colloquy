@@ -25,7 +25,7 @@ const boardMembers: BoardMember[] = [
     name: "Mr. Ritesh Bhatia",
     role: "Founding Director",
     bio: "V4WEB Cybersecurity",
-    image: "/img/board-members/ritesh-bhatia.png",
+    image: "/img/board-members/ritesh-bhatia.jpg",
     link: "https://www.linkedin.com/in/v4web?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bvo%2BWIfBqS8qyo05zLIwXvg%3D%3D",
   },
   {

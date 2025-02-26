@@ -37,7 +37,7 @@ const contributors: Contributor[] = [
   {
     name: "Mr. Ritesh Bhatia",
     role: "Founding Director, V4Web",
-    imageUrl: "/img/board-members/ritesh-bhatia.png",
+    imageUrl: "/img/board-members/ritesh-bhatia.jpg",
     linkedinUrl: "https://www.linkedin.com/in/v4web/",
   },
   {

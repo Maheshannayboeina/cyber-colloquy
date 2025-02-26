@@ -16,7 +16,7 @@ export function Footer() {
   // const legal = ["Terms", "Privacy", "Legal"]; // Removed per initial request; easily added back
 
   return (
-    <footer className="bg-gradient-to-t from-blue-700 to-purple-1000 py-10">
+    <footer className="bg-gradient-to-t from-blue-700 to-purple-1000 py-10" id="footer"> {/* Added id="footer" to the footer element */}
       <Container>
         {/* --- Horizontal Line - Correct Placement and Styling --- */}
         <div className="border-t border-gray-100 pt-10 mt-5" />
@@ -100,7 +100,7 @@ export function Footer() {
               <p>Cyber Security Department,</p>
               <p>Shah & Anchor Kutchhi Engineering College,</p>
               <p>Mahavir Education Trust Chowk, W.T Patil Marg, D P Rd,</p>
-              <p>next to Duke&apos;s Company, Chembur,</p>
+              <p>next to Duke's Company, Chembur,</p>
               <p>Mumbai, Maharashtra 400088</p>
             </address>
             <div className="mt-4 text-sm text-gray-50">
