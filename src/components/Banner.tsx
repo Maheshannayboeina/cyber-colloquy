@@ -1,81 +1,28 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 
 const Banner = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const [gradientPosition, setGradientPosition] = useState(0);
-  const bannerRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number | null>(null);
-  const duration = 20000;
-
-  const animateGradient = useCallback(
-    (timestamp: number) => {
-      const startTime =
-        animationFrameRef.current === null
-          ? timestamp
-          : animationFrameRef.current;
-      const progress = (timestamp - startTime) / duration;
-      const position = progress % 1;
-      setGradientPosition(position);
-      animationFrameRef.current = requestAnimationFrame(animateGradient);
-    },
-    [duration]
-  );
 
   const handleClose = () => {
     setIsVisible(false);
   };
-
-  useEffect(() => {
-    if (isVisible && bannerRef.current) {
-      animationFrameRef.current = requestAnimationFrame(animateGradient);
-    }
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-        animationFrameRef.current = null;
-      }
-    };
-  }, [isVisible, animateGradient]);
-
-  const gradientStyle = {
-    backgroundImage: `linear-gradient(270deg, #7F00FF ${
-      gradientPosition * 100
-    }%, #00BFFF)`,
-    backgroundSize: "200% 200%",
-    backgroundPosition: `${gradientPosition * 100}% 50%`,
-    transition: "background-position 0.1s linear",
-  } as React.CSSProperties;
 
   if (!isVisible) {
     return null;
   }
 
   return (
-    <div className="relative overflow-hidden" ref={bannerRef}>
+    <div className="relative overflow-hidden">
       <div
-        style={gradientStyle}
-        className="text-white py-2 px-2 sm:py-3 sm:px-4 flex items-center justify-center gap-1 sm:gap-4 flex-wrap sm:flex-nowrap" // Responsive adjustments here
+        className="text-white flex justify-center items-center" // Adjusted classes for image banner
       >
-        <p className="text-sm text-center sm:text-left">
-          Join us for Cyber Colloquy 4.0!
-        </p>
-        <div className="flex gap-1 sm:gap-4"> {/* Container for buttons */}
-          <Link
-            href="/events/4"
-            className="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold hover:bg-gray-200 whitespace-nowrap" // whitespace-nowrap added
-          >
-            Know More
-          </Link>
-          <Link
-            href="/cyber-colloquy-4.0"
-            className="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold hover:bg-gray-200 whitespace-nowrap" // whitespace-nowrap added
-          >
-            Register
-          </Link>
-        </div>
+        <img
+          src="/img/colloquy4.0.png" // Replace with your image path
+          alt="Banner Image"
+          className="w-full h-auto block" // Make image responsive and block
+        />
       </div>
       <button
         onClick={handleClose}

@@ -22,15 +22,15 @@ export default function Home() {
       button1Text: "Register Now!",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSdYuWWmDu1T3Z2hQG3Kgd6EFZjFqp4yM0hC__ITg4cWiGgSmA/viewform", // REPLACE WITH ACTUAL FORM
-      button2Text: "Learn More",
+      button2Text: "Know More",
       button2Href: "/cyber-colloquy-4.0",
     },
     {
       imageUrl: "/img/banners/project-expo-r.png",
-      title: "Project Expo",
-      tagline: "Skill Up | Protect | Advance",
-      dateWithLocation: "Nov 15, 2024 | SAKEC Campus",
-      button1Text: "Submit Project",
+      title: "Project Demonstration",
+      tagline: "Innovate, Inspire, Impact!",
+      dateWithLocation: "22 March 2025, 3-5pm| Ground Floor Foyer, SAKEC (temporary location)",
+      button1Text: "Register now",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSdBTjPJH0DuFrrSB82Yl5ml492VlWNvLTUIhytKa5dDPLADGw/viewform",
       button2Text: "Explore More",
@@ -39,9 +39,9 @@ export default function Home() {
     {
       imageUrl: "/img/banners/register-r.png",
       title: "Industry Attendies",
-      tagline: "Insights | Knowledge | Future",
-      dateWithLocation: "Various Dates | Online & In-Person",
-      button1Text: "Register",
+      tagline: "Your Knowledge. Our Platform. The Future.",
+      dateWithLocation: "22 March 2025, 9 am-5pm | 7th floor auditorium, SAKEC",
+      button1Text: "Register Now!",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSeyCMCsyvNd7BGoc4dKr0dK502KjHMaaX-Lf3eAivj6zOp-EQ/viewform", // REPLACE
       button2Text: "Know More",
@@ -50,23 +50,23 @@ export default function Home() {
     {
       imageUrl: "/img/banners/1-r.png",
       title: "Call For Sponsors",
-      tagline: "Connect | Collaborate | Grow",
-      dateWithLocation: "Ongoing | Contact Us",
+      tagline: "Elevate Your Impact—Sponsor Today!",
+      dateWithLocation: "21st to 24th march 9am to 5pm",
       button1Text: "Sponsor Us",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSfXwcZcd9M2TJt_1DkiSwYw3VgqSnndl00fmOU1OcF1kCgK5Q/viewform", // REPLACE
-      button2Text: "Join Community",
+      button2Text: "Explore More",
       button2Href: "/sponsor",
     },
     {
       imageUrl: "/img/banners/2-r.png",
       title: "Award Nominations",
-      tagline: "Inform | Secure | Vigilant",
-      dateWithLocation: "Deadline: Dec 1, 2024",
-      button1Text: "Nominate",
+      tagline: "Help Us Recognize the Visionaries Shaping the Industry, Nominate now!",
+      dateWithLocation: "Deadline : March 15, 2025, Award Ceremony : 23rd March 2025, 9am to 5pm| 7th floor/4th floor auditorium, SAKEC",
+      button1Text: "Nominate Now",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSenClnGM83nkAYG-wc1y8ROuQwddD4cXVuHq4DIsrbQrNpZhg/viewform", // REPLACE
-      button2Text: "Explore",
+      button2Text: "Explore More",
       button2Href: "/awards",
     },
   ];
