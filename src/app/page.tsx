@@ -152,7 +152,12 @@ export default function Home() {
             </SectionTitle>
             <Faq />
           </section> */}
-          <AboutUs />
+          <section>
+            <SectionTitle preTitle="About" title="Cyber Colloquy">
+              Learn more about our mission, values, and the vision behind our events.
+            </SectionTitle>
+            <AboutUs />
+          </section>
           {/* <section>
              <Cta />
           </section> */}

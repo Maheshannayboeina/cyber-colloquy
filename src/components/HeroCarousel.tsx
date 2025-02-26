@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,9 +7,10 @@ import { HeroBanner } from "./HeroBanner";
 import { FaPause, FaPlay } from "react-icons/fa";
 import { Settings } from "react-slick";
 
+// Cast to any to allow ref usage with react-slick
 const SliderComponent = dynamic(() => import("react-slick"), {
   ssr: false,
-});
+}) as any;
 
 interface HeroSlide {
   imageUrl: string;
@@ -29,69 +30,69 @@ interface HeroCarouselProps {
 const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
-  const [windowWidth, setWindowWidth] = useState(0);
+  const sliderRef = useRef<any>(null);
 
-  const updateWindowDimensions = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", updateWindowDimensions);
-    return () => window.removeEventListener("resize", updateWindowDimensions);
-  }, []);
-
-  const settings: Settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: autoplay,
-    autoplaySpeed: 3000,
-    arrows: true,
-    pauseOnHover: true,
-    beforeChange: (_: number, next: number) => setCurrentSlide(next),
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
+  const sliderSettings: Settings = useMemo(
+    () => ({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: autoplay,
+      autoplaySpeed: 3000,
+      arrows: true,
+      pauseOnHover: true,
+      // Optional: Uncomment the following line if your slides have heavy images
+      // lazyLoad: "ondemand",
+      beforeChange: (_: number, next: number) => setCurrentSlide(next),
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true,
+          },
         },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-          arrows: false,
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: false,
+          },
         },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: false,
-          arrows: false,
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+          },
         },
-      },
-    ],
-  };
+      ],
+    }),
+    [autoplay]
+  );
 
   const toggleAutoplay = () => {
+    if (sliderRef.current) {
+      if (autoplay) {
+        sliderRef.current.slickPause();
+      } else {
+        sliderRef.current.slickPlay();
+      }
+    }
     setAutoplay((prev) => !prev);
   };
 
   return (
     <div className="w-full overflow-hidden rounded-md relative">
-      <SliderComponent {...settings}>
+      <SliderComponent ref={sliderRef} {...sliderSettings}>
         {slides.map((slide, index) => (
           <div key={`${slide.imageUrl}-${slide.title}`} className="relative">
             <div className="h-[450px] lg:h-[600px]">

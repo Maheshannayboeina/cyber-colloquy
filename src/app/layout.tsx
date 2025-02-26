@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   title: "Cyber Security",
   description: "Cyber security",
   icons: {
-    icon: "/img/favicon2.png",
-    shortcut: "/img/favicon2.png",
+    icon: "/img/favicon.png",
+    shortcut: "/img/favicon.png",
   },
 };
 

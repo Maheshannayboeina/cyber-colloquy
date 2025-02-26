@@ -9,24 +9,24 @@ const Banner = () => {
     setIsVisible(false);
   };
 
-  if (!isVisible) {
-    return null;
-  }
+  if (!isVisible) return null;
 
   return (
-    <div className="relative overflow-hidden">
-      <div
-        className="text-white flex justify-center items-center" // Adjusted classes for image banner
-      >
+    <div className="relative overflow-hidden w-full">
+      {/* Banner Image */}
+      <div className="text-white flex justify-center items-center">
         <img
-          src="/img/colloquy4.0.png" // Replace with your image path
+          src="/img/top-banner.png" // Replace with your actual banner path
           alt="Banner Image"
-          className="w-full h-auto block" // Make image responsive and block
+          className="w-full h-auto block object-cover"
         />
       </div>
+
+      {/* Close Button (top-right) */}
       <button
         onClick={handleClose}
-        className="text-white hover:text-gray-300 absolute right-2 top-1/2 -translate-y-1/2 sm:right-4 focus:outline-none"
+        className="absolute z-10 top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-gray-300 focus:outline-none"
+        aria-label="Close Banner"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ const Banner = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-4 h-4 sm:w-5 sm:h-5"
+          className="w-5 h-5"
         >
           <path
             strokeLinecap="round"
