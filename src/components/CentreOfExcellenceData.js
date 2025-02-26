@@ -1,16 +1,30 @@
 // CentreOfExcellenceData.js
 
-export const coeFacultyMembers = []; // ... (faculty data if any)
+export const coeFacultyMembers = [
+  {
+    name: "Major Vineet Kumar",
+    role: "Founder & Global President CyberPeace Foundation",
+    image: "/img/board-members/vineet-kumar.png",
+    bio: "Specializes in ethical hacking and digital forensics. Leads the Cybercrime Research Lab.",
+  },
+    {
+      name: "Dr. Nilakshi Jain",
+      role: "HOD at Cyber Security Department, SAKEC",
+      image: "/img/COE/Nilakshi-jain.jpg",
+      bio: "Expert in network security and cryptography. Passionate about teaching and research.",
+      //link: "/faculty/jane-doe",
+    },
+  ];
 
 export const coeCoordinators = [
     {
         category: "CoE Coordinators",
-        name: "Shubham Kolashkar",
+        name: "Shubham Kolaskar",
         designation: "Co-ordinators",
         year: "Third Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/shubham-kolaskar/", // Add LinkedIn profile URL if available
-        image: "/img/executive-team/shubham-kolashkar-coe.png", // Replace with actual image path (consider different image if needed)
+        image: "/img/executive-team/shubham-kolaskar.jpg", // Replace with actual image path (consider different image if needed)
       },
       {
         category: "CoE Coordinators",
@@ -37,13 +51,13 @@ export const coeCoordinators = [
         year: "Third Year", // Add Year if available
         team: "CoE",
         linkedin: "https://in.linkedin.com/in/architajainn", // Add LinkedIn profile URL if available
-        image: "/img/executive-team/archita-jain-coe.png", // Replace with actual image path (consider different image if needed)
+        image: "/img/executive-team/archita-jain.png", // Replace with actual image path (consider different image if needed)
       },
       {
         category: "CoE Coordinators",
         name: "Kayaan Billimoria",
         designation: "Co-coordinators",
-        year: "", // Add Year if available
+        year: "Second Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/kayaan-billimoria/", // Add LinkedIn profile URL if available
         image: "/img/executive-team/kayaan-billimoria.png", // Replace with actual image path (consider different image if needed)
@@ -52,7 +66,7 @@ export const coeCoordinators = [
         category: "CoE Coordinators",
         name: "Kushagra Tiwari",
         designation: "Co-coordinators",
-        year: "", // Add Year if available
+        year: "Second Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/kushagra-tiwari-8b942028b/", // Add LinkedIn profile URL if available
         image: "/img/executive-team/kushagra-tiwari.png", // Replace with actual image path (consider different image if needed)
@@ -61,10 +75,10 @@ export const coeCoordinators = [
         category: "CoE Coordinators",
         name: "Shamlaan Sayyed",
         designation: "Co-coordinators",
-        year: "", // Add Year if available
+        year: "Second Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/shamlaan-sayyed-2b566b313/", // Add LinkedIn profile URL if available
-        image: "/img/executive-team/shamlaan-sayyed.png", // Replace with actual image path (consider different image if needed)
+        image: "/img/executive-team/shamlaan-sayyed.jpeg", // Replace with actual image path (consider different image if needed)
       },
     
 ]; // ... (coordinator data if any)

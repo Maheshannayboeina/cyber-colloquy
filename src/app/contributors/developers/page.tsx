@@ -22,14 +22,14 @@ const developers: Developer[] = [
   {
     name: "Mahesh Annayboeina",
     role: "Frontend and Backend Developer", // More standard role
-    imageUrl: "/img/executive-team/mahesh-annayboeina.png",
+    imageUrl: "/img/executive-team/maheh-annayboeina.jpg",
     linkedinUrl: "https://www.linkedin.com/in/mahesh-annayboeina-06536428b/",
     githubUrl: "https://github.com/Maheshannayboeina",
   },
   {
     name: "Saahil Sawant",
     role: "Frontend and Backend Developer", // More standard role
-    imageUrl: "/img/executive-team/saahil-sawant.png",
+    imageUrl: "/img/executive-team/saahil-sawant.jpg",
     linkedinUrl: "https://www.linkedin.com/in/saahil-sawant-9b88b6302/",
     githubUrl: "https://github.com/Saahil-23",
   },
@@ -46,6 +46,13 @@ const developers: Developer[] = [
     imageUrl: "/img/executive-team/kashyap-gohil.png",
     linkedinUrl: "https://www.linkedin.com/in/kashyap-gohil-750153323/",
     githubUrl: "https://github.com/Kashyap290",
+  },
+  {
+    name: "Purva Nalawade",
+    role: "Content Editor", // More standard role
+    imageUrl: "/img/executive-team/purva-nalawade.png",
+    linkedinUrl: "https://www.linkedin.com/in/purva-arun-nalawade-532921315/",
+    githubUrl: "https://github.com/Nalawade-Purva",
   },
 ];
 
@@ -95,7 +102,7 @@ const DevelopersPage: React.FC = () => {
         variants={cardVariants}
         initial="hidden"
         animate={controls}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8"
       >
         {developers.map((developer, index) => (
           <motion.div

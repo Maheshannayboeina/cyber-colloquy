@@ -32,7 +32,7 @@ const AboutUs: React.FC = () => {
       transition={{ duration: 0.7 }}
       className="mb-12"  // Removed "text-center" so content is left-aligned
     >
-      <div className="text-base text-gray-200">{aboutUsContent}</div>
+      <div className="text-xl text-gray-200">{aboutUsContent}</div>
       <div className="mt-6 flex space-x-4 text-center justify-center">
         <InteractiveHoverButton onClick={() => window.location.href = "/department-info"}>
           Know More

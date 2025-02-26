@@ -2,7 +2,7 @@
 import React from "react";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
-import { TeacherCard } from "@/components/TeacherCard"; // Keep TeacherCard for Faculty if needed
+import { TeacherCard } from "@/components/TeacherCard"; // Corrected import here
 import { ProjectCard } from "@/components/ProjectCard";
 import { MemberCards } from "@/components/MemberCards"; // Import MemberCards!
 import { coeFacultyMembers, coeCoordinators, coeProjects } from "@/components/CentreOfExcellenceData"; // Import data
@@ -19,14 +19,19 @@ const CentresOfExcellencePage: React.FC = () => {
       </SectionTitle>
 
       <div className="bg-gray-800 p-8 rounded-lg shadow-md mb-8">
-
-        {/* COE Faculty Section (Keep if needed - TeacherCard will still work for faculty/coordinators if you populate data)
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-indigo-400 mb-5 border-b pb-2">
             CoE Faculty
-          </h2> */}
-          {/* ... (Faculty section using TeacherCard - if you have faculty data, you can render TeacherCard here) */}
-        {/* </section> */}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-5">
+            {coeFacultyMembers.map((teacher, index) => (
+              <TeacherCard
+                key={index}
+                teacher={teacher}
+              />
+            ))}
+          </div>
+        </section>
 
         {/* COE Coordinators Section (Using MemberCards now) */}
         <section className="mb-12">
