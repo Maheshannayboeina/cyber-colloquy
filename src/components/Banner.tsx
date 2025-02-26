@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 
 const Banner = () => {
@@ -15,9 +16,11 @@ const Banner = () => {
     <div className="relative overflow-hidden w-full">
       {/* Banner Image */}
       <div className="text-white flex justify-center items-center">
-        <img
+        <Image
           src="/img/top-banner.png" // Replace with your actual banner path
           alt="Banner Image"
+          width={1920}  // Set an appropriate width
+          height={600}  // Set an appropriate height
           className="w-full h-auto block object-cover"
         />
       </div>
