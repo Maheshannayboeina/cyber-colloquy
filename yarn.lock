@@ -2177,7 +2177,6 @@ __metadata:
     react-intersection-observer: "npm:^9.14.1"
     react-slick: "npm:^0.30.3"
     react-youtube: "npm:^10.1.0"
-    sharp: "npm:^0.33.5"
     slick-carousel: "npm:^1.8.1"
     tailwind-merge: "npm:^2.6.0"
     tailwindcss: "npm:^3.4.1"

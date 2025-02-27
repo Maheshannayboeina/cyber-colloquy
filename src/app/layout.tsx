@@ -12,8 +12,8 @@ import ClientLayout from "@/components/ClientLayout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cyber Security",
-  description: "Cyber security",
+  title: "Cyber Colloquy",
+  description: "Cyber Colloquy ",
   icons: {
     icon: "/img/favicon.png",
     shortcut: "/img/favicon.png",

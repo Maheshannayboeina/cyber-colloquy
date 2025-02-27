@@ -9,11 +9,15 @@ interface NavItem {
   label: string;
   href: string;
   dropdown?: NavItem[];
-  Target?: string;
+  target?: string;
 }
 
-// (navigationData remains the same - no changes needed there except for "Contact" href)
-const navigationData = {
+interface NavigationData {
+  topNavigation: NavItem[];
+  bottomNavigationItems: NavItem[];
+}
+
+const navigationData: NavigationData = {
   topNavigation: [
     {
       label: "About Us",
@@ -33,6 +37,7 @@ const navigationData = {
         { label: "Executive Team", href: "/executive-team" },
         { label: "Partners", href: "/contributors/partners" },
         { label: "Developers", href: "/contributors/developers" },
+        { label: "Centres of Excellence", href: "/centres-of-excellence" }, // new page
       ],
     },
     { label: "Events", href: "/events" },
@@ -57,7 +62,7 @@ const navigationData = {
         {
           label: "Publications",
           href: "https://www.sakec.ac.in/cyse/cyse-faculty-publications/",
-          Target: "_blank",
+          target: "_blank",
         },
         { label: "Patents", href: "/patents" },
         { label: "Copyrights", href: "/copyrights" },
@@ -67,7 +72,7 @@ const navigationData = {
     {
       label: "Announcements",
       href: "https://www.sakec.ac.in/cyse/cyse-announcements/",
-      target: "_blank",
+          target: "_blank",
     },
     {
       label: "Play a game",
@@ -85,8 +90,8 @@ const navigationData = {
       label: "Knowledge Hub",
       href: "#",
       dropdown: [
-        { label: "Articles", href: "https://www.cyberbaap.org/blog/" },
-        { label: "Cybersecurity guide", href: "/cybersecurity-guide" },
+        { label: "Articles", href: "https://www.cyberbaap.org/blog/" , target: "_blank" },
+        { label: "Cybersecurity guide", href: "/cybersecurity-guide",target: "_blank" },
         {
           label: "Research papers",
           href: "https://www.sakec.ac.in/research/research-publications/",
@@ -99,13 +104,14 @@ const navigationData = {
       href: "#",
       dropdown: [
         { label: "General Inquiries", href: "/inquiries" },
-        { label: "Contact", href: "#footer" }, // Changed href to #footer
+        { label: "Contact", href: "#footer" },
         { label: "FAQs", href: "/faq" },
         { label: "Feedback", href: "/feedback" },
       ],
     },
   ],
 };
+
 export const Navbar = ({
   setGetStartedModalOpen,
 }: {
@@ -129,9 +135,7 @@ export const Navbar = ({
 
   // --- Dropdown Hover Logic ---
   const handleMouseEnter = (label: string) => {
-    if (closeTimerRef.current) {
-      clearTimeout(closeTimerRef.current);
-    }
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     setOpenDropdown(label);
     setHoveredItem(label);
   };
@@ -144,9 +148,7 @@ export const Navbar = ({
   };
 
   const handleDropdownMouseEnter = () => {
-    if (closeTimerRef.current) {
-      clearTimeout(closeTimerRef.current);
-    }
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
   };
 
   const handleDropdownMouseLeave = () => {
@@ -161,10 +163,12 @@ export const Navbar = ({
     setMobileOpenDropdown(mobileOpenDropdown === label ? null : label);
   };
 
-  // --- Click Outside Logic (for both dropdowns and mobile menu) ---
+  // --- Click Outside Logic ---
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Close dropdown if click is outside
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
@@ -172,8 +176,6 @@ export const Navbar = ({
         setOpenDropdown(null);
         setHoveredItem(null);
       }
-
-      // Close mobile menu if click is outside the menu and the menu button
       if (
         mobileMenuOpen &&
         menuButtonRef.current &&
@@ -186,22 +188,16 @@ export const Navbar = ({
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
+    return () =>
       document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [openDropdown, mobileMenuOpen]); // Depend on both states
+  }, [openDropdown, mobileMenuOpen]);
   // --- End Click Outside Logic ---
-
-  // Refs for click-outside detection
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // --- Utility function for menu content ---
   const MenuBarContent = () => (
     <div className="flex justify-end w-full items-center">
       <button
-        ref={menuButtonRef} // Attach ref to menu button
+        ref={menuButtonRef}
         className="text-blue-100 focus:outline-none"
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
@@ -234,24 +230,7 @@ export const Navbar = ({
       <nav className="bg-black text-white relative flex flex-col xl:flex-row xl:items-center w-full">
         {/* Top Bar */}
         <div className="flex flex-row items-center justify-between w-full xl:w-auto px-4 sm:px-6 py-3 sm:py-4">
-          {/* Logo Section - Responsive Adjustments */}
           <div className="flex items-center justify-between w-full xl:w-auto xl:mr-2 xl:mb-0">
-            {/* New Logo - Always on the Left (Commented Out) */}
-            {/* <Link
-              href="https://www.sakec.ac.in/cyse/"
-              className="flex items-center"
-              target="_blank"
-            >
-              <Image
-                src="/img/sakec-logo.png" // Replace with your new logo's path
-                width={40}
-                height={40}
-                alt="SAKEC"
-                className="hover:scale-105 transition-transform duration-300 ease-in-out object-contain max-h-[40px] sm:max-h-[60px]"
-              />
-            </Link> */}
-
-            {/* Cyber Colloquy Logo - Centered on Mobile, Left on Desktop */}
             <Link
               href="/"
               className="flex items-center justify-center w-full xl:w-auto xl:justify-start"
@@ -265,7 +244,6 @@ export const Navbar = ({
               />
             </Link>
           </div>
-
           <div className="xl:hidden">
             <MenuBarContent />
           </div>
@@ -287,6 +265,12 @@ export const Navbar = ({
                 >
                   {item.dropdown ? (
                     <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (openDropdown !== item.label) {
+                          setOpenDropdown(item.label);
+                        }
+                      }}
                       className={`group inline-block text-base md:text-lg font-semibold text-blue-100 no-underline rounded-md transition-colors duration-300 hover:text-blue-200 ${
                         openDropdown === item.label ? "text-blue-200" : ""
                       }`}
@@ -311,6 +295,7 @@ export const Navbar = ({
                   ) : (
                     <Link
                       href={item.href}
+                      target={item.target}
                       className="group inline-block text-base md:text-lg font-semibold text-blue-100 no-underline rounded-md transition-colors duration-300 hover:text-blue-200"
                     >
                       <span className="block px-4 py-2 rounded-md group-hover:bg-blue-600 group-focus:bg-blue-600">
@@ -331,6 +316,7 @@ export const Navbar = ({
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
+                          target={dropdownItem.target}
                           className="block px-4 py-2 text-sm font-medium text-blue-50 hover:bg-blue-600 rounded-md transition-colors duration-200"
                         >
                           {dropdownItem.label}
@@ -345,8 +331,6 @@ export const Navbar = ({
 
           {/* Bottom Navigation (Desktop) */}
           <div className="hidden text-center xl:flex xl:items-center xl:flex-grow px-4 sm:px-6 bg-blue-600 py-1 sm:py-2 rounded-md">
-            {" "}
-            {/* Added rounded-b-md here */}
             <ul className="flex list-none">
               {navigationData.bottomNavigationItems.map((item, index) => (
                 <li
@@ -359,6 +343,12 @@ export const Navbar = ({
                 >
                   {item.dropdown ? (
                     <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (openDropdown !== item.label) {
+                          setOpenDropdown(item.label);
+                        }
+                      }}
                       className={`group inline-block text-base md:text-lg font-medium text-blue-100 no-underline rounded-md transition-colors duration-300 hover:text-blue-200 ${
                         openDropdown === item.label ? "text-blue-200" : ""
                       }`}
@@ -383,6 +373,7 @@ export const Navbar = ({
                   ) : (
                     <Link
                       href={item.href}
+                      target={item.target}
                       className="group inline-block text-base md:text-lg font-medium text-blue-100 no-underline rounded-md transition-colors duration-300 hover:text-blue-200"
                     >
                       <span className="block px-4 py-2 rounded-md group-hover:bg-blue-700 group-focus:bg-blue-700">
@@ -403,6 +394,7 @@ export const Navbar = ({
                         <Link
                           key={dropdownIndex}
                           href={dropdownItem.href}
+                          target={dropdownItem.target}
                           className="block px-4 py-2 text-sm font-medium text-blue-50 hover:bg-blue-600 rounded-md transition-colors duration-200"
                         >
                           {dropdownItem.label}
@@ -420,7 +412,7 @@ export const Navbar = ({
         {/* --- Mobile Menu --- */}
         {mobileMenuOpen && (
           <div
-            ref={mobileMenuRef} // Attach ref to mobile menu container
+            ref={mobileMenuRef}
             className="absolute top-0 right-0 h-screen bg-blue-900 z-30 overflow-y-auto w-full max-w-[300px] shadow-xl"
           >
             <div className="p-4 flex justify-end">
@@ -473,28 +465,28 @@ export const Navbar = ({
                         </button>
                         {mobileOpenDropdown === item.label && (
                           <ul className="ml-4 space-y-2">
-                            {item.dropdown.map(
-                              (dropdownItem, dropdownIndex) => (
-                                <li key={dropdownIndex}>
-                                  <Link
-                                    href={dropdownItem.href}
-                                    onClick={() => {
-                                      setMobileMenuOpen(false);
-                                      setMobileOpenDropdown(null);
-                                    }}
-                                    className="block px-4 py-2 text-blue-300 hover:bg-blue-600 rounded-md"
-                                  >
-                                    {dropdownItem.label}
-                                  </Link>
-                                </li>
-                              )
-                            )}
+                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                              <li key={dropdownIndex}>
+                                <Link
+                                  href={dropdownItem.href}
+                                  target={dropdownItem.target}
+                                  onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    setMobileOpenDropdown(null);
+                                  }}
+                                  className="block px-4 py-2 text-blue-300 hover:bg-blue-600 rounded-md"
+                                >
+                                  {dropdownItem.label}
+                                </Link>
+                              </li>
+                            ))}
                           </ul>
                         )}
                       </>
                     ) : (
                       <Link
                         href={item.href}
+                        target={item.target}
                         onClick={() => {
                           setMobileMenuOpen(false);
                           setMobileOpenDropdown(null);
@@ -539,28 +531,28 @@ export const Navbar = ({
                         </button>
                         {mobileOpenDropdown === item.label && (
                           <ul className="ml-4 space-y-2">
-                            {item.dropdown.map(
-                              (dropdownItem, dropdownIndex) => (
-                                <li key={dropdownIndex}>
-                                  <Link
-                                    href={dropdownItem.href}
-                                    onClick={() => {
-                                      setMobileMenuOpen(false);
-                                      setMobileOpenDropdown(null);
-                                    }}
-                                    className="block px-4 py-2 text-blue-300 hover:bg-blue-600 rounded-md"
-                                  >
-                                    {dropdownItem.label}
-                                  </Link>
-                                </li>
-                              )
-                            )}
+                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                              <li key={dropdownIndex}>
+                                <Link
+                                  href={dropdownItem.href}
+                                  target={dropdownItem.target}
+                                  onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    setMobileOpenDropdown(null);
+                                  }}
+                                  className="block px-4 py-2 text-blue-300 hover:bg-blue-600 rounded-md"
+                                >
+                                  {dropdownItem.label}
+                                </Link>
+                              </li>
+                            ))}
                           </ul>
                         )}
                       </>
                     ) : (
                       <Link
                         href={item.href}
+                        target={item.target}
                         onClick={() => {
                           setMobileMenuOpen(false);
                           setMobileOpenDropdown(null);

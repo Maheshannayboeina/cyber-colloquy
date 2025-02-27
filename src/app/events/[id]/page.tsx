@@ -3,6 +3,8 @@
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link"; // Import Link from next/link
+import InteractiveHoverButton from "@/components/InteractiveHoverButton"; // Import the InteractiveHoverButton
 
 import { Container } from "@/components/Container";
 import { events } from "@/components/data";
@@ -129,9 +131,15 @@ export default function EventDetailsPage() {
               transition={{ delay: 0.4 }}
               className="mt-4"
             >
-              <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-full px-6 py-3">
-                Register Now
-              </button>
+              <Link
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdYuWWmDu1T3Z2hQG3Kgd6EFZjFqp4yM0hC__ITg4cWiGgSmA/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InteractiveHoverButton buttonColor="#10B981" textColor="#FFFFFF">
+                  Register Now
+                </InteractiveHoverButton>
+              </Link>
             </motion.div>
           )}
         </motion.section>
@@ -146,7 +154,6 @@ export default function EventDetailsPage() {
           <Sponsors />
         </motion.div>
 
-        {/* DESCRIPTION & TOPICS */}
         {/* DESCRIPTION & TOPICS */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
