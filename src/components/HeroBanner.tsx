@@ -1,7 +1,7 @@
 // src/components/HeroBanner.tsx
 import React, { useEffect } from "react";
 import Image from "next/image";
-import InteractiveHoverButton from "@/components/InteractiveHoverButton";
+import InteractiveHoverButton from "@/components/InteractiveHoverButton"; // Assuming this component is correctly imported
 import { motion, useAnimation } from "framer-motion";
 
 interface HeroBannerProps {
@@ -145,7 +145,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                 textColor="#ffffff"
                 onClick={() => {
                   if (button1Href) {
-                    window.location.href = button1Href;
+                    window.open(button1Href, '_blank'); // Modified to open in new tab
                   }
                 }}
                 aria-label={button1Text}

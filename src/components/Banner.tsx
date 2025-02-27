@@ -1,35 +1,86 @@
+//src/components/Banner.tsx
 "use client";
 
-import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 
 const Banner = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [gradientPosition, setGradientPosition] = useState(0);
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number | null>(null);
+  const duration = 20000;
+
+  const animateGradient = useCallback(
+    (timestamp: number) => {
+      const startTime =
+        animationFrameRef.current === null
+          ? timestamp
+          : animationFrameRef.current;
+      const progress = (timestamp - startTime) / duration;
+      const position = progress % 1;
+      setGradientPosition(position);
+      animationFrameRef.current = requestAnimationFrame(animateGradient);
+    },
+    [duration]
+  );
 
   const handleClose = () => {
     setIsVisible(false);
   };
 
-  if (!isVisible) return null;
+  useEffect(() => {
+    if (isVisible && bannerRef.current) {
+      animationFrameRef.current = requestAnimationFrame(animateGradient);
+    }
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+    };
+  }, [isVisible, animateGradient]);
+
+  const gradientStyle = {
+    backgroundImage: `linear-gradient(270deg, #7F00FF ${
+      gradientPosition * 100
+    }%, #00BFFF)`,
+    backgroundSize: "200% 200%",
+    backgroundPosition: `${gradientPosition * 100}% 50%`,
+    transition: "background-position 0.1s linear",
+  } as React.CSSProperties;
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
-    <div className="relative overflow-hidden w-full">
-      {/* Banner Image */}
-      <div className="text-white flex justify-center items-center">
-        <Image
-          src="/img/top-banner.png" // Replace with your actual banner path
-          alt="Banner Image"
-          width={1920}  // Set an appropriate width
-          height={600}  // Set an appropriate height
-          className="w-full h-auto block object-cover"
-        />
+    <div className="relative overflow-hidden" ref={bannerRef}>
+      <div
+        style={gradientStyle}
+        className="text-white py-2 px-2 sm:py-3 sm:px-4 flex items-center justify-center gap-1 sm:gap-4 flex-wrap sm:flex-nowrap" // Responsive adjustments here
+      >
+        <p className="text-sm text-center sm:text-left">
+          Join us for Cyber Colloquy 4.0!
+        </p>
+        <div className="flex gap-1 sm:gap-4"> {/* Container for buttons */}
+          <Link
+            href="/events/4"
+            className="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold hover:bg-gray-200 whitespace-nowrap" // whitespace-nowrap added
+          >
+            Know More
+          </Link>
+          <Link
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdYuWWmDu1T3Z2hQG3Kgd6EFZjFqp4yM0hC__ITg4cWiGgSmA/viewform"
+            className="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold hover:bg-gray-200 whitespace-nowrap" // whitespace-nowrap added
+          >
+            Register
+          </Link>
+        </div>
       </div>
-
-      {/* Close Button (top-right) */}
       <button
         onClick={handleClose}
-        className="absolute z-10 top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-gray-300 focus:outline-none"
-        aria-label="Close Banner"
+        className="text-white hover:text-gray-300 absolute right-2 top-1/2 -translate-y-1/2 sm:right-4 focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +88,7 @@ const Banner = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-5 h-5"
+          className="w-4 h-4 sm:w-5 sm:h-5"
         >
           <path
             strokeLinecap="round"

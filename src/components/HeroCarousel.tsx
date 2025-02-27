@@ -1,3 +1,4 @@
+//src/componentes/HeroCarousel.tsx
 "use client";
 import React, { useState, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
