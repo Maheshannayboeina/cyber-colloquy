@@ -20,7 +20,7 @@ export const coeCoordinators = [
     {
         category: "CoE Coordinators",
         name: "Shubham Kolaskar",
-        designation: "Co-ordinators",
+        designation: "Coordinator I/C",
         year: "Third Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/shubham-kolaskar/", // Add LinkedIn profile URL if available
@@ -29,7 +29,7 @@ export const coeCoordinators = [
       {
         category: "CoE Coordinators",
         name: "Jayan Shah",
-        designation: "Co-ordinators",
+        designation: "Coordinator",
         year: "Third Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/jayan-shah-419767249/", // Add LinkedIn profile URL if available
@@ -38,7 +38,7 @@ export const coeCoordinators = [
       {
         category: "CoE Coordinators",
         name: "Pratham Shah",
-        designation: "Co-ordinators",
+        designation: "Coordinator",
         year: "Third Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/pratham-shah-156b3625a/", // Add LinkedIn profile URL if available
@@ -47,7 +47,7 @@ export const coeCoordinators = [
       {
         category: "CoE Coordinators",
         name: "Archita Jain",
-        designation: "Co-ordinators",
+        designation: "Co-coordinator",
         year: "Third Year", // Add Year if available
         team: "CoE",
         linkedin: "https://in.linkedin.com/in/architajainn", // Add LinkedIn profile URL if available
@@ -65,7 +65,7 @@ export const coeCoordinators = [
       {
         category: "CoE Coordinators",
         name: "Kushagra Tiwari",
-        designation: "Co-coordinators",
+        designation: "Co-coordinator",
         year: "Second Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/kushagra-tiwari-8b942028b/", // Add LinkedIn profile URL if available
@@ -74,7 +74,7 @@ export const coeCoordinators = [
       {
         category: "CoE Coordinators",
         name: "Shamlaan Sayyed",
-        designation: "Co-coordinators",
+        designation: "Co-coordinator",
         year: "Second Year", // Add Year if available
         team: "CoE",
         linkedin: "https://www.linkedin.com/in/shamlaan-sayyed-2b566b313/", // Add LinkedIn profile URL if available
@@ -103,7 +103,7 @@ export const coeProjects = [
     name: "HoneyTrack",
     briefDescription: "HoneyTrack is a cutting-edge project aimed at developing a comprehensive honeypot system",
     description: "HoneyTrack is a cutting-edge project aimed at developing a comprehensive honeypot system to track and analyze malicious activities on a network. This project involves: Designing and implementing honeypot traps. Monitoring and logging network attacks. Analyzing attack patterns to enhance cybersecurity measures.",
-    image: "", // Placeholder
+    image: "/img/banners/1-r.png", // Placeholder
     link: "",
     mentors: ["Dr Rupali Vairagade", "Ms Meghali Kalyankar", "Maj Vineet Kumar"],
     students: [

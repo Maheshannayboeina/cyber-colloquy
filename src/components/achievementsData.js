@@ -2,10 +2,28 @@
 const achievementsData = [
   
   {
+    id: 50,
+  name:"CYSE Students",
+  date: "Dec 2023",
+  achievement: "Victorious at Cyber Challenge Delhi Police 2025",
+  details: "The team was awarded with a certificate and cash prize. Organized by Delhi Police Cyber Cell & Uber.",
+    link: "https://example.com/smart-india-hackathon",
+  banner: "/img/achievements/dh25.jpg",
+},
+  {
+    id: 51,
+  name:"CYSE Students",
+  date: "Dec 2023",
+  achievement: "Joint Winner at SIH 2024",
+  details: "Smart India Hackathon 2024 conducted at Nodal center IIT Kharagpur. Team was mentored by faculty Ms. Meghali kalyankar and Industry mentor Mr. Tushar Patil.",
+    link: "https://example.com/smart-india-hackathon",
+  banner: "/img/achievements/sih24.jpg",
+},
+  {
     id: 19,
   name:"CYSE Students",
   date: "Dec 2023",
-  achievement: "Won SIH 2023",
+  achievement: "Victorious at SIH 2023",
   details: "Grand Finale of Smart India Hackathon 2023 conducted at Nodal center OP Jindal University Raigarh. Team was mentored by faculty Ms. Meghali kalyankar and Ms. Prajakta Pote.",
     link: "https://example.com/smart-india-hackathon",
   banner: "/img/achievements/SIHOP.jpg",
