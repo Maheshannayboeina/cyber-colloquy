@@ -123,7 +123,7 @@ const executiveTeamData = [
     year: "Third Year", // Add Year if available
     team: "Technical Team",
     linkedin: "https://www.linkedin.com/in/jayan-shah-419767249/", // Add LinkedIn profile URL if available
-    image: "/img/executive-team/jayan-shah.png", // Replace with actual image path
+    image: "/img/executive-team/jayan-shah.jpg", // Replace with actual image path
   },
   {
     category: "Core Committee",
@@ -305,7 +305,7 @@ const executiveTeamData = [
     year: "Second Year", // Add Year if available
     team: "Technical Team",
     linkedin: "https://www.linkedin.com/in/shlokrawat/", // Add LinkedIn profile URL if available
-    image: "/img/executive-team/shlok-rawat.png", // Replace with actual image path
+    image: "/img/executive-team/shlok-rawat.jpg", // Replace with actual image path
   },
   {
     category: "Members",
@@ -397,7 +397,7 @@ const executiveTeamData = [
     year: "Third Year", // Add Year if available
     team: "CoE",
     linkedin: "https://www.linkedin.com/in/jayan-shah-419767249/", // Add LinkedIn profile URL if available
-    image: "/img/executive-team/jayan-shah-coe.png", // Replace with actual image path (consider different image if needed)
+    image: "/img/executive-team/jayan-shah.jpg", // Replace with actual image path (consider different image if needed)
   },
   {
     category: "CoE Coordinators",
