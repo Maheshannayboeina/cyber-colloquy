@@ -1,17 +1,11 @@
+//src/components/expandable-timeline-card.ts
 "use client";
 
-import { useState, useRef, useEffect } from "react"; // Import useEffect
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
-import Image from "next/image";
-import styles from "./expandable-timeline-card.module.css"; // Import CSS Module
-
-export interface Activity {
-  time?: string;
-  date?: string;
-  description: string;
-  image: string;
-}
+import styles from "./expandable-timeline-card.module.css";
+import { Activity } from "@/components/data";
 
 export interface TimelineEvent {
   date: string;
@@ -30,54 +24,50 @@ export function ExpandableTimelineCard({
   event,
   isEven,
 }: ExpandableTimelineCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
-  const [isMobile, setIsMobile] = useState(false); // State to track mobile
+  const [isExpanded, setIsExpanded] = useState(false); // Back to useState
+  const cardRef = useRef<HTMLDivElement>(null);
+  const hasExpanded = useRef(false); // Track if the card has *ever* expanded
+
+
+  const handleIntersect = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasExpanded.current) {
+          // Only expand if it hasn't expanded before
+          setIsExpanded(true);
+          hasExpanded.current = true; // Set the flag
+          observerRef.current?.unobserve(entry.target);
+        }
+      });
+    },
+    []
+  ); // Empty dependency array
+
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768); // Use the same breakpoint as CSS media query
-    };
+    observerRef.current = new IntersectionObserver(handleIntersect, {
+      rootMargin: "-50px 0px",
+      threshold: 0.1,
+    });
 
-    checkMobile(); // Initial check
-    window.addEventListener("resize", checkMobile); // Check on window resize
+    if (cardRef.current) {
+      observerRef.current.observe(cardRef.current);
+    }
 
     return () => {
-      window.removeEventListener("resize", checkMobile); // Cleanup listener
-    };
-  }, []);
-
-  const handleMouseEnter = () => {
-    if (!isMobile) {
-      // Only handle hover if not mobile
-      hoverTimeout.current = setTimeout(() => {
-        setIsExpanded(true);
-      }, 200); // Delay of 200ms
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!isMobile) {
-      // Only handle mouse leave if not mobile
-      if (hoverTimeout.current) {
-        clearTimeout(hoverTimeout.current);
-        hoverTimeout.current = null;
+      if (observerRef.current) {
+        observerRef.current.disconnect();
       }
-      setIsExpanded(false);
-    }
-  };
+    };
+  }, [handleIntersect]);
 
-  const handleClick = () => {
-    if (isMobile) {
-      // Only handle click if mobile
-      setIsExpanded(!isExpanded); // Toggle expanded state on click (for mobile)
-    }
-  };
 
   const cardInnerStyle = cn(
     styles.cardInner,
     styles[`cardInner_${event.status}`],
-    isExpanded ? styles.cardInner_expanded : ""
+    isExpanded ? styles.cardInner_expanded : "",
+    "group"
   );
 
   const statusTextStyle = cn(
@@ -93,12 +83,9 @@ export function ExpandableTimelineCard({
   return (
     <motion.div
       layout
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleClick} // Add onClick handler
+      ref={cardRef}
       className={cn(
         styles.cardContainer,
-        styles.mobileClickable, // Add a class for mobile styling if needed
         isEven ? styles.cardContainer_even : ""
       )}
     >
@@ -110,48 +97,57 @@ export function ExpandableTimelineCard({
         <motion.h3 layout className={styles.cardTitle}>
           {event.title}
         </motion.h3>
-        <motion.p layout className={styles.cardDescription}>
+        <motion.p
+          layout
+          className={cn(styles.cardDescription, "group-hover:text-gray-100")}
+        >
           {event.description}
         </motion.p>
-      </motion.div>
 
-      {isExpanded && (
+        {/* Expanded Content - Back to simpler animation */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
           className={styles.activitiesGrid}
+          style={{
+            height: isExpanded ? "auto" : 0, // Directly control height
+            opacity: isExpanded ? 1 : 0,     // Directly control opacity
+            overflow: "hidden", // Important for smooth height animation
+          }}
+          transition={{
+            duration: 0.6,
+            ease: "easeInOut",
+          }}
         >
-          {event.activities.map((activity, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className={styles.activityItem}
-            >
-              <div className={styles.activityImageContainer}>
-                <Image
-                  src={activity.image}
-                  alt={activity.description}
-                  fill
-                  className={styles.activityImage}
-                />
-              </div>
-              <div className={styles.activityContent}>
-                {(activity.time || activity.date) && (
-                  <p className={styles.activityTime}>
-                    {activity.time || activity.date}
-                  </p>
-                )}
-                <p className={styles.activityDescription}>
-                  {activity.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+          {isExpanded && ( // Only render children when expanded
+            <>
+              {event.activities.map((activity, index) => (
+                <div key={index} className={styles.activityItem}>
+                  <div className={styles.activityContent}>
+                    {(activity.time || activity.date) && (
+                      <p
+                        className={cn(
+                          styles.activityTime,
+                          "text-sm md:text-base"
+                        )}
+                      >
+                        {activity.time || activity.date}
+                      </p>
+                    )}
+                    <p
+                      className={cn(
+                        styles.activityDescription,
+                        "text-sm md:text-base"
+                      )}
+                    >
+                      {activity.description} - {activity.title}
+                      {activity.speakerId && " (Speaker details here)"}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
         </motion.div>
-      )}
+      </motion.div>
     </motion.div>
   );
 }

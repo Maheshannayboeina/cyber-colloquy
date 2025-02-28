@@ -1,17 +1,19 @@
+//src/app/events/[id]/page.tsx
 "use client";
 
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link"; // Import Link from next/link
-import InteractiveHoverButton from "@/components/InteractiveHoverButton"; // Import the InteractiveHoverButton
+import Link from "next/link";
+import InteractiveHoverButton from "@/components/InteractiveHoverButton";
 
 import { Container } from "@/components/Container";
-import { events } from "@/components/data";
+import { events, speakerData } from "@/components/data";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Sponsors } from "@/components/Sponsors";
-import Timeline from "@/components/Timeline";
-import { TimelineEvent } from "@/components/expandable-timeline-card";
+import Timeline from "@/components/Timeline"; //Original Timeline component.
+import { TimelineEvent } from "@/components/expandable-timeline-card"; // Keep for type
+import { Speaker } from "@/components/speakers-data";
 
 export default function EventDetailsPage() {
   const { id } = useParams();
@@ -33,11 +35,11 @@ export default function EventDetailsPage() {
   const currentDate = new Date();
   const eventYear = new Date(event.date).getFullYear();
 
-  // Normalize the activities array so it works for both "event.activities" and "event.colloquyDetails.activities"
+  // Normalize activities (Keep the original normalization)
   const normalizedActivities =
     event.activities || event.colloquyDetails?.activities || [];
 
-  // Build timeline events from activities
+// Build timeline events (Keep original logic, but without image handling)
   const timelineEvents: TimelineEvent[] = normalizedActivities.reduce(
     (acc: TimelineEvent[], activity) => {
       const activityDate = activity.date || event.date.split(",")[0];
@@ -49,7 +51,7 @@ export default function EventDetailsPage() {
         acc.push({
           date: activityDate,
           title: `Day ${acc.length + 1}`,
-          description: `Activities for ${activityDate}`,
+          description: `Activities for ${activityDate}`, // Keep original description
           status:
             eventYear < currentDate.getFullYear()
               ? "completed"
@@ -71,7 +73,7 @@ export default function EventDetailsPage() {
 
   return (
     <>
-      {/* HERO BANNER */}
+      {/* HERO BANNER (No changes) */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -91,14 +93,12 @@ export default function EventDetailsPage() {
               />
             </div>
           )}
-          {/* Reduced overlay to let the banner image shine through */}
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30" /> */}
         </div>
       </motion.div>
 
       {/* MAIN CONTENT */}
       <Container className="text-gray-300">
-        {/* EVENT TITLE & DATE */}
+        {/* EVENT TITLE & DATE (No changes) */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -123,8 +123,7 @@ export default function EventDetailsPage() {
             <p className="text-base md:text-lg">CYSE Department</p>
           </motion.div>
 
-          {/* **CONDITIONAL REGISTER BUTTON** */}
-          {event.id === 4 && ( //  <-- Conditional rendering here
+          {event.id === 4 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -144,64 +143,87 @@ export default function EventDetailsPage() {
           )}
         </motion.section>
 
-        {/* SPONSORS */}
+        {/* SPONSORS (No changes) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="w-full my-8 bg-gray-900 p-6 rounded-lg" // Added background and padding here
+          className="w-full my-8 bg-gray-900 p-6 rounded-lg"
         >
           <Sponsors />
         </motion.div>
 
-        {/* DESCRIPTION & TOPICS */}
+        {/* DESCRIPTION & TOPICS (NEW UI) */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="my-8 text-center"
+          className="my-8"  // Removed text-center
         >
-          <SectionTitle preTitle="" title={event.description} />{" "}
-          {/* Keep Section Title for Description */}
-          {event.colloquyDetails?.topics && (
+          <SectionTitle preTitle="" title={event.description} />
+          {event.colloquyDetails?.speakers && (
             <div className="mt-6">
-              {" "}
-              {/* Changed from space-y-4 to mt-6 for spacing */}
-              <h4 className="text-xl font-semibold text-emerald-400 mb-4">
-                {" "}
-                {/* Adjusted margin */}
-                Topics
+              <h4 className="text-xl font-semibold text-emerald-400 mb-4 text-center">
+                Speakers & Topics
               </h4>
-              <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-2">
-                {" "}
-                {/* Flex wrap for badges */}
-                {event.colloquyDetails.topics.map((topic, index) => (
-                  <motion.div // Changed from <li> to <div> for badge styling
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }} // More subtle animation
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.7 + index * 0.05 }} // Slightly adjusted delay
-                    className="bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-2 rounded-full text-sm font-medium" // Badge styling
-                  >
-                    {topic}
-                  </motion.div>
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {event.colloquyDetails.speakers.map((colloquySpeaker, index) => {
+                  const speaker = speakerData.find(
+                    (s: Speaker) => s.id === colloquySpeaker.speakerId
+                  );
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7 + index * 0.1 }} // Staggered delay
+                      className="bg-gray-800 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300"
+                    >
+                      <Link href={`/speakers/${speaker?.id}`}>
+                          <div className="flex items-center">
+                            <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
+                                <Image
+                                    src={speaker?.imageUrl || '/img/speakers/placeholder.jpg'} // Fallback image
+                                    alt={speaker?.name || 'Speaker'}
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                />
+                            </div>
+                            <div>
+                              <p className="text-emerald-400 font-semibold text-lg">
+                                {speaker?.name}
+                              </p>
+                              <p className="text-gray-300 text-sm">
+                                {speaker?.title}
+                              </p>
+                            </div>
+                          </div>
+                      </Link>
+
+                      <p className="mt-3 text-gray-100">
+                        <span className="font-medium">Topic:</span>{" "}
+                        {colloquySpeaker.topic}
+                      </p>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           )}
         </motion.section>
 
-        {/* TIMELINE */}
+        {/* TIMELINE (Reverted UI, but no images) */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
           className="my-8"
         >
-          <h3 className="text-3xl font-bold text-center mb-8 text-white">
+           <h3 className="text-3xl font-bold text-center mb-8 text-white">
             Event Timeline
           </h3>
-          {/* Subtle background for the timeline */}
+          {/* Use original Timeline component */}
           <div>
             <Timeline events={timelineEvents} />
           </div>
