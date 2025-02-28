@@ -1,7 +1,7 @@
 // src/components/HeroBanner.tsx
 import React, { useEffect } from "react";
 import Image from "next/image";
-import InteractiveHoverButton from "@/components/InteractiveHoverButton"; // Assuming this component is correctly imported
+import InteractiveHoverButton from "@/components/InteractiveHoverButton";
 import { motion, useAnimation } from "framer-motion";
 
 interface HeroBannerProps {
@@ -16,46 +16,13 @@ interface HeroBannerProps {
   isVisible: boolean;
 }
 
-// Animation Variants (no changes here, but kept for completeness)
-const titleVariants = {
-  hidden: { opacity: 0, y: -200 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const taglineVariants = {
-  hidden: { opacity: 0, y: -160 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut", delay: 0.1 },
-  },
-};
-
-const dateVariants = {
-  hidden: { opacity: 0, y: -120 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut", delay: 0.2 },
-  },
-};
-
-const buttonVariants = {
-  hidden: { opacity: 0, y: 200 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut", delay: 0.3 },
-  },
-};
-
 export const HeroBanner: React.FC<HeroBannerProps> = ({
   imageUrl = "/img/events/cybercolloquy4.0_banner.png",
   title,
   tagline,
   dateWithLocation,
   button1Text = "Register Now",
-  button1Href = "https://example.com/google-form", // Placeholder!
+  button1Href = "https://example.com/google-form",
   button2Text = "Learn More",
   button2Href = "/explore",
   isVisible,
@@ -77,7 +44,45 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   const datePart = match ? match[1] : dateWithLocation;
   const locationPart = match ? match[2] : "";
 
+  // Keep the other variants as they are
+  const titleVariants = {
+    hidden: { opacity: 0, y: -100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const taglineVariants = {
+    hidden: { opacity: 0, y: -80 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut", delay: 0.2 },
+    },
+  };
+
+  const dateVariants = {
+    hidden: { opacity: 0, y: -60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.4 },
+    },
+  };
+
+  // Modified Button Variants (From Below)
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 100 }, // Start *below* (positive y)
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.6 }, // easeOut, delayed
+    },
+  };
   return (
+    // ... (rest of the component code remains the same) ...
     <div
       className="relative w-full h-full"
       role="img"
@@ -88,7 +93,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           src={imageUrl}
           alt={title || "Cyber Colloquy Event Banner"}
           fill
-          sizes="100vw" // Corrected sizes attribute
+          sizes="100vw"
           className="object-cover w-full h-full"
           priority
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
@@ -112,7 +117,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
             </motion.div>
 
             <motion.p
-              className="text-lg sm:text-xl md:text-2xl text-white mb-2 text-center shadow-md" // White with text shadow
+              className="text-lg sm:text-xl md:text-2xl text-white mb-2 text-center shadow-md"
               variants={taglineVariants}
               initial="hidden"
               animate={controls}
@@ -145,7 +150,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                 textColor="#ffffff"
                 onClick={() => {
                   if (button1Href) {
-                    window.open(button1Href, '_blank'); // Modified to open in new tab
+                    window.open(button1Href, "_blank");
                   }
                 }}
                 aria-label={button1Text}

@@ -74,13 +74,13 @@ export default function Home() {
   const videoSlides = [
     {
       videoId: "e0vbhvP97dU",
-      title: "Rick Roll",
-      description: "Never gonna give you up",
+      title: "Cybersecurity Presentation",
+      description: "Presentation on cyber security",
     },
     {
       videoId: "PF8w9keUGnI",
-      title: "Rick Roll",
-      description: "Never gonna give you up",
+      title: "Cybersecurity Presentation",
+      description: "Presentation on cyber security",
     },
     {
       videoId: "d5K1g4qoHHc",

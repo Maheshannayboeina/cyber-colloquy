@@ -5,12 +5,15 @@ import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HeroBanner } from "./HeroBanner";
-import { FaPause, FaPlay } from "react-icons/fa";
 import { Settings } from "react-slick";
 
-// Cast to any to allow ref usage with react-slick
 const SliderComponent = dynamic(() => import("react-slick"), {
   ssr: false,
+  loading: () => (
+    <div className="w-full h-[450px] lg:h-[600px] bg-gray-200 flex items-center justify-center text-gray-500">
+      Loading...
+    </div>
+  ), // Keep loading indicator
 }) as any;
 
 interface HeroSlide {
@@ -30,22 +33,20 @@ interface HeroCarouselProps {
 
 const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
   const sliderRef = useRef<any>(null);
 
   const sliderSettings: Settings = useMemo(
     () => ({
       dots: true,
       infinite: true,
-      speed: 500,
+      speed: 500, // Original transition speed
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: autoplay,
-      autoplaySpeed: 3000,
+      autoplay: true,
+      autoplaySpeed: 3000, // Original autoplay speed
       arrows: true,
       pauseOnHover: true,
-      // Optional: Uncomment the following line if your slides have heavy images
-      // lazyLoad: "ondemand",
+      lazyLoad: "ondemand", // Keep lazy loading
       beforeChange: (_: number, next: number) => setCurrentSlide(next),
       responsive: [
         {
@@ -77,19 +78,16 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
         },
       ],
     }),
-    [autoplay]
+    [] // Empty dependency array
   );
 
-  const toggleAutoplay = () => {
-    if (sliderRef.current) {
-      if (autoplay) {
-        sliderRef.current.slickPause();
-      } else {
-        sliderRef.current.slickPlay();
-      }
-    }
-    setAutoplay((prev) => !prev);
-  };
+  if (slides.length === 0) {
+    return (
+      <div className="w-full h-[450px] lg:h-[600px] bg-gray-200 flex items-center justify-center text-gray-500">
+        No slides to display
+      </div>
+    );
+  }
 
   return (
     <div className="w-full overflow-hidden rounded-md relative">
@@ -112,14 +110,6 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
           </div>
         ))}
       </SliderComponent>
-      {/* Autoplay Control Button */}
-      <button
-        onClick={toggleAutoplay}
-        className="absolute bottom-4 right-4 z-20 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        aria-label={autoplay ? "Pause Autoplay" : "Play Autoplay"}
-      >
-        {autoplay ? <FaPause /> : <FaPlay />}
-      </button>
     </div>
   );
 };
