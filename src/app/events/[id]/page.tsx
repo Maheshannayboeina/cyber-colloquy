@@ -166,16 +166,6 @@ export default function EventDetailsPage() {
           )}
         </motion.section>
 
-        {/* SPONSORS */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="w-full my-8 bg-gray-900 p-6 rounded-lg"
-        >
-          <Sponsors />
-        </motion.div>
-
         {/* DESCRIPTION & TOPICS */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
@@ -351,6 +341,15 @@ export default function EventDetailsPage() {
             </div>
           </div>
         </motion.section>
+        {/* SPONSORS */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="w-full my-4 p-3 rounded-lg"
+        >
+          <Sponsors />
+        </motion.div>
       </Container>
     </>
   );

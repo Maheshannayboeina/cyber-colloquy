@@ -76,12 +76,12 @@ export const speakerData: Speaker[] = [ //Use Speaker interface
   linkedinUrl: "https://www.linkedin.com/in/ajaycbhayani/",
 },
 {
-  id: "khusbhoojain", // Unique ID (used in URL)
-  name: "Khusbhoo Jain",
-  title: "-",
-  imageUrl: "/img/speakers/khusbhoo-jain-r.png",
+  id: "khusbhujain", // Unique ID (used in URL)
+  name: "Khusbhu Jain",
+  title: "Managing Partner at Ark Legal l Data Privacy l Technology Law",
+  imageUrl: "/img/speakers/khusbhu-jain-r.jpg",
 
-  description: "", // New description field
-  linkedinUrl: "",
+  description: "Law graduate having worked as a lawyer with legal practice having specialisation in Criminal Law. My areas of interest are Data Protection, Technology law, Corporate law, Criminal law and Litigation.", // New description field
+  linkedinUrl: "https://www.linkedin.com/in/khushbu-jain-bb10867/",
 }
 ];

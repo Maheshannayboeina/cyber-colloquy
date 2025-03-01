@@ -65,7 +65,7 @@ const Banner = () => {
         </p>
         <div className="flex gap-1 sm:gap-4"> {/* Container for buttons */}
           <Link
-            href="/events/4"
+            href="/events/colloquy4.0"
             className="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold hover:bg-gray-200 whitespace-nowrap" // whitespace-nowrap added
           >
             Know More

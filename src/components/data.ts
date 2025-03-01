@@ -184,23 +184,52 @@ const events: Event[] = [
         },
         {
           date: "2025-03-22", // YYYY-MM-DD
-          time: "10:30 AM - 11:30 AM",
-          title: "Panel Discussion",
-          description: "Panelists discuss key cybersecurity topics, Q&A.",
+          time: "10:30 AM - 10:45 AM",
+          title: "Individual Speaker Session",
+          description: "ISO 27701 Standards (Privacy Governance & Compliance)",
+          speakerId: "dineshbareja",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "10:50 AM - 11:05 AM",
+          title: "Individual Speaker Session",
+          description: "Data Discovery(Identifying & Mapping Sensitive Data)",
           speakerId: "shwetatripathi",
         },
         {
           date: "2025-03-22", // YYYY-MM-DD
-          time: "11:30 AM - 11:45 AM",
-          title: "Quick Debate Round",
-          description: "Engaging cybersecurity debate.",
+          time: "11:10 AM - 11:25 AM",
+          title: "Individual Speaker Session",
+          description: "Data Classification (Organizing & Labeling Data for Protection)",
+          speakerId: "ajaybhayani",
         },
         {
           date: "2025-03-22", // YYYY-MM-DD
-          time: "11:45 AM - 1:00 PM",
-          title: "Individual Speaker Slots",
-          description: "15-minute speaker slots with Q&A.",
-          speakerId: "v4web",
+          time: "11:30 AM - 11:45 AM",
+          title: "Individual Speaker Session",
+          description: "Data Minimization (Reducing Excessive Data Collection Risks Effectively)",
+          speakerId: "ruchigosalia",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "11:45 AM - 12:15 PM",
+          title: "Short Break",
+          description: "Refreshments and networking.",
+        },
+
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "12:15 PM - 12:30 PM",
+          title: "Individual Speaker Session",
+          description: "Privacy Enhancement Tools (PETs) (Tech Solutions for Privacy Protection)",
+          speakerId: "riteshbhatia",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "12:35 PM - 1:00 PM",
+          title: "Individual Speaker Session",
+          description: "Consent Management (User Control & Transparency in Data Processing)",
+          speakerId: "akshaygarkel",
         },
         {
           date: "2025-03-22", // YYYY-MM-DD
@@ -209,9 +238,34 @@ const events: Event[] = [
         },
         {
           date: "2025-03-22", // YYYY-MM-DD
-          time: "2:00 PM - 5:00 PM",
-          title: "Project Expo (COE Competition)",
-          description: "Project showcase, judging, and shortlisting.",
+          time: "2:00 PM - 2:15 PM",
+          title: "Individual Speaker Session",
+          description: "Cookie Consent Management (Managing Web & Digital Tracking Compliance)",
+          speakerId: "ibrahimkhatri",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "2:15 PM - 2:30 PM",
+          title: "Individual Speaker Session",
+          description: "Data Privacy Impact Assessment (DPIA) (Risk Analysis & Privacy Compliance)",
+          speakerId: "khusbhujain",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "2:30 PM - 2:45 PM",
+          title: "QnA Session",
+          description: "15-minute speaker slots with Q&A.",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "2:50 PM - 3:10 PM",
+          title: "Cyberfratt Quiz",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "3:15 PM - 5:00 PM",
+          title: "Project Exhibition",
+          description: "Project Exhibition by students.",
         },
 
         // Day 3: March 23rd
@@ -220,7 +274,6 @@ const events: Event[] = [
           time: "9:00 AM - 12:00 PM",
           title: "Awareness Session for Parents",
           description: "Cyber hygiene, online safety, cyber laws, and Q&A.",
-          speakerId: "akshaygarkel",
         },
         {
           date: "2025-03-23", // YYYY-MM-DD
@@ -232,7 +285,6 @@ const events: Event[] = [
           time: "1:00 PM - 5:00 PM",
           title: "Awards Ceremony & Magazine Launch",
           description: "Awards and magazine unveiling.",
-          speakerId: "ibrahimkhatri",
         },
 
         // Day 4: March 24th
@@ -250,8 +302,8 @@ const events: Event[] = [
         { speakerId: "akshaygarkel", topic: "Consent Management (User Control & Transparency in Data Processing)" },
         { speakerId: "ibrahimkhatri", topic: "Cookie Consent Management (Managing Web & Digital Tracking Compliance)" },
         { speakerId: "ruchigosalia", topic: "Data Minimization (Reducing Excessive Data Collection Risks Effectively)",},
-        { speakerId: "ajaybhayani", topic: "Data Privacy Impact Assessment (DPIA) (Risk Analysis & Privacy Compliance0",},
-        { speakerId: "khusbhoojain", topic: "Data Classification (Organizing & Labeling Data for Protection)",},
+        { speakerId: "ajaybhayani", topic: "Data Classification (Organizing & Labeling Data for Protection)",},
+        { speakerId: "khusbhujain", topic: "Data Privacy Impact Assessment (DPIA) (Risk Analysis & Privacy Compliance)",},
       ],
     },
   },
