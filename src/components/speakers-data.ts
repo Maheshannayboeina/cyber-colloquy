@@ -39,7 +39,7 @@ export const speakerData: Speaker[] = [ //Use Speaker interface
 },
 
 {
-  id: "v4web", // Unique ID (used in URL)
+  id: "riteshbhatia", // Unique ID (used in URL)
   name: "Ritesh Bhatia",
   title: "Board Committee Member, Founder - V4WEB",
   imageUrl: "/img/board-members/ritesh-bhatia.jpg",

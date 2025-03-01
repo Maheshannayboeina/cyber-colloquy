@@ -19,7 +19,7 @@ export default function EventsPage() {
         {sortedEvents.map((event) => (
           <EventCard
             key={event.id}
-            id={event.id}
+            id={event.id} // Pass string id
             title={event.title}
             date={event.date}
             description={event.description}

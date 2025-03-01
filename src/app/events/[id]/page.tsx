@@ -6,74 +6,67 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import InteractiveHoverButton from "@/components/InteractiveHoverButton";
+import { useState } from "react";
 
 import { Container } from "@/components/Container";
-import { events, speakerData } from "@/components/data";
+import { events, speakerData, Activity } from "@/components/data";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Sponsors } from "@/components/Sponsors";
-import Timeline from "@/components/Timeline"; //Original Timeline component.
-import { TimelineEvent } from "@/components/expandable-timeline-card"; // Keep for type
 import { Speaker } from "@/components/speakers-data";
 
 export default function EventDetailsPage() {
   const { id } = useParams();
-  const eventId = parseInt(id as string, 10);
+  const eventId = id as string;
   const event = events.find((ev) => ev.id === eventId);
 
-  // Handle missing event
   if (!event) {
     return (
       <Container>
         <SectionTitle title="Event Not Found" />
-        <p className="text-gray-300">
-          The event with the id {eventId} could not be found.
-        </p>
+        <p className="text-gray-300">Event not found.</p>
       </Container>
     );
   }
 
   const currentDate = new Date();
   const eventYear = new Date(event.date).getFullYear();
+  const isUpcoming = eventYear >= currentDate.getFullYear();
+  const accentColor = isUpcoming ? "text-blue-500" : "text-emerald-500"; // Define accent color
+  const hoverColor = isUpcoming ? "hover:text-blue-400" : "hover:text-emerald-400"; // Define hover color
+  const dotActiveColor = isUpcoming ? "bg-blue-700" : "bg-emerald-700";
+  const dotInactiveColor = isUpcoming ? "bg-blue-500 hover:bg-blue-600 focus:bg-blue-600" : "bg-emerald-500 hover:bg-emerald-600 focus:bg-emerald-700";
 
-  // Normalize activities (Keep the original normalization)
-  const normalizedActivities =
-    event.activities || event.colloquyDetails?.activities || [];
 
-// Build timeline events (Keep original logic, but without image handling)
-  const timelineEvents: TimelineEvent[] = normalizedActivities.reduce(
-    (acc: TimelineEvent[], activity) => {
-      const activityDate = activity.date || event.date.split(",")[0];
-      const existingEvent = acc.find((e) => e.date === activityDate);
+  const groupedActivities =
+    event.colloquyDetails?.activities.reduce(
+      (acc: { [key: string]: Activity[] }, activity) => {
+        const date = activity.date;
+        if (!acc[date]) {
+          acc[date] = [];
+        }
+        acc[date].push(activity);
+        return acc;
+      },
+      {}
+    ) ?? {};
 
-      if (existingEvent) {
-        existingEvent.activities.push(activity);
-      } else {
-        acc.push({
-          date: activityDate,
-          title: `Day ${acc.length + 1}`,
-          description: `Activities for ${activityDate}`, // Keep original description
-          status:
-            eventYear < currentDate.getFullYear()
-              ? "completed"
-              : eventYear > currentDate.getFullYear()
-              ? "upcoming"
-              : new Date(activityDate) < currentDate
-              ? "completed"
-              : new Date(activityDate).toDateString() ===
-                currentDate.toDateString()
-              ? "current"
-              : "upcoming",
-          activities: [activity],
-        });
+  const [activeActivity, setActiveActivity] = useState<{
+    date: string;
+    index: number;
+  } | null>(null);
+
+  const handleDotClick = (date: string, index: number) => {
+    setActiveActivity((prev) => {
+      if (prev && prev.date === date && prev.index === index) {
+        return null; // Toggle off
       }
-      return acc;
-    },
-    []
-  );
+      return { date, index }; // Toggle on
+    });
+  };
 
   return (
     <>
-      {/* HERO BANNER (No changes) */}
+      {/* HERO BANNER */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -96,9 +89,8 @@ export default function EventDetailsPage() {
         </div>
       </motion.div>
 
-      {/* MAIN CONTENT */}
-      <Container className="text-gray-300">
-        {/* EVENT TITLE & DATE (No changes) */}
+      <Container>
+        {/* EVENT TITLE & DATE */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -108,7 +100,7 @@ export default function EventDetailsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2"
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2`}
           >
             {event.title}
           </motion.h1>
@@ -118,12 +110,27 @@ export default function EventDetailsPage() {
             transition={{ delay: 0.3 }}
             className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4"
           >
-            <p className="text-base md:text-lg">{event.date}</p>
+            <p className={`text-base md:text-lg ${accentColor}`}>
+              {event.date}
+            </p>
             <span className="hidden md:block">•</span>
-            <p className="text-base md:text-lg">CYSE Department</p>
+            <p className="text-base md:text-lg text-gray-300">
+              CYSE Department
+            </p>
           </motion.div>
+           {/* "Upcoming" Status (for colloquy4.0) */}
+           {eventId === "colloquy4.0" && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.35 }}
+              className={`text-base md:text-lg font-semibold ${accentColor}`}
+            >
+              Upcoming
+            </motion.p>
+          )}
 
-          {event.id === 4 && (
+          {eventId === "colloquy4.0" && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -143,7 +150,7 @@ export default function EventDetailsPage() {
           )}
         </motion.section>
 
-        {/* SPONSORS (No changes) */}
+        {/* SPONSORS */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -153,45 +160,50 @@ export default function EventDetailsPage() {
           <Sponsors />
         </motion.div>
 
-        {/* DESCRIPTION & TOPICS (NEW UI) */}
+        {/* DESCRIPTION & TOPICS */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="my-8"  // Removed text-center
+          className="my-8"
         >
-          <SectionTitle preTitle="" title={event.description} />
+          <SectionTitle preTitle="" title={event.description}  />
           {event.colloquyDetails?.speakers && (
             <div className="mt-6">
-              <h4 className="text-xl font-semibold text-emerald-400 mb-4 text-center">
+              <h4
+                className={`text-xl font-semibold mb-4 text-center ${accentColor}`}
+              >
                 Speakers & Topics
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {event.colloquyDetails.speakers.map((colloquySpeaker, index) => {
-                  const speaker = speakerData.find(
-                    (s: Speaker) => s.id === colloquySpeaker.speakerId
-                  );
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.7 + index * 0.1 }} // Staggered delay
-                      className="bg-gray-800 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300"
-                    >
-                      <Link href={`/speakers/${speaker?.id}`}>
+                {event.colloquyDetails.speakers.map(
+                  (colloquySpeaker, index) => {
+                    const speaker = speakerData.find(
+                      (s: Speaker) => s.id === colloquySpeaker.speakerId
+                    );
+                    return (
+                      <Link key={index} href={`/speakers/${speaker?.id}`}>
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.7 + index * 0.1 }}
+                          className="bg-gray-800 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                        >
                           <div className="flex items-center">
-                            <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
-                                <Image
-                                    src={speaker?.imageUrl || '/img/speakers/placeholder.jpg'} // Fallback image
-                                    alt={speaker?.name || 'Speaker'}
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
+                            <div className="relative w-20 h-20 rounded-full overflow-hidden mr-4">
+                              <Image
+                                src={
+                                  speaker?.imageUrl ||
+                                  "/img/speakers/placeholder.jpg"
+                                }
+                                alt={speaker?.name || "Speaker"}
+                                fill
+                                className="object-cover"
+                                priority
+                              />
                             </div>
                             <div>
-                              <p className="text-emerald-400 font-semibold text-lg">
+                              <p className={`font-semibold text-lg ${accentColor}`}>
                                 {speaker?.name}
                               </p>
                               <p className="text-gray-300 text-sm">
@@ -199,33 +211,122 @@ export default function EventDetailsPage() {
                               </p>
                             </div>
                           </div>
-                      </Link>
 
-                      <p className="mt-3 text-gray-100">
-                        <span className="font-medium">Topic:</span>{" "}
-                        {colloquySpeaker.topic}
-                      </p>
-                    </motion.div>
-                  );
-                })}
+                          <p className="mt-3 text-gray-300">
+                            <span className="font-medium">Topic:</span>{" "}
+                            {colloquySpeaker.topic}
+                          </p>
+                        </motion.div>
+                      </Link>
+                    );
+                  }
+                )}
               </div>
             </div>
           )}
         </motion.section>
 
-        {/* TIMELINE (Reverted UI, but no images) */}
+        {/* TIMELINE (Vertical Timeline - Fully Responsive) */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
           className="my-8"
         >
-           <h3 className="text-3xl font-bold text-center mb-8 text-white">
+            <h3 className={`text-3xl font-bold text-center mb-8 ${accentColor}`}>
             Event Timeline
           </h3>
-          {/* Use original Timeline component */}
-          <div>
-            <Timeline events={timelineEvents} />
+          <div className="relative">
+            {/* Vertical Line (Hidden on Small Screens) */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-600 h-full hidden md:block"></div>
+
+            <div className="container mx-auto px-4">
+              {Object.entries(groupedActivities).map(([date, activities]) => (
+                <div key={date} className="mb-10">
+                  {/* Date Marker (Sticky on Large Screens) */}
+                  <h4
+                    className={`text-xl font-semibold mb-4 sticky top-12 bg-gray-900 py-2 z-10 text-center
+                                    md:relative md:top-0 md:bg-transparent md:py-0 md:text-left md:ml-8 ${accentColor}`}
+                  >
+                    {date}
+                  </h4>
+
+                  {/* Activities (Grid on Small, Alternating on Large) */}
+                  <div className="relative">
+                    {activities.map((activity, index) => (
+                      <div
+                        key={index}
+                        className="mb-8 last:mb-0 md:flex md:items-start"
+                      >
+                        {/* Dot and Connector (Hidden on Small Screens) */}
+                        <div
+                          className="absolute top-2 left-1/2 transform -translate-x-1/2 -mt-1 hidden md:block"
+                        >
+                          <button
+                            onClick={() => handleDotClick(date, index)}
+                            className={`w-6 h-6 rounded-full transition-colors duration-300
+                                                        ${
+                                                          activeActivity?.date ===
+                                                            date &&
+                                                          activeActivity?.index ===
+                                                            index
+                                                            ? dotActiveColor // Active dot color
+                                                            : `${dotInactiveColor} focus:outline-none` // Inactive dot color
+                                                        }`}
+                            aria-label={`View details for ${activity.title}`}
+                          ></button>
+                          {/* Vertical Connector (Conditional) */}
+                          {index < activities.length - 1 && (
+                            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-600 h-full"></div>
+                          )}
+                        </div>
+
+                        {/* Content (Stacked on Small, Alternating on Large) */}
+                        <div
+                          className={`relative rounded-lg p-4
+                                                        md:flex-1  ${
+                                                          index % 2 === 0
+                                                            ? "md:text-left md:pl-16"
+                                                            : "md:text-right md:pr-16"
+                                                        }
+                                                        ${
+                                                          activeActivity?.date ===
+                                                            date &&
+                                                          activeActivity?.index ===
+                                                            index
+                                                            ? "bg-gray-800 shadow-md"
+                                                            : ""
+                                                        }`}
+                        >
+                          {/* Content */}
+                          <p className="text-gray-300 font-medium">
+                            {activity.time}
+                          </p>
+                          <p className="text-white font-semibold">
+                            {activity.title}
+                          </p>
+                          {activity.description && (
+                            <p className="text-gray-400 mt-1">
+                              {activity.description}
+                            </p>
+                          )}
+                          {/* Speaker Link */}
+                          {activity.speakerId && (
+                            <Link href={`/speakers/${activity.speakerId}`}>
+                              <span className={`${hoverColor} block mt-1`}>
+                                {speakerData.find(
+                                  (s: Speaker) => s.id === activity.speakerId
+                                )?.name}
+                              </span>
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.section>
       </Container>

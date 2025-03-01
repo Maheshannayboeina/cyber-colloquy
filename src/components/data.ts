@@ -1,218 +1,165 @@
-// src/components/data.ts (Corrected)
-import { speakerData } from "./speakers-data"; // Import speakerData
-
-export interface Benefit { // Added type definition for benefitOne and benefitTwo
-    title: string;
-    desc: string;
-    image: any; // Using any for now, can be improved
-    bullets: {
-        title: string;
-        desc: string;
-        icon: React.ReactNode; // Type for Heroicons
-    }[];
-}
-
+// src/components/data.ts
+import { speakerData } from "./speakers-data";
 
 export interface Event {
-  id: number;
+  id: string;
   title: string;
   year: number;
-  date: string;
+  date: string; // This will now be YYYY-MM-DD
   description: string;
   location: string;
   images: string[];
   tags: string[];
-  colloquyDetails?: ColloquyDetails; // Optional, specific to Colloquy
-  activities?: Activity[]; // Optional, as not all events have it
-
+  colloquyDetails?: ColloquyDetails;
 }
 
 export interface Activity {
-  date?: string;
+  date: string; //YYYY-MM-DD
+  time: string;
+  title: string;
   description?: string;
-  image?: string;
-  time?: string;
-  title?: string;
-  speakerId?: string; // Link to speakerData.  Optional
+  speakerId?: string;
 }
 
 export interface ColloquyDetails {
   conductedBy?: string;
-  topics?: string[];
-  activities?: Activity[];
-  speakers?: ColloquySpeaker[]; // Speakers for Colloquy
+  activities: Activity[];
+  speakers?: ColloquySpeaker[];
 }
 
-// New interface for speakers specific to Colloquy (event ID 4)
 export interface ColloquySpeaker {
   speakerId: string;
-  topic: string; // The topic this speaker will cover
+  topic: string;
 }
-
 const events: Event[] = [
-    {
-        id: 1,
-        title: "Cybersecurity Colloquy 1.0",
-        year: 2022,
-        date: "April 13, 2022",
-        description: "Our second annual Cybersecurity Colloquy event.",
-        location: "Seminar Hall",
-        images: ["/img/events/cyber-colloquy.jpg", "/img/events/2022/event2.jpg"],
-        tags: ["cybersecurity", "colloquy", "ai", "data science"],
-        colloquyDetails: {
-          conductedBy: "Maj. Vineet Kumar, Mr. Gaurav Batra, Mrs. Nirali Bhatia, Mr. Ritesh Bhatia",
-          topics: [
-            "AI in Cybersecurity",
-            "Data Science in Security",
-            "Advanced Malware Analysis",
-          ],
-          activities: [
-            {
-              time: "09:30 AM",
-              description: "Inauguration and Opening Keynote",
-              image: "/img/events/2022/activity1.jpg",
-            },
-            {
-              time: "11:00 AM",
-              description: "Workshop on AI in Cybersecurity",
-              image: "/img/events/2022/activity2.jpg",
-            },
-            {
-              time: "01:00 PM",
-              description: "Technical Session: Malware Analysis Techniques",
-              image: "/img/events/2022/activity3.jpg",
-            },
-            {
-              time: "03:30 PM",
-              description: "Networking and Q&A Session",
-              image: "/img/events/2022/activity4.jpg",
-            },
-          ],
-        },
-        activities: [
-          {
-            date: "13th April",
-            description: "Panel Discussion on Emerging Cybersecurity Threats",
-            image: "/img/events/activity2.jpg",
-          },
-        ],
-      },
-      {
-        id: 2,
-        title: "Cybersecurity Colloquy 2.0",
-        year: 2023,
-        date: "October 25, 2023",
-        description: "Our annual Cybersecurity Colloquy event.",
-        location: "Conference Room",
-        images: ["/img/events/cybercolloquy-2.0.jpg", "/img/events/2023/event2.jpg"],
-        tags: ["cybersecurity", "colloquy", "cloud computing", "data science"],
-        colloquyDetails: {
-          conductedBy: "Mr. Gaurav Batra. Mr. Ritesh Bhatia, Mr. Avkash Kathiriya",
-          topics: ["Cloud Security", "Data Privacy", "Secure Coding Practices"],
-          activities: [
-            {
-              time: "10:00 AM",
-              description: "Opening Ceremony and Keynote Speech",
-              image: "/img/events/2023/activity1.jpg",
-            },
-            {
-              time: "11:30 AM",
-              description: "Workshop on Cloud Security Essentials",
-              image: "/img/events/2023/activity2.jpg",
-            },
-            {
-              time: "02:00 PM",
-              description: "Panel Discussion: The Role of Data Privacy",
-              image: "/img/events/2023/activity3.jpg",
-            },
-            {
-              time: "03:30 PM",
-              description: "Secure Coding Practices Hands-on Session",
-              image: "/img/events/2023/activity4.jpg",
-            },
-          ],
-        },
-        activities: [
-          {
-            date: "21st March",
-            description: "Q&A Sessions",
-            image: "/img/events/activity1.jpg",
-          },
-          {
-            date: "21st March",
-            description: "Panel Discussions",
-            image: "/img/events/activity2.jpg",
-          },
-          {
-            date: "21st March",
-            description: "Networking Opportunities,",
-            image: "/img/events/activity2.jpg",
-          },
-          {
-            date: "21st March",
-            description: "Provide a platform for attendees to connect with peers and industry leaders",
-            image: "/img/events/activity2.jpg",
-          },
-        ],
-      },
-      {
-        id: 3,
-        title: "Cybersecurity Colloquy 3.0",
-        year: 2024,
-        date: "February 15, 2024",
-        description: "Our fourth Cybersecurity Colloquy event.",
-        location: "Main Auditorium",
-        images: ["/img/events/colloquy3.0.png", "/img/events/2024/event2.jpg"],
-        tags: ["cybersecurity", "colloquy", "network security", "blockchain"],
-        colloquyDetails: {
-          topics: ["Network Security", "Blockchain Security", "Cyber Law"],
-          activities: [
-            {
-              time: "09:00 AM",
-              description: "Inauguration and Keynote Session",
-              image: "/img/events/2024/activity1.jpg",
-            },
-            {
-              time: "10:30 AM",
-              description: "Technical Session on Blockchain Security",
-              image: "/img/events/2024/activity2.jpg",
-            },
-            {
-              time: "01:00 PM",
-              description: "Workshop: Hands-on with Network Security Tools",
-              image: "/img/events/2024/activity3.jpg",
-            },
-            {
-              time: "03:00 PM",
-              description: "Panel Discussion: The Future of Cybersecurity",
-              image: "/img/events/2024/activity4.jpg",
-            },
-            {
-              time: "04:30 PM",
-              description: "Closing Ceremony and Networking",
-              image: "/img/events/2024/activity5.jpg",
-            },
-          ],
-        },
-        activities: [
-          {
-            date: "15th Feb to 15th March",
-            description: "Hackathon Phase 1 (Online) : Challenge your skills, collaborate with global minds, and unravel the depths of cybersecurity from the comfort of your screen.",
-            image: "/img/events/activity1.jpg",
-          },
-
-          {
-            date: "30th - 31st March",
-            description: "Hackathon Phase 2 (Hybrid) : Take the plunge into the hybrid experience! Engage in hands-on activities, attend insightful workshops, and network with industry experts on-site at Shah and Anchor Kutchii Engineering College.",
-            image: "/img/events/activity3.jpg",
-          },
-        ],
-      },
   {
-    id: 4,
+    id: "colloquy1.0",
+    title: "Cybersecurity Colloquy 1.0",
+    year: 2022,
+    date: "2022-04-13", // YYYY-MM-DD
+    description: "Our first annual Cybersecurity Colloquy event.",
+    location: "Seminar Hall",
+    images: ["/img/events/cyber-colloquy.jpg", "/img/events/2022/event2.jpg"],
+    tags: ["cybersecurity", "colloquy", "ai", "data science"],
+    colloquyDetails: {
+      conductedBy:
+        "Maj. Vineet Kumar, Mr. Gaurav Batra, Mrs. Nirali Bhatia, Mr. Ritesh Bhatia",
+      activities: [
+        {
+          date: "2022-04-13", // YYYY-MM-DD
+          time: "09:30 AM",
+          title: "Inauguration and Opening Keynote",
+          description: "Inauguration and Opening Keynote",
+        },
+        {
+          date: "2022-04-13", // YYYY-MM-DD
+          time: "11:00 AM",
+          title: "Workshop on AI in Cybersecurity",
+          description: "Workshop on AI in Cybersecurity",
+        },
+        {
+          date: "2022-04-13", // YYYY-MM-DD
+          time: "01:00 PM",
+          title: "Technical Session: Malware Analysis Techniques",
+          description: "Technical Session: Malware Analysis Techniques",
+        },
+        {
+          date: "2022-04-13", // YYYY-MM-DD
+          time: "03:30 PM",
+          title: "Networking and Q&A Session",
+          description: "Networking and Q&A Session",
+        },
+      ],
+    },
+  },
+  {
+    id: "colloquy2.0",
+    title: "Cybersecurity Colloquy 2.0",
+    year: 2023,
+    date: "2023-10-25", // YYYY-MM-DD
+    description: "Our annual Cybersecurity Colloquy event.",
+    location: "Conference Room",
+    images: ["/img/events/cybercolloquy-2.0.jpg", "/img/events/2023/event2.jpg"],
+    tags: ["cybersecurity", "colloquy", "cloud computing", "data science"],
+    colloquyDetails: {
+      conductedBy: "Mr. Gaurav Batra. Mr. Ritesh Bhatia, Mr. Avkash Kathiriya",
+      activities: [
+        {
+          date: "2023-10-25", // YYYY-MM-DD
+          time: "10:00 AM",
+          title: "Opening Ceremony and Keynote Speech",
+          description: "Opening Ceremony and Keynote Speech",
+        },
+        {
+          date: "2023-10-25", // YYYY-MM-DD
+          time: "11:30 AM",
+          title: "Workshop on Cloud Security Essentials",
+          description: "Workshop on Cloud Security Essentials",
+        },
+        {
+          date: "2023-10-25", // YYYY-MM-DD
+          time: "02:00 PM",
+          title: "Panel Discussion: The Role of Data Privacy",
+          description: "Panel Discussion: The Role of Data Privacy",
+        },
+        {
+          date: "2023-10-25", // YYYY-MM-DD
+          time: "03:30 PM",
+          title: "Secure Coding Practices Hands-on Session",
+          description: "Secure Coding Practices Hands-on Session",
+        },
+      ],
+    },
+  },
+  {
+    id: "colloquy3.0",
+    title: "Cybersecurity Colloquy 3.0",
+    year: 2024,
+    date: "2024-02-15", // YYYY-MM-DD
+    description: "Our fourth Cybersecurity Colloquy event.",
+    location: "Main Auditorium",
+    images: ["/img/events/colloquy3.0.png", "/img/events/2024/event2.jpg"],
+    tags: ["cybersecurity", "colloquy", "network security", "blockchain"],
+    colloquyDetails: {
+      activities: [
+        {
+          date: "2024-02-15", // YYYY-MM-DD
+          time: "09:00 AM",
+          title: "Inauguration and Keynote Session",
+          description: "Inauguration and Keynote Session",
+        },
+        {
+          date: "2024-02-15", // YYYY-MM-DD
+          time: "10:30 AM",
+          title: "Technical Session on Blockchain Security",
+          description: "Technical Session on Blockchain Security",
+        },
+        {
+          date: "2024-02-15", // YYYY-MM-DD
+          time: "01:00 PM",
+          title: "Workshop: Hands-on with Network Security Tools",
+          description: "Workshop: Hands-on with Network Security Tools",
+        },
+        {
+          date: "2024-02-15", // YYYY-MM-DD
+          time: "03:00 PM",
+          title: "Panel Discussion: The Future of Cybersecurity",
+          description: "Panel Discussion: The Future of Cybersecurity",
+        },
+        {
+          date: "2024-02-15", // YYYY-MM-DD
+          time: "04:30 PM",
+          title: "Closing Ceremony and Networking",
+          description: "Closing Ceremony and Networking",
+        },
+      ],
+    },
+  },
+  {
+    id: "colloquy4.0",
     title: "Cyber Colloquy 4.0: From compliance to confidence",
     year: 2025,
-    date: "21st to 24th March",
+    date: "2025-03-21", // YYYY-MM-DD  CRITICAL: Use the correct start date
     description: "Adopting the new rules for a privacy-centric future",
     location: "Seminar Hall",
     images: ["/img/events/colloquy4.0.png", "/img/events/banner2.png"],
@@ -220,93 +167,93 @@ const events: Event[] = [
     colloquyDetails: {
       conductedBy: "CYSE Department",
       activities: [
-          {
-            date: "MARCH 21ST",
-            time: "10:00 AM",
-            title: "Opening Ceremony",
-            description: "Welcome and introductions.",
-          },
-          {
-            date: "MARCH 21ST",
-            time: "11:00 AM",
-            title: "Keynote: Quantum Computing",
-            speakerId: "dineshbareja", // Link to speaker
-          },
-          {
-            date: "MARCH 22ND",
-            time: "10:30 AM",
-            title: "Panel: Threat Intelligence",
-            speakerId: "shweta-tripathi",
-          },
-          {
-             date: "MARCH 22ND",
-             time: "02:30 PM",
-             title: "Workshop: Cyber Warfare",
-             speakerId: "v4web",
-          },
-          {
-              date: "MARCH 23RD",
-              time: "10:00 AM",
-              title: "Session: Cyber Kill Chain",
-              speakerId: "akshaygarkel"
-          },
-          {
-            date: "MARCH 23RD",
-            time: "02:00 PM",
-            title: "Talk: Offensive Security",
-            speakerId: "ibrahim-khatri",
-          },
-          {
-            date: "MARCH 24TH",
-            time: "10:00 AM",
-            title: "Closing: Defensive Security",
-            speakerId: "ruchi-gosalia",
-          },
-        ],
+        // Day 1: March 21st
+        {
+          date: "2025-03-21", // YYYY-MM-DD
+          time: "9:00 AM - 5:00 PM",
+          title: "Sponsor Events",
+          description: "Sponsor Events throughout the day.",
+        },
+        // Day 2: March 22nd
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "10:00 AM - 10:30 AM",
+          title: "Opening Ceremony",
+          description:
+            "Welcome address, keynote speech (if applicable), and event overview.",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "10:30 AM - 11:30 AM",
+          title: "Panel Discussion",
+          description: "Panelists discuss key cybersecurity topics, Q&A.",
+          speakerId: "shwetatripathi",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "11:30 AM - 11:45 AM",
+          title: "Quick Debate Round",
+          description: "Engaging cybersecurity debate.",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "11:45 AM - 1:00 PM",
+          title: "Individual Speaker Slots",
+          description: "15-minute speaker slots with Q&A.",
+          speakerId: "v4web",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "1:00 PM - 2:00 PM",
+          title: "Lunch Break",
+        },
+        {
+          date: "2025-03-22", // YYYY-MM-DD
+          time: "2:00 PM - 5:00 PM",
+          title: "Project Expo (COE Competition)",
+          description: "Project showcase, judging, and shortlisting.",
+        },
+
+        // Day 3: March 23rd
+        {
+          date: "2025-03-23", // YYYY-MM-DD
+          time: "9:00 AM - 12:00 PM",
+          title: "Awareness Session for Parents",
+          description: "Cyber hygiene, online safety, cyber laws, and Q&A.",
+          speakerId: "akshaygarkel",
+        },
+        {
+          date: "2025-03-23", // YYYY-MM-DD
+          time: "12:00 PM - 1:00 PM",
+          title: "Lunch Break",
+        },
+        {
+          date: "2025-03-23", // YYYY-MM-DD
+          time: "1:00 PM - 5:00 PM",
+          title: "Awards Ceremony & Magazine Launch",
+          description: "Awards and magazine unveiling.",
+          speakerId: "ibrahimkhatri",
+        },
+
+        // Day 4: March 24th
+        {
+          date: "2025-03-24", // YYYY-MM-DD
+          time: "9:00 AM - 5:00 PM",
+          title: "Sponsor Events",
+          description: "Sponsor Events throughout the day.",
+        },
+      ],
       speakers: [
-        { speakerId: "dineshbareja", topic: "Quantum Computing and its Impact on Cryptography" },
-        { speakerId: "shwetatripathi", topic: "Advanced Threat Intelligence and Sharing" },
-        { speakerId: "v4web", topic: "The Evolution of Cyber Warfare" },
-        { speakerId: "akshaygarkel", topic: "Mastering the Cyber Kill Chain" },
-        { speakerId: "ibrahimkhatri", topic: "Offensive Security: Techniques and Strategies" },
-        { speakerId: "ruchigosalia", topic: "Defensive Security: Building Resilient Systems" },
-        { speakerId: "ajaybhayani", topic: "Defensive Security: Building Resilient Systems" },
-        { speakerId: "khusbhoojain", topic: "Defensive Security: Building Resilient Systems" },
+        { speakerId: "dineshbareja", topic: "ISO 27701 Standards (Privacy Governance & Compliance)" },
+        { speakerId: "shwetatripathi", topic: "Data Discovery(Identifying & Mapping Sensitive Data)" },
+        { speakerId: "riteshbhatia", topic: "Privacy Enhancement Tools (PETs) (Tech Solutions for Privacy Protection)" },
+        { speakerId: "akshaygarkel", topic: "Consent Management (User Control & Transparency in Data Processing)" },
+        { speakerId: "ibrahimkhatri", topic: "Cookie Consent Management (Managing Web & Digital Tracking Compliance)" },
+        { speakerId: "ruchigosalia", topic: "Data Minimization (Reducing Excessive Data Collection Risks Effectively)",},
+        { speakerId: "ajaybhayani", topic: "Data Privacy Impact Assessment (DPIA) (Risk Analysis & Privacy Compliance0",},
+        { speakerId: "khusbhoojain", topic: "Data Classification (Organizing & Labeling Data for Protection)",},
       ],
     },
-    activities: [
-      {
-        date: "21st March",
-        description: "Sponsor Events",
-        image: "/img/events/activity1.jpg",
-      },
-
-      {
-        date: "22nd March",
-        description: "Project Expo",
-        image: "/img/events/activity3.jpg",
-      },
-      {
-        date: "22nd March",
-        description: "Panel Discussion",
-        image: "/img/events/activity4.jpg",
-      },
-      {
-        date: "23rd March",
-        description: "Awareness Program By Mumbai and Delhi Police",
-        image: "/img/events/ex1.jpg",
-      },
-      {
-        date: "23rd March",
-        description: "Award Ceremony",
-        image: "/img/events/ex2.jpg",
-      },
-      {
-        date: "24th March",
-        description: "Sponsor Events",
-        image: "/img/events/activity7.jpg",
-      },
-    ],
   },
 ];
 
