@@ -56,7 +56,7 @@ const executiveTeamData = [
   {
     category: "Core Committee",
     name: "Kashyap Gohil",
-    designation: "Media Lead",
+    designation: "VFX Lead",
     year: "Second Year", // Add Year if available
     team: "Core Committee",
     linkedin: "https://www.linkedin.com/in/kashyap-gohil-750153323/", // Add LinkedIn profile URL if available
@@ -65,7 +65,7 @@ const executiveTeamData = [
   {
     category: "Core Committee",
     name: "Deep Joisher",
-    designation: "Associate Media Lead",
+    designation: "Associate VFX Lead",
     year: "Second Year", // Add Year if available
     team: "Core Committee",
     linkedin: "https://www.linkedin.com/in/deep-joisher/", // Add LinkedIn profile URL if available
