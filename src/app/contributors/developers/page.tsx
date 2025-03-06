@@ -42,7 +42,7 @@ const developers: Developer[] = [
   },
   {
     name: "Kashyap Gohil",
-    role: "Graphic Designer", // More standard role
+    role: "Frontend Developer", // More standard role
     imageUrl: "/img/executive-team/kashyap-gohil.png",
     linkedinUrl: "https://www.linkedin.com/in/kashyap-gohil-750153323/",
     githubUrl: "https://github.com/Kashyap290",
