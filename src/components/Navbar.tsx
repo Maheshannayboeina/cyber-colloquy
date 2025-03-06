@@ -34,7 +34,7 @@ const navigationData: NavigationData = {
       dropdown: [
         { label: "Alumni", href: "/contributors/alumni" },
         { label: "Contributors", href: "/contributors/all" },
-        { label: "Executive Team", href: "/executive-team" },
+        // { label: "Executive Team", href: "/executive-team" },
         { label: "Partners", href: "/contributors/partners" },
         { label: "Developers", href: "/contributors/developers" },
         { label: "Centres of Excellence", href: "/centres-of-excellence" }, // new page

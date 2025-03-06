@@ -133,11 +133,11 @@ const DrivingValuesSection: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {/* Responsive grid and gap */}
-          <ValueCard
+          {/* <ValueCard
             title="Executive Team"
             href="/executive-team"
             description="Meet the leaders driving our cybersecurity initiatives. This description is intentionally a bit longer to test card height equalization."
-          />
+          /> */}
           <ValueCard
             title="Board of Studies Members"
             description="Explore our esteemed Board of Studies Members"
