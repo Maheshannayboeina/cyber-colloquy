@@ -1,3 +1,12 @@
+"use client";
+
+import { notFound } from "next/navigation";
+
+export default function ExecutiveTeamPage() {
+  // This will trigger the 404 page
+  notFound();
+}
+
 // "use client";
 // import React from "react";
 // import { Container } from "@/components/Container";
