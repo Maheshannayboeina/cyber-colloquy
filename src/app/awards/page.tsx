@@ -1,4 +1,3 @@
-//src/app/awards/page.tsx
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
@@ -75,6 +74,7 @@ const AwardCeremonyPage: React.FC = () => {
               </div>
             </motion.div>
             {/* Nomination Categories Section */}
+            {/*
             <motion.div
               className="mb-10"
               initial={{ opacity: 0, y: 50 }}
@@ -86,7 +86,7 @@ const AwardCeremonyPage: React.FC = () => {
                 <span>Nomination Categories</span>
               </h3>
 
-              {/* Award Categories Table */}
+
               <div className="overflow-x-auto rounded-lg shadow-md">
                 <table className="min-w-full divide-y divide-gray-700 dark:divide-gray-600">
                   <thead className="bg-gray-800 dark:bg-gray-700">
@@ -472,7 +472,7 @@ const AwardCeremonyPage: React.FC = () => {
                 </table>
               </div>
 
-              {/* Original List (You can remove or comment out if you only want the table)
+
               <ul className="list-disc pl-8 text-gray-100 space-y-2">
                 <li>
                   <b>Cyber Security Professional of the Year:</b> Recognizing
@@ -491,16 +491,13 @@ const AwardCeremonyPage: React.FC = () => {
                   cyber security education and outreach.
                 </li>
                 {/* Add more categories as needed
-              </ul>*/}
+
+              </ul>
             </motion.div>
+            */}
 
             {/* How to Nominate Section */}
-            <motion.div
-              className="mb-10"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
-            >
+            <motion.div>
               <h3 className="text-xl font-semibold text-yellow-400 mb-4 flex items-center space-x-2">
                 <FaBullhorn className="text-yellow-500" />
                 <span>How to Nominate</span>

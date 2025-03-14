@@ -15,6 +15,17 @@ import React from "react"; // Reverted to original import
 export default function Home() {
   const heroSlides = [
     {
+      imageUrl: "/img/banners/2-r.png",
+      title: "Award Nominations",
+      tagline: "Help Us Recognize the Visionaries Shaping the Industry, Nominate now!",
+      dateWithLocation: "Deadline : March 15, 2025, Award Ceremony : 23rd March 2025, 9am to 5pm| 7th floor/4th floor auditorium, SAKEC",
+      button1Text: "Nominate Now",
+      button1Href:
+        "https://docs.google.com/forms/d/e/1FAIpQLSenClnGM83nkAYG-wc1y8ROuQwddD4cXVuHq4DIsrbQrNpZhg/viewform", // REPLACE
+      button2Text: "Explore More",
+      button2Href: "/awards",
+    },
+    {
       imageUrl: "/img/banners/colloquy4.0-r.png",
       title: "Cyber Colloquy 4.0",
       tagline: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
@@ -57,17 +68,6 @@ export default function Home() {
         "https://docs.google.com/forms/d/e/1FAIpQLSfXwcZcd9M2TJt_1DkiSwYw3VgqSnndl00fmOU1OcF1kCgK5Q/viewform", // REPLACE
       button2Text: "Explore More",
       button2Href: "/sponsor",
-    },
-    {
-      imageUrl: "/img/banners/2-r.png",
-      title: "Award Nominations",
-      tagline: "Help Us Recognize the Visionaries Shaping the Industry, Nominate now!",
-      dateWithLocation: "Deadline : March 15, 2025, Award Ceremony : 23rd March 2025, 9am to 5pm| 7th floor/4th floor auditorium, SAKEC",
-      button1Text: "Nominate Now",
-      button1Href:
-        "https://docs.google.com/forms/d/e/1FAIpQLSenClnGM83nkAYG-wc1y8ROuQwddD4cXVuHq4DIsrbQrNpZhg/viewform", // REPLACE
-      button2Text: "Explore More",
-      button2Href: "/awards",
     },
   ];
 
