@@ -517,7 +517,7 @@ const AwardCeremonyPage: React.FC = () => {
                 </li>
                 <li>
                   <b>Deadline:</b> Ensure your nomination is submitted before
-                  March 15, 2025.
+                  March 20, 2025.
                 </li>{" "}
               </ol>
             </motion.div>
