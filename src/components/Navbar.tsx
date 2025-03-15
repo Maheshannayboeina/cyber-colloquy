@@ -49,9 +49,13 @@ const navigationData: NavigationData = {
         { label: "Industry Attendees", href: "/industry-professional" },
         { label: "Project Expo", href: "/project-expo" },
         { label: "Call for sponsors", href: "/sponsor" },
-        { label: "Award Ceremony", href: "/awards" },
+        { label: "Award Nominations", href: "/awards" },
       ],
     },
+    {
+      label: "Award Nominations",
+      href: "/awards",
+    }
   ],
   bottomNavigationItems: [
     {
