@@ -104,7 +104,7 @@ const ProjectExpoPage: React.FC = () => {
                   <span>Date & Venue</span>
                 </h3>
                 <p className="text-gray-100 space-y-2">
-                  📅 Date: 21st March - 24th March <br />
+                  📅 Date: 4th May - 5th May <br />
                   📍 Venue: 7th floor Auditorium SAKEC
                 </p>
               </motion.div>
@@ -116,7 +116,7 @@ const ProjectExpoPage: React.FC = () => {
                 transition={{ duration: 0.4, delay: 0.3, ease: "easeInOut" }}
               >
                 Be a part of an event that celebrates innovation and
-                technological advancements! Don’t miss the chance to showcase
+                technological advancements! Don&apos;t miss the chance to showcase
                 your project and make an impact. 🚀
               </motion.p>
             </motion.div>

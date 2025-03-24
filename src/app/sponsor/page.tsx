@@ -123,7 +123,7 @@ const SponsorPage: React.FC = () => {
                   <span>Date & Venue</span>
                 </h3>
                 <p className="text-gray-300 space-y-2">
-                  📅 Date: 21st March - 24th March <br />
+                  📅 Date:  24th May and 4th - 5th july <br />
                   📍 Venue: 7th floor Auditorium SAKEC
                 </p>
               </motion.div>

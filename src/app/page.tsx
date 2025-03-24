@@ -15,21 +15,10 @@ import React from "react"; // Reverted to original import
 export default function Home() {
   const heroSlides = [
     {
-      imageUrl: "/img/banners/2-r.png",
-      title: "Award Nominations",
-      tagline: "Help Us Recognize the Visionaries Shaping the Industry, Nominate now!",
-      dateWithLocation: "Deadline : March 15, 2025, Award Ceremony : 23rd March 2025, 9am to 5pm| 7th floor/4th floor auditorium, SAKEC",
-      button1Text: "Nominate Now",
-      button1Href:
-        "https://docs.google.com/forms/d/e/1FAIpQLSenClnGM83nkAYG-wc1y8ROuQwddD4cXVuHq4DIsrbQrNpZhg/viewform", // REPLACE
-      button2Text: "Explore More",
-      button2Href: "/awards",
-    },
-    {
       imageUrl: "/img/banners/colloquy4.0-r.png",
-      title: "Cyber Colloquy 4.0",
+      title: "Cyber Colloquy 4.1",
       tagline: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
-      dateWithLocation: "MARCH 21ST -24TH |SAKEC-7TH FLR AUDITORIUM, MUMBAI",
+      dateWithLocation: "May 24th |SAKEC-7TH FLR AUDITORIUM, MUMBAI",
       button1Text: "Register Now!",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSdYuWWmDu1T3Z2hQG3Kgd6EFZjFqp4yM0hC__ITg4cWiGgSmA/viewform", // REPLACE WITH ACTUAL FORM
@@ -37,10 +26,32 @@ export default function Home() {
       button2Href: "/cyber-colloquy-4.0",
     },
     {
+      imageUrl: "/img/banners/colloquy4.0-r.png",
+      title: "Cyber Colloquy 4.2",
+      tagline: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
+      dateWithLocation: "July 4th - 5th |SAKEC-7TH FLR AUDITORIUM, MUMBAI",
+      button1Text: "Register Now!",
+      button1Href:
+        "https://docs.google.com/forms/d/e/1FAIpQLSdYuWWmDu1T3Z2hQG3Kgd6EFZjFqp4yM0hC__ITg4cWiGgSmA/viewform", // REPLACE WITH ACTUAL FORM
+      button2Text: "Know More",
+      button2Href: "/cyber-colloquy-4.0",
+    },
+    {
+      imageUrl: "/img/banners/2-r.png",
+      title: "Award Nominations",
+      tagline: "Help Us Recognize the Visionaries Shaping the Industry, Nominate now!",
+      dateWithLocation: "July 5th 9am to 5pm| 7th floor/4th floor auditorium, SAKEC",
+      button1Text: "Nominate Now",
+      button1Href:
+      "https://docs.google.com/forms/d/e/1FAIpQLSenClnGM83nkAYG-wc1y8ROuQwddD4cXVuHq4DIsrbQrNpZhg/viewform", // REPLACE
+      button2Text: "Explore More",
+      button2Href: "/awards",
+    },
+    {
       imageUrl: "/img/banners/project-expo-r.png",
       title: "Project Demonstration",
       tagline: "Innovate, Inspire, Impact!",
-      dateWithLocation: "22 March 2025, 3-5pm| Ground Floor Foyer, SAKEC (temporary location)",
+      dateWithLocation: "4-5th May 2025 | Ground Floor Foyer, SAKEC (temporary location)",
       button1Text: "Register now",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSdBTjPJH0DuFrrSB82Yl5ml492VlWNvLTUIhytKa5dDPLADGw/viewform",
@@ -51,7 +62,7 @@ export default function Home() {
       imageUrl: "/img/banners/register-r.png",
       title: "Industry Attendees",
       tagline: "Your Knowledge. Our Platform. The Future.",
-      dateWithLocation: "22 March 2025, 9 am-5pm | 7th floor auditorium, SAKEC",
+      dateWithLocation: "24 May 2025, 9am-5pm | 7th floor auditorium, SAKEC",
       button1Text: "Register Now!",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSeyCMCsyvNd7BGoc4dKr0dK502KjHMaaX-Lf3eAivj6zOp-EQ/viewform", // REPLACE
@@ -62,7 +73,7 @@ export default function Home() {
       imageUrl: "/img/banners/1-r.png",
       title: "Call For Sponsors",
       tagline: "Elevate Your Impact—Sponsor Today!",
-      dateWithLocation: "21st to 24th march 9am to 5pm",
+      dateWithLocation: "Ongoing | SAKEC",
       button1Text: "Sponsor Us",
       button1Href:
         "https://docs.google.com/forms/d/e/1FAIpQLSfXwcZcd9M2TJt_1DkiSwYw3VgqSnndl00fmOU1OcF1kCgK5Q/viewform", // REPLACE

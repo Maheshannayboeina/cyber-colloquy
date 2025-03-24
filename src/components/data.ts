@@ -159,7 +159,7 @@ const events: Event[] = [
     id: "colloquy4.0",
     title: "Cyber Colloquy 4.0: From compliance to confidence",
     year: 2025,
-    date: "2025-03-21", // YYYY-MM-DD  CRITICAL: Use the correct start date
+    date: "2025-05-24", // YYYY-MM-DD  CRITICAL: Use the correct start date
     description: "Adopting the new rules for a privacy-centric future",
     location: "Seminar Hall",
     images: ["/img/events/colloquy4.0.png", "/img/events/banner2.png"],
