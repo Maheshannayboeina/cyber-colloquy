@@ -15,6 +15,17 @@ import React from "react"; // Reverted to original import
 export default function Home() {
   const heroSlides = [
     {
+      imageUrl: "/img/banners/2-r.png",
+      title: "Colloquy POSTPONED",
+      tagline: "Due to unforeseen circumstances, Cyber Colloquy 4.0 has been postponed.",
+      dateWithLocation: "24th May 2025 and 4th - 5th July 2025 | SAKEC",
+      button1Text: "Register Now!",
+      button1Href:
+        "https://docs.google.com/forms/d/e/1FAIpQLSdYuWWmDu1T3Z2hQG3Kgd6EFZjFqp4yM0hC__ITg4cWiGgSmA/viewform", // REPLACE WITH ACTUAL FORM
+      button2Text: "Know More",
+      button2Href: "/cyber-colloquy-4.0",
+    },
+    {
       imageUrl: "/img/banners/colloquy4.0-r.png",
       title: "Cyber Colloquy 4.1",
       tagline: "DPDP: FROM COMPLIANCE TO CONFIDENCE",
